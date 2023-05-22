@@ -1,0 +1,282 @@
+[
+    {
+        "results": [
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 826,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 872,
+                "resultType": "Write",
+                "color": "steelblue"
+            },
+            {
+                "libraryName": "simdjson",
+                "resultSpeed": 697,
+                "resultType": "Read",
+                "color": "cadetblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 684,
+                "resultType": "Read",
+                "color": "dodgerblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 839,
+                "resultType": "Write",
+                "color": "skyblue"
+            },
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 181,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 904,
+                "resultType": "Write",
+                "color": "mediumslateblue"
+            }
+        ],
+        "testName": "Single Test"
+    },
+    {
+        "results": [
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 1391,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 1133,
+                "resultType": "Write",
+                "color": "mediumslateblue"
+            },
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 1249,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 1127,
+                "resultType": "Write",
+                "color": "steelblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 998,
+                "resultType": "Read",
+                "color": "dodgerblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 1021,
+                "resultType": "Write",
+                "color": "skyblue"
+            },
+            {
+                "libraryName": "simdjson",
+                "resultSpeed": 855,
+                "resultType": "Read",
+                "color": "cadetblue"
+            }
+        ],
+        "testName": "Multi Test"
+    },
+    {
+        "results": [
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 1418,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 1144,
+                "resultType": "Write",
+                "color": "mediumslateblue"
+            },
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 1320,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 1144,
+                "resultType": "Write",
+                "color": "steelblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 1002,
+                "resultType": "Read",
+                "color": "dodgerblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 1042,
+                "resultType": "Write",
+                "color": "skyblue"
+            },
+            {
+                "libraryName": "simdjson",
+                "resultSpeed": 388,
+                "resultType": "Read",
+                "color": "cadetblue"
+            }
+        ],
+        "testName": "Abc Test"
+    },
+    {
+        "results": [
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 1935,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 1914,
+                "resultType": "Write",
+                "color": "steelblue"
+            },
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 1415,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 1929,
+                "resultType": "Write",
+                "color": "mediumslateblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 1174,
+                "resultType": "Read",
+                "color": "dodgerblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 2048,
+                "resultType": "Write",
+                "color": "skyblue"
+            },
+            {
+                "libraryName": "simdjson",
+                "resultSpeed": 222,
+                "resultType": "Read",
+                "color": "cadetblue"
+            }
+        ],
+        "testName": "Discord Test"
+    },
+    {
+        "results": [
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 1598,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - simd",
+                "resultSpeed": 2650,
+                "resultType": "Write",
+                "color": "steelblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 1453,
+                "resultType": "Read",
+                "color": "dodgerblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 2504,
+                "resultType": "Write",
+                "color": "skyblue"
+            },
+            {
+                "libraryName": "simdjson",
+                "resultSpeed": 1211,
+                "resultType": "Read",
+                "color": "cadetblue"
+            },
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 1154,
+                "resultType": "Read",
+                "color": "teal"
+            },
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 2602,
+                "resultType": "Write",
+                "color": "mediumslateblue"
+            }
+        ],
+        "testName": "Twitter Test"
+    },
+    {
+        "results": [
+            {
+                "libraryName": "jsonifier",
+                "resultSpeed": 1819,
+                "resultType": "Write",
+                "color": "steelblue"
+            },
+            {
+                "libraryName": "simdjson",
+                "resultSpeed": 1013,
+                "resultType": "Write",
+                "color": "cornflowerblue"
+            }
+        ],
+        "testName": "Minify Test"
+    },
+    {
+        "results": [
+            {
+                "libraryName": "jsonifier - serial",
+                "resultSpeed": 866,
+                "resultType": "Write",
+                "color": "mediumslateblue"
+            },
+            {
+                "libraryName": "glaze",
+                "resultSpeed": 235,
+                "resultType": "Write",
+                "color": "skyblue"
+            }
+        ],
+        "testName": "Prettify Test"
+    },
+    {
+        "results": [
+            {
+                "libraryName": "jsonifier",
+                "resultSpeed": 1139,
+                "resultType": "Read",
+                "color": "teal"
+            }
+        ],
+        "testName": "Validate Test"
+    }
+]
