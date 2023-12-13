@@ -10,7 +10,7 @@ project(
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/Output")
+set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/Install/")
 
 include(FetchContent)
 
@@ -36,38 +36,40 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(simdjson)
 
-FetchContent_Declare(
-        fmt
-        SYSTEM TRUE
-        GIT_TAG 9.1.0
-        GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-)
+add_executable("${PROJECT_NAME}"  "./Source/ConformanceTests.hpp" "Source/main.cpp")
 
-FetchContent_MakeAvailable(fmt)
-
-add_executable("${PROJECT_NAME}" "Source/main.cpp")
-
-target_link_libraries("${PROJECT_NAME}" PRIVATE Jsonifier::Jsonifier glaze::glaze simdjson::simdjson fmt::fmt)
+target_link_libraries("${PROJECT_NAME}" PRIVATE Jsonifier::Jsonifier glaze::glaze simdjson::simdjson)
 
 target_compile_options(
-    "${PROJECT_NAME}" 
-    PUBLIC
-    "$<$<CXX_COMPILER_ID:MSVC>:$<$<STREQUAL:${ASAN_ENABLED},TRUE>:-fsanitize=address>>"
-	"$<$<CXX_COMPILER_ID:MSVC>:$<$<STREQUAL:${ASAN_ENABLED},TRUE>:/Zi>>"
-    "$<$<CXX_COMPILER_ID:MSVC>:/O2>"
+	"${PROJECT_NAME}" PUBLIC
+	"$<$<CXX_COMPILER_ID:MSVC>:/Zi>"
 )
 
 target_link_options(
 	"${PROJECT_NAME}" PUBLIC
 	"$<$<CXX_COMPILER_ID:GNU>:$<$<STREQUAL:${ASAN_ENABLED},TRUE>:-fsanitize=address>>"
-    #"$<$<CXX_COMPILER_ID:MSVC>:/DEBUG>"
+	"$<$<CXX_COMPILER_ID:MSVC>:/DEBUG>"
+	"$<$<CXX_COMPILER_ID:MSVC>:/OPT:REF>"
+	"$<$<CXX_COMPILER_ID:MSVC>:/OPT:ICF>"
+)
+
+target_compile_definitions(
+	"Json-Performance" PUBLIC 
+	"JSON_PATH=\"${CMAKE_SOURCE_DIR}/Source/ConformanceTests\""
 )
 
 if (WIN32)
-    install(
-	    FILES 
-	    "$<TARGET_PDB_FILE:${PROJECT_NAME}"
-	    DESTINATION "$<IF:$<CONFIG:Debug>,bin,bin>"
-	    OPTIONAL
-    )
+	install(
+		FILES 
+		"$<TARGET_PDB_FILE:${PROJECT_NAME}>"
+		DESTINATION "$<IF:$<CONFIG:Debug>,bin,bin>"
+		OPTIONAL
+	)
 endif()
+
+install(
+	FILES 
+	"$<TARGET_FILE:${PROJECT_NAME}>"
+	DESTINATION "$<IF:$<CONFIG:Debug>,bin,bin>"
+	OPTIONAL
+)
