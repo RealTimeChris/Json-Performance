@@ -2,7 +2,7 @@
   "version": 3,
   "configurePresets": [
     {
-      "binaryDir": "${sourceDir}/Build/${presetName}",
+      "binaryDir": "${sourceDir}/Build/",
       "condition": {
         "lhs": "${hostSystemName}",
         "rhs": "Windows",
@@ -11,7 +11,7 @@
       "description": "Target Windows with the Visual Studio development environment.",
       "generator": "Visual Studio 17 2022",
       "hidden": true,
-      "installDir": "${sourceDir}/Install/${presetName}",
+      "installDir": "${sourceDir}/Install/",
       "name": "Windows-Base"
     },
     {
@@ -89,7 +89,7 @@
       "name": "Windows-Debug-Asan"
     },
     {
-      "binaryDir": "${sourceDir}/Build/${presetName}",
+      "binaryDir": "${sourceDir}/Build/",
       "condition": {
         "lhs": "${hostSystemName}",
         "rhs": "Linux",
