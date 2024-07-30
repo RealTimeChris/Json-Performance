@@ -61,21 +61,17 @@ target_link_libraries(
 
 target_compile_options(
 	"Json-Performance" PUBLIC
+	"$<$<CXX_COMPILER_ID:MSVC>:$<$<STREQUAL:${ASAN_ENABLED},TRUE>:/fsanitize=address>>"
 	"$<$<CXX_COMPILER_ID:CLANG>:-Wextra>"
-	"$<$<CXX_COMPILER_ID:MSVC>:/bigobj>"
 	"$<$<CXX_COMPILER_ID:CLANG>:-Wall>"
 	"$<$<CXX_COMPILER_ID:GNU>:-Wextra>"
 	"$<$<CXX_COMPILER_ID:MSVC>:/Wall>"
-	"$<$<CXX_COMPILER_ID:MSVC>:/EHsc>"
 	"$<$<CXX_COMPILER_ID:GNU>:-Wall>"
-	"$<$<CXX_COMPILER_ID:MSVC>:/Zi>"
 )
 
 target_link_options(
 	"Json-Performance" PUBLIC
 	"$<$<CXX_COMPILER_ID:GNU>:$<$<STREQUAL:${ASAN_ENABLED},TRUE>:-fsanitize=address>>"
-	"$<$<CXX_COMPILER_ID:MSVC>:/DEBUG>"
-	"$<$<CXX_COMPILER_ID:MSVC>:/OPT:REF>"
 )
 
 if (WIN32)
