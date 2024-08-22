@@ -1,0 +1,56 @@
+name: Build-and-Test-CLANG-Ubuntu
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    - dev
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        clang: [19]
+        build_type: [Debug, Release]
+        std: [20]
+
+    steps:
+    - uses: actions/checkout@v4
+  
+    - name: Install the latest Clang compiler.
+      run:  |
+            sudo apt update && sudo apt upgrade
+            wget https://apt.llvm.org/llvm.sh
+            chmod u+x llvm.sh
+            sudo ./llvm.sh 19
+
+    - name: Install Seaborn
+      run: |
+            pip install seaborn
+
+    - name: Configure CMake
+      working-directory: ./
+      run: |
+           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/clang++-19
+
+    - name: Build the Test
+      working-directory: ./Build
+      run: |
+           cmake --build . --config=${{matrix.build_type}}
+
+    - name: Install the Test
+      working-directory: ./Build
+      run: |
+           sudo cmake --install . --config=${{matrix.build_type}}
+           sudo chmod +x /usr/local/bin/Json-Performance
+
+    - name: Run the Test
+      working-directory: /usr/local/bin/
+      run: |
+           ./Json-Performance
+      continue-on-error: true
+      

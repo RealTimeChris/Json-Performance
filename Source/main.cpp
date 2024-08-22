@@ -1986,10 +1986,59 @@ std::string write_table_header = R"(
 | Library | Write (MB/s) | Write Length (Bytes) | Write Time (ns) | Write Iteration Count |
 | ------- | ------------ | -------------------- | --------------- | --------------------- |   )";
 
+#if defined(__x86_64__) || defined(_M_AMD64)
+static inline void cpuid(uint32_t* eax, uint32_t* ebx, uint32_t* ecx, uint32_t* edx);
+inline static uint64_t xgetbv();
+#endif
+
+std::string getCPUInfo() {
+	char brand[49] = { 0 };
+	uint32_t regs[12]{};
+#if defined(__x86_64__) || defined(_M_AMD64)
+	regs[0] = 0x80000000;
+	cpuid(regs, regs + 1, regs + 2, regs + 3);
+	if (regs[0] < 0x80000004) {
+		return {};
+	}
+	regs[0] = 0x80000002;
+	cpuid(regs, regs + 1, regs + 2, regs + 3);
+	regs[4] = 0x80000003;
+	cpuid(regs + 4, regs + 5, regs + 6, regs + 7);
+	regs[8] = 0x80000004;
+	cpuid(regs + 8, regs + 9, regs + 10, regs + 11);
+
+	memcpy(brand, regs, sizeof(regs));
+#endif
+	return { brand, sizeof(regs) };
+}
+
+#if defined(__x86_64__) || defined(_M_AMD64)
+
+static inline void cpuid(uint32_t* eax, uint32_t* ebx, uint32_t* ecx, uint32_t* edx) {
+	#if defined(_MSC_VER)
+	int32_t cpuInfo[4];
+	__cpuidex(cpuInfo, *eax, *ecx);
+	*eax = cpuInfo[0];
+	*ebx = cpuInfo[1];
+	*ecx = cpuInfo[2];
+	*edx = cpuInfo[3];
+	#elif defined(HAVE_GCC_GET_CPUID) && defined(USE_GCC_GET_CPUID)
+	uint32_t level = *eax;
+	__get_cpuid(level, eax, ebx, ecx, edx);
+	#else
+	uint32_t a = *eax, b, c = *ecx, d;
+	asm volatile("cpuid" : "=a"(a), "=b"(b), "=c"(c), "=d"(d) : "a"(a), "c"(c));
+	*eax = a;
+	*ebx = b;
+	*ecx = c;
+	*edx = d;
+	#endif
+}
+#endif
+
 static const std::string section001{ R"(
  > At least )" +
-	jsonifier::toString(30) +
-	R"( iterations on a 6 core (Intel i7 8700k), until coefficient of variance is at or below 1%.
+	jsonifier::toString(30) + R"( iterations on a ()" + getCPUInfo() + R"(), until coefficient of variance is at or below 1%.
 )" };
 
 static constexpr auto newString02{ bnch_swt::combineLiterals<R"(#### Using the following commits:
@@ -2002,7 +2051,7 @@ static constexpr auto newString02{ bnch_swt::combineLiterals<R"(#### Using the f
 static constexpr jsonifier::string_view section002{ newString02 };
 
 static constexpr jsonifier::string_view section00{ R"(# Json-Performance
-Performance profiling of JSON libraries (Compiled and run on Ubuntu-22.04 using the Clang++18 compiler)
+Performance profiling of JSON libraries (Compiled and run on Ubuntu-22.04 using the Clang++19 compiler)
 
 Latest Results: ()" };
 

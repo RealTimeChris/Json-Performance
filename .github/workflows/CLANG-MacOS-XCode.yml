@@ -27,7 +27,7 @@ jobs:
           xcodebuild -version
 
     - name: Configure CMake
-      run: cmake -B build -G Xcode -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DJSONIFIER_TEST="TRUE"
+      run: cmake -B build -G Xcode -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
 
     - name: Build the Test
       working-directory: ./Build
