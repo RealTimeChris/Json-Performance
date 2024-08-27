@@ -2041,8 +2041,16 @@ std::string getCPUInfo() {
 	cpuid(regs + 8, regs + 9, regs + 10, regs + 11);
 	memcpy(brand, regs, sizeof(regs));
 	length = std::strlen(brand) > 0 ? std::strlen(brand) - 1 : 0;
+#else
+	char buffer[256];
+	size_t bufferSize = sizeof(buffer);
+	if (sysctlbyname("machdep.cpu.brand_string", &buffer, &bufferSize, nullptr, 0) == 0) {
+		return std::string(buffer);
+	} else {
+		return std::string{ "Unknown CPU" };
+	}
 #endif
-	return { brand, length };
+	return { brand, length - 1 };
 }
 
 #if defined(__x86_64__) || defined(_M_AMD64)
