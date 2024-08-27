@@ -14,6 +14,9 @@ Here's a few benchmarks on a few common operating system/compiler platforms. Alt
 #### MacOS/CLANG:
 ----
 [![CLANG/MacOS](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Build-And-Test.yml?style=plastic&logo=apple&logoColor=green&label=CLANG&labelColor=pewter&color=blue&branch=main)](https://github.com/RealTimeChris/Json-Performance/blob/main/MacOS-CLANG.md)
+#### MacOS/GCC:
+----
+[![GCC/MacOS](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Build-And-Test.yml?style=plastic&logo=apple&logoColor=green&label=GCC&labelColor=pewter&color=blue&branch=main)](https://github.com/RealTimeChris/Json-Performance/blob/main/MacOS-GCC.md)
 
 ### Pre-requisites:
 ---

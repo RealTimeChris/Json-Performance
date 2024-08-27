@@ -82,7 +82,7 @@ if (WIN32)
 		OPTIONAL
 	)
 endif()
-
+message("COMPILER: ${CMAKE_CXX_COMPILER_ID}")
 target_compile_definitions(
 	"Json-Performance" PUBLIC 
 	"JSON_TEST_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Source/ConformanceTests\""

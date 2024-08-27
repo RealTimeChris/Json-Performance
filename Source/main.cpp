@@ -43,10 +43,10 @@ std::string getCurrentPath() {
 	} else if (osName.contains("darwin")) {
 		osName = "MacOS";
 	}
-	if (compilerId.contains("clang")) {
-		compilerId = "CLANG";
-	} else if (compilerId.contains("gnu")) {
+	if (compilerId.contains("gnu") || compilerId.contains("gcc") || compilerId.contains("g++") || compilerId.contains("apple")) {
 		compilerId = "GCC";
+	} else if (compilerId.contains("clang")) {
+		compilerId = "CLANG";
 	} else if (compilerId.contains("msvc")) {
 		compilerId = "MSVC";
 	}
@@ -2026,6 +2026,7 @@ inline static uint64_t xgetbv();
 std::string getCPUInfo() {
 	char brand[49] = { 0 };
 	uint32_t regs[12]{};
+	size_t length{};
 #if defined(__x86_64__) || defined(_M_AMD64)
 	regs[0] = 0x80000000;
 	cpuid(regs, regs + 1, regs + 2, regs + 3);
@@ -2038,10 +2039,10 @@ std::string getCPUInfo() {
 	cpuid(regs + 4, regs + 5, regs + 6, regs + 7);
 	regs[8] = 0x80000004;
 	cpuid(regs + 8, regs + 9, regs + 10, regs + 11);
-
 	memcpy(brand, regs, sizeof(regs));
+	length = std::strlen(brand) > 0 ? std::strlen(brand) - 1 : 0;
 #endif
-	return { brand };
+	return { brand, length };
 }
 
 #if defined(__x86_64__) || defined(_M_AMD64)
