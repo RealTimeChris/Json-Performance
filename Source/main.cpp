@@ -2041,6 +2041,10 @@ std::string getCPUInfo() {
 	cpuid(regs + 8, regs + 9, regs + 10, regs + 11);
 	memcpy(brand, regs, sizeof(regs));
 	length = std::strlen(brand) > 0 ? std::strlen(brand) - 1 : 0;
+	std::string returnValues{};
+	returnValues.resize(length - 1);
+	std::copy(brand, brand + length, returnValues.data());
+	return returnValues;
 #else
 	char buffer[256];
 	size_t bufferSize = sizeof(buffer);
@@ -2050,7 +2054,6 @@ std::string getCPUInfo() {
 		return std::string{ "Unknown CPU" };
 	}
 #endif
-	return { brand, length - 1 };
 }
 
 #if defined(__x86_64__) || defined(_M_AMD64)
@@ -2289,7 +2292,7 @@ void executePythonScript(const jsonifier::string& scriptPath, const jsonifier::s
 	}
 }
 
-//#include "ConformanceTests.hpp"
+#include "ConformanceTests.hpp"
 
 int32_t main() {
 	try {
@@ -2306,6 +2309,7 @@ int32_t main() {
 		bnch_swt::file_loader fileLoader04{ basePath + "/Results.json" };
 		bnch_swt::file_loader fileLoader05{ std::string{ JSON_PATH } + "/DiscordData-Prettified.json" };
 		std::string discordData{ fileLoader05.operator jsonifier::string&() };
+		conformanceTests();
 		discord_message discordMessage{};
 		//std::cout << "WERE HERE THIS IS IT 0101: " << jsonMinifiedData << std::endl;
 		parser.parseJson(discordMessage, discordData);
