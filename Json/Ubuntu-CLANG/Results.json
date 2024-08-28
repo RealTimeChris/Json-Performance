@@ -3,38 +3,38 @@
       "results": [
          {
             "color": "teal",
-            "iterationCount": 99,
+            "iterationCount": 163,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 2517.5584792416485
+            "resultSpeed": 2811.0036244085154
          },
          {
             "color": "steelblue",
-            "iterationCount": 163,
+            "iterationCount": 98,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 2566.1762002335277
+            "resultSpeed": 2589.475123970372
          },
          {
             "color": "dodgerblue",
-            "iterationCount": 249,
+            "iterationCount": 99,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 2313.3247217237727
+            "resultSpeed": 1802.8552225205726
          },
          {
             "color": "skyblue",
-            "iterationCount": 98,
+            "iterationCount": 99,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 2404.057438019532
+            "resultSpeed": 2563.827911750768
          },
          {
             "color": "cadetblue",
-            "iterationCount": 204,
+            "iterationCount": 224,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 919.1164988647564
+            "resultSpeed": 965.768322541604
          }
       ],
       "testName": "Json Test (Prettified)"
@@ -46,35 +46,35 @@
             "iterationCount": 98,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 2934.893490867726
+            "resultSpeed": 2257.0062533555497
          },
          {
             "color": "steelblue",
-            "iterationCount": 170,
+            "iterationCount": 98,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 2560.972506844583
+            "resultSpeed": 2433.0085554137013
          },
          {
             "color": "dodgerblue",
-            "iterationCount": 98,
+            "iterationCount": 99,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 1800.9712737766545
+            "resultSpeed": 1765.6224599628924
          },
          {
             "color": "skyblue",
-            "iterationCount": 189,
+            "iterationCount": 99,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 2205.5641542198528
+            "resultSpeed": 2226.113370896777
          },
          {
             "color": "cadetblue",
-            "iterationCount": 97,
+            "iterationCount": 99,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 903.0200984867616
+            "resultSpeed": 753.6842596035714
          }
       ],
       "testName": "Json Test (Minified)"
@@ -83,38 +83,38 @@
       "results": [
          {
             "color": "teal",
-            "iterationCount": 97,
+            "iterationCount": 99,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 2513.5685717733977
+            "resultSpeed": 2495.0787756698883
          },
          {
             "color": "steelblue",
-            "iterationCount": 98,
+            "iterationCount": 162,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 3087.542909714804
+            "resultSpeed": 2578.8462424178047
          },
          {
             "color": "dodgerblue",
-            "iterationCount": 99,
+            "iterationCount": 98,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 1799.3528320852674
+            "resultSpeed": 1802.4969644857424
          },
          {
             "color": "skyblue",
-            "iterationCount": 97,
+            "iterationCount": 99,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 2393.803712873107
+            "resultSpeed": 2558.478725984283
          },
          {
             "color": "cadetblue",
-            "iterationCount": 98,
+            "iterationCount": 99,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 915.9046051055523
+            "resultSpeed": 935.7947249139529
          }
       ],
       "testName": "Abc Test (Prettified)"
@@ -123,38 +123,38 @@
       "results": [
          {
             "color": "teal",
-            "iterationCount": 99,
+            "iterationCount": 98,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 2493.8956284911033
+            "resultSpeed": 2262.8509554535603
          },
          {
             "color": "steelblue",
-            "iterationCount": 169,
+            "iterationCount": 159,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 2874.5958962023687
+            "resultSpeed": 2568.6679110056157
          },
          {
             "color": "dodgerblue",
-            "iterationCount": 99,
+            "iterationCount": 98,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 1805.175240166452
+            "resultSpeed": 1885.914316456755
          },
          {
             "color": "skyblue",
-            "iterationCount": 100,
+            "iterationCount": 98,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 2210.2918290635685
+            "resultSpeed": 2211.043876975537
          },
          {
             "color": "cadetblue",
-            "iterationCount": 98,
+            "iterationCount": 99,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 789.7046420502238
+            "resultSpeed": 766.5258136955596
          }
       ],
       "testName": "Abc Test (Minified)"
@@ -162,39 +162,39 @@
    {
       "results": [
          {
+            "color": "teal",
+            "iterationCount": 98,
+            "libraryName": "jsonifier",
+            "resultType": "Read",
+            "resultSpeed": 1920.4923383586295
+         },
+         {
+            "color": "steelblue",
+            "iterationCount": 98,
+            "libraryName": "jsonifier",
+            "resultType": "Write",
+            "resultSpeed": 2001.6663863513033
+         },
+         {
             "color": "dodgerblue",
             "iterationCount": 98,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 1481.4453904616391
+            "resultSpeed": 1381.9745977802077
          },
          {
             "color": "skyblue",
             "iterationCount": 98,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 1994.6487648793357
-         },
-         {
-            "color": "teal",
-            "iterationCount": 191,
-            "libraryName": "jsonifier",
-            "resultType": "Read",
-            "resultSpeed": 1376.4014625285088
-         },
-         {
-            "color": "steelblue",
-            "iterationCount": 194,
-            "libraryName": "jsonifier",
-            "resultType": "Write",
-            "resultSpeed": 2123.1069644119184
+            "resultSpeed": 1884.1749530403308
          },
          {
             "color": "cadetblue",
-            "iterationCount": 98,
+            "iterationCount": 99,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 207.41230538485726
+            "resultSpeed": 193.73584057444396
          }
       ],
       "testName": "Discord Test (Prettified)"
@@ -203,38 +203,38 @@
       "results": [
          {
             "color": "teal",
-            "iterationCount": 192,
+            "iterationCount": 206,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 1993.552167280983
+            "resultSpeed": 1704.0004059592272
          },
          {
             "color": "steelblue",
             "iterationCount": 98,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 1818.4146749157362
+            "resultSpeed": 1589.413135797911
          },
          {
             "color": "dodgerblue",
-            "iterationCount": 98,
+            "iterationCount": 229,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 1552.1356889469596
+            "resultSpeed": 1304.8847346661537
          },
          {
             "color": "skyblue",
-            "iterationCount": 99,
+            "iterationCount": 204,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 1961.340190511639
+            "resultSpeed": 1495.0815664206234
          },
          {
             "color": "cadetblue",
-            "iterationCount": 97,
+            "iterationCount": 99,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 110.62007072146609
+            "resultSpeed": 111.24814516825877
          }
       ],
       "testName": "Discord Test (Minified)"
@@ -242,39 +242,39 @@
    {
       "results": [
          {
+            "color": "dodgerblue",
+            "iterationCount": 100,
+            "libraryName": "glaze",
+            "resultType": "Read",
+            "resultSpeed": 2093.6235020435843
+         },
+         {
+            "color": "skyblue",
+            "iterationCount": 99,
+            "libraryName": "glaze",
+            "resultType": "Write",
+            "resultSpeed": 1594.0811840522633
+         },
+         {
             "color": "teal",
             "iterationCount": 98,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 2839.0596319487154
+            "resultSpeed": 2070.1697731264226
          },
          {
             "color": "steelblue",
-            "iterationCount": 99,
+            "iterationCount": 98,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 1915.7110181080727
-         },
-         {
-            "color": "dodgerblue",
-            "iterationCount": 99,
-            "libraryName": "glaze",
-            "resultType": "Read",
-            "resultSpeed": 2433.964517014801
-         },
-         {
-            "color": "skyblue",
-            "iterationCount": 95,
-            "libraryName": "glaze",
-            "resultType": "Write",
-            "resultSpeed": 2053.108898228373
+            "resultSpeed": 1483.9870113424938
          },
          {
             "color": "cadetblue",
-            "iterationCount": 98,
+            "iterationCount": 99,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 1544.693244886341
+            "resultSpeed": 1354.5424892834296
          }
       ],
       "testName": "Canada Test (Prettified)"
@@ -282,39 +282,39 @@
    {
       "results": [
          {
-            "color": "dodgerblue",
-            "iterationCount": 97,
-            "libraryName": "glaze",
-            "resultType": "Read",
-            "resultSpeed": 1132.235886024743
-         },
-         {
-            "color": "skyblue",
-            "iterationCount": 99,
-            "libraryName": "glaze",
-            "resultType": "Write",
-            "resultSpeed": 605.428835648982
-         },
-         {
             "color": "teal",
-            "iterationCount": 96,
+            "iterationCount": 97,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 1051.6503310227918
+            "resultSpeed": 962.297256930306
          },
          {
             "color": "steelblue",
             "iterationCount": 99,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 598.0102398518405
+            "resultSpeed": 606.0460464876282
+         },
+         {
+            "color": "dodgerblue",
+            "iterationCount": 95,
+            "libraryName": "glaze",
+            "resultType": "Read",
+            "resultSpeed": 926.2690332544489
+         },
+         {
+            "color": "skyblue",
+            "iterationCount": 100,
+            "libraryName": "glaze",
+            "resultType": "Write",
+            "resultSpeed": 605.2926084025748
          },
          {
             "color": "cadetblue",
             "iterationCount": 99,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 462.0485519880881
+            "resultSpeed": 490.1011028880661
          }
       ],
       "testName": "Canada Test (Minified)"
@@ -322,39 +322,39 @@
    {
       "results": [
          {
+            "color": "teal",
+            "iterationCount": 296,
+            "libraryName": "jsonifier",
+            "resultType": "Read",
+            "resultSpeed": 2759.089325467058
+         },
+         {
+            "color": "steelblue",
+            "iterationCount": 98,
+            "libraryName": "jsonifier",
+            "resultType": "Write",
+            "resultSpeed": 2530.763250918748
+         },
+         {
             "color": "dodgerblue",
             "iterationCount": 99,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 2704.6252461894583
+            "resultSpeed": 2673.2062399554707
          },
          {
             "color": "skyblue",
-            "iterationCount": 166,
+            "iterationCount": 159,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 2414.7529369818008
-         },
-         {
-            "color": "teal",
-            "iterationCount": 98,
-            "libraryName": "jsonifier",
-            "resultType": "Read",
-            "resultSpeed": 2424.2075203325794
-         },
-         {
-            "color": "steelblue",
-            "iterationCount": 166,
-            "libraryName": "jsonifier",
-            "resultType": "Write",
-            "resultSpeed": 2521.7646177397196
+            "resultSpeed": 2583.215600140886
          },
          {
             "color": "cadetblue",
-            "iterationCount": 193,
+            "iterationCount": 166,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 1.2303543906764112
+            "resultSpeed": 1.2275558909449966
          }
       ],
       "testName": "CitmCatalog Test (Prettified)"
@@ -363,38 +363,38 @@
       "results": [
          {
             "color": "teal",
-            "iterationCount": 96,
+            "iterationCount": 94,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 2038.9767229277893
+            "resultSpeed": 1958.7604998166835
          },
          {
             "color": "steelblue",
-            "iterationCount": 416,
+            "iterationCount": 97,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 1743.0789293591001
+            "resultSpeed": 1770.2058568567845
          },
          {
             "color": "dodgerblue",
-            "iterationCount": 379,
+            "iterationCount": 204,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 1160.3575439077365
+            "resultSpeed": 1252.6958973401381
          },
          {
             "color": "skyblue",
-            "iterationCount": 172,
+            "iterationCount": 99,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 1644.7606772248769
+            "resultSpeed": 1644.6543550481351
          },
          {
             "color": "cadetblue",
-            "iterationCount": 188,
+            "iterationCount": 97,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 1.5172769494703753
+            "resultSpeed": 0.9908823824129853
          }
       ],
       "testName": "CitmCatalog Test (Minified)"
@@ -402,39 +402,39 @@
    {
       "results": [
          {
-            "color": "dodgerblue",
-            "iterationCount": 98,
-            "libraryName": "glaze",
-            "resultType": "Read",
-            "resultSpeed": 1762.8689154880676
-         },
-         {
-            "color": "skyblue",
-            "iterationCount": 158,
-            "libraryName": "glaze",
-            "resultType": "Write",
-            "resultSpeed": 2268.3338551948605
-         },
-         {
             "color": "teal",
-            "iterationCount": 162,
+            "iterationCount": 173,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 1565.392077651965
+            "resultSpeed": 1982.8103068372147
          },
          {
             "color": "steelblue",
-            "iterationCount": 250,
+            "iterationCount": 183,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 2597.7883866933653
+            "resultSpeed": 2597.136262779606
+         },
+         {
+            "color": "dodgerblue",
+            "iterationCount": 189,
+            "libraryName": "glaze",
+            "resultType": "Read",
+            "resultSpeed": 1731.3169692877852
+         },
+         {
+            "color": "skyblue",
+            "iterationCount": 159,
+            "libraryName": "glaze",
+            "resultType": "Write",
+            "resultSpeed": 2334.0526112021453
          },
          {
             "color": "cadetblue",
             "iterationCount": 500,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 325.4823781726923
+            "resultSpeed": 287.8929272581639
          }
       ],
       "testName": "Twitter Test (Prettified)"
@@ -443,38 +443,38 @@
       "results": [
          {
             "color": "teal",
-            "iterationCount": 181,
+            "iterationCount": 159,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 1761.740634591175
+            "resultSpeed": 1768.6845880474345
          },
          {
             "color": "steelblue",
-            "iterationCount": 177,
+            "iterationCount": 215,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 2315.948268476201
+            "resultSpeed": 2321.9123767025394
          },
          {
             "color": "dodgerblue",
-            "iterationCount": 305,
+            "iterationCount": 97,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 1662.3786517328765
+            "resultSpeed": 1631.0335903558487
          },
          {
             "color": "skyblue",
-            "iterationCount": 96,
+            "iterationCount": 166,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 2363.070602153778
+            "resultSpeed": 2360.1122769253616
          },
          {
             "color": "cadetblue",
             "iterationCount": 500,
             "libraryName": "simdjson",
             "resultType": "Read",
-            "resultSpeed": 203.69139917062196
+            "resultSpeed": 190.25851185292538
          }
       ],
       "testName": "Twitter Test (Minified)"
@@ -483,24 +483,24 @@
       "results": [
          {
             "color": "skyblue",
-            "iterationCount": 175,
+            "iterationCount": 161,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 1975.189347035481
+            "resultSpeed": 2033.223237833903
          },
          {
             "color": "steelblue",
-            "iterationCount": 99,
+            "iterationCount": 162,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 1801.122116363231
+            "resultSpeed": 1592.4206898835926
          },
          {
             "color": "cornflowerblue",
-            "iterationCount": 500,
+            "iterationCount": 96,
             "libraryName": "simdjson",
             "resultType": "Write",
-            "resultSpeed": 380.1413316466147
+            "resultSpeed": 422.3164813878126
          }
       ],
       "testName": "Minify Test"
@@ -509,17 +509,17 @@
       "results": [
          {
             "color": "skyblue",
-            "iterationCount": 100,
+            "iterationCount": 98,
             "libraryName": "glaze",
             "resultType": "Write",
-            "resultSpeed": 2711.233695173106
+            "resultSpeed": 2490.8387953888637
          },
          {
             "color": "steelblue",
-            "iterationCount": 168,
+            "iterationCount": 98,
             "libraryName": "jsonifier",
             "resultType": "Write",
-            "resultSpeed": 2441.7118583603256
+            "resultSpeed": 2469.6406220213025
          }
       ],
       "testName": "Prettify Test"
@@ -528,17 +528,17 @@
       "results": [
          {
             "color": "skyblue",
-            "iterationCount": 97,
+            "iterationCount": 98,
             "libraryName": "glaze",
             "resultType": "Read",
-            "resultSpeed": 1410.695446440324
+            "resultSpeed": 1409.6656479872051
          },
          {
             "color": "teal",
-            "iterationCount": 97,
+            "iterationCount": 98,
             "libraryName": "jsonifier",
             "resultType": "Read",
-            "resultSpeed": 1251.023980459883
+            "resultSpeed": 1078.7301588908697
          }
       ],
       "testName": "Validate Test"
