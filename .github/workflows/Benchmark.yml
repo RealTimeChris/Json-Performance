@@ -1,10 +1,10 @@
-name: Build-and-Test
+name: Benchmark
 
 on:
   workflow_dispatch:
   push:
     branches:
-    - main
+    - benchmarking
 
 jobs:
   Build-MSVC-Windows:
@@ -324,20 +324,20 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Merge all temporary branches into the main branch
+    - name: Merge all temporary branches into the benchmarking branch
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
         sudo git config --global user.name "RealTimeChris"
         sudo git fetch origin
-        sudo git checkout main
+        sudo git checkout benchmarking
         sudo git merge origin/temp-branch-msvc-windows --no-ff
         sudo git merge origin/temp-branch-gcc-ubuntu --no-ff
         sudo git merge origin/temp-branch-clang-ubuntu --no-ff
         sudo git merge origin/temp-branch-clang-macos --no-ff
         sudo git merge origin/temp-branch-gcc-macos --no-ff
-        sudo git push origin main
+        sudo git push origin benchmarking
 
     - name: Delete temporary branches
       env:
