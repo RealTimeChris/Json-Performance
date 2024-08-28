@@ -344,6 +344,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        sudo git pull -f
         sudo git push origin --delete temp-branch-msvc-windows
         sudo git push origin --delete temp-branch-gcc-ubuntu
         sudo git push origin --delete temp-branch-clang-ubuntu
