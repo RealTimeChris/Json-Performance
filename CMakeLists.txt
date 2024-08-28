@@ -8,7 +8,8 @@ project(
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}/Install/")
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 include(FetchContent)
 include(GetCommitHash.cmake)
@@ -42,7 +43,7 @@ FetchContent_MakeAvailable(BenchmarkSuite)
 
 FetchContent_Declare(
   simdjson
-  GIT_REPOSITORY https://github.com/RealTimeChris/simdjson.git
+  GIT_REPOSITORY https://github.com/simdjson/simdjson.git
   GIT_TAG master
   GIT_SHALLOW TRUE
 )
@@ -82,10 +83,10 @@ if (WIN32)
 		OPTIONAL
 	)
 endif()
-message("COMPILER: ${CMAKE_CXX_COMPILER_ID}")
+
 target_compile_definitions(
 	"Json-Performance" PUBLIC 
-	"JSON_TEST_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Source/ConformanceTests\""
+	"JSON_TEST_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Source/\""
 	"JSON_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Json\""
 	"README_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/\""
 	"GRAPHS_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Graphs\""
