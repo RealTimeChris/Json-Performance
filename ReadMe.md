@@ -26,6 +26,7 @@ Here's a few benchmarks on a few common operating system/compiler platforms. Alt
 ---
 1. CMake 3.28 or later.
 2. A C++20 compliant compiler.
+3. Python3 and Seaborn for generating the graphs.
 ### Build Instructions:
 ---
 1. Clone the repo.
