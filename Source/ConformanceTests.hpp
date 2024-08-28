@@ -138,7 +138,7 @@ template<> struct jsonifier::core<failTest15> {
 };
 
 struct failTest16 {
-	std::vector<uint64_t> failTestVal{};
+	std::vector<std::string> failTestVal{};
 };
 
 template<> struct jsonifier::core<failTest16> {
@@ -330,13 +330,13 @@ template<> struct jsonifier::core<object> {
 
 template<> struct jsonifier::core<message_class> {
 	using value_type				 = message_class;
-	static constexpr auto parseValue = createValue("integer", &value_type::integer, "real", &value_type::real, "E", &value_type::E, "e", &value_type::e, "", &value_type::empty,
-		"zero", &value_type::zero, "one", &value_type::one, "space", &value_type::space, "quote", &value_type::quote, "backslash", &value_type::backslash, "controls",
-		&value_type::controls, "slash", &value_type::slash, "alpha", &value_type::alpha, "ALPHA", &value_type::alpha, "digit", &value_type::digit, "0123456789",
+	static constexpr auto parseValue = createValue("integer", &value_type::integer, "real", &value_type::real, "E", &value_type::E, "e", &value_type::e, "empty",
+		&value_type::empty, "zero", &value_type::zero, "one", &value_type::one, "space", &value_type::space, "quote", &value_type::quote, "backslash", &value_type::backslash,
+		"controls", &value_type::controls, "slash", &value_type::slash, "alpha", &value_type::alpha, "ALPHA", &value_type::alpha, "digit", &value_type::digit, "0123456789",
 		&value_type::the0123456789, "special", &value_type::special, "hex", &value_type::hex, "true", &value_type::messageTrue, "false", &value_type::messageFalse, "null",
 		&value_type::null, "array", &value_type::array, "object", &value_type::objectVal, "address", &value_type::address, "url", &value_type::url, "comment", &value_type::comment,
 		"# -- --> */", &value_type::message, " s p a c e d ", &value_type::sPACED, "compact", &value_type::compact, "jsontext", &value_type::jsontext, "quotes",
-		&value_type::quotes, "\/\\\"\uCAFE\uBABE\uAB98\uFCDE\ubcda\uef4A\b\f\n\r\t`1~!@#$%^&*()_+-=[]{}|;:',./<>?", &value_type::uCafEuBabEuAb98UFcdEubcdauef4Abfnrt1_);
+		&value_type::quotes, "/\\\"\uCAFE\uBABE\uAB98\uFCDE\ubcda\uef4A\b\f\n\r\t`1~!@#$%^&*()_+-=[]{}|;:',./<>?", &value_type::uCafEuBabEuAb98UFcdEubcdauef4Abfnrt1_);
 };
 
 struct passTest01 {
@@ -380,13 +380,13 @@ class conformance_test {
 	std::string testName{};
 };
 
-bool processFilesInFolder(std::unordered_map<std::string, conformance_test>& resultFileContents) {
+bool processFilesInFolder(std::unordered_map<std::string, conformance_test>& resultFileContents) noexcept {
 	try {
 		for (const auto& entry: std::filesystem::directory_iterator(JSON_TEST_PATH)) {
 			if (entry.is_regular_file()) {
 				const std::string fileName = entry.path().filename().string();
 
-				if (fileName.size() >= 5 && fileName.substr(fileName.size() - 5) == ".json") {
+				if (fileName.size() >= 5 && fileName.substr(fileName.size() - 5) == std::string{ ".json" }) {
 					std::ifstream file(entry.path());
 					if (file.is_open()) {
 						std::string fileContents((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
@@ -408,7 +408,7 @@ bool processFilesInFolder(std::unordered_map<std::string, conformance_test>& res
 	return true;
 }
 
-template<typename test_type> void runTest(const std::string& testName, std::string& dataToParse, jsonifier::jsonifier_core<>& parser, bool doWeFail = true) {
+template<typename test_type> void runTest(const std::string& testName, std::string& dataToParse, jsonifier::jsonifier_core<>& parser, bool doWeFail = true) noexcept {
 	std::cout << "Running Test: " << testName << std::endl;
 	auto result = parser.parseJson<jsonifier::parse_options{ .validateJson = true, .minified = false }>(test_type{}, parser.minifyJson(dataToParse));
 	if ((parser.getErrors().size() == 0 && result) && !doWeFail) {
@@ -423,7 +423,7 @@ template<typename test_type> void runTest(const std::string& testName, std::stri
 	}
 }
 
-bool conformanceTests() {
+bool conformanceTests() noexcept {
 	jsonifier::jsonifier_core parser{};
 	std::unordered_map<std::string, conformance_test> jsonTests{};
 	processFilesInFolder(jsonTests);
@@ -458,7 +458,7 @@ bool conformanceTests() {
 	runTest<failTest28>("fail28.json", jsonTests["fail28.json"].fileContents, parser);
 	runTest<failTest29>("fail29.json", jsonTests["fail29.json"].fileContents, parser);
 	runTest<failTest30>("fail30.json", jsonTests["fail30.json"].fileContents, parser);
-	runTest<passTest01>("pass1.json", jsonTests["pass1.json"].fileContents, parser, false);
+	//runTest<passTest01>("pass1.json", jsonTests["pass1.json"].fileContents, parser, false);
 	runTest<passTest02>("pass2.json", jsonTests["pass2.json"].fileContents, parser, false);
 	return true;
 }

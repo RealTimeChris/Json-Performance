@@ -1,22 +1,26 @@
 # Json-Performance
 Here's a few benchmarks on a few common operating system/compiler platforms. Although feel free to try it out on more and let me know if you do/what scores you get! Cheers! (Click each of the badges below to be taken to the respective benchmarks). Also I will add some instructions for building below.
+### The Libraries
+- [Jsonifier](https://github.com/realtimechris/jsonifier)
+- [Glaze](https://github.com/stephenberry/glaze)
+- [SimdJson](https://github.com/simdjson/simdjson)
 ### By OS/Compiler:
 ----
 #### Ubuntu Linux/CLANG:
 ----
-[![CLANG/Linux](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Build-And-Test.yml?style=plastic&logo=linux&logoColor=green&label=CLANG&labelColor=pewter&color=blue&branch=main)](https://github.com/RealTimeChris/Json-Performance/blob/main/Ubuntu-CLANG.md)
+[![CLANG/Linux](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=linux&logoColor=green&label=CLANG&labelColor=pewter&color=blue&branch=benchmarking)](https://github.com/RealTimeChris/Json-Performance/blob/benchmarking/Ubuntu-CLANG.md)
 #### Microsoft Windows/MSVC:
 ----
-[![MSVC/Windows](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Build-And-Test.yml?style=plastic&logo=Microsoft&logoColor=green&label=MSVC&labelColor=pewter&color=blue&branch=main)](https://github.com/RealTimeChris/Json-Performance/blob/main/Windows-MSVC.md)
+[![MSVC/Windows](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=Microsoft&logoColor=green&label=MSVC&labelColor=pewter&color=blue&branch=benchmarking)](https://github.com/RealTimeChris/Json-Performance/blob/benchmarking/Windows-MSVC.md)
 #### Ubuntu Linux/GNUCXX:
 ----
-[![GCC/Linux](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Build-And-Test.yml?style=plastic&logo=linux&logoColor=green&label=GCC&labelColor=pewter&color=blue&branch=main)](https://github.com/RealTimeChris/Json-Performance/blob/main/Ubuntu-GCC.md)
+[![GNUCXX/Linux](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=linux&logoColor=green&label=GNUCXX&labelColor=pewter&color=blue&branch=benchmarking)](https://github.com/RealTimeChris/Json-Performance/blob/benchmarking/Ubuntu-GNUCXX.md)
 #### MacOS/CLANG:
 ----
-[![CLANG/MacOS](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Build-And-Test.yml?style=plastic&logo=apple&logoColor=green&label=CLANG&labelColor=pewter&color=blue&branch=main)](https://github.com/RealTimeChris/Json-Performance/blob/main/MacOS-CLANG.md)
-#### MacOS/GCC:
+[![CLANG/MacOS](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=apple&logoColor=green&label=CLANG&labelColor=pewter&color=blue&branch=benchmarking)](https://github.com/RealTimeChris/Json-Performance/blob/benchmarking/MacOS-CLANG.md)
+#### MacOS/GNUCXX:
 ----
-[![GCC/MacOS](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Build-And-Test.yml?style=plastic&logo=apple&logoColor=green&label=GCC&labelColor=pewter&color=blue&branch=main)](https://github.com/RealTimeChris/Json-Performance/blob/main/MacOS-GCC.md)
+[![GNUCXX/MacOS](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=apple&logoColor=green&label=GNUCXX&labelColor=pewter&color=blue&branch=benchmarking)](https://github.com/RealTimeChris/Json-Performance/blob/benchmarking/MacOS-GNUCXX.md)
 
 ### Pre-requisites:
 ---
