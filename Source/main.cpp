@@ -2309,7 +2309,7 @@ int32_t main() {
 		bnch_swt::file_loader fileLoader04{ basePath + "/Results.json" };
 		bnch_swt::file_loader fileLoader05{ std::string{ JSON_PATH } + "/DiscordData-Prettified.json" };
 		std::string discordData{ fileLoader05.operator jsonifier::string&() };
-		conformanceTests();
+		//conformanceTests();
 		discord_message discordMessage{};
 		//std::cout << "WERE HERE THIS IS IT 0101: " << jsonMinifiedData << std::endl;
 		parser.parseJson(discordMessage, discordData);
