@@ -5,6 +5,7 @@ on:
   push:
     branches:
     - benchmarking
+    -  main
 
 jobs:
   Build-MSVC-Windows:
