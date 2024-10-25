@@ -17,7 +17,7 @@
       "205706002": "2ème balcon jardin",
       "205706004": "2ème Balcon central",
       "205706006": "1er balcon cour"
-   ,
+   },
    "audienceSubCategoryNames": {
       "337100890": "Abonné"
    },
@@ -3368,7 +3368,7 @@
             324846100
          ]
       }
-   ,
+   },
    "performances": [
       {
          "eventId": 138586341,
@@ -50405,7 +50405,7 @@
       "341264864": "4ème catégorie",
       "341264860": "1ère catégorie",
       "341264863": "3ème catégorie"
-   ,
+   },
    "subTopicNames": {
       "337184298": "Voix",
       "337184297": "Chanson",
@@ -50426,14 +50426,14 @@
       "337184269": "Jazz",
       "337184282": "Famille",
       "337184283": "Concert"
-   ,
+   },
    "subjectNames": {},
    "topicNames": {
       "324846100": "Formations musicales",
       "324846099": "Genre",
       "324846098": "Type de public",
       "107888604": "Activité"
-   ,
+   },
    "topicSubTopics": {
       "324846100": [
          337184275,
@@ -50462,7 +50462,7 @@
          337184283,
          337184267
       ]
-   ,
+   },
    "venueNames": {
       "PLEYEL_PLEYEL": "Salle Pleyel"
    }
