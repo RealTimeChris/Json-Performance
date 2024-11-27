@@ -334,11 +334,11 @@ jobs:
         sudo git fetch origin
         sudo git checkout benchmarking
         sudo git pull -f origin benchmarking
-        sudo git merge origin/temp-msvc-windows --no-ff
-        sudo git merge origin/temp-gnucxx-ubuntu --no-ff
-        sudo git merge origin/temp-clang-ubuntu --no-ff
-        sudo git merge origin/temp-gnucxx-macos --no-ff
-        sudo git merge origin/temp-clang-macos --no-ff
+        sudo git merge origin/temp-msvc-windows --no-ff --allow-unrelated-histories
+        sudo git merge origin/temp-gnucxx-ubuntu --no-ff --allow-unrelated-histories
+        sudo git merge origin/temp-clang-ubuntu --no-ff --allow-unrelated-histories
+        sudo git merge origin/temp-gnucxx-macos --no-ff --allow-unrelated-histories
+        sudo git merge origin/temp-clang-macos --no-ff --allow-unrelated-histories
         sudo git checkout --orphan newBranch
         sudo git add .
         sudo git commit -m "Updating necessary files."

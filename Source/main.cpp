@@ -38,6 +38,12 @@
 #include <thread>
 #include <chrono>
 
+#if !defined(GIT_BRANCH)
+static constexpr jsonifier_internal::string_literal gitBranch{ "main" };
+#else
+static constexpr jsonifier_internal::string_literal gitBranch{ GIT_BRANCH };
+#endif
+
 constexpr jsonifier_internal::string_literal jsonifierLibraryName{ "jsonifier" };
 constexpr jsonifier_internal::string_literal jsonifierCommitUrlBase{ "https://github.com/realtimechris/jsonifier/commit/" };
 constexpr jsonifier_internal::string_literal simdjsonLibraryName{ "simdjson" };
@@ -98,11 +104,11 @@ static constexpr jsonifier_internal::string_literal basePath{ jsonifier_internal
 
 static std::string jsonPath{ JSON_PATH };
 
-template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, jsonifier_internal::string_literal testName> struct json_test_helper {};
+template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const jsonifier_internal::string_literal testName> struct json_test_helper {};
 
-template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, jsonifier_internal::string_literal testName> struct json_test_helper;
+template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const jsonifier_internal::string_literal testName> struct json_test_helper;
 
-template<typename test_data_type, bool minified, size_t iterations, jsonifier_internal::string_literal testNameNew>
+template<typename test_data_type, bool minified, size_t iterations, const jsonifier_internal::string_literal testNameNew>
 struct json_test_helper<json_library::jsonifier, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
 	static auto run(std::string& newBuffer) {
 		static constexpr jsonifier_internal::string_literal testName{ testNameNew };
@@ -114,20 +120,20 @@ struct json_test_helper<json_library::jsonifier, test_type::parse_and_serialize,
 		if constexpr (partialRead) {
 			parser.parseJson(testData, newBuffer);
 		}
-		auto readResult =
-			bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, jsonifierLibraryName, "teal">([&]() mutable {
-				parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testData, newBuffer);
-				bnch_swt::doNotOptimizeAway(testData);
-			});
+		auto readResult = bnch_swt::benchmark_stage<testName + "-Read">::template runBenchmark<testName, jsonifierLibraryName, "teal">([&]() mutable {
+			parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testData, newBuffer);
+			bnch_swt::doNotOptimizeAway(testData);
+			return newBuffer.size();
+		});
 		for (auto& value: parser.getErrors()) {
 			std::cout << "Jsonifier Error: " << value << std::endl;
 		}
 		std::string_view newerBuffer{};
-		auto writeResult =
-			bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() mutable {
-				newerBuffer = parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData);
-				bnch_swt::doNotOptimizeAway(newerBuffer);
-			});
+		auto writeResult = bnch_swt::benchmark_stage<testName + "-Write">::template runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() mutable {
+			newerBuffer = parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData);
+			bnch_swt::doNotOptimizeAway(newerBuffer);
+			return newerBuffer.size();
+		});
 
 		for (auto& value: parser.getErrors()) {
 			std::cout << "Jsonifier Error: " << value << std::endl;
@@ -149,9 +155,10 @@ struct json_test_helper<json_library::jsonifier, test_type::prettify, std::strin
 		results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 		jsonifier::jsonifier_core parser{};
 		std::string newerBuffer{};
-		auto writeResult = bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() {
+		auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() {
 			parser.prettifyJson(newBuffer, newerBuffer);
 			bnch_swt::doNotOptimizeAway(newerBuffer);
+			return newerBuffer.size();
 		});
 
 		for (auto& value: parser.getErrors()) {
@@ -170,9 +177,10 @@ struct json_test_helper<json_library::jsonifier, test_type::minify, std::string,
 		std::string newerBuffer{};
 		results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 		jsonifier::jsonifier_core parser{};
-		auto writeResult = bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() {
+		auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() {
 			parser.minifyJson(newBuffer, newerBuffer);
 			bnch_swt::doNotOptimizeAway(newerBuffer);
+			return newerBuffer.size();
 		});
 		for (auto& value: parser.getErrors()) {
 			std::cout << "Jsonifier Error: " << value << std::endl;
@@ -189,8 +197,9 @@ struct json_test_helper<json_library::jsonifier, test_type::validate, std::strin
 		static constexpr jsonifier_internal::string_literal testName{ testNameNew };
 		results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 		jsonifier::jsonifier_core parser{};
-		auto readResult = bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() {
+		auto readResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() {
 			bnch_swt::doNotOptimizeAway(parser.validateJson(newBuffer));
+			return newBuffer.size();
 		});
 
 		for (auto& value: parser.getErrors()) {
@@ -216,7 +225,7 @@ struct json_test_helper<json_library::glaze, test_type::parse_and_serialize, tes
 				std::cout << "Glaze Error: " << glz::format_error(error, newBuffer) << std::endl;
 			}
 		}
-		auto readResult = bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, glazeLibraryName, "dodgerblue">([&]() {
+		auto readResult = bnch_swt::benchmark_stage<testName + "-Read">::template runBenchmark<testName, glazeLibraryName, "dodgerblue">([&]() {
 			if (auto error = glz::read<glz::opts{ .error_on_unknown_keys = !partialRead,
 					.skip_null_members									 = false,
 					.prettify											 = !minified,
@@ -227,11 +236,13 @@ struct json_test_helper<json_library::glaze, test_type::parse_and_serialize, tes
 				std::cout << "Glaze Error: " << glz::format_error(error, newBuffer) << std::endl;
 			}
 			bnch_swt::doNotOptimizeAway(testData);
+			return newBuffer.size();
 		});
 		std::string newerBuffer{};
-		auto writeResult = bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, glazeLibraryName, "steelblue">([&]() {
+		auto writeResult = bnch_swt::benchmark_stage<testName + "-Write">::template runBenchmark<testName, glazeLibraryName, "steelblue">([&]() {
 			auto newResult = glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newerBuffer);
-			bnch_swt::doNotOptimizeAway(newerBuffer);
+			bnch_swt::doNotOptimizeAway(newResult);
+			return newerBuffer.size();
 		});
 
 		auto readSize	 = newerBuffer.size();
@@ -248,11 +259,14 @@ template<size_t iterations, jsonifier_internal::string_literal testNameNew>
 struct json_test_helper<json_library::glaze, test_type::prettify, std::string, false, iterations, testNameNew> {
 	static auto run(std::string& newBuffer) {
 		static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+
 		results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
 		std::string newerBuffer{};
-		auto writeResult = bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, glazeLibraryName, "steelblue">([&]() {
+
+		auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, glazeLibraryName, "steelblue">([&]() {
 			glz::prettify_json(newBuffer, newerBuffer);
 			bnch_swt::doNotOptimizeAway(newerBuffer);
+			return newerBuffer.size();
 		});
 
 		bnch_swt::file_loader::saveFile(newerBuffer, basePath + "/" + testName + "-glaze.json");
@@ -271,9 +285,10 @@ struct json_test_helper<json_library::glaze, test_type::minify, std::string, fal
 		std::string newerBuffer{};
 
 		results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
-		auto writeResult = bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, glazeLibraryName, "steelblue">([&]() {
+		auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, glazeLibraryName, "steelblue">([&]() {
 			glz::minify_json(newestBuffer, newerBuffer);
 			bnch_swt::doNotOptimizeAway(newerBuffer);
+			return newerBuffer.size();
 		});
 
 		bnch_swt::file_loader::saveFile(newerBuffer, basePath + "/" + testName + "-glaze.json");
@@ -288,8 +303,9 @@ struct json_test_helper<json_library::glaze, test_type::validate, std::string, f
 	static auto run(std::string& newBuffer) {
 		static constexpr jsonifier_internal::string_literal testName{ testNameNew };
 		results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
-		auto readResult = bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, glazeLibraryName, "skyblue">([&]() {
+		auto readResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, glazeLibraryName, "skyblue">([&]() {
 			bnch_swt::doNotOptimizeAway(glz::validate_json(newBuffer));
+			return newBuffer.size();
 		});
 
 		bnch_swt::file_loader::saveFile(newBuffer, basePath + "/" + testName + "-glaze.json");
@@ -309,12 +325,14 @@ struct json_test_helper<json_library::simdjson, test_type::parse_and_serialize, 
 		simdjson::ondemand::parser parser{};
 		test_data_type testData{};
 		auto readSize	= newBuffer.size();
-		auto readResult = bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, glazeLibraryName, "cadetblue">([&]() {
+		auto readResult = bnch_swt::benchmark_stage<testName + "-Read">::template runBenchmark<testName, simdjsonLibraryName, "cadetblue">([&]() {
 			try {
 				getValue(testData, parser.iterate(newBuffer).value());
 				bnch_swt::doNotOptimizeAway(testData);
+				return newBuffer.size();
 			} catch (std::exception& error) {
 				std::cout << "Simdjson Error: " << error.what() << std::endl;
+				return newBuffer.size();
 			}
 		});
 		std::string newerBuffer{};
@@ -337,16 +355,16 @@ struct json_test_helper<json_library::simdjson, test_type::minify, std::string, 
 		simdjson::dom::parser parser{};
 		std::string newerBuffer{};
 
-		auto writeResult =
-			bnch_swt::benchmark_stage<"Json-Tests", bnch_swt::bench_options{ .type = resultType }>::runBenchmark<testName, glazeLibraryName, "cornflowerblue">([&]() {
-				try {
-					newerBuffer = simdjson::minify(parser.parse(newBuffer));
-					bnch_swt::doNotOptimizeAway(newerBuffer);
-				} catch (std::exception& error) {
-					std::cout << "Simdjson Error: " << error.what() << std::endl;
-				}
-				return;
-			});
+		auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, simdjsonLibraryName, "cornflowerblue">([&]() {
+			try {
+				newerBuffer = simdjson::minify(parser.parse(newBuffer));
+				bnch_swt::doNotOptimizeAway(newerBuffer);
+				return newBuffer.size();
+			} catch (std::exception& error) {
+				std::cout << "Simdjson Error: " << error.what() << std::endl;
+				return newBuffer.size();
+			}
+		});
 
 		bnch_swt::file_loader::saveFile(newerBuffer, basePath + "/" + testName + "-simdjson.json");
 		r.writeResult = result<result_type::write>{ "cornflowerblue", newerBuffer.size(), writeResult };
@@ -358,44 +376,44 @@ struct json_test_helper<json_library::simdjson, test_type::minify, std::string, 
 
 #if defined(JSONIFIER_MAC)
 constexpr jsonifier_internal::string_literal table_header = jsonifier_internal::string_literal{ R"(
-| Library | Read (MB/S) | Read Length (Bytes) | Read Time (ns) | Read Iteration Count | Write (MB/S) | Write Length (Bytes) | Write Time (ns) | Write Iteration Count |
-| ------- | ----------- | ------------------- | -------------- | -------------------- | ------------ | -------------------- | --------------- | --------------------- |  )" };
+| Library | Read (MB/S) | Read Variation (+/-%) | Read Length (Bytes) | Read Time (ns) | Write (MB/S) | Write Variation (+/-%) | Write Length (Bytes) | Write Time (ns) |
+| ------- | ----------- | --------------------- | ------------------- | -------------- | ------------ | ---------------------- | -------------------- | ----------------|  )" };
 
 constexpr jsonifier_internal::string_literal read_table_header = jsonifier_internal::string_literal{ R"(
-| Library | Read (MB/S) | Read Length (Bytes) | Read Time (ns) | Read Iteration Count |
-| ------- | ----------- | ------------------- | -------------- | -------------------- |  )" };
+| Library | Read (MB/S) | Read Variation (+/-%) | Read Length (Bytes) | Read Time (ns) |
+| ------- | ----------- | --------------------- | ------------------- | -------------- |   )" };
 
 constexpr jsonifier_internal::string_literal write_table_header = jsonifier_internal::string_literal{
 	R"(
-| Library | Write (MB/S) | Write Length (Bytes) | Write Time (ns) | Write Iteration Count |
-| ------- | ------------ | -------------------- | --------------- | --------------------- |  )"
+| Library | Write (MB/S) | Write Variation (+/-%) | Write Length (Bytes) | Write Time (ns) |
+| ------- | ------------ | ---------------------- | -------------------- | --------------- |   )"
 };
 #else
 constexpr jsonifier_internal::string_literal table_header = jsonifier_internal::string_literal{
 	R"(
-| Library | Read (MB/S) | Read (Cycles/MB) | Read Length (Bytes) | Read Time (ns) | Read Iteration Count | Write (MB/S) | Write (Cycles/MB) | Write Length (Bytes) | Write Time (ns) | Write Iteration Count |
-| ------- | ----------- | -----------------| ------------------- | -------------- | -------------------- | ------------ | ------------------| -------------------- | ----------------| --------------------- |  )"
+| Library | Read (MB/S) | Read Variation (+/-%) | Read (Cycles/MB) | Read Length (Bytes) | Read Time (ns) | Write (MB/S) | Write Variation (+/-%) | Write (Cycles/MB) | Write Length (Bytes) | Write Time (ns) |
+| ------- | ----------- | --------------------- | -----------------| ------------------- | -------------- | ------------ | ---------------------- | ------------------| -------------------- | --------------- |  )"
 };
 
 constexpr jsonifier_internal::string_literal read_table_header = jsonifier_internal::string_literal{ R"(
-| Library | Read (MB/S) | Read (Cycles/MB) | Read Length (Bytes) | Read Time (ns) | Read Iteration Count |
-| ------- | ----------- | -----------------| ------------------- | -------------- | -------------------- |  )" };
+| Library | Read (MB/S) | Read Variation (+/-%) | Read (Cycles/MB) | Read Length (Bytes) | Read Time (ns) |
+| ------- | ----------- | --------------------- | ---------------- | ------------------- | -------------- |   )" };
 
 constexpr jsonifier_internal::string_literal write_table_header = jsonifier_internal::string_literal{
 	R"(
-| Library | Write (MB/S) | Write (Cycles/MB) | Write Length (Bytes) | Write Time (ns) | Write Iteration Count |
-| ------- | ------------ | ------------------| -------------------- | --------------- | --------------------- |  )"
+| Library | Write (MB/S) | Write Variation (+/-%) | Write (Cycles/MB) | Write Length (Bytes) | Write Time (ns) |
+| ------- | ------------ | ---------------------- | ----------------- | -------------------- | --------------- |  )"
 };
 #endif
 
 std::string getCPUInfo() {
 	char brand[49] = { 0 };
-	int32_t regs[12]{};
+	uint32_t regs[12]{};
 	size_t length{};
 #if defined(__x86_64__) || defined(_M_AMD64)
-	static constexpr auto cpuid = [](int32_t* eax, int32_t* ebx, int32_t* ecx, int32_t* edx) {
+	static constexpr auto cpuid = [](uint32_t* eax, uint32_t* ebx, uint32_t* ecx, uint32_t* edx) {
 	#if defined(_MSC_VER)
-		int32_t cpuInfo[4];
+		uint32_t cpuInfo[4];
 		__cpuidex(cpuInfo, *eax, *ecx);
 		*eax = cpuInfo[0];
 		*ebx = cpuInfo[1];
@@ -415,7 +433,7 @@ std::string getCPUInfo() {
 	};
 	regs[0] = 0x80000000;
 	cpuid(regs, regs + 1, regs + 2, regs + 3);
-	if (regs[0] < 0x80000004) {
+	if (regs[0] < 0x80000004ll) {
 		return {};
 	}
 	regs[0] = 0x80000002;
@@ -442,8 +460,8 @@ std::string getCPUInfo() {
 }
 
 static std::string section001{ R"(
- > At least )" +
-	jsonifier::toString(30) + R"( iterations on a ()" + getCPUInfo() + R"(), until coefficient of variance is at or below 1%.
+ > )" +
+	jsonifier::toString(100) + R"( iterations on a ()" + getCPUInfo() + R"().
 )" };
 
 constexpr jsonifier_internal::string_literal section002{ jsonifier_internal::string_literal{ R"(#### Using the following commits:
@@ -461,11 +479,21 @@ Performance profiling of JSON libraries (Compiled and run on )" +
 constexpr jsonifier_internal::string_literal section01{
 	R"(
 
-### Json Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/)" +
-	getCurrentPathImpl() + R"(/JsonData-Prettified.json):
+### Json Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/)" + getCurrentPathImpl() + R"(/JsonData-Prettified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Json%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Json%20Test%20(Prettified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Json%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Json%20Test%20(Prettified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Json%20Test%20(Prettified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Json%20Test%20(Prettified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )"
@@ -474,11 +502,21 @@ alt="" width="400"/></p>
 constexpr jsonifier_internal::string_literal section02{
 	R"(
 
-### Json Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/)" +
-	getCurrentPathImpl() + R"(/JsonData-Minified.json):
+### Json Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/)" + getCurrentPathImpl() + R"(/JsonData-Minified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Json%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Json%20Test%20(Minified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Json%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Json%20Test%20(Minified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Json%20Test%20(Minified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Json%20Test%20(Minified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )"
@@ -487,11 +525,21 @@ alt="" width="400"/></p>
 constexpr jsonifier_internal::string_literal section03{
 	R"(
 
-### Partial Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/)" +
-	getCurrentPathImpl() + R"(/JsonData-Prettified.json):
+### Partial Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/)" + getCurrentPathImpl() + R"(/JsonData-Prettified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Partial%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Partial%20Test%20(Prettified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Partial%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Partial%20Test%20(Prettified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Partial%20Test%20(Prettified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Partial%20Test%20(Prettified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )"
@@ -500,11 +548,21 @@ alt="" width="400"/></p>
 constexpr jsonifier_internal::string_literal section04{
 	R"(
 
-### Partial Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/)" +
-	getCurrentPathImpl() + R"(/JsonData-Minified.json):
+### Partial Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/)" + getCurrentPathImpl() + R"(/JsonData-Minified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Partial%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Partial%20Test%20(Minified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Partial%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Partial%20Test%20(Minified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Partial%20Test%20(Minified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Partial%20Test%20(Minified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )"
@@ -513,11 +571,21 @@ alt="" width="400"/></p>
 constexpr jsonifier_internal::string_literal section05{
 	R"(
 
-### Abc Test (Out of Sequence Performance - Prettified) [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/)" +
-	getCurrentPathImpl() + R"(/JsonData-Prettified.json):
+### Abc Test (Out of Sequence Performance - Prettified) [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/)" + getCurrentPathImpl() + R"(/JsonData-Prettified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Abc%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Abc%20Test%20(Prettified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Abc%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Abc%20Test%20(Prettified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Abc%20Test%20(Prettified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Abc%20Test%20(Prettified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 The JSON documents in the previous tests featured keys ranging from "a" to "z," where each key corresponds to an array of values. Notably, the documents in this test arrange these keys in reverse order, deviating from the typical "a" to "z" arrangement.
@@ -530,91 +598,189 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 
 constexpr jsonifier_internal::string_literal section06{ R"(
 
-### ABC Test (Out of Sequence Performance - Minified) [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/)" +
-	getCurrentPathImpl() + R"(/JsonData-Minified.json):
+### ABC Test (Out of Sequence Performance - Minified) [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/)" + getCurrentPathImpl() + R"(/JsonData-Minified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Abc%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Abc%20Test%20(Minified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Abc%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Abc%20Test%20(Minified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Abc%20Test%20(Minified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Abc%20Test%20(Minified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )" };
 
 constexpr jsonifier_internal::string_literal section07{ R"(
 
-### Discord Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/DiscordData-Prettified.json):
+### Discord Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/DiscordData-Prettified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Discord%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Discord%20Test%20(Prettified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Discord%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Discord%20Test%20(Prettified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Discord%20Test%20(Prettified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Discord%20Test%20(Prettified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )" };
 
 constexpr jsonifier_internal::string_literal section08{ R"(
 
-### Discord Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/DiscordData-Minified.json):
+### Discord Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/DiscordData-Minified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Discord%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Discord%20Test%20(Minified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Discord%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Discord%20Test%20(Minified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Discord%20Test%20(Minified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Discord%20Test%20(Minified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )" };
 
 constexpr jsonifier_internal::string_literal section09{ R"(
 
-### Canada Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/CanadaData-Prettified.json):
+### Canada Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/CanadaData-Prettified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Canada%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Canada%20Test%20(Prettified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Canada%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Canada%20Test%20(Prettified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Canada%20Test%20(Prettified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Canada%20Test%20(Prettified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )" };
 
 constexpr jsonifier_internal::string_literal section10{ R"(
 
-### Canada Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/CanadaData-Minified.json):
+### Canada Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/CanadaData-Minified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Canada%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Canada%20Test%20(Minified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Canada%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Canada%20Test%20(Minified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Canada%20Test%20(Minified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Canada%20Test%20(Minified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )" };
 
 constexpr jsonifier_internal::string_literal section11{ R"(
 
-### CitmCatalog Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/CitmCatalogData-Prettified.json):
+### CitmCatalog Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/CitmCatalogData-Prettified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/CitmCatalog%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/CitmCatalog%20Test%20(Prettified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/CitmCatalog%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/CitmCatalog%20Test%20(Prettified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/CitmCatalog%20Test%20(Prettified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/CitmCatalog%20Test%20(Prettified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )" };
 
 constexpr jsonifier_internal::string_literal section12{ R"(
 
-### CitmCatalog Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/CitmCatalogData-Minified.json):
+### CitmCatalog Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/CitmCatalogData-Minified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/CitmCatalog%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/CitmCatalog%20Test%20(Minified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/CitmCatalog%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/CitmCatalog%20Test%20(Minified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/CitmCatalog%20Test%20(Minified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/CitmCatalog%20Test%20(Minified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )" };
 
 constexpr jsonifier_internal::string_literal section13{ R"(
 
-### Twitter Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/TwitterData-Prettified.json):
+### Twitter Test (Prettified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/TwitterData-Prettified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Twitter%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Twitter%20Test%20(Prettified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Twitter%20Test%20(Prettified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Twitter%20Test%20(Prettified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Twitter%20Test%20(Prettified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Twitter%20Test%20(Prettified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )" };
 
 constexpr jsonifier_internal::string_literal section14{ R"(
 
-### Twitter Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/TwitterData-Minified.json):
+### Twitter Test (Minified) Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/TwitterData-Minified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Twitter%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Twitter%20Test%20(Minified)_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Twitter%20Test%20(Minified)_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Twitter%20Test%20(Minified)_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Twitter%20Test%20(Minified)_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Twitter%20Test%20(Minified)_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )" };
@@ -622,10 +788,20 @@ alt="" width="400"/></p>
 constexpr jsonifier_internal::string_literal section15{
 	R"(
 
-### Minify Test Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/DiscordData-Prettified.json):
+### Minify Test Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/DiscordData-Prettified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Minify%20Test_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Minify%20Test_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() + R"(/Minify%20Test_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Minify%20Test_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Minify%20Test_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Minify%20Test_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )"
@@ -634,10 +810,20 @@ alt="" width="400"/></p>
 constexpr jsonifier_internal::string_literal section16{
 	R"(
 
-### Prettify Test Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/DiscordData-Minified.json):
+### Prettify Test Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/DiscordData-Minified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Prettify%20Test_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Prettify%20Test_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() + R"(/Prettify%20Test_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Prettify%20Test_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Prettify%20Test_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Prettify%20Test_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )"
@@ -646,10 +832,20 @@ alt="" width="400"/></p>
 constexpr jsonifier_internal::string_literal section17{
 	R"(
 
-### Validation Test Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/main/Json/DiscordData-Prettified.json):
+### Validation Test Results [(View the data used in the following test)](https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Json/DiscordData-Prettified.json):
 
 ----
-<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Validate%20Test_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/main/Graphs/Validate%20Test_Results.png?raw=true" 
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() + R"(/Validate%20Test_Results.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Validate%20Test_Results.png?raw=true" 
+alt="" width="400"/></p>
+<p align="left"><a href="https://github.com/RealTimeChris/Json-Performance/blob/)" +
+	gitBranch + R"(/Graphs/)" + getCurrentPathImpl() +
+	R"(/Validate%20Test_Cumulative_Speedup.png" target="_blank"><img src="https://github.com/RealTimeChris/Json-Performance/blob/)" + gitBranch + R"(/Graphs/)" +
+	getCurrentPathImpl() +
+	R"(/Validate%20Test_Cumulative_Speedup.png?raw=true" 
 alt="" width="400"/></p>
 
 )"
@@ -694,12 +890,9 @@ template<test_type type, typename test_data_type, bool minified, uint64_t iterat
 #endif
 		jsonifierResults = json_test_helper<json_library::jsonifier, type, test_data_type, minified, iterations, testName>::run(jsonDataNew);
 #if !defined(ASAN_ENABLED)
-		simdjsonResults.print();
-		glazeResults.print();
 		jsonResults.results.emplace_back(simdjsonResults);
 		jsonResults.results.emplace_back(glazeResults);
 #endif
-		jsonifierResults.print();
 		jsonResults.results.emplace_back(jsonifierResults);
 		jsonResults.markdownResults += table_header + "\n";
 		std::sort(jsonResults.results.begin(), jsonResults.results.end(), std::greater<results_data>());
@@ -714,6 +907,8 @@ template<test_type type, typename test_data_type, bool minified, uint64_t iterat
 				++iter;
 			}
 		}
+		bnch_swt::benchmark_stage<testNameNew + "-Read">::printResults();
+		bnch_swt::benchmark_stage<testNameNew + "-Write">::printResults();
 		return jsonResults;
 	}
 };
@@ -731,9 +926,7 @@ template<uint64_t iterations, jsonifier_internal::string_literal testNameNew> st
 		jsonifierResults = json_test_helper<json_library::jsonifier, test_type::prettify, std::string, false, iterations, testName>::run(jsonDataNew);
 #if !defined(ASAN_ENABLED)
 		jsonResults.results.emplace_back(glazeResults);
-		glazeResults.print();
 #endif
-		jsonifierResults.print();
 		jsonResults.results.emplace_back(jsonifierResults);
 		jsonResults.markdownResults += write_table_header + "\n";
 		std::sort(jsonResults.results.begin(), jsonResults.results.end(), std::greater<results_data>());
@@ -748,6 +941,7 @@ template<uint64_t iterations, jsonifier_internal::string_literal testNameNew> st
 				++iter;
 			}
 		}
+		bnch_swt::benchmark_stage<testNameNew>::printResults();
 		return jsonResults;
 	}
 };
@@ -768,10 +962,7 @@ template<uint64_t iterations, jsonifier_internal::string_literal testNameNew> st
 #if !defined(ASAN_ENABLED)
 		jsonResults.results.emplace_back(simdjsonResults);
 		jsonResults.results.emplace_back(glazeResults);
-		simdjsonResults.print();
-		glazeResults.print();
 #endif
-		jsonifierResults.print();
 		jsonResults.results.emplace_back(jsonifierResults);
 		jsonResults.markdownResults += write_table_header + "\n";
 		std::sort(jsonResults.results.begin(), jsonResults.results.end(), std::greater<results_data>());
@@ -786,6 +977,7 @@ template<uint64_t iterations, jsonifier_internal::string_literal testNameNew> st
 				++iter;
 			}
 		}
+		bnch_swt::benchmark_stage<testNameNew>::printResults();
 		return jsonResults;
 	}
 };
@@ -804,9 +996,7 @@ template<uint64_t iterations, jsonifier_internal::string_literal testNameNew> st
 		jsonResults.results.emplace_back(jsonifierResults);
 #if !defined(ASAN_ENABLED)
 		jsonResults.results.emplace_back(glazeResults);
-		glazeResults.print();
 #endif
-		jsonifierResults.print();
 		jsonResults.markdownResults += read_table_header + "\n";
 		std::sort(jsonResults.results.begin(), jsonResults.results.end(), std::greater<results_data>());
 		for (auto iter = jsonResults.results.begin(); iter != jsonResults.results.end();) {
@@ -820,6 +1010,7 @@ template<uint64_t iterations, jsonifier_internal::string_literal testNameNew> st
 				++iter;
 			}
 		}
+		bnch_swt::benchmark_stage<testNameNew>::printResults();
 		return jsonResults;
 	}
 };
@@ -933,19 +1124,17 @@ void testFunction() {
 		for (auto& valueNew: value.results) {
 			test_element_final resultFinal{};
 			if (valueNew.readResult.jsonSpeed.has_value()) {
-				resultFinal.libraryName	   = valueNew.name;
-				resultFinal.color		   = valueNew.readResult.color;
-				resultFinal.resultSpeed	   = valueNew.readResult.jsonSpeed.value();
-				resultFinal.iterationCount = valueNew.readResult.iterationCount.value();
-				resultFinal.resultType	   = "Read";
+				resultFinal.libraryName = valueNew.name;
+				resultFinal.color		= valueNew.readResult.color;
+				resultFinal.resultSpeed = valueNew.readResult.jsonSpeed.value();
+				resultFinal.resultType	= "Read";
 				testElement.results.emplace_back(resultFinal);
 			}
 			if (valueNew.writeResult.jsonSpeed.has_value()) {
-				resultFinal.libraryName	   = valueNew.name;
-				resultFinal.color		   = valueNew.writeResult.color;
-				resultFinal.resultSpeed	   = valueNew.writeResult.jsonSpeed.value();
-				resultFinal.iterationCount = valueNew.writeResult.iterationCount.value();
-				resultFinal.resultType	   = "Write";
+				resultFinal.libraryName = valueNew.name;
+				resultFinal.color		= valueNew.writeResult.color;
+				resultFinal.resultSpeed = valueNew.writeResult.jsonSpeed.value();
+				resultFinal.resultType	= "Write";
 				testElement.results.emplace_back(resultFinal);
 			}
 		}
