@@ -20,6 +20,8 @@
 	DEALINGS IN THE SOFTWARE.
 */
 /// https://github.com/RealTimeChris/jsonifier
+#pragma once
+
 #include "Common.hpp"
 
 #include <jsonifier/Index.hpp>
@@ -70,8 +72,8 @@ namespace int_validation_tests {
 
 	bool intTests() noexcept {
 		std::cout << "Int Tests: " << std::endl;
-		std::string filePath01{ JSON_TEST_PATH  };
-		filePath01 += "IntValidation/passTests.json";
+		std::string filePath01{ testPath };
+		filePath01 += "/IntValidation/passTests.json";
 		auto file = bnch_swt::file_loader::loadFile(filePath01);
 		std::vector<std::string> passTests{};
 		jsonifier::jsonifier_core parser{};
@@ -79,8 +81,8 @@ namespace int_validation_tests {
 		for (size_t x = 0; x < passTests.size(); ++x) {
 			runTest(expectedInt64Values[x], "Integer-Pass-Test " + std::to_string(x + 1), passTests[x], parser);
 		}
-		std::string filePath02{ JSON_TEST_PATH };
-		filePath02 += "IntValidation/failTests.json";
+		std::string filePath02{ testPath };
+		filePath02 += "/IntValidation/failTests.json";
 		file = bnch_swt::file_loader::loadFile(filePath02);
 		std::vector<std::string> failTests{};
 		parser.parseJson(failTests, file);

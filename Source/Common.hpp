@@ -30,6 +30,61 @@
 #include "Canada.hpp"
 #include <thread>
 
+#if defined(NDEBUG)
+static constexpr auto maxIterationCount{ 100 };
+#else
+static constexpr auto maxIterationCount{ 5 };
+#endif
+
+constexpr auto getCurrentOperatingSystem() {
+	constexpr jsonifier_internal::string_literal osName{ OPERATING_SYSTEM_NAME };
+	constexpr auto osNameNew = jsonifier_internal::toLower(osName);
+	if constexpr (osNameNew.view().operator std::string_view().contains("linux")) {
+		return jsonifier_internal::string_literal{ "Ubuntu" };
+	} else if constexpr (osNameNew.view().operator std::string_view().contains("windows")) {
+		return jsonifier_internal::string_literal{ "Windows" };
+	} else if constexpr (osNameNew.view().operator std::string_view().contains("darwin")) {
+		return jsonifier_internal::string_literal{ "MacOS" };
+	} else {
+		return jsonifier_internal::string_literal{ "" };
+	}
+}
+
+constexpr auto getCurrentCompilerId() {
+	constexpr jsonifier_internal::string_literal compilerId{ COMPILER_ID };
+	constexpr auto osCompilerIdNew = jsonifier_internal::toLower(compilerId);
+	if constexpr (osCompilerIdNew.view().operator std::string_view().contains("gnu") || osCompilerIdNew.view().operator std::string_view().contains("gcc") ||
+		osCompilerIdNew.view().operator std::string_view().contains("g++") || osCompilerIdNew.view().operator std::string_view().contains("apple")) {
+		return jsonifier_internal::string_literal{ "GNUCXX" };
+	} else if constexpr (osCompilerIdNew.view().operator std::string_view().contains("clang")) {
+		return jsonifier_internal::string_literal{ "CLANG" };
+	} else if constexpr (osCompilerIdNew.view().operator std::string_view().contains("msvc")) {
+		return jsonifier_internal::string_literal{ "MSVC" };
+	} else {
+		return jsonifier_internal::string_literal{ "" };
+	}
+}
+
+constexpr auto getCurrentPathImpl() {
+	return getCurrentOperatingSystem() + "-" + getCurrentCompilerId();
+}
+
+constexpr jsonifier_internal::string_literal basePath{ BASE_PATH };
+constexpr jsonifier_internal::string_literal testPath{ basePath + "/Source" };
+constexpr jsonifier_internal::string_literal readMePath{ BASE_PATH };
+constexpr jsonifier_internal::string_literal jsonPath{ basePath + "/Json" };
+constexpr jsonifier_internal::string_literal jsonOutPath{ jsonPath + "/" + getCurrentPathImpl() };
+constexpr jsonifier_internal::string_literal graphsPath{ basePath + "/Graphs/" + getCurrentPathImpl() + "/" };
+constexpr jsonifier_internal::string_literal jsonifierLibraryName{ "jsonifier" };
+constexpr jsonifier_internal::string_literal jsonifierCommitUrlBase{ "https://github.com/realtimechris/jsonifier/commit/" };
+constexpr jsonifier_internal::string_literal simdjsonLibraryName{ "simdjson" };
+constexpr jsonifier_internal::string_literal simdjsonCommitUrlBase{ "https://github.com/simdjson/simdjson/commit/" };
+constexpr jsonifier_internal::string_literal glazeLibraryName{ "glaze" };
+constexpr jsonifier_internal::string_literal glazeCommitUrlBase{ "https://github.com/stephenberry/glaze/commit/" };
+constexpr jsonifier_internal::string_literal jsonifierCommitUrl{ jsonifierCommitUrlBase + JSONIFIER_COMMIT };
+constexpr jsonifier_internal::string_literal simdjsonCommitUrl{ simdjsonCommitUrlBase + SIMDJSON_COMMIT };
+constexpr jsonifier_internal::string_literal glazeCommitUrl{ glazeCommitUrlBase + GLAZE_COMMIT };
+
 class test_base {
   public:
 	test_base() noexcept = default;
@@ -41,9 +96,84 @@ class test_base {
 	std::string testName{};
 };
 
+std::string getCPUInfo() {
+	char brand[49] = { 0 };
+	int32_t regs[12]{};
+	size_t length{};
+#if defined(__x86_64__) || defined(_M_AMD64)
+	static constexpr auto cpuid = [](int32_t* eax, int32_t* ebx, int32_t* ecx, int32_t* edx) {
+	#if defined(_MSC_VER)
+		int32_t cpuInfo[4];
+		__cpuidex(cpuInfo, *eax, *ecx);
+		*eax = cpuInfo[0];
+		*ebx = cpuInfo[1];
+		*ecx = cpuInfo[2];
+		*edx = cpuInfo[3];
+	#elif defined(HAVE_GCC_GET_CPUID) && defined(USE_GCC_GET_CPUID)
+		uint32_t level = *eax;
+		__get_cpuid(level, eax, ebx, ecx, edx);
+	#else
+		uint32_t a = *eax, b, c = *ecx, d;
+		asm volatile("cpuid" : "=a"(a), "=b"(b), "=c"(c), "=d"(d) : "a"(a), "c"(c));
+		*eax = a;
+		*ebx = b;
+		*ecx = c;
+		*edx = d;
+	#endif
+	};
+	regs[0] = 0x80000000;
+	cpuid(regs, regs + 1, regs + 2, regs + 3);
+	if (static_cast<uint32_t>(regs[0]) < 0x80000004) {
+		return {};
+	}
+	regs[0] = 0x80000002;
+	cpuid(regs, regs + 1, regs + 2, regs + 3);
+	regs[4] = 0x80000003;
+	cpuid(regs + 4, regs + 5, regs + 6, regs + 7);
+	regs[8] = 0x80000004;
+	cpuid(regs + 8, regs + 9, regs + 10, regs + 11);
+	memcpy(brand, regs, sizeof(regs));
+	length = std::strlen(brand) > 0 ? std::strlen(brand) - 1 : 0;
+	std::string returnValues{};
+	returnValues.resize(length - 1);
+	std::copy(brand, brand + length, returnValues.data());
+	return returnValues.substr(0, returnValues.find_last_of("abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ") + 1);
+#else
+	char newBuffer[256];
+	size_t bufferSize = sizeof(newBuffer);
+	if (sysctlbyname("machdep.cpu.brand_string", &newBuffer, &bufferSize, nullptr, 0) == 0) {
+		return std::string(newBuffer);
+	} else {
+		return std::string{ "Unknown CPU" };
+	}
+#endif
+}
+
+std::string getCurrentWorkingDirectory() {
+	try {
+		return std::filesystem::current_path().string();
+	} catch (const std::filesystem::filesystem_error& e) {
+		std::cout << "Error: " << e.what() << std::endl;
+		return "";
+	}
+}
+
+void executePythonScript(const std::string& scriptPath, const std::string& argument01, const std::string& argument02) {
+#if defined(JSONIFIER_WIN)
+	static std::string pythonName{ "python " };
+#else
+	static std::string pythonName{ "python3 " };
+#endif
+	std::string command = pythonName + scriptPath + " " + argument01 + " " + argument02;
+	int32_t result		= system(command.data());
+	if (result != 0) {
+		std::cout << "Error: Failed to execute Python script. Command exited with code " << result << std::endl;
+	}
+}
+
 bool processFilesInFolder(std::unordered_map<std::string, test_base>& resultFileContents, const std::string& testType) noexcept {
 	try {
-		for (const auto& entry: std::filesystem::directory_iterator(std::string{ JSON_TEST_PATH } + testType)) {
+		for (const auto& entry: std::filesystem::directory_iterator(std::string{ testPath } + testType)) {
 			if (entry.is_regular_file()) {
 				const std::string fileName = entry.path().filename().string();
 
@@ -129,7 +259,7 @@ template<typename value_type> struct test_generator {
 
 		std::string result{};
 		size_t insertedUnicode = 0;
-		auto iter				= unicodeIndices.begin();
+		auto iter			   = unicodeIndices.begin();
 		for (size_t x = 0; x < length; ++x) {
 			if (iter < unicodeIndices.end() && x == *iter) [[unlikely]] {
 				insertUnicodeInJSON(result);
@@ -266,37 +396,26 @@ template<result_type type> constexpr auto enumToString() {
 template<result_type type> struct result {
 	std::optional<double> jsonSpeedVariation{};
 	std::optional<size_t> byteLength{};
+	std::optional<double> jsonCycles{};
 	std::optional<double> jsonSpeed{};
 	std::optional<double> jsonTime{};
 	std::string color{};
+
+	result() noexcept = default;
 
 	result& operator=(result&&) noexcept	  = default;
 	result(result&&) noexcept				  = default;
 	result& operator=(const result&) noexcept = default;
 	result(const result&) noexcept			  = default;
 
-	result() noexcept = default;
-
-	double getResultValueMbs(double input01, uint64_t input02) const {
-#if !defined(JSONIFIER_MAC)
-		input01 = bnch_swt::cyclesToTime(input01, bnch_swt::getCpuFrequency());
-#endif
-		auto mbWrittenCount	  = static_cast<double>(input02) / 1e+6l;
-		auto writeSecondCount = input01 / 1e+9l;
-		return mbWrittenCount / writeSecondCount;
-	}
-
-	double getResultValueCyclesMb(double input01, uint64_t input02) const {
-		auto mbWrittenCount	  = static_cast<double>(input02) / 1e+6l;
-		auto writeSecondCount = input01 / mbWrittenCount;
-		return writeSecondCount;
-	}
-
 	result(const std::string& colorNew, size_t byteLengthNew, const bnch_swt::performance_metrics& results) {
 		byteLength.emplace(byteLengthNew);
 		jsonTime.emplace(results.timeInns);
 		jsonSpeedVariation.emplace(results.throughputVariation.value());
 		jsonSpeed.emplace(results.throughputMbPerSec.value());
+		if (results.cyclesPerByte.has_value()) {
+			jsonCycles.emplace(results.cyclesPerByte.value() * 1024 * 1024);
+		}
 		color = colorNew;
 	}
 
@@ -320,10 +439,10 @@ struct results_data {
 	std::unordered_set<std::string> jsonifierExcludedKeys{};
 	result<result_type::write> writeResult{};
 	result<result_type::read> readResult{};
+	size_t iterations{};
 	std::string name{};
 	std::string test{};
 	std::string url{};
-	size_t iterations{};
 
 	bool operator>(const results_data& other) const noexcept {
 		if (readResult && other.readResult) {
@@ -358,66 +477,24 @@ struct results_data {
 	}
 
 	std::string jsonStats() const noexcept {
-		std::string writeLength{};
-		std::string writeTime{};
-		std::string writeIterationCount{};
-		std::string writeVariation{};
-		std::string write{};
-		std::string write02{};
-		std::string readLength{};
-		std::string readTime{};
-		std::string readIterationCount{};
-		std::string readVariation{};
-		std::string read{};
-		std::string read02{};
 		std::string finalString{ "| [" + name + "](" + url + ") | " };
 		if (readResult.jsonTime.has_value() && readResult.byteLength.has_value()) {
-#if !defined(JSONIFIER_MAC)
-			std::stringstream stream00{};
-			stream00 << std::setprecision(6) << readResult.getResultValueCyclesMb(readResult.jsonTime.value(), readResult.byteLength.value());
-			read02 = stream00.str();
-#endif
-			std::stringstream stream01{};
-			stream01 << std::setprecision(6) << readResult.jsonSpeed.value();
-			read = stream01.str();
-			std::stringstream stream02{};
-			stream02 << std::setprecision(6) << readResult.jsonSpeedVariation.value();
-			readVariation = stream02.str();
-			std::stringstream stream03{};
-			stream03 << readResult.byteLength.value();
-			readLength = stream03.str();
-			std::stringstream stream04{};
-			stream04 << std::setprecision(6) << readResult.jsonTime.value();
-			readTime = stream04.str();
-			finalString += read + " | " + readVariation + " | ";
-#if !defined(JSONIFIER_MAC)
-			finalString += read02 + " | ";
-#endif
-			finalString += readLength + " | " + readTime + " | ";
+			std::ostringstream finalStream{};
+			finalStream << std::setprecision(6) << readResult.jsonSpeed.value() << " | " << std::setprecision(6) << readResult.jsonSpeedVariation.value() << " | ";
+			if (readResult.jsonCycles.has_value()) {
+				finalStream << std::setprecision(6) << readResult.jsonCycles.value() << " | ";
+			}
+			finalStream << readResult.byteLength.value() << " | " << std::setprecision(6) << readResult.jsonTime.value() << " | ";
+			finalString += finalStream.str();
 		}
 		if (writeResult.jsonTime.has_value() && writeResult.byteLength.has_value()) {
-#if !defined(JSONIFIER_MAC)
-			std::stringstream stream00{};
-			stream00 << std::setprecision(6) << writeResult.getResultValueCyclesMb(writeResult.jsonTime.value(), writeResult.byteLength.value());
-			write02 = stream00.str();
-#endif
-			std::stringstream stream01{};
-			stream01 << std::setprecision(6) << writeResult.jsonSpeed.value();
-			write = stream01.str();
-			std::stringstream stream02{};
-			stream02 << writeResult.byteLength.value();
-			writeLength = stream02.str();
-			std::stringstream stream03{};
-			stream03 << std::setprecision(6) << writeResult.jsonTime.value();
-			writeTime = stream03.str();
-			std::stringstream stream04{};
-			stream04 << std::setprecision(4) << writeResult.jsonSpeedVariation.value();
-			writeVariation = stream04.str();
-			finalString += write + " | " + writeVariation + " | ";
-#if !defined(JSONIFIER_MAC)
-			finalString += write02 + " | ";
-#endif
-			finalString += writeLength + " | " + writeTime + " | ";
+			std::ostringstream finalStream{};
+			finalStream << std::setprecision(6) << writeResult.jsonSpeed.value() << " | " << std::setprecision(6) << writeResult.jsonSpeedVariation.value() << " | ";
+			if (writeResult.jsonCycles.has_value()) {
+				finalStream << std::setprecision(6) << writeResult.jsonCycles.value() << " | ";
+			}
+			finalStream << writeResult.byteLength.value() << " | " << std::setprecision(6) << writeResult.jsonTime.value() << " | ";
+			finalString += finalStream.str();
 		}
 		return finalString;
 	}
@@ -428,3 +505,15 @@ struct test_results {
 	std::string markdownResults{};
 	std::string testName{};
 };
+
+std::tm getTime() {
+#if defined(JSONIFIER_WIN)
+	std::time_t result = std::time(nullptr);
+	std::tm resultTwo{};
+	localtime_s(&resultTwo, &result);
+	return resultTwo;
+#else
+	std::time_t result = std::time(nullptr);
+	return *localtime(&result);
+#endif
+}

@@ -63,11 +63,14 @@ target_link_libraries(
 target_compile_options(
 	"Json-Performance" PUBLIC
 	"$<$<CXX_COMPILER_ID:MSVC>:$<$<STREQUAL:${ASAN_ENABLED},TRUE>:/fsanitize=address>>"
+	"$<$<CXX_COMPILER_ID:CLANG>:-Wpedantic>"
+	"$<$<CXX_COMPILER_ID:GNU>:-Wpedantic>"
 	"$<$<CXX_COMPILER_ID:CLANG>:-Wextra>"
 	"$<$<CXX_COMPILER_ID:CLANG>:-Wall>"
 	"$<$<CXX_COMPILER_ID:GNU>:-Wextra>"
 	"$<$<CXX_COMPILER_ID:MSVC>:/Wall>"
 	"$<$<CXX_COMPILER_ID:GNU>:-Wall>"
+	"$<$<CXX_COMPILER_ID:MSVC>:/W4>"
 )
 
 target_link_options(
@@ -86,15 +89,10 @@ endif()
 
 target_compile_definitions(
 	"Json-Performance" PUBLIC 
-	"JSON_TEST_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Source/\""
-	"JSON_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Json\""
-	"README_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/\""
-	"GRAPHS_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Graphs\""
-	"BASE_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/\""
+	"BASE_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}\""
 	"JSONIFIER_COMMIT=\"${JSONIFIER_COMMIT_HASH}\""
 	"SIMDJSON_COMMIT=\"${SIMDJSON_COMMIT_HASH}\""
 	"GLAZE_COMMIT=\"${GLAZE_COMMIT_HASH}\""
-	"GIT_BRANCH=\"${GIT_BRANCH}\""
 	"OPERATING_SYSTEM_NAME=\"${CMAKE_SYSTEM_NAME}\""
 	"OPERATING_SYSTEM_VERSION=\"${CMAKE_SYSTEM_VERSION}\""
 	"COMPILER_ID=\"${CMAKE_CXX_COMPILER_ID}\""

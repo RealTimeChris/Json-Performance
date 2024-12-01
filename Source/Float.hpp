@@ -20,6 +20,8 @@
 	DEALINGS IN THE SOFTWARE.
 */
 /// https://github.com/RealTimeChris/jsonifier
+#pragma once
+
 #include "Common.hpp"
 
 #include <jsonifier/Index.hpp>
@@ -72,7 +74,7 @@ namespace float_validation_tests {
 	bool floatTests() noexcept {
 		jsonifier::jsonifier_core parser{};
 		std::unordered_map<std::string, test_base> jsonTests{};
-		processFilesInFolder(jsonTests, "FloatValidation");
+		processFilesInFolder(jsonTests, "/FloatValidation");
 		std::cout << "Float Tests: " << std::endl;
 		runTest("test1.json", jsonTests["test1.json"].fileContents, parser);
 		runTest("test2.json", jsonTests["test2.json"].fileContents, parser);

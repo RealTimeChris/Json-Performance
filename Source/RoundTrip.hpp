@@ -20,6 +20,8 @@
 	DEALINGS IN THE SOFTWARE.
 */
 /// https://github.com/RealTimeChris/jsonifier
+#pragma once
+
 #include "Common.hpp"
 
 #include <unordered_map>
@@ -77,7 +79,7 @@ namespace round_trip_tests {
 	bool roundTripTests() noexcept {
 		jsonifier::jsonifier_core parser{};
 		std::unordered_map<std::string, test_base> jsonTests{};
-		processFilesInFolder(jsonTests, "RoundTrip");
+		processFilesInFolder(jsonTests, "/RoundTrip");
 		std::cout << "RoundTrip Tests: " << std::endl;
 		runTest<std::vector<int32_t*>>("roundtrip01.json", jsonTests["roundtrip01.json"].fileContents, parser);
 		runTest<std::vector<bool>>("roundtrip02.json", jsonTests["roundtrip02.json"].fileContents, parser);

@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - main
-    - benchmarking
+    - benchmarking-new
 
 jobs:
   Build-MSVC-Windows:
@@ -332,17 +331,17 @@ jobs:
         sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
         sudo git config --global user.name "RealTimeChris"
         sudo git fetch origin
-        sudo git checkout benchmarking
-        sudo git pull -f origin benchmarking
-        sudo git merge origin/temp-msvc-windows --no-ff --allow-unrelated-histories
-        sudo git merge origin/temp-gnucxx-ubuntu --no-ff --allow-unrelated-histories
-        sudo git merge origin/temp-clang-ubuntu --no-ff --allow-unrelated-histories
-        sudo git merge origin/temp-gnucxx-macos --no-ff --allow-unrelated-histories
-        sudo git merge origin/temp-clang-macos --no-ff --allow-unrelated-histories
+        sudo git config pull.ff only
+        sudo git checkout benchmarking-new
+        sudo git pull -f origin benchmarking-new
+        sudo git merge origin/temp-msvc-windows --no-ff
+        sudo git merge origin/temp-gnucxx-ubuntu --no-ff
+        sudo git merge origin/temp-clang-ubuntu --no-ff
+        sudo git merge origin/temp-gnucxx-macos --no-ff
+        sudo git merge origin/temp-clang-macos --no-ff
         sudo git checkout --orphan newBranch
         sudo git add .
         sudo git commit -m "Updating necessary files."
-        sudo git branch -D benchmarking
         sudo git branch -m benchmarking
         sudo git push origin benchmarking -f
 
