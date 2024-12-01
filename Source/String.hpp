@@ -54,7 +54,7 @@ namespace string_validation_tests {
 	bool stringTests() noexcept {
 		jsonifier::jsonifier_core parser{};
 		std::unordered_map<std::string, test_base> jsonTests{};
-		processFilesInFolder(jsonTests, "StringValidation");
+		processFilesInFolder(jsonTests, "/StringValidation");
 		std::cout << "String Tests: " << std::endl;
 		runTest("test1.json", jsonTests["test1.json"].fileContents, parser);
 		runTest("test2.json", jsonTests["test2.json"].fileContents, parser);

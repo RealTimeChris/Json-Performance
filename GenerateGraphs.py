@@ -56,66 +56,26 @@ def calculate_cumulative_speedup(df):
 
     return cumulative_speedups
 
-def plot_cumulative_speedup(df, cumulative_speedups, output_folder, test_name):
-    sns.set_style("dark")
-    sns.set_style(rc={'axes.facecolor': '#0d1117'})
-    plt.figure(figsize=(10, 6))
-    ax = plt.gca()
-    
-    sns.set_theme(style="whitegrid", rc={"axes.edgecolor": "#0d1117", "xtick.color": "#0d1117", "ytick.color": "#0d1117"})
-    plt.gcf().set_facecolor("#0d1117")
-    ax = plt.gca()
+def plot_speed_results(
+    df, 
+    speed_data, 
+    output_folder, 
+    test_name, 
+    is_cumulative=False, 
+    y_label="Result Speed (MB/s)",
+    label_metric = "MB/s"
+):
+    """
+    Plots either cumulative speedups or raw speed comparisons for libraries.
 
-    sorted_df = df.sort_values(by="resultSpeed", ascending=False)
-
-    library_colors = {}
-    for _, row in sorted_df.iterrows():
-        library_colors[(row['libraryName'], row['resultType'])] = row['color']
-
-    libraries = sorted_df["libraryName"].unique()
-
-    cumulative_speedup_read = cumulative_speedups.get("Read", [0] * len(libraries))
-    cumulative_speedup_write = cumulative_speedups.get("Write", [0] * len(libraries))
-
-    num_libraries = len(libraries)
-    max_libraries = max(2, num_libraries)
-    width = 0.8 / max_libraries
-
-    for i, library in enumerate(libraries):
-        read_speedup = cumulative_speedup_read[i] if i < len(cumulative_speedup_read) else 0
-        write_speedup = cumulative_speedup_write[i] if i < len(cumulative_speedup_write) else 0
-
-        read_color = library_colors.get((library, 'Read'), 'gray')
-        write_color = library_colors.get((library, 'Write'), 'gray')
-
-        font_size = max(8, width * 30) 
-        if read_speedup != 0:
-            read_bar = ax.bar(i - width / 2, read_speedup, label=f"{library} Read", color=read_color, width=width)
-            ax.text(i - width / 2, read_speedup - read_speedup * 0.05,
-                    f"{read_speedup:.2f}%", ha='center', va='top', color='black', fontsize=font_size, fontweight='bold')
-
-        if write_speedup != 0:
-            write_bar = ax.bar(i + width / 2, write_speedup, label=f"{library} Write", color=write_color, width=width)
-            ax.text(i + width / 2, write_speedup - write_speedup * 0.05,
-                    f"{write_speedup:.2f}%", ha='center', va='top', color='black', fontsize=font_size, fontweight='bold')
-
-    ax.set_xticks(range(len(libraries)))
-    ax.set_xticklabels(libraries)
-    ax.set_title(f'{test_name} Cumulative Speedup (Relative to Slowest Library)', color='white')
-    ax.set_xlabel('Library Name', color='white')
-    ax.set_ylabel('Cumulative Speedup (%)', color='white')
-
-    handles, labels = ax.get_legend_handles_labels()
-    for text in ax.get_xticklabels() + ax.get_yticklabels():
-        text.set_color('lightgray')
-
-    ax.legend(title='Library and Result Type', loc='best')
-
-    output_file_path_speedup = os.path.join(output_folder, f'{test_name}_Cumulative_Speedup.png')
-    plt.savefig(output_file_path_speedup)
-    plt.close()
-
-def plot_raw_comparisons(df, raw_speeds, output_folder, test_name):
+    Args:
+        df (pd.DataFrame): The DataFrame containing library performance data.
+        speed_data (dict): The speed data, with keys "Read" and "Write".
+        output_folder (str): Path to the folder where the plot will be saved.
+        test_name (str): Name of the test for labeling the output.
+        is_cumulative (bool): If True, plots cumulative speedups; otherwise, raw speeds.
+        y_label (str): Label for the y-axis.
+    """
     sns.set_style("dark")
     sns.set_style(rc={'axes.facecolor': '#0d1117'})
     plt.figure(figsize=(10, 6))
@@ -125,54 +85,71 @@ def plot_raw_comparisons(df, raw_speeds, output_folder, test_name):
     plt.gcf().set_facecolor("#0d1117")
     ax = plt.gca()
 
-    sorted_df = df.sort_values(by="resultSpeed", ascending=False)
+    has_read_results = "Read" in df["resultType"].unique()
+    has_write_results = "Write" in df["resultType"].unique()
 
-    library_colors = {}
-    for _, row in sorted_df.iterrows():
-        library_colors[(row['libraryName'], row['resultType'])] = row['color']
+    if has_read_results:
+        sort_df = df[df["resultType"] == "Read"].sort_values(by="resultSpeed", ascending=False)
+    elif has_write_results:
+        sort_df = df[df["resultType"] == "Write"].sort_values(by="resultSpeed", ascending=False)
+    else:
+        print("No read or write results found in the DataFrame.")
+        return
 
-    libraries = sorted_df["libraryName"].unique()
+    sorted_libraries = sort_df["libraryName"].tolist()
 
-    cumulative_speedup_read = raw_speeds.get("Read", [0] * len(libraries))
-    cumulative_speedup_write = raw_speeds.get("Write", [0] * len(libraries))
+    library_colors = {
+        (row['libraryName'], row['resultType']): row['color']
+        for _, row in df.iterrows()
+    }
 
-    num_libraries = len(libraries)
+    speed_read = speed_data.get("Read", [0] * len(sorted_libraries))
+    speed_write = speed_data.get("Write", [0] * len(sorted_libraries))
+
+    num_libraries = len(sorted_libraries)
     max_libraries = max(2, num_libraries)
     width = 0.8 / max_libraries
 
-    for i, library in enumerate(libraries):
-        read_speedup = cumulative_speedup_read[i] if i < len(cumulative_speedup_read) else 0
-        write_speedup = cumulative_speedup_write[i] if i < len(cumulative_speedup_write) else 0
+    for i, library in enumerate(sorted_libraries):
+        read_speed = speed_read[i] if i < len(speed_read) else 0
+        write_speed = speed_write[i] if i < len(speed_write) else 0
 
         read_color = library_colors.get((library, 'Read'), 'gray')
         write_color = library_colors.get((library, 'Write'), 'gray')
+
         font_size = max(8, width * 30)
+
+        if read_speed != 0 and write_speed != 0:
+            ax.bar(i - width / 2, read_speed, label=f"{library} Read", color=read_color, width=width)
+            ax.bar(i + width / 2, write_speed, label=f"{library} Write", color=write_color, width=width)
+        elif read_speed != 0:
+            ax.bar(i, read_speed, label=f"{library} Read", color=read_color, width=width)
+        elif write_speed != 0:
+            ax.bar(i, write_speed, label=f"{library} Write", color=write_color, width=width)
+        
+        if read_speed != 0:
+            ax.text(i - width / 2 if write_speed != 0 else i, read_speed - 0.05 * read_speed,
+                    f"{read_speed:.2f}"+label_metric, ha='center', va='top', color='black', fontsize=font_size, fontweight='bold')
+        if write_speed != 0:
+            ax.text(i + width / 2 if read_speed != 0 else i, write_speed - 0.05 * write_speed,
+                    f"{write_speed:.2f}"+label_metric, ha='center', va='top', color='black', fontsize=font_size, fontweight='bold')
     
-        if read_speedup != 0:
-            read_bar = ax.bar(i - width / 2, read_speedup, label=f"{library} Read", color=read_color, width=width)
-            ax.text(i - width / 2, read_speedup - read_speedup * 0.05,
-                    f"{read_speedup:.2f}MB/s", ha='center', va='top', color='black', fontsize=font_size, fontweight='bold')
-
-        if write_speedup != 0:
-            write_bar = ax.bar(i + width / 2, write_speedup, label=f"{library} Write", color=write_color, width=width)
-            ax.text(i + width / 2, write_speedup - write_speedup * 0.05,
-                    f"{write_speedup:.2f}MB/s", ha='center', va='top', color='black', fontsize=font_size, fontweight='bold')
-
-
-    ax.set_xticks(range(len(libraries)))
-    ax.set_xticklabels(libraries)
-    ax.set_title(f'{test_name} Result Speed Comparison', color='white')
+    ax.set_xticks(range(len(sorted_libraries)))
+    ax.set_xticklabels(sorted_libraries, ha='center')
+    ax.set_title(
+        f"{test_name} {'Cumulative Speedup (Relative to Slowest Library)' if is_cumulative else 'Result Speed Comparison'}",
+        color='white'
+    )
     ax.set_xlabel('Library Name', color='white')
-    ax.set_ylabel('Result Speed (MB/s)', color='white')
-
-    handles, labels = ax.get_legend_handles_labels()
+    ax.set_ylabel(y_label, color='white')
+    
     for text in ax.get_xticklabels() + ax.get_yticklabels():
         text.set_color('lightgray')
-
+    
     ax.legend(title='Library and Result Type', loc='best')
-
-    output_file_path_speedup = os.path.join(output_folder, f'{test_name}_Results.png')
-    plt.savefig(output_file_path_speedup)
+    
+    output_file_path = os.path.join(output_folder, f"{test_name}_{'Cumulative_Speedup' if is_cumulative else 'Results'}.png")
+    plt.savefig(output_file_path)
     plt.close()
 
 def main():
@@ -191,11 +168,11 @@ def main():
         raw_speed = get_raw_speeds(df)
 
         cumulative_speedups = calculate_cumulative_speedup(df)
-
-        plot_raw_comparisons(df, raw_speed , output_folder, test["testName"])
-
-        plot_cumulative_speedup(df, cumulative_speedups, output_folder, test["testName"])
-
+        
+        plot_speed_results(df, raw_speed, output_folder, test["testName"], is_cumulative = False, y_label = "Result Speed (MB/s)")
+        
+        plot_speed_results(df, cumulative_speedups, output_folder, test["testName"], is_cumulative = True, y_label = "Cumulative Speedup (%)", label_metric="%")
+        
         print(f'Graphs saved successfully for {test["testName"]}!')
 
 if __name__ == "__main__":
