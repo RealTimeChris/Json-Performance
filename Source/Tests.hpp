@@ -47,18 +47,16 @@ namespace tests {
 		simdjson  = 2,
 	};
 
-	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const jsonifier_internal::string_literal testName>
-	struct json_test_helper {};
+	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testName> struct json_test_helper {};
 
-	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const jsonifier_internal::string_literal testName>
-	struct json_test_helper;
+	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testName> struct json_test_helper;
 
-	template<typename test_data_type, bool minified, size_t iterations, const jsonifier_internal::string_literal testNameNew>
+	template<typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
 		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
-			static constexpr jsonifier_internal::string_literal testNameRead{ testName + "-Read" };
-			static constexpr jsonifier_internal::string_literal testNameWrite{ testName + "-Write" };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
+			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
 			static constexpr bool partialRead{ std::is_same_v<test_data_type, partial_test<test_struct>> };
 			static constexpr bool knownOrder{ !std::is_same_v<test_data_type, abc_test<test_struct>> };
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
@@ -68,10 +66,8 @@ namespace tests {
 				parser.parseJson(testData, newBuffer);
 			}
 			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<testName, jsonifierLibraryName, "teal">([&]() mutable {
-				test_data_type testDataNew{};
-				parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDataNew, newBuffer);
-				bnch_swt::doNotOptimizeAway(testDataNew);
-				testData = std::move(testDataNew);
+				parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testData, newBuffer);
+				bnch_swt::doNotOptimizeAway(testData);
 				return newBuffer.size();
 			});
 			for (auto& value: parser.getErrors()) {
@@ -97,10 +93,10 @@ namespace tests {
 		}
 	};
 
-	template<size_t iterations, jsonifier_internal::string_literal testNameNew>
+	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::prettify, std::string, false, iterations, testNameNew> {
 		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 			jsonifier::jsonifier_core parser{};
 			std::string newerBuffer{};
@@ -119,10 +115,10 @@ namespace tests {
 		}
 	};
 
-	template<size_t iterations, jsonifier_internal::string_literal testNameNew>
+	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::minify, std::string, false, iterations, testNameNew> {
 		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			std::string newerBuffer{};
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 			jsonifier::jsonifier_core parser{};
@@ -140,10 +136,10 @@ namespace tests {
 		}
 	};
 
-	template<size_t iterations, jsonifier_internal::string_literal testNameNew>
+	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::validate, std::string, false, iterations, testNameNew> {
 		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 			jsonifier::jsonifier_core parser{};
 			auto readResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() {
@@ -160,12 +156,12 @@ namespace tests {
 		}
 	};
 
-	template<typename test_data_type, bool minified, size_t iterations, jsonifier_internal::string_literal testNameNew>
+	template<typename test_data_type, bool minified, size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::glaze, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
 		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
-			static constexpr jsonifier_internal::string_literal testNameRead{ testName + "-Read" };
-			static constexpr jsonifier_internal::string_literal testNameWrite{ testName + "-Write" };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
+			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
 			static constexpr bool partialRead{ std::is_same_v<test_data_type, partial_test<test_struct>> };
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
 			test_data_type testData{};
@@ -177,18 +173,16 @@ namespace tests {
 				}
 			}
 			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<testName, glazeLibraryName, "dodgerblue">([&]() {
-				test_data_type testDataNew{};
 				if (auto error = glz::read<glz::opts{ .error_on_unknown_keys = !partialRead,
 						.skip_null_members									 = false,
 						.prettify											 = !minified,
 						.minified											 = minified,
 						.partial_read										 = partialRead,
-						.partial_read_nested								 = partialRead }>(testDataNew, newBuffer);
+						.partial_read_nested								 = partialRead }>(testData, newBuffer);
 					error) {
 					std::cout << "Glaze Error: " << glz::format_error(error, newBuffer) << std::endl;
 				}
-				bnch_swt::doNotOptimizeAway(testDataNew);
-				testData = std::move(testDataNew);
+				bnch_swt::doNotOptimizeAway(testData);
 				return newBuffer.size();
 			});
 			std::string newerBuffer{};
@@ -208,10 +202,10 @@ namespace tests {
 		}
 	};
 
-	template<size_t iterations, jsonifier_internal::string_literal testNameNew>
+	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::glaze, test_type::prettify, std::string, false, iterations, testNameNew> {
 		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
 			std::string newerBuffer{};
@@ -229,10 +223,9 @@ namespace tests {
 		}
 	};
 
-	template<size_t iterations, jsonifier_internal::string_literal testNameNew>
-	struct json_test_helper<json_library::glaze, test_type::minify, std::string, false, iterations, testNameNew> {
+	template<size_t iterations, bnch_swt::string_literal testNameNew> struct json_test_helper<json_library::glaze, test_type::minify, std::string, false, iterations, testNameNew> {
 		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 
 			std::string newestBuffer{ newBuffer };
 			std::string newerBuffer{};
@@ -251,10 +244,10 @@ namespace tests {
 		}
 	};
 
-	template<size_t iterations, jsonifier_internal::string_literal testNameNew>
+	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::glaze, test_type::validate, std::string, false, iterations, testNameNew> {
 		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
 			auto readResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, glazeLibraryName, "skyblue">([&]() {
 				bnch_swt::doNotOptimizeAway(glz::validate_json(newBuffer));
@@ -268,30 +261,24 @@ namespace tests {
 		}
 	};
 
-	template<typename test_data_type, bool minified, size_t iterations, jsonifier_internal::string_literal testNameNew>
+	template<typename test_data_type, bool minified, size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::simdjson, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
 		JSONIFIER_INLINE static auto run(std::string& newestBuffer) {
 			std::string newBuffer{ newestBuffer };
 			newBuffer.reserve(newBuffer.size() + 256);
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
-			static constexpr jsonifier_internal::string_literal testNameRead{ testName + "-Read" };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			results_data r{ simdjsonLibraryName, testName, simdjsonCommitUrl, iterations };
 			simdjson::ondemand::parser parser{};
 			test_data_type testData{};
 			auto readSize	= newBuffer.size();
 			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<testName, simdjsonLibraryName, "cadetblue">([&]() {
-				test_data_type testDataNew{};
 				try {
-					auto doc = parser.iterate(newBuffer);
-					if (auto error = doc.get(testDataNew); error != simdjson::SUCCESS) {
-						std::cout << "Simdjson Error: " << error << std::endl;
-					} else {
-						std::cout << "Simdjson Error: " << testData.features.size() << std::endl;
-					}
-					bnch_swt::doNotOptimizeAway(testDataNew);
-					testData = std::move(testDataNew);
+					getValue(testData, parser.iterate(newBuffer).value());
+					bnch_swt::doNotOptimizeAway(testData);
 					return newBuffer.size();
 				} catch (std::exception& error) {
+					std::cout << "Simdjson Error: " << error.what() << std::endl;
 					return newBuffer.size();
 				}
 			});
@@ -306,9 +293,9 @@ namespace tests {
 		}
 	};
 
-	template<size_t iterations, jsonifier_internal::string_literal testNameNew>
+	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::simdjson, test_type::minify, std::string, false, iterations, testNameNew> {
-		static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+		static constexpr bnch_swt::string_literal testName{ testNameNew };
 		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
 			results_data r{ simdjsonLibraryName, testName, simdjsonCommitUrl, iterations };
 
@@ -335,31 +322,31 @@ namespace tests {
 	};
 
 #if defined(JSONIFIER_MAC)
-	constexpr jsonifier_internal::string_literal table_header = jsonifier_internal::string_literal{ R"(
+	constexpr bnch_swt::string_literal table_header = bnch_swt::string_literal{ R"(
 | Library | Read (MB/S) | Read Variation (+/-%) | Read Length (Bytes) | Read Time (ns) | Write (MB/S) | Write Variation (+/-%) | Write Length (Bytes) | Write Time (ns) |
 | ------- | ----------- | --------------------- | ------------------- | -------------- | ------------ | ---------------------- | -------------------- | ----------------|  )" };
 
-	constexpr jsonifier_internal::string_literal read_table_header = jsonifier_internal::string_literal{ R"(
+	constexpr bnch_swt::string_literal read_table_header = bnch_swt::string_literal{ R"(
 | Library | Read (MB/S) | Read Variation (+/-%) | Read Length (Bytes) | Read Time (ns) |
 | ------- | ----------- | --------------------- | ------------------- | -------------- |  )" };
 
-	constexpr jsonifier_internal::string_literal write_table_header = jsonifier_internal::string_literal{
+	constexpr bnch_swt::string_literal write_table_header = bnch_swt::string_literal{
 		R"(
 | Library | Write (MB/S) | Write Variation (+/-%) | Write Length (Bytes) | Write Time (ns) |
 | ------- | ------------ | ---------------------- | -------------------- | --------------- |  )"
 	};
 #else
-	constexpr jsonifier_internal::string_literal table_header = jsonifier_internal::string_literal{
+	constexpr bnch_swt::string_literal table_header = bnch_swt::string_literal{
 		R"(
 | Library | Read (MB/S) | Read Variation (+/-%) | Read (Cycles/MB) | Read Length (Bytes) | Read Time (ns) | Write (MB/S) | Write Variation (+/-%) | Write (Cycles/MB) | Write Length (Bytes) | Write Time (ns) |
 | ------- | ----------- | --------------------- | -----------------| ------------------- | -------------- | ------------ | ---------------------- | ------------------| -------------------- | --------------- |  )"
 	};
 
-	constexpr jsonifier_internal::string_literal read_table_header = jsonifier_internal::string_literal{ R"(
+	constexpr bnch_swt::string_literal read_table_header = bnch_swt::string_literal{ R"(
 | Library | Read (MB/S) | Read Variation (+/-%) | Read (Cycles/MB) | Read Length (Bytes) | Read Time (ns) |
 | ------- | ----------- | --------------------- | ---------------- | ------------------- | -------------- |  )" };
 
-	constexpr jsonifier_internal::string_literal write_table_header = jsonifier_internal::string_literal{
+	constexpr bnch_swt::string_literal write_table_header = bnch_swt::string_literal{
 		R"(
 | Library | Write (MB/S) | Write Variation (+/-%) | Write (Cycles/MB) | Write Length (Bytes) | Write Time (ns) |
 | ------- | ------------ | ---------------------- | ----------------- | -------------------- | --------------- |  )"
@@ -372,16 +359,16 @@ namespace tests {
 
 )" };
 
-	constexpr jsonifier_internal::string_literal section002{ jsonifier_internal::string_literal{ R"(#### Using the following commits:
+	constexpr bnch_swt::string_literal section002{ bnch_swt::string_literal{ R"(#### Using the following commits:
 ----
 | Jsonifier: [)" } +
 		JSONIFIER_COMMIT + R"(](https://github.com/RealTimeChris/Jsonifier/commit/)" + JSONIFIER_COMMIT + ")  \n" + R"(| Glaze: [)" + GLAZE_COMMIT +
 		R"(](https://github.com/stephenberry/glaze/commit/)" + GLAZE_COMMIT + ")  \n" + R"(| Simdjson: [)" + SIMDJSON_COMMIT + R"(](https://github.com/simdjson/simdjson/commit/)" +
 		SIMDJSON_COMMIT + ")  \n" };
 
-	constexpr jsonifier_internal::string_literal section00{ R"(# Json-Performance
+	constexpr bnch_swt::string_literal section00{ R"(# Json-Performance
 Performance profiling of JSON libraries (Compiled and run on )" +
-		jsonifier_internal::string_literal{ OPERATING_SYSTEM_NAME } + " " + OPERATING_SYSTEM_VERSION + R"( using the )" + COMPILER_ID + " " + COMPILER_VERSION +
+		bnch_swt::string_literal{ OPERATING_SYSTEM_NAME } + " " + OPERATING_SYSTEM_VERSION + R"( using the )" + COMPILER_ID + " " + COMPILER_VERSION +
 		" compiler).  \n\nLatest Results: (" };
 
 	std::string generateSection(const std::string& testName, const std::string& currentPath) {
@@ -415,11 +402,11 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		return minified ? "Minified" : "Prettified";
 	}
 
-	template<test_type type, typename test_data_type, bool minified, uint64_t iterations, jsonifier_internal::string_literal testName> struct json_tests_helper;
+	template<test_type type, typename test_data_type, bool minified, uint64_t iterations, bnch_swt::string_literal testName> struct json_tests_helper;
 
-	template<test_type type, typename test_data_type, bool minified, uint64_t iterations, jsonifier_internal::string_literal testNameNew> struct json_tests_helper {
+	template<test_type type, typename test_data_type, bool minified, uint64_t iterations, bnch_swt::string_literal testNameNew> struct json_tests_helper {
 		JSONIFIER_INLINE static test_results run(std::string& jsonDataNew) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			test_results jsonResults{};
 			jsonResults.testName = static_cast<std::string>(testName);
 			results_data jsonifierResults{};
@@ -456,9 +443,9 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		}
 	};
 
-	template<uint64_t iterations, jsonifier_internal::string_literal testNameNew> struct json_tests_helper<test_type::prettify, std::string, false, iterations, testNameNew> {
+	template<uint64_t iterations, bnch_swt::string_literal testNameNew> struct json_tests_helper<test_type::prettify, std::string, false, iterations, testNameNew> {
 		JSONIFIER_INLINE static test_results run(std::string& jsonDataNew) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			test_results jsonResults{};
 			jsonResults.testName = static_cast<std::string>(testName);
 			results_data jsonifierResults{};
@@ -490,9 +477,9 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		}
 	};
 
-	template<uint64_t iterations, jsonifier_internal::string_literal testNameNew> struct json_tests_helper<test_type::minify, std::string, false, iterations, testNameNew> {
+	template<uint64_t iterations, bnch_swt::string_literal testNameNew> struct json_tests_helper<test_type::minify, std::string, false, iterations, testNameNew> {
 		JSONIFIER_INLINE static test_results run(std::string& jsonDataNew) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			test_results jsonResults{};
 			jsonResults.testName = static_cast<std::string>(testName);
 			results_data jsonifierResults{};
@@ -527,9 +514,9 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		}
 	};
 
-	template<uint64_t iterations, jsonifier_internal::string_literal testNameNew> struct json_tests_helper<test_type::validate, std::string, false, iterations, testNameNew> {
+	template<uint64_t iterations, bnch_swt::string_literal testNameNew> struct json_tests_helper<test_type::validate, std::string, false, iterations, testNameNew> {
 		JSONIFIER_INLINE static test_results run(std::string& jsonDataNew) {
-			static constexpr jsonifier_internal::string_literal testName{ testNameNew };
+			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			test_results jsonResults{};
 			jsonResults.testName = static_cast<std::string>(testName);
 			results_data jsonifierResults{};
@@ -616,11 +603,12 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		testResults = json_tests_helper<test_type::parse_and_serialize, partial_test<test_struct>, true, maxIterationCount, "Partial Test (Minified)">::run(jsonMinifiedData);
 		newerString += testResults.markdownResults;
 		benchmark_data.emplace_back(testResults);
-		testResults = json_tests_helper<test_type::parse_and_serialize, abc_test<test_struct>, false, maxIterationCount, "Abc (Out of Order) Test (Prettified)">::run(jsonDataNew);
+		testResults =
+			json_tests_helper<test_type::parse_and_serialize, abc_test<abc_test_struct>, false, maxIterationCount, "Abc (Out of Order) Test (Prettified)">::run(jsonDataNew);
 		newerString += testResults.markdownResults;
 		benchmark_data.emplace_back(testResults);
 		testResults =
-			json_tests_helper<test_type::parse_and_serialize, abc_test<test_struct>, true, maxIterationCount, "Abc (Out of Order) Test (Minified)">::run(jsonMinifiedData);
+			json_tests_helper<test_type::parse_and_serialize, abc_test<abc_test_struct>, true, maxIterationCount, "Abc (Out of Order) Test (Minified)">::run(jsonMinifiedData);
 		newerString += testResults.markdownResults;
 		benchmark_data.emplace_back(testResults);
 		testResults = json_tests_helper<test_type::parse_and_serialize, discord_message, false, maxIterationCount, "Discord Test (Prettified)">::run(discordData);
