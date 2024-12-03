@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - benchmarking-new
+    - benchmarking-newer
 
 jobs:
   Build-MSVC-Windows:
@@ -332,8 +332,8 @@ jobs:
         sudo git config --global user.name "RealTimeChris"
         sudo git fetch origin
         sudo git config pull.ff only
-        sudo git checkout benchmarking-new
-        sudo git pull -f origin benchmarking-new
+        sudo git checkout benchmarking-newer
+        sudo git pull -f origin benchmarking-newer
         sudo git merge origin/temp-msvc-windows --no-ff
         sudo git merge origin/temp-gnucxx-ubuntu --no-ff
         sudo git merge origin/temp-clang-ubuntu --no-ff

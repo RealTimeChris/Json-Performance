@@ -20,17 +20,38 @@
 	DEALINGS IN THE SOFTWARE.
 */
 /// https://github.com/RealTimeChris/jsonifier
-#include "Tests.hpp"
+#pragma once
 
-int32_t main() {
-	try {
-		std::cout << "CURRENT SIMD TYPE: " << typeid(jsonifier_simd_int_t).name() << std::endl;
-		tests::testFunction();
+#include "Common.hpp"
 
-	} catch (std::runtime_error& e) {
-		std::cout << e.what() << std::endl;
-	} catch (std::out_of_range& e) {
-		std::cout << e.what() << std::endl;
+#include <jsonifier/Index.hpp>
+#include <filesystem>
+#include <fstream>
+
+namespace bounds_tests {
+
+	bool boundsTests() noexcept {
+		jsonifier::jsonifier_core<> parser{};
+		test_generator<test_struct> tests{};
+		partial_test<test_struct> newTests{};
+		std::string testString{};
+		parser.serializeJson(tests, testString);
+		parser.parseJson(newTests, testString);
+		newTests.m.resize(1);
+		newTests.s.resize(0);
+		parser.serializeJson(newTests, testString);
+		while (testString.size() > 0) {
+			test<test_struct> newData{};
+			parser.parseJson<jsonifier::parse_options{ .minified = true }>(newData, testString);
+			testString.resize(testString.size() - 1);
+		}
+		parser.serializeJson<jsonifier::serialize_options{ .prettify = true }>(newTests, testString);
+		while (testString.size() > 0) {
+			test<test_struct> newData{};
+			parser.parseJson(newData, testString);
+			testString.resize(testString.size() - 1);
+		}
+		return true;
 	}
-	return 0;
-};
+
+}

@@ -222,12 +222,15 @@ template<vector_t value_type> JSONIFIER_INLINE void getValue(value_type& value, 
 	const auto size = value.size();
 	auto iter		= newArray.begin();
 	typename value_type::value_type valueNew{};
+	simdjson::simdjson_result<simdjson::ondemand::value> resultNew;
 	for (size_t x = 0; (x < size) && (iter != newArray.end()); ++x, ++iter) {
-		getValue(valueNew, iter.value().operator*().value());
+		resultNew = iter.value().operator*().value();
+		getValue(valueNew, resultNew.value());
 		value[x] = std::move(valueNew);
 	}
 	for (; iter != newArray.end(); ++iter) {
-		getValue(valueNew, iter.value().operator*().value());
+		resultNew = iter.value().operator*().value();
+		getValue(valueNew, resultNew.value());
 		value.emplace_back(std::move(valueNew));
 	}
 }
@@ -756,7 +759,16 @@ template<> JSONIFIER_INLINE void getValue(discord_message& returnValue, simdjson
 	getValue(returnValue.s, obj, "s");
 }
 
-template<> JSONIFIER_INLINE void getValue(abc_test<test_struct>& returnValue, simdjson::ondemand::value jsonData) {
+template<> JSONIFIER_INLINE void getValue(abc_test_struct& returnValue, simdjson::ondemand::value jsonData) {
+	simdjson::ondemand::object obj{ getObject(jsonData) };
+	getValue(returnValue.testVals04, obj, "testVals04");
+	getValue(returnValue.testVals03, obj, "testVals03");
+	getValue(returnValue.testVals01, obj, "testVals01");
+	getValue(returnValue.testVals05, obj, "testVals05");
+	getValue(returnValue.testVals02, obj, "testVals02");
+}
+
+template<> JSONIFIER_INLINE void getValue(abc_test<abc_test_struct>& returnValue, simdjson::ondemand::value jsonData) {
 	simdjson::ondemand::object obj{ getObject(jsonData) };
 	getValue(returnValue.z, obj, "z");
 	getValue(returnValue.y, obj, "y");
@@ -788,11 +800,11 @@ template<> JSONIFIER_INLINE void getValue(abc_test<test_struct>& returnValue, si
 
 template<> JSONIFIER_INLINE void getValue(test_struct& returnValue, simdjson::ondemand::value jsonData) {
 	simdjson::ondemand::object obj{ getObject(jsonData) };
-	getValue(returnValue.testBools, obj, "testBools");
-	getValue(returnValue.testInts, obj, "testInts");
-	getValue(returnValue.testUints, obj, "testUints");
-	getValue(returnValue.testStrings, obj, "testStrings");
-	getValue(returnValue.testDoubles, obj, "testDoubles");
+	getValue(returnValue.testVals02, obj, "testVals02");
+	getValue(returnValue.testVals05, obj, "testVals05");
+	getValue(returnValue.testVals01, obj, "testVals01");
+	getValue(returnValue.testVals03, obj, "testVals03");
+	getValue(returnValue.testVals04, obj, "testVals04");
 }
 
 template<> JSONIFIER_INLINE void getValue(test<test_struct>& returnValue, simdjson::ondemand::value jsonData) {
