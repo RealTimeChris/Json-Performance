@@ -262,7 +262,12 @@ template<> struct jsonifier::core<test_elements_final> {
 
 template<> struct jsonifier::core<test_struct> {
 	using value_type				 = test_struct;
-	static constexpr auto parseValue = createValue<&value_type::testStrings, &value_type::testUints, &value_type::testDoubles, &value_type::testInts, &value_type::testBools>();
+	static constexpr auto parseValue = createValue<&value_type::testVals02, &value_type::testVals05, &value_type::testVals01, &value_type::testVals03, &value_type::testVals04>();
+};
+
+template<> struct jsonifier::core<abc_test_struct> {
+	using value_type				 = abc_test_struct;
+	static constexpr auto parseValue = createValue<&value_type::testVals04, &value_type::testVals03, &value_type::testVals01, &value_type::testVals05, &value_type::testVals02>();
 };
 
 template<> struct jsonifier::core<test<test_struct>> {
@@ -284,8 +289,8 @@ template<> struct jsonifier::core<test_generator<test_struct>> {
 		&value_type::s, &value_type::t, &value_type::u, &value_type::v, &value_type::w, &value_type::x, &value_type::y, &value_type::z>();
 };
 
-template<> struct jsonifier::core<abc_test<test_struct>> {
-	using value_type				 = abc_test<test_struct>;
+template<> struct jsonifier::core<abc_test<abc_test_struct>> {
+	using value_type				 = abc_test<abc_test_struct>;
 	static constexpr auto parseValue = createValue<&value_type::z, &value_type::y, &value_type::x, &value_type::w, &value_type::v, &value_type::u, &value_type::t, &value_type::s,
 		&value_type::r, &value_type::q, &value_type::p, &value_type::o, &value_type::n, &value_type::m, &value_type::l, &value_type::k, &value_type::j, &value_type::i,
 		&value_type::h, &value_type::g, &value_type::f, &value_type::e, &value_type::d, &value_type::c, &value_type::b, &value_type::a>();
