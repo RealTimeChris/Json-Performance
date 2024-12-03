@@ -37,31 +37,31 @@ static constexpr auto maxIterationCount{ 5 };
 #endif
 
 constexpr auto getCurrentOperatingSystem() {
-	constexpr jsonifier_internal::string_literal osName{ OPERATING_SYSTEM_NAME };
-	constexpr auto osNameNew = jsonifier_internal::toLower(osName);
-	if constexpr (osNameNew.view().operator std::string_view().contains("linux")) {
-		return jsonifier_internal::string_literal{ "Ubuntu" };
-	} else if constexpr (osNameNew.view().operator std::string_view().contains("windows")) {
-		return jsonifier_internal::string_literal{ "Windows" };
-	} else if constexpr (osNameNew.view().operator std::string_view().contains("darwin")) {
-		return jsonifier_internal::string_literal{ "MacOS" };
+	constexpr bnch_swt::string_literal osName{ OPERATING_SYSTEM_NAME };
+	constexpr auto osNameNew = bnch_swt::toLower(osName);
+	if constexpr (osNameNew.view().contains("linux")) {
+		return bnch_swt::string_literal{ "Ubuntu" };
+	} else if constexpr (osNameNew.view().contains("windows")) {
+		return bnch_swt::string_literal{ "Windows" };
+	} else if constexpr (osNameNew.view().contains("darwin")) {
+		return bnch_swt::string_literal{ "MacOS" };
 	} else {
-		return jsonifier_internal::string_literal{ "" };
+		return bnch_swt::string_literal{ "" };
 	}
 }
 
 constexpr auto getCurrentCompilerId() {
-	constexpr jsonifier_internal::string_literal compilerId{ COMPILER_ID };
-	constexpr auto osCompilerIdNew = jsonifier_internal::toLower(compilerId);
-	if constexpr (osCompilerIdNew.view().operator std::string_view().contains("gnu") || osCompilerIdNew.view().operator std::string_view().contains("gcc") ||
-		osCompilerIdNew.view().operator std::string_view().contains("g++") || osCompilerIdNew.view().operator std::string_view().contains("apple")) {
-		return jsonifier_internal::string_literal{ "GNUCXX" };
-	} else if constexpr (osCompilerIdNew.view().operator std::string_view().contains("clang")) {
-		return jsonifier_internal::string_literal{ "CLANG" };
-	} else if constexpr (osCompilerIdNew.view().operator std::string_view().contains("msvc")) {
-		return jsonifier_internal::string_literal{ "MSVC" };
+	constexpr bnch_swt::string_literal compilerId{ COMPILER_ID };
+	constexpr auto osCompilerIdNew = bnch_swt::toLower(compilerId);
+	if constexpr (osCompilerIdNew.view().contains("gnu") || osCompilerIdNew.view().contains("gcc") ||
+		osCompilerIdNew.view().contains("g++") || osCompilerIdNew.view().contains("apple")) {
+		return bnch_swt::string_literal{ "GNUCXX" };
+	} else if constexpr (osCompilerIdNew.view().contains("clang")) {
+		return bnch_swt::string_literal{ "CLANG" };
+	} else if constexpr (osCompilerIdNew.view().contains("msvc")) {
+		return bnch_swt::string_literal{ "MSVC" };
 	} else {
-		return jsonifier_internal::string_literal{ "" };
+		return bnch_swt::string_literal{ "" };
 	}
 }
 
@@ -69,21 +69,21 @@ constexpr auto getCurrentPathImpl() {
 	return getCurrentOperatingSystem() + "-" + getCurrentCompilerId();
 }
 
-constexpr jsonifier_internal::string_literal basePath{ BASE_PATH };
-constexpr jsonifier_internal::string_literal testPath{ basePath + "/Source" };
-constexpr jsonifier_internal::string_literal readMePath{ BASE_PATH };
-constexpr jsonifier_internal::string_literal jsonPath{ basePath + "/Json" };
-constexpr jsonifier_internal::string_literal jsonOutPath{ jsonPath + "/" + getCurrentPathImpl() };
-constexpr jsonifier_internal::string_literal graphsPath{ basePath + "/Graphs/" + getCurrentPathImpl() + "/" };
-constexpr jsonifier_internal::string_literal jsonifierLibraryName{ "jsonifier" };
-constexpr jsonifier_internal::string_literal jsonifierCommitUrlBase{ "https://github.com/realtimechris/jsonifier/commit/" };
-constexpr jsonifier_internal::string_literal simdjsonLibraryName{ "simdjson" };
-constexpr jsonifier_internal::string_literal simdjsonCommitUrlBase{ "https://github.com/simdjson/simdjson/commit/" };
-constexpr jsonifier_internal::string_literal glazeLibraryName{ "glaze" };
-constexpr jsonifier_internal::string_literal glazeCommitUrlBase{ "https://github.com/stephenberry/glaze/commit/" };
-constexpr jsonifier_internal::string_literal jsonifierCommitUrl{ jsonifierCommitUrlBase + JSONIFIER_COMMIT };
-constexpr jsonifier_internal::string_literal simdjsonCommitUrl{ simdjsonCommitUrlBase + SIMDJSON_COMMIT };
-constexpr jsonifier_internal::string_literal glazeCommitUrl{ glazeCommitUrlBase + GLAZE_COMMIT };
+constexpr bnch_swt::string_literal basePath{ BASE_PATH };
+constexpr bnch_swt::string_literal testPath{ basePath + "/Source" };
+constexpr bnch_swt::string_literal readMePath{ BASE_PATH };
+constexpr bnch_swt::string_literal jsonPath{ basePath + "/Json" };
+constexpr bnch_swt::string_literal jsonOutPath{ jsonPath + "/" + getCurrentPathImpl() };
+constexpr bnch_swt::string_literal graphsPath{ basePath + "/Graphs/" + getCurrentPathImpl() + "/" };
+constexpr bnch_swt::string_literal jsonifierLibraryName{ "jsonifier" };
+constexpr bnch_swt::string_literal jsonifierCommitUrlBase{ "https://github.com/realtimechris/jsonifier/commit/" };
+constexpr bnch_swt::string_literal simdjsonLibraryName{ "simdjson" };
+constexpr bnch_swt::string_literal simdjsonCommitUrlBase{ "https://github.com/simdjson/simdjson/commit/" };
+constexpr bnch_swt::string_literal glazeLibraryName{ "glaze" };
+constexpr bnch_swt::string_literal glazeCommitUrlBase{ "https://github.com/stephenberry/glaze/commit/" };
+constexpr bnch_swt::string_literal jsonifierCommitUrl{ jsonifierCommitUrlBase + JSONIFIER_COMMIT };
+constexpr bnch_swt::string_literal simdjsonCommitUrl{ simdjsonCommitUrlBase + SIMDJSON_COMMIT };
+constexpr bnch_swt::string_literal glazeCommitUrl{ glazeCommitUrlBase + GLAZE_COMMIT };
 
 class test_base {
   public:
@@ -395,9 +395,9 @@ enum class result_type { read = 0, write = 1 };
 
 template<result_type type> constexpr auto enumToString() {
 	if constexpr (type == result_type::read) {
-		return jsonifier_internal::string_literal{ "Read" };
+		return bnch_swt::string_literal{ "Read" };
 	} else {
-		return jsonifier_internal::string_literal{ "Write" };
+		return bnch_swt::string_literal{ "Write" };
 	}
 }
 

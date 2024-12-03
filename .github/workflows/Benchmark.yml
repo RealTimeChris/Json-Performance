@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - benchmarking-new
+    - reversion
 
 jobs:
   Build-MSVC-Windows:
