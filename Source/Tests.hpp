@@ -48,11 +48,9 @@ namespace tests {
 		simdjson  = 2,
 	};
 
-	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testName>
-	struct json_test_helper {};
+	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testName> struct json_test_helper {};
 
-	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testName>
-	struct json_test_helper;
+	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testName> struct json_test_helper;
 
 	template<typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
@@ -226,8 +224,7 @@ namespace tests {
 		}
 	};
 
-	template<size_t iterations, bnch_swt::string_literal testNameNew>
-	struct json_test_helper<json_library::glaze, test_type::minify, std::string, false, iterations, testNameNew> {
+	template<size_t iterations, bnch_swt::string_literal testNameNew> struct json_test_helper<json_library::glaze, test_type::minify, std::string, false, iterations, testNameNew> {
 		static auto run(std::string& newBuffer) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 
@@ -267,7 +264,7 @@ namespace tests {
 
 	template<typename test_data_type, bool minified, size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::simdjson, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		static auto run(std::string& newestBuffer) {
+		JSONIFIER_INLINE static auto run(std::string& newestBuffer) {
 			std::string newBuffer{ newestBuffer };
 			newBuffer.reserve(newBuffer.size() + 256);
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
@@ -277,12 +274,14 @@ namespace tests {
 			test_data_type testData{};
 			auto readSize	= newBuffer.size();
 			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<testName, simdjsonLibraryName, "cadetblue">([&]() {
-				auto doc = parser.iterate(newBuffer);
-				if (auto error = doc.get<test_data_type>(testData); error != simdjson::SUCCESS) {
-					std::cout << "Simdjson Error: " << error << std::endl;
+				try {
+					getValue(testData, parser.iterate(newBuffer).value());
+					bnch_swt::doNotOptimizeAway(testData);
+					return newBuffer.size();
+				} catch (std::exception& error) {
+					std::cout << "Simdjson Error: " << error.what() << std::endl;
+					return newBuffer.size();
 				}
-				bnch_swt::doNotOptimizeAway(testData);
-				return newBuffer.size();
 			});
 			std::string newerBuffer{};
 			auto resultNew = glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newerBuffer);
