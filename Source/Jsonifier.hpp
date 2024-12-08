@@ -108,8 +108,8 @@ template<> struct jsonifier::core<url_data> {
 	static constexpr auto parseValue = createValue<&value_type::url, &value_type::expanded_url, &value_type::display_url, &value_type::indices>();
 };
 
-template<> struct jsonifier::core<user_mention> {
-	using value_type				 = user_mention;
+template<> struct jsonifier::core<user_mention_data> {
+	using value_type				 = user_mention_data;
 	static constexpr auto parseValue = createValue<&value_type::screen_name, &value_type::name, &value_type::id, &value_type::id_str, &value_type::indices>();
 };
 
@@ -163,7 +163,6 @@ template<> struct jsonifier::core<twitter_message> {
 	using value_type				 = twitter_message;
 	static constexpr auto parseValue = createValue<&value_type::statuses, &value_type::search_metadata>();
 };
-
 
 template<> struct jsonifier::core<icon_emoji_data> {
 	using value_type				 = icon_emoji_data;
@@ -242,7 +241,7 @@ template<> struct jsonifier::core<properties_data> {
 
 template<> struct jsonifier::core<feature> {
 	using value_type				 = feature;
-	static constexpr auto parseValue = createValue<&value_type::properties, &value_type::type, &value_type::geometry>();
+	static constexpr auto parseValue = createValue<&value_type::type, &value_type::properties, &value_type::geometry>();
 };
 
 template<> struct jsonifier::core<canada_message> {
