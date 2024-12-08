@@ -60,6 +60,10 @@ struct seat_category {
 	int64_t seatCategoryId{};
 };
 
+struct venue_names {
+	std::string PLEYEL_PLEYEL{};
+};
+
 struct performance {
 	int64_t eventId{};
 	int64_t id{};
@@ -70,10 +74,6 @@ struct performance {
 	std::nullptr_t seatMapImage{};
 	int64_t start{};
 	std::string venueCode{};
-};
-
-struct venue_names {
-	std::string PLEYEL_PLEYEL{};
 };
 
 struct citm_catalog_message {
