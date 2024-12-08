@@ -17,7 +17,7 @@ include(GetCommitHash.cmake)
 FetchContent_Declare(
   jsonifier
   GIT_REPOSITORY https://github.com/realtimechris/jsonifier.git
-  GIT_TAG dev
+  GIT_TAG new-partial-reading
   GIT_SHALLOW TRUE
 )
 FetchContent_MakeAvailable(jsonifier)
@@ -32,7 +32,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(glaze)
 getCommitHash("${glaze_SOURCE_DIR}" GLAZE_COMMIT_HASH)
 
-set(JSONIFIER_LIBRARY "TRUE" CACHE STRING "To avoid circular dependency issues." FORCE)
 FetchContent_Declare(
   BenchmarkSuite
   GIT_REPOSITORY https://github.com/RealTimeChris/BenchmarkSuite.git
