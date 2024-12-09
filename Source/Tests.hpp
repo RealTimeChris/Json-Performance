@@ -48,8 +48,6 @@ namespace tests {
 		simdjson  = 2,
 	};
 
-	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testName> struct json_test_helper {};
-
 	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testName> struct json_test_helper;
 
 	template<typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
@@ -58,37 +56,32 @@ namespace tests {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
-			static constexpr bool partialRead{ std::is_same_v<test_data_type, partial_test<test_struct>> };
-			static constexpr bool knownOrder{ !std::is_same_v<test_data_type, abc_test<test_struct>> };
+			static constexpr bool partialRead{ std::is_same_v<test_data_type, partial_test<test_struct>> || std::is_same_v<test_data_type, twitter_partial_message> };
+			static constexpr bool knownOrder{ !partialRead };
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 			jsonifier::jsonifier_core parser{};
 			test_data_type testData{};
-			if constexpr (partialRead) {
-				parser.parseJson(testData, newBuffer);
-			}
-			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<testName, jsonifierLibraryName, "teal">([&]() mutable {
-				parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testData, newBuffer);
-				bnch_swt::doNotOptimizeAway(testData);
-				return newBuffer.size();
-			});
+			parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testData, newBuffer);
+			std::string newerBuffer{};
+			parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData, newerBuffer);
+			bnch_swt::performance_metrics readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<jsonifierLibraryName, "teal">(
+				[&]() mutable {
+					parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testData, newBuffer);
+					bnch_swt::doNotOptimizeAway(testData);
+					return newerBuffer.size();
+				});
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
-			std::string_view newerBuffer{};
-			auto writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations>::template runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() mutable {
-				newerBuffer = parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData);
-				bnch_swt::doNotOptimizeAway(newerBuffer);
-				return newerBuffer.size();
-			});
-
-			for (auto& value: parser.getErrors()) {
-				std::cout << "Jsonifier Error: " << value << std::endl;
-			}
-
-			auto readSize	 = newerBuffer.size();
-			auto writtenSize = newerBuffer.size();
-			r.readResult	 = result<result_type::read>{ "teal", readSize, readResult };
-			r.writeResult	 = result<result_type::write>{ "steelblue", writtenSize, writeResult };
+			parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData, newerBuffer);
+			bnch_swt::performance_metrics writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations>::template runBenchmark<jsonifierLibraryName, "steelblue">(
+				[&]() mutable {
+					parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData, newerBuffer);
+					bnch_swt::doNotOptimizeAway(newerBuffer);
+					return newerBuffer.size();
+				});
+			r.readResult  = result<result_type::read>{ "teal", readResult };
+			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newerBuffer), jsonOutPath + "/" + testName + "-jsonifier.json");
 			return r;
 		}
@@ -101,17 +94,18 @@ namespace tests {
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 			jsonifier::jsonifier_core parser{};
 			std::string newerBuffer{};
-			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() mutable {
-				parser.prettifyJson(newBuffer, newerBuffer);
-				bnch_swt::doNotOptimizeAway(newerBuffer);
-				return newerBuffer.size();
-			});
+			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<jsonifierLibraryName, "steelblue">(
+				[&]() mutable {
+					parser.prettifyJson(newBuffer, newerBuffer);
+					bnch_swt::doNotOptimizeAway(newerBuffer);
+					return newerBuffer.size();
+				});
 
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
 			bnch_swt::file_loader::saveFile(newerBuffer, jsonOutPath + "/" + testName + "-jsonifier.json");
-			r.writeResult = result<result_type::write>{ "steelblue", newerBuffer.size(), writeResult };
+			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
 			return r;
 		}
 	};
@@ -123,16 +117,17 @@ namespace tests {
 			std::string newerBuffer{};
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 			jsonifier::jsonifier_core parser{};
-			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() mutable {
-				parser.minifyJson(newBuffer, newerBuffer);
-				bnch_swt::doNotOptimizeAway(newerBuffer);
-				return newerBuffer.size();
-			});
+			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<jsonifierLibraryName, "steelblue">(
+				[&]() mutable {
+					parser.minifyJson(newBuffer, newerBuffer);
+					bnch_swt::doNotOptimizeAway(newerBuffer);
+					return newerBuffer.size();
+				});
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
 			bnch_swt::file_loader::saveFile(newerBuffer, jsonOutPath + "/" + testName + "-jsonifier.json");
-			r.writeResult = result<result_type::write>{ "steelblue", newerBuffer.size(), writeResult };
+			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
 			return r;
 		}
 	};
@@ -143,7 +138,7 @@ namespace tests {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl, iterations };
 			jsonifier::jsonifier_core parser{};
-			auto readResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, jsonifierLibraryName, "steelblue">([&]() mutable {
+			bnch_swt::performance_metrics readResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<jsonifierLibraryName, "teal">([&]() mutable {
 				bnch_swt::doNotOptimizeAway(parser.validateJson(newBuffer));
 				return newBuffer.size();
 			});
@@ -152,7 +147,7 @@ namespace tests {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
 			bnch_swt::file_loader::saveFile(newBuffer, jsonOutPath + "/" + testName + "-jsonifier.json");
-			r.readResult = result<result_type::read>{ "teal", newBuffer.size(), readResult };
+			r.readResult = result<result_type::read>{ "teal", readResult };
 			return r;
 		}
 	};
@@ -163,40 +158,43 @@ namespace tests {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
-			static constexpr bool partialRead{ std::is_same_v<test_data_type, partial_test<test_struct>> };
+			static constexpr bool partialRead{ std::is_same_v<test_data_type, partial_test<test_struct>> || std::is_same_v<test_data_type, twitter_partial_message> };
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
 			test_data_type testData{};
-			if constexpr (partialRead) {
-				if (auto error =
-						glz::read<glz::opts{ .error_on_unknown_keys = !partialRead, .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newBuffer);
-					error) {
-					std::cout << "Glaze Error: " << glz::format_error(error, newBuffer) << std::endl;
-				}
+			if (auto error =
+					glz::read<glz::opts{ .error_on_unknown_keys = !partialRead, .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newBuffer);
+				error) {
+				std::cout << "Glaze Error: " << glz::format_error(error, newBuffer) << std::endl;
 			}
-			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<testName, glazeLibraryName, "dodgerblue">([&]() mutable {
-				if (auto error = glz::read<glz::opts{ .error_on_unknown_keys = !partialRead,
-						.skip_null_members									 = false,
-						.prettify											 = !minified,
-						.minified											 = minified,
-						.partial_read										 = partialRead,
-						.partial_read_nested								 = partialRead }>(testData, newBuffer);
-					error) {
-					std::cout << "Glaze Error: " << glz::format_error(error, newBuffer) << std::endl;
-				}
-				bnch_swt::doNotOptimizeAway(testData);
-				return newBuffer.size();
-			});
 			std::string newerBuffer{};
-			auto writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations>::template runBenchmark<testName, glazeLibraryName, "steelblue">([&]() mutable {
-				auto newResult = glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newerBuffer);
-				bnch_swt::doNotOptimizeAway(newResult);
-				return newerBuffer.size();
-			});
+			if (auto error =
+					glz::write<glz::opts{ .error_on_unknown_keys = !partialRead, .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newerBuffer);
+				error) {
+				std::cout << "Glaze Error: " << glz::format_error(error, newBuffer) << std::endl;
+			}
+			bnch_swt::performance_metrics readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<glazeLibraryName, "dodgerblue">(
+				[&]() mutable {
+					if (auto error = glz::read<glz::opts{ .error_on_unknown_keys = !partialRead,
+							.skip_null_members									 = false,
+							.prettify											 = !minified,
+							.minified											 = minified,
+							.partial_read										 = partialRead,
+							.partial_read_nested								 = partialRead }>(testData, newBuffer);
+						error) {
+						std::cout << "Glaze Error: " << glz::format_error(error, newBuffer) << std::endl;
+					}
+					bnch_swt::doNotOptimizeAway(testData);
+					return newerBuffer.size();
+				});
+			auto writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations>::template runBenchmark<glazeLibraryName, "skyblue">(
+				[&]() mutable {
+					auto newResult = glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newerBuffer);
+					bnch_swt::doNotOptimizeAway(newerBuffer);
+					return newerBuffer.size();
+				});
 
-			auto readSize	 = newerBuffer.size();
-			auto writtenSize = newerBuffer.size();
-			r.readResult	 = result<result_type::read>{ "dodgerblue", readSize, readResult };
-			r.writeResult	 = result<result_type::write>{ "skyblue", writtenSize, writeResult };
+			r.readResult  = result<result_type::read>{ "dodgerblue", readResult };
+			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newerBuffer), jsonOutPath + "/" + testName + "-glaze.json");
 
 			return r;
@@ -211,14 +209,15 @@ namespace tests {
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
 			std::string newerBuffer{};
 
-			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, glazeLibraryName, "steelblue">([&]() mutable {
-				glz::prettify_json(newBuffer, newerBuffer);
-				bnch_swt::doNotOptimizeAway(newerBuffer);
-				return newerBuffer.size();
-			});
+			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<glazeLibraryName, "steelblue">(
+				[&]() mutable {
+					glz::prettify_json(newBuffer, newerBuffer);
+					bnch_swt::doNotOptimizeAway(newerBuffer);
+					return newerBuffer.size();
+				});
 
 			bnch_swt::file_loader::saveFile(newerBuffer, jsonOutPath + "/" + testName + "-glaze.json");
-			r.writeResult = result<result_type::write>{ "skyblue", newerBuffer.size(), writeResult };
+			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
 
 			return r;
 		}
@@ -232,14 +231,15 @@ namespace tests {
 			std::string newerBuffer{};
 
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
-			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, glazeLibraryName, "steelblue">([&]() mutable {
-				glz::minify_json(newestBuffer, newerBuffer);
-				bnch_swt::doNotOptimizeAway(newerBuffer);
-				return newerBuffer.size();
-			});
+			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<glazeLibraryName, "steelblue">(
+				[&]() mutable {
+					glz::minify_json(newestBuffer, newerBuffer);
+					bnch_swt::doNotOptimizeAway(newerBuffer);
+					return newerBuffer.size();
+				});
 
 			bnch_swt::file_loader::saveFile(newerBuffer, jsonOutPath + "/" + testName + "-glaze.json");
-			r.writeResult = result<result_type::write>{ "skyblue", newerBuffer.size(), writeResult };
+			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
 
 			return r;
 		}
@@ -250,13 +250,13 @@ namespace tests {
 		static auto run(std::string& newBuffer) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl, iterations };
-			auto readResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, glazeLibraryName, "skyblue">([&]() mutable {
+			bnch_swt::performance_metrics readResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<glazeLibraryName, "skyblue">([&]() mutable {
 				bnch_swt::doNotOptimizeAway(glz::validate_json(newBuffer));
 				return newBuffer.size();
 			});
 
 			bnch_swt::file_loader::saveFile(newBuffer, jsonOutPath + "/" + testName + "-glaze.json");
-			r.readResult = result<result_type::read>{ "skyblue", newBuffer.size(), readResult };
+			r.readResult = result<result_type::read>{ "skyblue", readResult };
 
 			return r;
 		}
@@ -269,26 +269,28 @@ namespace tests {
 			newBuffer.reserve(newBuffer.size() + 256);
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
+			static constexpr bool partialRead{ std::is_same_v<test_data_type, partial_test<test_struct>> };
 			results_data r{ simdjsonLibraryName, testName, simdjsonCommitUrl, iterations };
 			simdjson::ondemand::parser parser{};
+			jsonifier::jsonifier_core parserNew{};
 			test_data_type testData{};
-			auto readSize	= newBuffer.size();
-			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<testName, simdjsonLibraryName, "cadetblue">([&]() {
-				try {
-					getValue(testData, parser.iterate(newBuffer).value());
-					bnch_swt::doNotOptimizeAway(testData);
-					return newBuffer.size();
-				} catch (std::exception& error) {
-					std::cout << "Simdjson Error: " << error.what() << std::endl;
-					return newBuffer.size();
-				}
-			});
+			getValue(testData, parser.iterate(newBuffer).value());
 			std::string newerBuffer{};
-			auto resultNew = glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newerBuffer);
-			( void )resultNew;
-			readSize = newerBuffer.size();
+			parserNew.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData, newerBuffer);
 
-			r.readResult = result<result_type::read>{ "cadetblue", readSize, readResult };
+			bnch_swt::performance_metrics readResult = bnch_swt::benchmark_stage<testNameRead, iterations>::template runBenchmark<jsonifierLibraryName, "teal">(
+				[&]() mutable {
+					try {
+						getValue(testData, parser.iterate(newBuffer).value());
+						bnch_swt::doNotOptimizeAway(testData);
+						return newerBuffer.size();
+					} catch (std::exception& error) {
+						std::cout << "Simdjson Error: " << error.what() << std::endl;
+						return newerBuffer.size();
+					}
+				});
+
+			r.readResult = result<result_type::read>{ "cadetblue", readResult };
 			bnch_swt::file_loader::saveFile(newerBuffer, jsonOutPath + "/" + testName + "-simdjson.json");
 			return r;
 		}
@@ -303,54 +305,56 @@ namespace tests {
 			simdjson::dom::parser parser{};
 			std::string newerBuffer{};
 
-			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<testName, simdjsonLibraryName, "cornflowerblue">([&]() mutable {
-				try {
-					newerBuffer = simdjson::minify(parser.parse(newBuffer));
-					bnch_swt::doNotOptimizeAway(newerBuffer);
-					return newBuffer.size();
-				} catch (std::exception& error) {
-					std::cout << "Simdjson Error: " << error.what() << std::endl;
-					return newBuffer.size();
-				}
-			});
+			auto writeResult = bnch_swt::benchmark_stage<testName>::template runBenchmark<simdjsonLibraryName, "cornflowerblue">(
+				[&]() mutable {
+					try {
+						newerBuffer = simdjson::minify(parser.parse(newBuffer));
+						bnch_swt::doNotOptimizeAway(newerBuffer);
+						return newBuffer.size();
+					} catch (std::exception& error) {
+						std::cout << "Simdjson Error: " << error.what() << std::endl;
+						return newBuffer.size();
+					}
+				});
 
 			bnch_swt::file_loader::saveFile(newerBuffer, jsonOutPath + "/" + testName + "-simdjson.json");
-			r.writeResult = result<result_type::write>{ "cornflowerblue", newerBuffer.size(), writeResult };
-
+			r.writeResult = result<result_type::write>{ "cornflowerblue", writeResult };
 
 			return r;
 		}
 	};
 
 #if defined(JSONIFIER_MAC)
-	constexpr bnch_swt::string_literal table_header = bnch_swt::string_literal{ R"(
+	constexpr bnch_swt::string_literal table_header = bnch_swt::string_literal{
+		R"(
 | Library | Read (MB/S) | Read Percentage Deviation (+/-%) | Read Length (Bytes) | Read Time (ns) | Write (MB/S) | Write Percentage Deviation (+/-%) | Write Length (Bytes) | Write Time (ns) |
-| ------- | ----------- | --------------------- | ------------------- | -------------- | ------------ | ---------------------- | -------------------- | ----------------|  )" };
+| ------- | ----------- | -------------------------------- | ------------------- | -------------- | ------------ | --------------------------------- | -------------------- | --------------- |  )"
+	};
 
 	constexpr bnch_swt::string_literal read_table_header = bnch_swt::string_literal{ R"(
 | Library | Read (MB/S) | Read Percentage Deviation (+/-%) | Read Length (Bytes) | Read Time (ns) |
-| ------- | ----------- | --------------------- | ------------------- | -------------- |  )" };
+| ------- | ----------- | -------------------------------- | ------------------- | -------------- |  )" };
 
 	constexpr bnch_swt::string_literal write_table_header = bnch_swt::string_literal{
 		R"(
 | Library | Write (MB/S) | Write Percentage Deviation (+/-%) | Write Length (Bytes) | Write Time (ns) |
-| ------- | ------------ | ---------------------- | -------------------- | --------------- |  )"
+| ------- | ------------ | --------------------------------- | -------------------- | --------------- |  )"
 	};
 #else
 	constexpr bnch_swt::string_literal table_header = bnch_swt::string_literal{
 		R"(
 | Library | Read (MB/S) | Read Percentage Deviation (+/-%) | Read (Cycles/MB) | Read Length (Bytes) | Read Time (ns) | Write (MB/S) | Write Percentage Deviation (+/-%) | Write (Cycles/MB) | Write Length (Bytes) | Write Time (ns) |
-| ------- | ----------- | --------------------- | -----------------| ------------------- | -------------- | ------------ | ---------------------- | ------------------| -------------------- | --------------- |  )"
+| ------- | ----------- | -------------------------------- | -----------------| ------------------- | -------------- | ------------ | --------------------------------- | ------------------| -------------------- | --------------- |  )"
 	};
 
 	constexpr bnch_swt::string_literal read_table_header = bnch_swt::string_literal{ R"(
 | Library | Read (MB/S) | Read Percentage Deviation (+/-%) | Read (Cycles/MB) | Read Length (Bytes) | Read Time (ns) |
-| ------- | ----------- | --------------------- | ---------------- | ------------------- | -------------- |  )" };
+| ------- | ----------- | -------------------------------- | ---------------- | ------------------- | -------------- |  )" };
 
 	constexpr bnch_swt::string_literal write_table_header = bnch_swt::string_literal{
 		R"(
 | Library | Write (MB/S) | Write Percentage Deviation (+/-%) | Write (Cycles/MB) | Write Length (Bytes) | Write Time (ns) |
-| ------- | ------------ | ---------------------- | ----------------- | -------------------- | --------------- |  )"
+| ------- | ------------ | --------------------------------- | ----------------- | -------------------- | --------------- |  )"
 	};
 #endif
 
@@ -609,6 +613,13 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		newerString += testResults.markdownResults;
 		benchmark_data.emplace_back(testResults);
 		testResults = json_tests_helper<test_type::parse_and_serialize, citm_catalog_message, true, maxIterationCount, "CitmCatalog Test (Minified)">::run(citmCatalogMinifiedData);
+		newerString += testResults.markdownResults;
+		benchmark_data.emplace_back(testResults);
+		testResults = json_tests_helper<test_type::parse_and_serialize, twitter_partial_message, false, maxIterationCount, "Twitter Partial Test (Prettified)">::run(twitterData);
+		newerString += testResults.markdownResults;
+		benchmark_data.emplace_back(testResults);
+		testResults =
+			json_tests_helper<test_type::parse_and_serialize, twitter_partial_message, true, maxIterationCount, "Twitter Partial Test (Minified)">::run(twitterMinifiedData);
 		newerString += testResults.markdownResults;
 		benchmark_data.emplace_back(testResults);
 		testResults = json_tests_helper<test_type::parse_and_serialize, twitter_message, false, maxIterationCount, "Twitter Test (Prettified)">::run(twitterData);
