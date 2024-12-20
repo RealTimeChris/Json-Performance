@@ -31,19 +31,19 @@
 #include <thread>
 
 #if defined(NDEBUG)
-static constexpr auto maxIterationCount{ 100 };
+static constexpr auto maxIterations{ 1000 };
 #else
-static constexpr auto maxIterationCount{ 5 };
+static constexpr auto maxIterations{ 40 };
 #endif
 
 constexpr auto getCurrentOperatingSystem() {
 	constexpr bnch_swt::string_literal osName{ OPERATING_SYSTEM_NAME };
-	constexpr auto osNameNew = bnch_swt::toLower(osName);
-	if constexpr (osNameNew.view().contains("linux")) {
+	constexpr auto osNameNew = bnch_swt::internal::toLower(osName);
+	if constexpr (osNameNew.operator std::string_view().contains("linux")) {
 		return bnch_swt::string_literal{ "Ubuntu" };
-	} else if constexpr (osNameNew.view().contains("windows")) {
+	} else if constexpr (osNameNew.operator std::string_view().contains("windows")) {
 		return bnch_swt::string_literal{ "Windows" };
-	} else if constexpr (osNameNew.view().contains("darwin")) {
+	} else if constexpr (osNameNew.operator std::string_view().contains("darwin")) {
 		return bnch_swt::string_literal{ "MacOS" };
 	} else {
 		return bnch_swt::string_literal{ "" };
@@ -52,13 +52,13 @@ constexpr auto getCurrentOperatingSystem() {
 
 constexpr auto getCurrentCompilerId() {
 	constexpr bnch_swt::string_literal compilerId{ COMPILER_ID };
-	constexpr auto osCompilerIdNew = bnch_swt::toLower(compilerId);
-	if constexpr (osCompilerIdNew.view().contains("gnu") || osCompilerIdNew.view().contains("gcc") || osCompilerIdNew.view().contains("g++") ||
-		osCompilerIdNew.view().contains("apple")) {
+	constexpr auto osCompilerIdNew = bnch_swt::internal::toLower(compilerId);
+	if constexpr (osCompilerIdNew.operator std::string_view().contains("gnu") || osCompilerIdNew.operator std::string_view().contains("gcc") ||
+		osCompilerIdNew.operator std::string_view().contains("g++") || osCompilerIdNew.operator std::string_view().contains("apple")) {
 		return bnch_swt::string_literal{ "GNUCXX" };
-	} else if constexpr (osCompilerIdNew.view().contains("clang")) {
+	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("clang")) {
 		return bnch_swt::string_literal{ "CLANG" };
-	} else if constexpr (osCompilerIdNew.view().contains("msvc")) {
+	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("msvc")) {
 		return bnch_swt::string_literal{ "MSVC" };
 	} else {
 		return bnch_swt::string_literal{ "" };
@@ -69,6 +69,7 @@ constexpr auto getCurrentPathImpl() {
 	return getCurrentOperatingSystem() + "-" + getCurrentCompilerId();
 }
 
+constexpr bnch_swt::string_literal currentPath{ getCurrentPathImpl() };
 constexpr bnch_swt::string_literal basePath{ BASE_PATH };
 constexpr bnch_swt::string_literal testPath{ basePath + "/Source" };
 constexpr bnch_swt::string_literal readMePath{ BASE_PATH };
@@ -97,9 +98,9 @@ class test_base {
 };
 
 std::string getCPUInfo() {
-	char brand[49] = { 0 };
+	char brand[49]{};
 	int32_t regs[12]{};
-	size_t length{};
+	uint64_t length{};
 #if defined(__x86_64__) || defined(_M_AMD64)
 	static constexpr auto cpuid = [](int32_t* eax, int32_t* ebx, int32_t* ecx, int32_t* edx) {
 	#if defined(_MSC_VER)
@@ -173,7 +174,7 @@ void executePythonScript(const std::string& scriptPath, const std::string& argum
 
 bool processFilesInFolder(std::unordered_map<std::string, test_base>& resultFileContents, const std::string& testType) noexcept {
 	try {
-		for (const auto& entry: std::filesystem::directory_iterator(std::string{ testPath } + testType)) {
+		for (const auto& entry: std::filesystem::directory_iterator(std::string{ testPath.operator std::string() } + testType)) {
 			if (entry.is_regular_file()) {
 				const std::string fileName = entry.path().filename().string();
 
@@ -235,14 +236,13 @@ static constexpr std::string_view charset{ "!#$%&'()*+,-./0123456789:;<=>?@ABCDE
 template<typename value_type> struct test_generator {
 	std::vector<value_type> a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
 
-	static constexpr std::string_view charset{ "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~\"\\\r\b\f\t\n" };
 	inline static std::uniform_real_distribution<double> disDouble{ log(std::numeric_limits<double>::min()), log(std::numeric_limits<double>::max()) };
 	inline static std::uniform_int_distribution<int64_t> disInt{ std::numeric_limits<int64_t>::min(), std::numeric_limits<int64_t>::max() };
-	inline static std::uniform_int_distribution<size_t> disUint{ std::numeric_limits<size_t>::min(), std::numeric_limits<size_t>::max() };
-	inline static std::uniform_int_distribution<size_t> disCharSet{ 0ull, charset.size() - 1 };
-	inline static std::uniform_int_distribution<size_t> disString{ 32ull, 64ull };
-	inline static std::uniform_int_distribution<size_t> disUnicodeEmoji{ 0ull, std::size(unicode_emoji::unicodeEmoji) - 1 };
-	inline static std::uniform_int_distribution<size_t> disBool{ 0, 100 };
+	inline static std::uniform_int_distribution<uint64_t> disUint{ std::numeric_limits<uint64_t>::min(), std::numeric_limits<uint64_t>::max() };
+	inline static std::uniform_int_distribution<uint64_t> disCharSet{ 0ull, charset.size() - 1 };
+	inline static std::uniform_int_distribution<uint64_t> disString{ 32ull, 64ull };
+	inline static std::uniform_int_distribution<uint64_t> disUnicodeEmoji{ 0ull, std::size(unicode_emoji::unicodeEmoji) - 1 };
+	inline static std::uniform_int_distribution<uint64_t> disBool{ 0, 100 };
 	inline static std::random_device randomEngine{};
 	inline static std::mt19937_64 gen{ randomEngine() };
 
@@ -259,9 +259,8 @@ template<typename value_type> struct test_generator {
 
 	static std::string generateString() {
 		auto length{ disString(gen) };
-		constexpr size_t charsetSize = charset.size();
-		auto unicodeCount			 = length / 4ull;
-		std::vector<size_t> unicodeIndices{};
+		auto unicodeCount = length / 32ull;
+		std::vector<uint64_t> unicodeIndices{};
 		static constexpr auto checkForPresenceOfIndex = [](auto& indices, auto index, auto length, auto&& checkForPresenceOfIndexNew) -> void {
 			if (std::find(indices.begin(), indices.end(), index) != indices.end()) {
 				index = randomizeNumberUniform(0ull, length);
@@ -270,16 +269,16 @@ template<typename value_type> struct test_generator {
 				indices.emplace_back(index);
 			}
 		};
-		for (size_t x = 0; x < unicodeCount; ++x) {
+		for (uint64_t x = 0; x < unicodeCount; ++x) {
 			auto newValue = randomizeNumberUniform(0ull, length);
 			checkForPresenceOfIndex(unicodeIndices, newValue, length, checkForPresenceOfIndex);
 		}
-		std::sort(unicodeIndices.begin(), unicodeIndices.end(), std::less<size_t>{});
+		std::sort(unicodeIndices.begin(), unicodeIndices.end(), std::less<uint64_t>{});
 
 		std::string result{};
-		size_t insertedUnicode = 0;
-		auto iter			   = unicodeIndices.begin();
-		for (size_t x = 0; x < length; ++x) {
+		uint64_t insertedUnicode = 0;
+		auto iter				 = unicodeIndices.begin();
+		for (uint64_t x = 0; x < length; ++x) {
 			if (iter < unicodeIndices.end() && x == *iter) [[unlikely]] {
 				insertUnicodeInJSON(result);
 				insertedUnicode++;
@@ -302,7 +301,7 @@ template<typename value_type> struct test_generator {
 		return static_cast<bool>(disBool(gen) >= 50);
 	}
 
-	static size_t generateUint() {
+	static uint64_t generateUint() {
 		return disUint(gen);
 	}
 
@@ -312,30 +311,27 @@ template<typename value_type> struct test_generator {
 
 	test_generator() {
 		auto fill = [&](auto& v) {
-			auto arraySize01 = randomizeNumberUniform(15ull, 25ull);
+			auto arraySize01 = randomizeNumberUniform(1ull, 5ull);
 			v.resize(arraySize01);
-			for (size_t x = 0; x < arraySize01; ++x) {
-				auto arraySize02 = randomizeNumberUniform(15ull, 35ull);
-				auto arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
-					auto newString = generateString();
-					v[x].testVals01.emplace_back(newString);
+			for (uint64_t x = 0; x < arraySize01; ++x) {
+				auto arraySize03 = randomizeNumberUniform(0ull, 10ull);
+				for (uint64_t y = 0; y < arraySize03; ++y) {
+					v[x].testVals01.emplace_back(generateString());
 				}
-				arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
+				arraySize03 = randomizeNumberUniform(0ull, 10ull);
+				for (uint64_t y = 0; y < arraySize03; ++y) {
 					v[x].testVals02.emplace_back(generateUint());
 				}
-				arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
+				arraySize03 = randomizeNumberUniform(0ull, 10ull);
+				for (uint64_t y = 0; y < arraySize03; ++y) {
 					v[x].testVals03.emplace_back(generateInt());
 				}
-				arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
-					auto newBool = generateBool();
-					v[x].testVals05.emplace_back(newBool);
+				arraySize03 = randomizeNumberUniform(0ull, 10ull);
+				for (uint64_t y = 0; y < arraySize03; ++y) {
+					v[x].testVals05.emplace_back(generateBool());
 				}
-				arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
+				arraySize03 = randomizeNumberUniform(0ull, 10ull);
+				for (uint64_t y = 0; y < arraySize03; ++y) {
 					v[x].testVals04.emplace_back(generateDouble());
 				}
 			}
@@ -455,7 +451,7 @@ struct results_data {
 	std::unordered_set<std::string> jsonifierExcludedKeys{};
 	result<result_type::write> writeResult{};
 	result<result_type::read> readResult{};
-	size_t iterations{};
+	uint64_t iterations{};
 	std::string name{};
 	std::string test{};
 	std::string url{};
@@ -477,7 +473,7 @@ struct results_data {
 
 	results_data() noexcept = default;
 
-	results_data(const std::string& nameNew, const std::string& testNew, const std::string& urlNew, size_t iterationsNew) {
+	results_data(const std::string& nameNew, const std::string& testNew, const std::string& urlNew, uint64_t iterationsNew) {
 		iterations = iterationsNew;
 		name	   = nameNew;
 		test	   = testNew;
@@ -500,7 +496,7 @@ struct results_data {
 			if (readResult.jsonCycles.has_value()) {
 				finalStream << std::setprecision(6) << readResult.jsonCycles.value() << " | ";
 			}
-			finalStream << readResult.byteLength.value() << " | " << std::setprecision(6) << readResult.jsonTime.value() << " | ";
+			finalStream << static_cast<uint64_t>(readResult.byteLength.value()) << " | " << std::setprecision(6) << readResult.jsonTime.value() << " | ";
 			finalString += finalStream.str();
 		}
 		if (writeResult.jsonTime.has_value() && writeResult.byteLength.has_value()) {
@@ -509,7 +505,7 @@ struct results_data {
 			if (writeResult.jsonCycles.has_value()) {
 				finalStream << std::setprecision(6) << writeResult.jsonCycles.value() << " | ";
 			}
-			finalStream << writeResult.byteLength.value() << " | " << std::setprecision(6) << writeResult.jsonTime.value() << " | ";
+			finalStream << static_cast<uint64_t>(writeResult.byteLength.value()) << " | " << std::setprecision(6) << writeResult.jsonTime.value() << " | ";
 			finalString += finalStream.str();
 		}
 		return finalString;
@@ -532,4 +528,22 @@ std::tm getTime() {
 	std::time_t result = std::time(nullptr);
 	return *localtime(&result);
 #endif
+}
+
+static std::string urlEncode(std::string value) {
+	std::ostringstream escaped;
+	escaped.fill('0');
+	escaped << std::hex;
+
+	for (char c: value) {
+		if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
+			escaped << c;
+		} else if (c == ':') {
+			escaped << '%' << std::setw(2) << int32_t(( unsigned char )' ');
+		} else {
+			escaped << '%' << std::setw(2) << int32_t(( unsigned char )c);
+		}
+	}
+
+	return escaped.str();
 }
