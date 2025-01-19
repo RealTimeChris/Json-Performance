@@ -27,44 +27,44 @@
 #include "Common.hpp"
 
 template<> struct jsonifier::core<audience_sub_category_names> {
-	using value_type = audience_sub_category_names;
+	using value_type				 = audience_sub_category_names;
 	static constexpr auto parseValue = createValue<makeJsonEntity<&value_type::the337100890, "337100890">()>();
 };
 
 template<> struct jsonifier::core<names> {
-	using value_type = names;
+	using value_type				 = names;
 	static constexpr auto parseValue = createValue();
 };
 
 template<> struct jsonifier::core<event> {
-	using value_type = event;
+	using value_type				 = event;
 	static constexpr auto parseValue = createValue<&value_type::description, &value_type::id, &value_type::logo, &value_type::name, &value_type::subTopicIds,
 		&value_type::subjectCode, &value_type::subtitle, &value_type::topicIds>();
 };
 
 template<> struct jsonifier::core<price> {
-	using value_type = price;
+	using value_type				 = price;
 	static constexpr auto parseValue = createValue<&value_type::amount, &value_type::audienceSubCategoryId, &value_type::seatCategoryId>();
 };
 
 template<> struct jsonifier::core<area> {
-	using value_type = area;
+	using value_type				 = area;
 	static constexpr auto parseValue = createValue<&value_type::areaId, &value_type::blockIds>();
 };
 
 template<> struct jsonifier::core<seat_category> {
-	using value_type = seat_category;
+	using value_type				 = seat_category;
 	static constexpr auto parseValue = createValue<&value_type::areas, &value_type::seatCategoryId>();
 };
 
 template<> struct jsonifier::core<performance> {
-	using value_type = performance;
+	using value_type				 = performance;
 	static constexpr auto parseValue = createValue<&value_type::eventId, &value_type::id, &value_type::logo, &value_type::name, &value_type::prices, &value_type::seatCategories,
 		&value_type::seatMapImage, &value_type::start, &value_type::venueCode>();
 };
 
 template<> struct jsonifier::core<venue_names> {
-	using value_type = venue_names;
+	using value_type				 = venue_names;
 	static constexpr auto parseValue = createValue<&value_type::PLEYEL_PLEYEL>();
 };
 
@@ -250,17 +250,17 @@ template<> struct jsonifier::core<test_elements_final> {
 
 template<> struct jsonifier::core<test_struct> {
 	using value_type				 = test_struct;
-	static constexpr auto parseValue = createValue<&value_type::testVals02, &value_type::testVals05, &value_type::testVals01, &value_type::testVals03, &value_type::testVals04>();
+	static constexpr auto parseValue = createValue<&value_type::testString, &value_type::testUint, &value_type::testInt, &value_type::testDouble, &value_type::testBool>();
 };
 
 template<> struct jsonifier::core<partial_test_struct> {
 	using value_type				 = partial_test_struct;
-	static constexpr auto parseValue = createValue<&value_type::testVals05, &value_type::testVals01>();
+	static constexpr auto parseValue = createValue<&value_type::testBool, &value_type::testString>();
 };
 
 template<> struct jsonifier::core<abc_test_struct> {
 	using value_type				 = abc_test_struct;
-	static constexpr auto parseValue = createValue<&value_type::testVals04, &value_type::testVals03, &value_type::testVals01, &value_type::testVals05, &value_type::testVals02>();
+	static constexpr auto parseValue = createValue<&value_type::testBool, &value_type::testDouble, &value_type::testInt, &value_type::testUint, &value_type::testString>();
 };
 
 template<typename value_type_new> struct jsonifier::core<test<value_type_new>> {
@@ -273,13 +273,6 @@ template<typename value_type_new> struct jsonifier::core<test<value_type_new>> {
 template<typename value_type_new> struct jsonifier::core<partial_test<value_type_new>> {
 	using value_type				 = partial_test<value_type_new>;
 	static constexpr auto parseValue = createValue<&value_type::m>();
-};
-
-template<typename value_type_new> struct jsonifier::core<test_generator<value_type_new>> {
-	using value_type				 = test_generator<value_type_new>;
-	static constexpr auto parseValue = createValue<&value_type::a, &value_type::b, &value_type::c, &value_type::d, &value_type::e, &value_type::f, &value_type::g, &value_type::h,
-		&value_type::i, &value_type::j, &value_type::k, &value_type::l, &value_type::m, &value_type::n, &value_type::o, &value_type::p, &value_type::q, &value_type::r,
-		&value_type::s, &value_type::t, &value_type::u, &value_type::v, &value_type::w, &value_type::x, &value_type::y, &value_type::z>();
 };
 
 template<typename value_type_new> struct jsonifier::core<abc_test<value_type_new>> {

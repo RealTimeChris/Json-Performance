@@ -28,12 +28,16 @@
 #include "Twitter.hpp"
 #include "Discord.hpp"
 #include "Canada.hpp"
+#include <unordered_set>
 #include <thread>
+#include <random>
 
 #if defined(NDEBUG)
-static constexpr auto maxIterations{ 1000 };
+static constexpr auto maxIterations{ 1400 };
+static constexpr auto measuredIterations{ 20 };
 #else
-static constexpr auto maxIterations{ 40 };
+static constexpr auto maxIterations{ 200 };
+static constexpr auto measuredIterations{ 25 };
 #endif
 
 constexpr auto getCurrentOperatingSystem() {
@@ -85,17 +89,6 @@ constexpr bnch_swt::string_literal glazeCommitUrlBase{ "https://github.com/steph
 constexpr bnch_swt::string_literal jsonifierCommitUrl{ jsonifierCommitUrlBase + JSONIFIER_COMMIT };
 constexpr bnch_swt::string_literal simdjsonCommitUrl{ simdjsonCommitUrlBase + SIMDJSON_COMMIT };
 constexpr bnch_swt::string_literal glazeCommitUrl{ glazeCommitUrlBase + GLAZE_COMMIT };
-
-class test_base {
-  public:
-	test_base() noexcept = default;
-
-	test_base(const std::string& stringNew, const std::string& fileContentsNew, bool areWeAFailingTestNew)
-		: fileContents{ fileContentsNew }, areWeAFailingTest{ areWeAFailingTestNew }, testName{ stringNew } {};
-	std::string fileContents{};
-	bool areWeAFailingTest{};
-	std::string testName{};
-};
 
 std::string getCPUInfo() {
 	char brand[49]{};
@@ -150,15 +143,6 @@ std::string getCPUInfo() {
 #endif
 }
 
-std::string getCurrentWorkingDirectory() {
-	try {
-		return std::filesystem::current_path().string();
-	} catch (const std::filesystem::filesystem_error& e) {
-		std::cout << "Error: " << e.what() << std::endl;
-		return "";
-	}
-}
-
 void executePythonScript(const std::string& scriptPath, const std::string& argument01, const std::string& argument02) {
 #if defined(JSONIFIER_WIN)
 	static std::string pythonName{ "python " };
@@ -172,53 +156,25 @@ void executePythonScript(const std::string& scriptPath, const std::string& argum
 	}
 }
 
-bool processFilesInFolder(std::unordered_map<std::string, test_base>& resultFileContents, const std::string& testType) noexcept {
-	try {
-		for (const auto& entry: std::filesystem::directory_iterator(std::string{ testPath.operator std::string() } + testType)) {
-			if (entry.is_regular_file()) {
-				const std::string fileName = entry.path().filename().string();
-
-				if (fileName.size() >= 5 && fileName.substr(fileName.size() - 5) == std::string{ ".json" }) {
-					std::ifstream file(entry.path());
-					if (file.is_open()) {
-						std::string fileContents((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
-						bool returnValue					= (fileName.find(".json") != std::string::npos);
-						resultFileContents[fileName.data()] = { fileName, fileContents, returnValue };
-						file.close();
-					} else {
-						std::cerr << "Error opening file: " << fileName << std::endl;
-						return false;
-					}
-				}
-			}
-		}
-	} catch (const std::exception& e) {
-		std::cerr << "Error while processing files: " << e.what() << std::endl;
-		return false;
-	}
-
-	return true;
-}
-
 struct test_struct {
-	std::vector<std::string> testVals01{};
-	std::vector<uint64_t> testVals02{};
-	std::vector<double> testVals04{};
-	std::vector<int64_t> testVals03{};
-	std::vector<bool> testVals05{};
+	std::string testString{};
+	uint64_t testUint{};
+	int64_t testInt{};
+	double testDouble{};
+	bool testBool{};
 };
 
 struct partial_test_struct {
-	std::vector<std::string> testVals01{};
-	std::vector<bool> testVals05{};
+	std::string testString{};
+	bool testBool{};
 };
 
 struct abc_test_struct {
-	std::vector<bool> testVals05{};
-	std::vector<int64_t> testVals03{};
-	std::vector<double> testVals04{};
-	std::vector<uint64_t> testVals02{};
-	std::vector<std::string> testVals01{};
+	bool testBool{};
+	double testDouble{};
+	int64_t testInt{};
+	uint64_t testUint{};
+	std::string testString{};
 };
 
 template<typename value_type> struct test {
@@ -229,18 +185,16 @@ template<typename value_type> struct partial_test {
 	std::vector<value_type> m, s;
 };
 
-inline static std::random_device randomEngine{};
-inline static std::mt19937_64 gen{ randomEngine() };
-static constexpr std::string_view charset{ "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~\"\\\r\b\f\t\n" };
-
-template<typename value_type> struct test_generator {
-	std::vector<value_type> a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
-
+struct test_generator {
+	static constexpr std::string_view charSet{ "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
+											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
+											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
+											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~\"\\\b\f\n\r\t" };
 	inline static std::uniform_real_distribution<double> disDouble{ log(std::numeric_limits<double>::min()), log(std::numeric_limits<double>::max()) };
 	inline static std::uniform_int_distribution<int64_t> disInt{ std::numeric_limits<int64_t>::min(), std::numeric_limits<int64_t>::max() };
 	inline static std::uniform_int_distribution<uint64_t> disUint{ std::numeric_limits<uint64_t>::min(), std::numeric_limits<uint64_t>::max() };
-	inline static std::uniform_int_distribution<uint64_t> disCharSet{ 0ull, charset.size() - 1 };
-	inline static std::uniform_int_distribution<uint64_t> disString{ 32ull, 64ull };
+	inline static std::uniform_int_distribution<uint64_t> disCharSet{ 0ull, charSet.size() - 1 };
+	inline static std::uniform_int_distribution<uint64_t> disString{ 16ull, 64ull };
 	inline static std::uniform_int_distribution<uint64_t> disUnicodeEmoji{ 0ull, std::size(unicode_emoji::unicodeEmoji) - 1 };
 	inline static std::uniform_int_distribution<uint64_t> disBool{ 0, 100 };
 	inline static std::random_device randomEngine{};
@@ -252,40 +206,12 @@ template<typename value_type> struct test_generator {
 		return dis(gen);
 	}
 
-	static void insertUnicodeInJSON(std::string& jsonString) {
-		auto newStringView = unicode_emoji::unicodeEmoji[disUnicodeEmoji(gen)];
-		jsonString += static_cast<std::string>(newStringView);
-	}
-
 	static std::string generateString() {
 		auto length{ disString(gen) };
-		auto unicodeCount = length / 32ull;
-		std::vector<uint64_t> unicodeIndices{};
-		static constexpr auto checkForPresenceOfIndex = [](auto& indices, auto index, auto length, auto&& checkForPresenceOfIndexNew) -> void {
-			if (std::find(indices.begin(), indices.end(), index) != indices.end()) {
-				index = randomizeNumberUniform(0ull, length);
-				checkForPresenceOfIndexNew(indices, index, length, checkForPresenceOfIndexNew);
-			} else {
-				indices.emplace_back(index);
-			}
-		};
-		for (uint64_t x = 0; x < unicodeCount; ++x) {
-			auto newValue = randomizeNumberUniform(0ull, length);
-			checkForPresenceOfIndex(unicodeIndices, newValue, length, checkForPresenceOfIndex);
-		}
-		std::sort(unicodeIndices.begin(), unicodeIndices.end(), std::less<uint64_t>{});
 
 		std::string result{};
-		uint64_t insertedUnicode = 0;
-		auto iter				 = unicodeIndices.begin();
 		for (uint64_t x = 0; x < length; ++x) {
-			if (iter < unicodeIndices.end() && x == *iter) [[unlikely]] {
-				insertUnicodeInJSON(result);
-				insertedUnicode++;
-				++iter;
-			} else {
-				result += charset[disCharSet(gen)];
-			}
+			result += charSet[disCharSet(gen)];
 		}
 
 		return result;
@@ -309,60 +235,53 @@ template<typename value_type> struct test_generator {
 		return disInt(gen);
 	}
 
-	test_generator() {
+	static test_struct generateTestStruct() {
+		test_struct returnValues{};
+		returnValues.testBool = generateBool();
+		returnValues.testDouble = generateDouble();
+		returnValues.testInt	= generateInt();
+		returnValues.testUint	= generateUint();
+		returnValues.testString = generateString();
+		return returnValues;
+	}
+
+	static test<test_struct> generateTest() {
+		test<test_struct> returnValues{};
 		auto fill = [&](auto& v) {
-			auto arraySize01 = randomizeNumberUniform(1ull, 5ull);
+			const auto arraySize01 = randomizeNumberUniform(1ull, 15ull);
 			v.resize(arraySize01);
 			for (uint64_t x = 0; x < arraySize01; ++x) {
-				auto arraySize03 = randomizeNumberUniform(0ull, 10ull);
-				for (uint64_t y = 0; y < arraySize03; ++y) {
-					v[x].testVals01.emplace_back(generateString());
-				}
-				arraySize03 = randomizeNumberUniform(0ull, 10ull);
-				for (uint64_t y = 0; y < arraySize03; ++y) {
-					v[x].testVals02.emplace_back(generateUint());
-				}
-				arraySize03 = randomizeNumberUniform(0ull, 10ull);
-				for (uint64_t y = 0; y < arraySize03; ++y) {
-					v[x].testVals03.emplace_back(generateInt());
-				}
-				arraySize03 = randomizeNumberUniform(0ull, 10ull);
-				for (uint64_t y = 0; y < arraySize03; ++y) {
-					v[x].testVals05.emplace_back(generateBool());
-				}
-				arraySize03 = randomizeNumberUniform(0ull, 10ull);
-				for (uint64_t y = 0; y < arraySize03; ++y) {
-					v[x].testVals04.emplace_back(generateDouble());
-				}
+				v[x] = generateTestStruct();
 			}
 		};
 
-		fill(a);
-		fill(b);
-		fill(c);
-		fill(d);
-		fill(e);
-		fill(f);
-		fill(g);
-		fill(h);
-		fill(i);
-		fill(j);
-		fill(k);
-		fill(l);
-		fill(m);
-		fill(n);
-		fill(o);
-		fill(p);
-		fill(q);
-		fill(r);
-		fill(s);
-		fill(t);
-		fill(u);
-		fill(v);
-		fill(w);
-		fill(x);
-		fill(y);
-		fill(z);
+		fill(returnValues.a);
+		fill(returnValues.b);
+		fill(returnValues.c);
+		fill(returnValues.d);
+		fill(returnValues.e);
+		fill(returnValues.f);
+		fill(returnValues.g);
+		fill(returnValues.h);
+		fill(returnValues.i);
+		fill(returnValues.j);
+		fill(returnValues.k);
+		fill(returnValues.l);
+		fill(returnValues.m);
+		fill(returnValues.n);
+		fill(returnValues.o);
+		fill(returnValues.p);
+		fill(returnValues.q);
+		fill(returnValues.r);
+		fill(returnValues.s);
+		fill(returnValues.t);
+		fill(returnValues.u);
+		fill(returnValues.v);
+		fill(returnValues.w);
+		fill(returnValues.x);
+		fill(returnValues.y);
+		fill(returnValues.z);
+		return returnValues;
 	}
 };
 
@@ -407,7 +326,7 @@ template<result_type type> constexpr auto enumToString() {
 
 template<result_type type> struct result {
 	std::optional<double> jsonSpeedPercentageDeviation{};
-	std::optional<double> byteLength{};
+	std::optional<uint64_t> byteLength{};
 	std::optional<double> jsonCycles{};
 	std::optional<double> jsonSpeed{};
 	std::optional<double> jsonTime{};
@@ -451,7 +370,6 @@ struct results_data {
 	std::unordered_set<std::string> jsonifierExcludedKeys{};
 	result<result_type::write> writeResult{};
 	result<result_type::read> readResult{};
-	uint64_t iterations{};
 	std::string name{};
 	std::string test{};
 	std::string url{};
@@ -466,18 +384,12 @@ struct results_data {
 		}
 	}
 
-	results_data& operator=(results_data&&) noexcept	  = default;
-	results_data(results_data&&) noexcept				  = default;
-	results_data& operator=(const results_data&) noexcept = default;
-	results_data(const results_data&) noexcept			  = default;
-
 	results_data() noexcept = default;
 
-	results_data(const std::string& nameNew, const std::string& testNew, const std::string& urlNew, uint64_t iterationsNew) {
-		iterations = iterationsNew;
-		name	   = nameNew;
-		test	   = testNew;
-		url		   = urlNew;
+	results_data(const std::string& nameNew, const std::string& testNew, const std::string& urlNew) {
+		name = nameNew;
+		test = testNew;
+		url	 = urlNew;
 	}
 
 	void checkForMissingKeys() {

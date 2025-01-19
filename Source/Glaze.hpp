@@ -181,24 +181,23 @@ template<> struct glz::meta<emoji_data> {
 };
 
 template<> struct glz::meta<incidents_data_data> {
-	using value_type				 = incidents_data_data;
+	using value_type			= incidents_data_data;
 	static constexpr auto value = object(&value_type::invites_disabled_until, &value_type::dms_disabled_until);
 };
 
 template<> struct glz::meta<tags_data> {
-	using value_type				 = tags_data;
+	using value_type			= tags_data;
 	static constexpr auto value = object(&value_type::bot_id, &value_type::guild_connections);
 };
 
 template<> struct glz::meta<role_data> {
-	using value_type = role_data;
-	static constexpr auto value =
-		object(&value_type::id, &value_type::name, &value_type::description, &value_type::permissions, &value_type::position, &value_type::color, &value_type::hoist,
-			&value_type::managed, &value_type::mentionable, &value_type::icon, &value_type::unicode_emoji, &value_type::flags, &value_type::tags);
+	using value_type			= role_data;
+	static constexpr auto value = object(&value_type::id, &value_type::name, &value_type::description, &value_type::permissions, &value_type::position, &value_type::color,
+		&value_type::hoist, &value_type::managed, &value_type::mentionable, &value_type::icon, &value_type::unicode_emoji, &value_type::flags, &value_type::tags);
 };
 
 template<> struct glz::meta<sticker_data> {
-	using value_type				 = sticker_data;
+	using value_type			= sticker_data;
 	static constexpr auto value = object(&value_type::id, &value_type::name, &value_type::tags, &value_type::type, &value_type::format_type, &value_type::description,
 		&value_type::asset, &value_type::available, &value_type::guild_id);
 };
@@ -248,18 +247,18 @@ template<> struct glz::meta<test_elements_final> {
 };
 
 template<> struct glz::meta<test_struct> {
-	using value_type			= test_struct;
-	static constexpr auto value = object(&value_type::testVals02, &value_type::testVals05, &value_type::testVals01, &value_type::testVals03, &value_type::testVals04);
+	using value_type				 = test_struct;
+	static constexpr auto value = object(&value_type::testString, &value_type::testUint, &value_type::testInt, &value_type::testDouble, &value_type::testBool);
 };
 
 template<> struct glz::meta<partial_test_struct> {
-	using value_type			= partial_test_struct;
-	static constexpr auto value = object(&value_type::testVals05, &value_type::testVals01);
+	using value_type				 = partial_test_struct;
+	static constexpr auto value = object(&value_type::testBool, &value_type::testString);
 };
 
 template<> struct glz::meta<abc_test_struct> {
-	using value_type			= abc_test_struct;
-	static constexpr auto value = object(&value_type::testVals04, &value_type::testVals03, &value_type::testVals01, &value_type::testVals05, &value_type::testVals02);
+	using value_type				 = abc_test_struct;
+	static constexpr auto value = object(&value_type::testBool, &value_type::testDouble, &value_type::testInt, &value_type::testUint, &value_type::testString);
 };
 
 template<> struct glz::meta<test<test_struct>> {
@@ -272,13 +271,6 @@ template<> struct glz::meta<test<test_struct>> {
 template<typename value_type_new> struct glz::meta<partial_test<value_type_new>> {
 	using value_type			= partial_test<value_type_new>;
 	static constexpr auto value = object(&value_type::m);
-};
-
-template<typename value_type_new> struct glz::meta<test_generator<value_type_new>> {
-	using value_type			= test_generator<value_type_new>;
-	static constexpr auto value = object(&value_type::a, &value_type::b, &value_type::c, &value_type::d, &value_type::e, &value_type::f, &value_type::g, &value_type::h,
-		&value_type::i, &value_type::j, &value_type::k, &value_type::l, &value_type::m, &value_type::n, &value_type::o, &value_type::p, &value_type::q, &value_type::r,
-		&value_type::s, &value_type::t, &value_type::u, &value_type::v, &value_type::w, &value_type::x, &value_type::y, &value_type::z);
 };
 
 template<typename value_type_new> struct glz::meta<abc_test<value_type_new>> {

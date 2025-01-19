@@ -1,3036 +1,1580 @@
 {
    "z": [
       {
-         "testVals04": [
-            -3.4096451119656487E267,
-            6.790933761844406E107,
-            5.545822688171888E224
-         ],
-         "testVals03": [
-            -7235367450798361616,
-            7740624876426948474,
-            -225894694902215815,
-            66292316928602387,
-            -2787610482690729937,
-            7380652620528540080
-         ],
-         "testVals01": [
-            "0p\tHj~Q\"?j{1sN*!]!HJ\"3wMDk#x`h1h8?1_ZMA6SQzwBb🇸",
-            "i{x🪈\fWr:E-v\"OhI~txWz|/<$\\tx!q'H%:oU034<bl!K+_(ZrQ#wu",
-            "tLMOl`Vf'!)N%z%,+0p>?EQOB5.*gN![v-o5pH\tge@.8O}B:,F{🏊🏻K",
-            "x9O.NFf//yR$g?al\n%hJb👷🏽‍♀️5<TS\rGNyL5N\bTMDR!e2|wu",
-            "<T%a4\n\tn)`NEpTU\";YS%?1@[0acHDq\b\f%umHf]`E0Ai6\b#\f[oT:/K👷🏼‍♂️(KR9|"
-         ],
-         "testVals05": [
-            false,
-            false,
-            false
-         ],
-         "testVals02": [
-            10224649439189849872,
-            17506304490374740226,
-            4569187876537644431
-         ]
+         "testBool": true,
+         "testDouble": -3.5447888563132453E-75,
+         "testInt": 188772519213814863,
+         "testUint": 1658120994003542741,
+         "testString": "hf'#Bz\t#byr#LarT9(C1"
       },
       {
-         "testVals04": [
-            -1963074841130226000
-         ],
-         "testVals03": [
-            4411237944010291305,
-            -1863386208771226143,
-            7373207665751035056,
-            -8880650983031528592,
-            -8962170348246105378
-         ],
-         "testVals01": [],
-         "testVals05": [
-            false,
-            true,
-            true,
-            true,
-            false,
-            false,
-            false,
-            false
-         ],
-         "testVals02": [
-            17214604005911489702,
-            7086525652226407947,
-            6362821365244304340,
-            18229560013219908400,
-            7556940211077807085,
-            4688791752678736048
-         ]
+         "testBool": true,
+         "testDouble": 9.387135527354077E272,
+         "testInt": -7876896765545759517,
+         "testUint": 17317777070792437295,
+         "testString": "'IFWQ,<us^.m<HJhg~ZCU?xrIipFX!+X]"
       },
       {
-         "testVals04": [
-            1.530531515865801E233,
-            -4.1186448323322996E277
-         ],
-         "testVals03": [
-            5921812659901823830,
-            7689515395753156840,
-            -6367739349656425685,
-            -8535592038260252331,
-            -7407901677751229667
-         ],
-         "testVals01": [
-            "|tJF=3D~6cIbr\tuh\\sEc(m5:NIXbuT#2!'$tIW_fD👓0%i^ES;}?e=|",
-            "I<x$\\&I_jj'>b\b;dVa9|%Eh'`S+B$f\\^UIJvd⛸️iiCi}JO",
-            "D::[H0tHz}*c🌈Hk5;dl$5A~,#XO[)WZ=DiG=",
-            "X:JI7👩🏼‍🤝‍👨🏾W|g>S=j#?40V$lQ[y'CYAE=MH/iGB.Md;\f3\f3"
-         ],
-         "testVals05": [
-            true,
-            false,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true
-         ],
-         "testVals02": [
-            14639991672281808424,
-            15788716552280557939
-         ]
+         "testBool": false,
+         "testDouble": -2.247786733486941E-308,
+         "testInt": -2779023595106480983,
+         "testUint": 2887079355227512127,
+         "testString": "Dqh|@G-j+U<1LrSy}>n!|G}=WH0itR9WNdP1Egfj~YO2l7&"
       },
       {
-         "testVals04": [
-            1.71788014229268E-222,
-            -1.8983082132628924E228,
-            -481284866210.31256,
-            -6.4268151746122085E-289,
-            -6.163393977814011E154,
-            -2.9901242949619478E-189,
-            7.598219676801376E75,
-            -4.09949123278676E72,
-            -7.641242809849797E41
-         ],
-         "testVals03": [
-            2511071448733692481,
-            -8407647941154531579,
-            -41939036622174461
-         ],
-         "testVals01": [
-            "4👩‍💼Z&noVwFdT@S@^2>O7u\\bw\b<\"4\tW/\r^(r3^",
-            "E(5T4cW[I_\nh&<💆🏼0g\n\\Y`D'7&MJ*;u😊\\Nx}hG_^MR_2<y~o3`e(&B`4THIRi-wlE",
-            "5I_!WG^\\o\rwK\fp0{gK$#🤸🏾J|\nG<{b&R_k-\fMDa",
-            "K[Pn🧑🏻‍🌾o+#{S\fDVwjTu@M2$.Ivh'd>s~42&1nn|L,Zg9!<&m}1k=)uGs@sh",
-            "t5W^^B}tT?_['i).=3Yb#🇭:\tt!Vqxw>}\"7YIV1MVH_["
-         ],
-         "testVals05": [
-            true,
-            false,
-            true,
-            false,
-            false,
-            true,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            1335962283758749993,
-            12326048387218978987,
-            5986711813248557822,
-            9136160942025233238
-         ]
+         "testBool": true,
+         "testDouble": 1.834139879986133E198,
+         "testInt": -8637837621393589271,
+         "testUint": 6087322250403224447,
+         "testString": "(~$A&Qdw*Y4^(H]N+nNT5[8gdd*j%>@BvX1p0=q%Qa+EF"
+      },
+      {
+         "testBool": false,
+         "testDouble": -3.8250248184407256E-111,
+         "testInt": -8700688051571614681,
+         "testUint": 13017262312367074635,
+         "testString": "O/%h7}>!U8A|wO+jm&Pc1"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1010761931526007.1,
+         "testInt": 8322048793442101490,
+         "testUint": 7076540205384075979,
+         "testString": "K!2h+d|ri(3vRik^%^hF7++9-]k_BM#y9TTr&+6ajgw:DIc"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.895540714631131E-202,
+         "testInt": 6281968331796602413,
+         "testUint": 7834253712027776825,
+         "testString": "\\l3Og=;\"s)B;&6Pt-;o?^e+.nq1iSn/?g7EQ{S(oSQ-6XlMz&6[S'"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.0799397756791083E214,
+         "testInt": 7516338942067021522,
+         "testUint": 6488957937399873432,
+         "testString": "j]'i.e)\"jl3Hhf0/K0Dh$rr"
+      },
+      {
+         "testBool": true,
+         "testDouble": -7.219750560876536E175,
+         "testInt": 2163240924832003072,
+         "testUint": 578914300630299236,
+         "testString": "J[^aQ^|By3TGx$+M/yQFmDBg;q6J\ntI*5+>o7#2WC4:6dhn*j[{&"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.222083651007858E163,
+         "testInt": 54946699339821647,
+         "testUint": 14851198688571439461,
+         "testString": "PFYn_fKWBJj@[t2PP]Xx?HDj#i%4.mo._!7#$rb+|l$2"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.346732468061048E31,
+         "testInt": -47888887177791361,
+         "testUint": 11520874867599343685,
+         "testString": "6\\qDU?|)+JPN;$@L%luNSd05IG26"
+      },
+      {
+         "testBool": false,
+         "testDouble": 6.71564688211635E-239,
+         "testInt": 2642139983473821171,
+         "testUint": 4655706266139206346,
+         "testString": "T>WEZAs3R'Xi>%}!;bX5UhIoX2'HRvu_s'imEgl+~:z"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.3844692065633145E-22,
+         "testInt": -8924306086305846123,
+         "testUint": 2009829340300146374,
+         "testString": "=`j\"N=Lv'W8obA1uTs({-TU}jmHg8kd0E"
       }
    ],
    "y": [
       {
-         "testVals04": [
-            5.2019875038291756E100,
-            -7.299026863165862E66,
-            2.9795144415104975E-109
-         ],
-         "testVals03": [
-            8130845575367315548
-         ],
-         "testVals01": [
-            "?!K)4DYQfe!t\nHA2`T:r!Y{m4J🏓mD=in.P*Eb<GFOfjV",
-            "[X1J1lj_/diF7}g5^Tc6*2$Q\bjp{g🚴🏽‍♀️>tWn\nVj~r`3Te\"32b4Y0\nFZs👩🏼‍❤️‍👩🏾ur1|M~,*C",
-            "IXPL]G.|H{🖥️UknvS\n@mt]@c8q??\b\"i\r9?nze;@",
-            "!\t(,zT>sDRx!h{<:@🤦🏾vVdS>sfxH_Sk{b\b2b$H^KP`t:f5ki",
-            "I\\_PecD*(9FvVHUcKX/*'P_9Ay~👩🏾‍⚖️F$r7)4vtTf`aIWm;G[]\\@Lth^%JN",
-            ")cPgW@zD%8+Oz)|lHrM🧑🏽‍✈️-eM3\\TilOKX6Q!",
-            "Q)s![D<|,FS✳️i\tMt9PqG']+\nN@qE,0?gZ{*scm|]3kNq{(`AAeW"
-         ],
-         "testVals05": [
-            false
-         ],
-         "testVals02": [
-            6413002234762288991,
-            11771766833159068377
-         ]
+         "testBool": false,
+         "testDouble": 1.663902118460026E-295,
+         "testInt": 1959174104495864989,
+         "testUint": 11646389593781148143,
+         "testString": "^Z;>m{7BLcQDzb*VROjl4EX7{Pu"
       },
       {
-         "testVals04": [
-            -1.0679790162846125E109,
-            -1.1253957379542079E-298,
-            1.1865299775533802E54,
-            3.1173831955959306E-203,
-            2.83986778180467E21
-         ],
-         "testVals03": [
-            6799693469373424141,
-            5177643277649608157,
-            4145620253826633016,
-            -3979987711909910969,
-            -7255252617487601838,
-            -6481406455196302375,
-            5791887878189837311,
-            -5220761158060190820,
-            -7101600403944008602
-         ],
-         "testVals01": [
-            "].`_1\bh7jsHzfnTQS<H#Ey#qA-0yzv5mJ:,6ot🧖🏾"
-         ],
-         "testVals05": [
-            false,
-            true,
-            true,
-            true,
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            4002077975652966583,
-            7826887612378113295,
-            15128446084165492892,
-            12204522659262413771,
-            15224901028035777743
-         ]
+         "testBool": true,
+         "testDouble": 3.515164925180015E-252,
+         "testInt": 4375943717791245897,
+         "testUint": 8397323200469873232,
+         "testString": "Q<Z^LBp5@PcA9j=&}J\\b~Uba5Fz\nz^!,Xi-zgKT[F,2iPV"
       },
       {
-         "testVals04": [
-            -1.4509415144541687E65,
-            -2.8396226068794954E209,
-            4.187153288223719E-80,
-            1.930815300760202E-76,
-            3.3782545174988365E-274,
-            -1.9410129875126258E307,
-            -4.907962880266957E-221,
-            -4.997936794942932E208
-         ],
-         "testVals03": [
-            4155717514607865095,
-            -7449904792985745011,
-            -7911206453443085403,
-            -1217664407264842397
-         ],
-         "testVals01": [],
-         "testVals05": [
-            false,
-            true,
-            true,
-            true,
-            true,
-            true
-         ],
-         "testVals02": [
-            3448020207506560005,
-            4241470854136606872,
-            4266012308077388437,
-            17837230537422269392,
-            4687327894622504233,
-            11643861140525370227,
-            3045572897289699782
-         ]
+         "testBool": true,
+         "testDouble": 6.999949792785186E-108,
+         "testInt": 3767474262242559827,
+         "testUint": 13112423455077697118,
+         "testString": "\nY~CKo1{`-r)2=P]uS/&0_P^2l"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.5218596701634568E133,
+         "testInt": 6511251050644615284,
+         "testUint": 14384782499061549207,
+         "testString": "+IbO~X8/Ij%Fu\\9xpvMZa2}UjW~>t72h/2d!?\t1(hg%iI'*Lhnk"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.553309551481337E181,
+         "testInt": 6494725009299059348,
+         "testUint": 9162303426759194343,
+         "testString": "fNe;6.qMQLC_Y6;X@<2k}84jb;dA%KbO~dy)rR[Vl"
+      },
+      {
+         "testBool": false,
+         "testDouble": 8.076437323372895E-97,
+         "testInt": 2470857266310204235,
+         "testUint": 15305376394260744172,
+         "testString": "b*@xx1f&O==#YE4!-oBFP4FO_E1s|,Qc2!"
       }
    ],
    "x": [
       {
-         "testVals04": [
-            -1.4212293035331753E-86,
-            -1.9661665789373598E-229,
-            1.409963234597076E-41,
-            -1.2854244513278248E-153,
-            -5.230752299545211E-111
-         ],
-         "testVals03": [
-            -2860251838918677839,
-            6561520639375834352,
-            -5143500944942671407,
-            4665010819458133059,
-            -4867581089760683452,
-            3805002079248799316,
-            -6819930247796826414,
-            5352985249978339768
-         ],
-         "testVals01": [
-            "Lo(fzr\rwEa~UQ+\b🧑🏽‍🦼,%p^P*wIf4=P~'m$9.`N",
-            "m9M[HeV\bIjebDsR4📸]i0#YW|^*d\\`#|d3xCAnp)U",
-            "(?Ut\f\\rJ02^8>)dn[=d_Z.<\niC\fjJDZN`B*ec,\fV👩🏻‍❤️‍👩🏾kGu\n\\|\r^ZCKXO"
-         ],
-         "testVals05": [
-            false,
-            false,
-            false
-         ],
-         "testVals02": [
-            9171082668290222217,
-            1181150764018715492,
-            13986115243824239024,
-            6274626742505764482,
-            8725257227314242474,
-            7906885153693889865
-         ]
+         "testBool": true,
+         "testDouble": 5.581966354149373E59,
+         "testInt": 5196288184642526781,
+         "testUint": 1360736889455921208,
+         "testString": "c2ifP%SB!xYp@c-MX{lKT"
       },
       {
-         "testVals04": [
-            -2.8137975328258174E146,
-            2.6118888741098454E-79,
-            3.462250361824726E-49,
-            2.970751187676894E-227,
-            -219958672127661.38
-         ],
-         "testVals03": [
-            1373975442371479123,
-            -3078222176397549101
-         ],
-         "testVals01": [
-            "xO0d(D2ma\rzR(iC#t\r?*b]QqARx_r^&(🏊🏼uRl",
-            "-\n.6f,8Rb\bD^🧘🏼2~Sz%FQ<d^^96QCa#}!faQ?n}];%vW!d/-*(A1@w'6",
-            "T^\n_1(ooLAj:YwmaBe}e_MP|)%\tYz^uuEqf>🤘🏾M\bV\bT",
-            "C\r$/fXk6zS4🧝🏻09H,GRmw\"kZ>#^H'N42>m{2K}6QQP7DIB[ua_Ff9<Qav~|]SUf",
-            "s%r8\fI)?hJ+IJ🧎‍♂️P4A}&Hh\"w\f-k3@mT7,6ckh2EQK(cAz~M/$lCG[:\n",
-            "5R*\\ACQ=\\plhgTvY/n?🧔🏻‍♀️B]lgVKb}--bdYA~RmL*0-zrO?s*!8\t",
-            "'j🧑🏾‍❤️‍💋‍🧑🏿(M'KkCqnM=\":047\bQqMEIR19N25QA;jpigG=32%",
-            "m🫅🏾1\tSW&_T(d'<\\43z:|e18gBzwxp'\n`3nWRhGG&LNk^f-\"$3Gm"
-         ],
-         "testVals05": [
-            true,
-            true,
-            false,
-            true,
-            false,
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            1955888303338101400,
-            14335770244732935504,
-            17231921236143750802,
-            14692627147563805714,
-            1695769107174039514,
-            8574198402162540462
-         ]
+         "testBool": true,
+         "testDouble": -6.096922858947436E-130,
+         "testInt": -1035758276051779988,
+         "testUint": 13298083735201030287,
+         "testString": "dH3s}MV2A1s9Uve`@qFQJ)=_r-!5:QYxk^d-_p["
+      },
+      {
+         "testBool": true,
+         "testDouble": -4.8501339233616485E-129,
+         "testInt": 762694066996727769,
+         "testUint": 2230996041858845760,
+         "testString": "xc@.2k}^Yao*$@W#}of;vr;:X8E3zLkc!kBU=PH]gt.MJ="
+      },
+      {
+         "testBool": false,
+         "testDouble": 3.676186112036424E-194,
+         "testInt": -1369615496398744396,
+         "testUint": 17904763320302602104,
+         "testString": "l$Zy~%xNZl&*{1i-p+Fr:2jb]z~(uCZ2F+.V<MvZ-Gy:#<`!~mL}\rC"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.944889064566653E102,
+         "testInt": -42857707303398184,
+         "testUint": 17268045378394306559,
+         "testString": "MKpIhPj})0s;TN6s^l)Nw\n0!9>l>Er?"
+      },
+      {
+         "testBool": true,
+         "testDouble": 7.719917931292541E-218,
+         "testInt": 1359828834838641527,
+         "testUint": 7349869820368204054,
+         "testString": "YU#4\t>U*G<D,P0WfpGA0E_4~7(K*DKGJi)#pe43.]m<uFX(JWsmHjTE"
+      },
+      {
+         "testBool": true,
+         "testDouble": 354018741351.6519,
+         "testInt": 1024102270457302997,
+         "testUint": 5508156436592881487,
+         "testString": ")_`lpzHg!&m4puE:P_}|?]nD:$O@5uePo:F6{\\gx,Z7@qDLjT`"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.1660302534611366E296,
+         "testInt": 8293759757342775016,
+         "testUint": 6332768912614008005,
+         "testString": "Z{XMy#ui.>kT{5SV/"
+      },
+      {
+         "testBool": true,
+         "testDouble": -4.181323741908598E-264,
+         "testInt": 4169117203059914129,
+         "testUint": 14400017380096105258,
+         "testString": "*`,p@0B8TzlSjCu@;k4rw*dR6kTM`g1de"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.8566544983666157E245,
+         "testInt": -559809750005041286,
+         "testUint": 10109504102383550118,
+         "testString": "NoNwIL#3NgmGZ=p7%Ki5c:"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.9075527844034273E-230,
+         "testInt": 4727003172270992120,
+         "testUint": 11670270240586272469,
+         "testString": "+>i!C/om%o7Ep$(`KT[?_P'O5@p4&Wl)O"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.6302708678314997E47,
+         "testInt": -6553347584259605493,
+         "testUint": 8706644801037738184,
+         "testString": "vJRwkS%niH9+?=yV:SV:k.-LwvGYWPa`uUlI7+:WvsBk"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.499035507779901E-148,
+         "testInt": -5524566055987798657,
+         "testUint": 1633295578205988048,
+         "testString": "kS]^cU~=%^%Y!pm-&CG!)rG_uj>r<b]e'^sL5\t-EHV"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.868204349715663E-156,
+         "testInt": 4381705615068618119,
+         "testUint": 18224382444790281731,
+         "testString": "aeVdecJS$&8[KJ~iRw~k/\nYV"
+      },
+      {
+         "testBool": true,
+         "testDouble": 16.15209463543053,
+         "testInt": -1512768951068015311,
+         "testUint": 14325307179328454691,
+         "testString": "y#C#gGV((#K\"R~'_q25)iFtOcij6~U1WGd}Z_SI%hm{?doy=3c9!"
       }
    ],
    "w": [
       {
-         "testVals04": [
-            3.0842774557139716E243,
-            8.76285020619736E44
-         ],
-         "testVals03": [
-            1175592477765108376,
-            -274432168805864821,
-            5884071579852795547,
-            -1939558412753339615,
-            -8703183631089945641,
-            1363035585492784563,
-            4913140451936064655,
-            -787668141499003827,
-            4455493315461648788
-         ],
-         "testVals01": [
-            "}-eLJ🚴🏽‍♀️=j,M_RKQ>6eMMEy4@|''S`;XL^%*eR/",
-            "F76\f}=S\f^3J2gXC0\tXX\tZT👨🏻‍🚒EvV4[xaSN#*{1h"
-         ],
-         "testVals05": [
-            false,
-            false,
-            false,
-            true,
-            false,
-            false,
-            false,
-            false,
-            true
-         ],
-         "testVals02": [
-            13947310787472322188,
-            10039905524673421254,
-            6017074503321578091,
-            16968603099346084377,
-            1378647967278694389,
-            17023867071023356480,
-            13143409400861405558
-         ]
+         "testBool": false,
+         "testDouble": -9.959925224144777E97,
+         "testInt": 895953019092566176,
+         "testUint": 15920445580390053598,
+         "testString": "uyCa9FD9b/7r=X45SC=geImL6mJ=B8GIN\tJl)/\tj+cnSUcZkH@@r26]<S"
       },
       {
-         "testVals04": [
-            3.3314048779715E130,
-            -7.898813931599008E145,
-            -4.749580770886527E-306,
-            -5.746760993686998E243,
-            -3.63244097882574E53
-         ],
-         "testVals03": [
-            -5827939233949993848,
-            -1824819057358053113,
-            -2328265254640217678,
-            6137827052925273739,
-            -7886772721178864255,
-            -6920361689965489379,
-            -4913439261713272307,
-            700680121703158591
-         ],
-         "testVals01": [
-            "n!0e4F[\\8=jd🧑🏼‍💼6eJtCdsuh}\r71z_l~H|!gG!rHqCDyX8\"\tw",
-            "JUC)W,~!kJC^R_TQ[Zi8+zM[$h_^W`S\niNnFp💂🏽‍♀️W)k",
-            "pc4^<!\"p1TkN)bWLn\bF\"$6W\\@}eu\tzSwc)=xam%n=🕢x}\\Vb",
-            "\"ISc_e:Gtt[A\nsDob\rImj\n\r6pX_S]AMy!\r\"H8_o\n^\niGm8u]C>K0T4🇩🇲1",
-            "\tzA9Rtx\tN={Y`!h|{d\f(*fkJu4(hZku)3rLth<z{$g🙇🏿‍♀️\\<cu/2t4isFM>U7\n",
-            "iGX🏋🏻‍♀️8u;57\bM6dx1tXs)aKM1}#jej)!/D~d=",
-            "Ll@Dmgq4Hj*P\r\noT2[\"bP;[4pEj8hTl{O8a51)\rTG]#YH\b4CA%👨🏾‍❤️‍💋‍👨🏻u'V\\P\f\\_sK%",
-            "P+N'gGE[g🤸\b\"]>%7*/%@JF/s6yh~SU@k\\ZTEH:X2*iok$ym/:=\b'KxsL/\n>(JA",
-            "{*S]Jx'🍸K\nnz\rj<}4;KIY;dM,lIFnjGXE`w,\rbD/!\n?V_\\=v_=fQ?\rufT",
-            "v[%k9Y61gSizw#*,🇹🇰ez}`FhWoVAU0'`7Xl\ruC]u2kLnN)_"
-         ],
-         "testVals05": [
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            16843421331789459103,
-            12407613419041042814,
-            16870036507667595739,
-            14238729453690673142,
-            3588449858723675968,
-            1350901875440956412,
-            9532390079045284300
-         ]
-      },
-      {
-         "testVals04": [
-            -1.0857085720864471E303,
-            2.03004054352351E95,
-            1.1512295026818154E-47,
-            4.5398945035603787E86,
-            2.1160291013325924E-24,
-            -1.6646228674758912E-251,
-            -1.1185380749176627E92,
-            2449902407.8067594
-         ],
-         "testVals03": [
-            1166878960785862179,
-            4445698040129333089,
-            6697110491477136172,
-            -2759996059665978602,
-            2522544009794047327,
-            3565583551675784825,
-            3763887657451773096,
-            7859371369664432228,
-            -168144005010250983
-         ],
-         "testVals01": [
-            "P'I=LD\"ufV\bSDkL\fAzz\nVEW👩🏿‍❤️‍👨🏿D\r*&*ZZ>tINvsL}'=:;;'\n\"ZtSg~dRCH<OV",
-            "`9KZp!1Bp?^\f3F\"oO|[]🏒.-1T\"s6W+%QeVBK",
-            "rZ*o[|kNI\n#y[e>\bTW0D🕵🏾‍♀️Bx#\\@>-I\fkwEr6R[\\U?ia7aqE",
-            "C/S^eKRFl#(Hh[w\fZ>🧑🏼‍❤️‍💋‍🧑🏾>i(Vjs5NhTg5A@:\fe",
-            "Wfe2T:M'vVU/\r🫷🏽tI*C=e(wy{QUgKp`q\fE<e6>7\\xQbc)!{U",
-            "SZ~[h^~!2=v=K\fiR6\n>t`49$wk0Ut=@o👩🏽‍❤️‍💋‍👩🏼$#)[rh:O{\f0oAk2FwWX$"
-         ],
-         "testVals05": [
-            true,
-            true,
-            true,
-            true,
-            false,
-            false
-         ],
-         "testVals02": [
-            12086673831683877709,
-            4064607414949213012,
-            6302515020349673583,
-            6938560458065907151,
-            13527384989899620710,
-            2158348142989168058,
-            4787321489183957167,
-            8899835070286557303
-         ]
+         "testBool": false,
+         "testDouble": -2.9933923177008153E207,
+         "testInt": -2955593178541491832,
+         "testUint": 9927175412653967216,
+         "testString": ",3zi!-;2iXpUJ#q\fl077?,XK|^Nu1g,K:YD9U3.x+#7@[*Q=fZS"
       }
    ],
    "v": [
       {
-         "testVals04": [
-            -1.3170678993908952E-86,
-            -3.675975049406139E260,
-            -1.0616218599671693E160,
-            -1.8889232546642654E233,
-            1.1506326295743702E-20,
-            4.761581254513714E192,
-            -9.86420391464848E102,
-            2.4242411317325437E147,
-            1.5847350053918272E-173
-         ],
-         "testVals03": [
-            4047182067420695888,
-            -6748520839886378870,
-            -5464804309559959065,
-            6977431535979972116,
-            7421895209062589209,
-            -397197757096475780,
-            -4400252699906170263
-         ],
-         "testVals01": [],
-         "testVals05": [
-            false,
-            true,
-            false,
-            false
-         ],
-         "testVals02": []
+         "testBool": false,
+         "testDouble": 9.56234858057687E-293,
+         "testInt": 3752165550255004091,
+         "testUint": 5126360001243227249,
+         "testString": "zi\\e5RcITLc<h:BA&[5EM!e"
       },
       {
-         "testVals04": [
-            -2.8686089752427217E-233,
-            2.232244749754531E-126,
-            8.074309707846324E-154,
-            -1.912303033070559E50,
-            -9.39776641433439E-164,
-            -1.0324444274362038E80,
-            -1.2415942553876104E-83
-         ],
-         "testVals03": [
-            8116505101292145796,
-            5988416960745904118,
-            7821017291183067048,
-            2579747845999175852,
-            -6044999091944960455,
-            -7384076039424479503,
-            -159394924844661461,
-            -7831970257143287056,
-            5155435104687103175
-         ],
-         "testVals01": [
-            "v\nt3.2X👩🏽‍❤️‍💋‍👨🏾mHu\tP|bf:\tl`MVNu#JR7o7z#*6\f4V>#q\r",
-            "l%Lsr0Z$qHyoGD!\bR@🟨f:\f!J:[T)~iXOpc,Z;h@3`HzK:J_4(",
-            "u@a6-M*%g%AS;86+gM,5\ndW5z)W🏅[xjeCk@h`Z8qKf%)^Ls@>\ba",
-            "👫🏻V~e$g1V)}WQiUHU_-`<JOgn|w\nP~\ts%4hZ-fjrQQFq",
-            "VE)V!👨🏽‍🍼~o><1{)(&\r\rqQ<)G4\tN#D\"U\b$BNqLwCoQ't0$:Of)~u={Ne7\n4@l",
-            "GAT!q0\br\b|/t.yp^r%c.X\"#XD^q=#ruC\\]dUWX@iKLd🫃🏼GR\r~",
-            "EJS👩🏼‍❤️‍💋‍👩🏾5vp<'NA\fm~d9]S+:6-n8:E2xCQk9\\c9F6",
-            "%~{-j/)'u-[&i;b_#\"\tC🇪🇦!yReCrz\rC|Zahr?_g+wLtH",
-            "+'3vu\bU{4?AI^lWBxb^u=V_>5J&tifz]'x-s~[}.g~y6🤦🏼ziTo+\n>MvKe;r6P:",
-            "WCq^G-LZ>#g[f\\Pt🧑🏽‍🤝‍🧑🏻jT-AJkq4<evz_Nk2vjAds&(#8\\$aq@N=<\f{"
-         ],
-         "testVals05": [
-            false,
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            16954669165417449189,
-            2856320996108362680,
-            13975461431155067492,
-            11893980774813023322,
-            5864668334719811723,
-            7142671753285436669,
-            562624645172482595,
-            1917530513882961755
-         ]
+         "testBool": false,
+         "testDouble": -6.475402605589996E99,
+         "testInt": 8507658541251667846,
+         "testUint": 7223791175075604128,
+         "testString": "nH:kIyt5vhGVXy}N[[EZqNd2m[P.#}-/ic,*N?[6^"
       },
       {
-         "testVals04": [
-            2.369327157744893E280,
-            1.306343503033294E182,
-            -1.0808441490411252E-91
-         ],
-         "testVals03": [
-            -7984315967844048351,
-            6994818810046720594,
-            -2587282562830908931,
-            2976791132216258394
-         ],
-         "testVals01": [
-            "\\&8141SA|1q'OKDvz👍}jRmS}SW7AUk7T\\=/F38U",
-            "lQ&_/Z6V6Oc?7Gmci`:4OZ\rJKoShEBM[🛀🏻-9",
-            "PT1TDr👨🏾‍💼z`F?Q8.TXX^^O7mOYoY:\te<z,S)5.OknlpE%`D,`7oBgDz^k2i"
-         ],
-         "testVals05": [
-            false,
-            true,
-            false,
-            true,
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            7395408407501619048,
-            6021599400552627308,
-            12995426753357634983
-         ]
+         "testBool": false,
+         "testDouble": 2.5317483741122404E118,
+         "testInt": 2847583001547165976,
+         "testUint": 18388896564314061,
+         "testString": ",i-SrAv$Ro~OaCNySUM!UT%kP0hj_#N5z'm"
+      },
+      {
+         "testBool": false,
+         "testDouble": 6.0386096806921135E-127,
+         "testInt": -2839028864251152958,
+         "testUint": 4657259627924873970,
+         "testString": "PH[}jk9.0t}[3Oel#{~|\n4(%pH#XH46/w\r_-*@cf4`tM-"
+      },
+      {
+         "testBool": true,
+         "testDouble": 6.883162881362125E-203,
+         "testInt": -4750318931952981267,
+         "testUint": 1695473015230212308,
+         "testString": "8@;<NlKIch=}_(xG"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.8777754453470158E152,
+         "testInt": -7885564504786451141,
+         "testUint": 17154192281910455033,
+         "testString": "sSw:cS[O-yE['3v?(EL$w!"
+      },
+      {
+         "testBool": true,
+         "testDouble": -6.493623219159178E-22,
+         "testInt": 230081071106241452,
+         "testUint": 9317063053147303576,
+         "testString": "c`.5x:Itm_J~GM\"/-nWp4VP9O%XrXy[GBb~_@\bD##"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.0722985475908697E-166,
+         "testInt": 659180060687566042,
+         "testUint": 11194880791388657263,
+         "testString": "7xO[~U:r!o7#^T3$%'"
+      },
+      {
+         "testBool": false,
+         "testDouble": -9.748875720900947E-294,
+         "testInt": -5125963963922555010,
+         "testUint": 16662430605913420026,
+         "testString": "($M^LGj[ts~CtP]AQ$EEX.)+9aoT@M=n2WXpz"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.719642554361998E-173,
+         "testInt": -1807128668367529122,
+         "testUint": 10834563198476663598,
+         "testString": "-C:0C{.(v.=-h0)(Y^\r%r-2e{F/iU@"
+      },
+      {
+         "testBool": false,
+         "testDouble": -6.104043541545561E173,
+         "testInt": 1012567107668938064,
+         "testUint": 17560621531659843629,
+         "testString": "r!>-qNxHdnG4H:sV){+Q(vK>2&*A<dKDmKL8AGn^m^=.:(m\\]|q;}`"
+      },
+      {
+         "testBool": false,
+         "testDouble": -6.0957335142900225E-266,
+         "testInt": 6631234339472647941,
+         "testUint": 11438428859578905983,
+         "testString": "\\\\@k*!K8p1MRo&\fk+e#NQK.=&pA61_Sp:6BSV;*"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.0093711642905766E-53,
+         "testInt": -6727225073619823892,
+         "testUint": 13021992387191566904,
+         "testString": "Fx,5-nYu4!=[5xeQoN(pTcx!A5L&.HQJ}"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.383975941943029E47,
+         "testInt": -5775225459684726844,
+         "testUint": 13682619710115315103,
+         "testString": "c`l%7L00RE5>q5o^17JC<!!U~7~h)Q:eWU;[?'o?Hf\fda~"
       }
    ],
    "u": [
       {
-         "testVals04": [],
-         "testVals03": [
-            -6187839420657957004,
-            -186445266022243301,
-            6962487891444170128,
-            3158844256174330593,
-            1125089895251203875
-         ],
-         "testVals01": [
-            "2+9$\ba\\AqSdV8bz]wQg\fiM^p5\"i6]\n@xk>8ASq🧑🏾‍🌾+PYcnp&X|@vq`B?tVuVd7O=",
-            "}$zzH^K\\nl(jAD44x🇸🇧to\"w<qg^Aj3B/7NO",
-            "E⚾\rCz66_:_1y;<GoK|khL[&);Jv?5.YdE[cGgd/L>D'f#EN*72\r\\6D<*",
-            "Va\"JOatwpih*B2!v~;lHp0wp🧙🏿;`_X.1Hl?fHR([X)?X\\\t51OSY-xif))jMbxjCZ",
-            "E{yvAj[d5.?;Ho'u-uR👩🏼‍❤️‍💋‍👩🏽+jp`];A\rjj\"iCbj=x.GC\t<'jceg0P:oy}7Sf2\nG",
-            "vQUiZ$?~6v%Csb\n💇🏿‍♂️Bqrb\f6fre{3'3[\r?$tHB0\r3mg8=Hah1p",
-            "~lGi/A]|8?🧑🏿‍🍼;N!|%G%[u{G-8\rU}GwoP*a_8\"\r|J}81WBn"
-         ],
-         "testVals05": [
-            false,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            8157417723599941479,
-            2784247692005451232,
-            15358986087330926091,
-            13994330023328834495,
-            10173892161024027610
-         ]
+         "testBool": false,
+         "testDouble": 1.0470324822352477E-160,
+         "testInt": -3526608678066136091,
+         "testUint": 15966059870365781102,
+         "testString": "}!D^Mz.B:u|Et^:mHX,y~Fm'qtQ)1(5|FE_MU3S"
+      },
+      {
+         "testBool": true,
+         "testDouble": 5.5093030177035606E281,
+         "testInt": -3576024916467362372,
+         "testUint": 8152343699708586500,
+         "testString": "|5X4ae$q,t4V2->+s"
+      },
+      {
+         "testBool": true,
+         "testDouble": 4.388097469068366E-199,
+         "testInt": 2202145601198412343,
+         "testUint": 3669516755056962568,
+         "testString": "L!fj$cUf6nf$UO*o>)lg22\b6:DhE/RYK;s3<o&/`r#\f.'3G<z6$~"
+      },
+      {
+         "testBool": true,
+         "testDouble": -3.279394624222526E95,
+         "testInt": 6116251028801764478,
+         "testUint": 6237277909355055012,
+         "testString": "|_U{\nI@Y+-h#@?0-4dQM'kL?JroF9hEq#*)o95\fY<,8.s\tt~VO"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.0541133137431062E49,
+         "testInt": -7827957168000499093,
+         "testUint": 1777544877720860193,
+         "testString": "4})8kBQ'SC(1Z+|tG"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2478405759849122300,
+         "testInt": -2181754172950966985,
+         "testUint": 17379983311320291991,
+         "testString": "NCLYH3a8s\\wG*hC9vT3@cRV#XXu^fF2CY&"
+      },
+      {
+         "testBool": true,
+         "testDouble": 6.940302917283484E-83,
+         "testInt": 9173085115251858240,
+         "testUint": 8786095056396268436,
+         "testString": "LLP>&;@:;/(:)&VN]/#{j&M.^>2cn65P+'%3TWKaRx+sNY1AEL\tD,m|"
       }
    ],
    "t": [
       {
-         "testVals04": [
-            -6.465146048992598E-142,
-            0.000001474719961975899,
-            -9.928611613823661E31
-         ],
-         "testVals03": [
-            3662492168773776446,
-            -3245881028546369414,
-            3855839537753973054,
-            3349958708292786719,
-            -3554997000979723595,
-            -7043277955546543931
-         ],
-         "testVals01": [
-            "👨🏿‍🤝‍👨🏽z/jUCr]\npJK%NJ{\ri)qV5Wj\\o)#_Mn=KboM@71/CiA\rwr>7M8",
-            "a$<X]~IO-I&%\nw%H6(^,\tSONy<O\f9a+V3Lq(R[#%1FpJ2\"u5E\rr^ugZb💂🏿‍♂️c",
-            "1\rh%('5k$OhBp;k*m-|s7bEt),S\reXjc]W!+$^0\f$4a9🦸🏼‍♀️1FRkd,I,(v\f\rpryO",
-            "HN4[JF$6B-:N*w\\HT=C`A<*/*R1\tZSL>%ZC4cXMfg_🏃j",
-            "P<2m%tI>;|ur1zALg<>H-(O<u7B2\f~9c🕵🏻‍♂️|3Z7\fg)#ht'wswwh",
-            "k*🧑🏾‍🚒3xn8&z%u~/'lJ\"Pm0q\r=3&u:4uFT#erZb",
-            "T|xw_bd🈶S0l?\rwhO\bFwr:$\biJE<\tKTN<84Qtgtc+",
-            "RQ6|X\fZe,\nuy👍🏽{i.?\r4U{5}6\n\tjFKjCZ5",
-            "A%,lay1!l)QamM}O%U\tq\fs$+TeK.^/v->(m#Plg3d&\r5Ni.g\\EC🚵🏿‍♀️gX/&reAlM}",
-            "$k\r}ckh{$eq,sZy👨🏼‍🦯7h🤾🏽wUhl%sBuJsE19P/~B\\,q\rHdj9w8;2:\t1B>=u6U9\rKF?+."
-         ],
-         "testVals05": [
-            true,
-            false,
-            true,
-            true,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            3339439516232923921,
-            1616428677373569824,
-            184607075199695123
-         ]
+         "testBool": true,
+         "testDouble": 9.517588810571493E285,
+         "testInt": 8231818235123413548,
+         "testUint": 11729553428798309706,
+         "testString": "[h5}g.L_&;q2ud1\n\"(:_q<Xb8Qj1keNr6H8"
       },
       {
-         "testVals04": [
-            2.5160317223218565E-33,
-            7.393289061622615E246,
-            1.7673603651327807E90,
-            1.0242480610404867E-76,
-            -6.762748423473747E74,
-            -5.789877455992637E-213,
-            -2.086430251375335E-71,
-            7.433909052165726E252
-         ],
-         "testVals03": [
-            -8367183742612279790,
-            6564897976049086765,
-            2763756454754360007,
-            8614049678020057653,
-            -7828774804422548504,
-            2837582840281479819,
-            5072908661862638359,
-            -8683810967847810263
-         ],
-         "testVals01": [
-            "\"K91f6W`'*A[\tA43LcesS;+\rSj&l*_K!OoW&p^X8Sx🧗🏻‍♀️*7j9`A\nu!?}/"
-         ],
-         "testVals05": [
-            false,
-            false
-         ],
-         "testVals02": [
-            11997451814374881636,
-            14083604339084124435,
-            2058245711731558792,
-            14904953696933454823
-         ]
+         "testBool": false,
+         "testDouble": 1.520328137971454E198,
+         "testInt": 4638375572200826817,
+         "testUint": 7143900541987711634,
+         "testString": "0l]H`GG/`sUF#uFI9i\t4x"
       }
    ],
    "s": [
       {
-         "testVals04": [
-            7.853186554418523E175,
-            -8.424652675177268E251,
-            -236052.57063238684,
-            -7.086205446088561E33,
-            -2.6387928513132636E-39,
-            -348634142520.57654,
-            5.154170064886872E211,
-            -1.0675790471858924E179
-         ],
-         "testVals03": [
-            -1698630079269426775
-         ],
-         "testVals01": [
-            "/R>(~vEU7)*\bj🆔[4yYi==xocUbEjZLb~a.V",
-            "k;!\tX`e\t4*:nlaIHJ<\"p\b*~IHE,\rJy!v\n4\"[`KlQY🪰n",
-            ";:##\nXK📖\nX]co1mo7o=N\rrI<Z#UW:ch=[GF",
-            "]r8~!1-9?{F:w\ny>O🙈lf=Jvq;wI.D@\n^\t!s\f\n1wZ?aMK4I84g%YSA\rc|/`eSi_i"
-         ],
-         "testVals05": [
-            true,
-            false,
-            true,
-            true,
-            false,
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            18271700374568382472,
-            11369345526058148572,
-            9478315286919591039
-         ]
+         "testBool": true,
+         "testDouble": -2.8852760740503006E102,
+         "testInt": -5622222102630032762,
+         "testUint": 14928876514538879653,
+         "testString": "TjE:m|jRh1x5Pdob\"#R*[6qkh6Cg,ZiIOZ0%W`<AuD"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.4869052097936682E218,
+         "testInt": 3670214662430202779,
+         "testUint": 745890591924673016,
+         "testString": "ms*mv}vsh8Qi6|\fYLmd5}~F0{Z<TqPSC@sP1}B"
+      },
+      {
+         "testBool": true,
+         "testDouble": 6.941385385881843E85,
+         "testInt": -4056855074713253678,
+         "testUint": 9010715101155694970,
+         "testString": "X<Lsi%Srf])pu;WBNqkDt.irV;ab,]P|c6($iD\tH,+\\63VB,;l.(:_:p:E"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.149980243300788E-248,
+         "testInt": -7091914288331163358,
+         "testUint": 10613530965770554506,
+         "testString": "*&:.j?5'CpmS=PmX(ouuk\tr.aIgqJuJ"
+      },
+      {
+         "testBool": true,
+         "testDouble": 7.250924690748853E-19,
+         "testInt": -5702886703791877476,
+         "testUint": 13349885738719081080,
+         "testString": "zk_&qhc<c4>XX:r>xZTt8,)MV]!QY(!z;U"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.288993742850307E-94,
+         "testInt": -6246750731966349673,
+         "testUint": 16656552673584210612,
+         "testString": "4:L]CR|$KLm#deT|VN4J<p"
+      },
+      {
+         "testBool": false,
+         "testDouble": 9.397887422074003E-74,
+         "testInt": -7390202515054910875,
+         "testUint": 8112906860515263269,
+         "testString": "[Ob8m,O^8+K!7X#ct>y#-63kA0@jZ=%j/d#07!E{~>-*"
+      },
+      {
+         "testBool": true,
+         "testDouble": 5.082459948152879E-35,
+         "testInt": 868473602243264834,
+         "testUint": 21514564754808108,
+         "testString": "q/bC$um(~``~JNt?\n7!x,\b3&uFX6y~^a|"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.254636311591979E-86,
+         "testInt": -3073241443837414468,
+         "testUint": 3075119895960718198,
+         "testString": "-K'tpTv3<\b1C{os'tU[_*>4|6YY"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.045768584849677E86,
+         "testInt": 8485407179186419046,
+         "testUint": 3071443318734802956,
+         "testString": "Rgd,yAvqK(Bo-dG&L!F#Ff\rj9j^^A&{i5A:<^:%US"
+      },
+      {
+         "testBool": true,
+         "testDouble": -4.105160303374907E200,
+         "testInt": 2339418485506467065,
+         "testUint": 7370684800466518173,
+         "testString": "TK*Rr7mS*f#<:y}j6x-lwsTNS;C@oA"
+      },
+      {
+         "testBool": false,
+         "testDouble": -5.486178175483967E-120,
+         "testInt": -3017651400179081598,
+         "testUint": 15940815113373755979,
+         "testString": "yH!VI83\bHwKTBoNg18<3<Z^sVH}4v*vP>'Ve,}{`+gJ&@F^Vs3W;7-sS"
+      },
+      {
+         "testBool": true,
+         "testDouble": -4.1626832403055935E-274,
+         "testInt": 3829232632070049895,
+         "testUint": 15075286187821066131,
+         "testString": "_,^=ui)pJi|Z\b&O)YE>=IIWit83$y|0Hw^j]-*6cC-Cgl!^]a"
       }
    ],
    "r": [
       {
-         "testVals04": [
-            -8.25725095674269E-96,
-            -5.145039897527199E-15,
-            -8.047823375185637E-189,
-            3.486688537974504E306
-         ],
-         "testVals03": [],
-         "testVals01": [
-            "qH=Jd{\tvK=-uy28=(|A*?uANp8cF<🎽fxl<M\\f;1e\nCP'EM\b)nes+_iT@[lbf*M",
-            "/T#(K-|>)_v👍🏽1uovf#bj\"U=+/.-K\bb9_}\nAKmkw<y=#0P\rKc5+I;",
-            "TScx🏨e-a%L6q\\6f_NY?bIC\t92uwG\"\t%b\"<(W\fgiuTs:xa9'l^-}zirpiX\\ezq",
-            "ss*Ys🤛🏻JC:yx?g<.CQ3hOLnJX~5b(8{R?j..B,w}mI'nE+5Zb\t[nmeb",
-            "z/hhn,%aC🏓zR0FsPgnJ.U<)'LY<%xL~\tl1_/\f\"?Um8*P=.4SMGkB"
-         ],
-         "testVals05": [
-            false,
-            true,
-            true,
-            true,
-            true,
-            false,
-            false,
-            true
-         ],
-         "testVals02": []
+         "testBool": false,
+         "testDouble": 3.650469147463948E75,
+         "testInt": -3150513772636024634,
+         "testUint": 7917645222939081611,
+         "testString": "u2Bu&@/IFR7rTx\ny,tw[F,GoP`z%|z5[NKIDBypS]n8~$i"
       },
       {
-         "testVals04": [
-            -5.073457745542894E-211,
-            -4.560656735119644E-254,
-            1.4793970562473564E50,
-            4.620210616152418E119,
-            3.810662259147051E218,
-            -2.7442919497872648E284,
-            -3.421588951708844E-275,
-            3.0244372167329265E-68,
-            1.663307846470852E-258,
-            -7.256514067896571E246
-         ],
-         "testVals03": [
-            -6955136142860062584,
-            -3794961494721340814,
-            6152689741174299840,
-            4433240085300039961,
-            -7130456222702547281,
-            2950201460975470348,
-            -1370859267859684491,
-            9125940806741745935
-         ],
-         "testVals01": [
-            "&h7'P`2FD🧵?[17:n5m,X\tbLv{*gmFK{%\\Mo~R\"g4)9i>iV3W",
-            "'o!u07eS[2n#Lt,[ky/%NI\\{}_&Mu\nIo🧜🏿‍♀️?5u=]Xfg;@x!;6LfrdJG",
-            "\"3r,p.`)sG[Va,🧏🏿‍♂️,iMx'~5kE?XJ@]eya5rZ-?:d6~_>fs-x&afg\bT01h3[\tRGMb",
-            "|13:N=\\$%m*t{,d7dD⚽E\"NqsUBL1NzzN7.k=tqDxk?/zNcQ8CA7(E'i",
-            "%`WA-?g$zo\"$Y4e6HA4!vB>8Li🐽b)'&\ti:uo*U{o{>.j(h-K3e"
-         ],
-         "testVals05": [
-            false,
-            false,
-            false,
-            true,
-            false,
-            false,
-            true,
-            true,
-            false,
-            false
-         ],
-         "testVals02": [
-            4645556216202646830,
-            13275415642178750444,
-            17734414790255850195,
-            5507966750417088621,
-            4053560726227800860,
-            16698564856930579434,
-            8281279090287612852,
-            6893795833544503269,
-            13823538716671305597,
-            1815431086474059940
-         ]
+         "testBool": false,
+         "testDouble": 5.524590509792213E167,
+         "testInt": 2978679270628192238,
+         "testUint": 1169086945581555161,
+         "testString": "j\nq0soiYHq7!2vGTY=*9e6:x*"
       },
       {
-         "testVals04": [
-            6.363790557794245E-183,
-            2.173727880811855E-116,
-            2.7640720514404184E154,
-            -1.3316652299705097E-81,
-            -2.207293224143579E-271,
-            -3.658484521927303E48,
-            -2.621636278684475E-267
-         ],
-         "testVals03": [
-            2961755952270789070,
-            -3141664174275274771,
-            3412116961034618508,
-            -5259778546115135985,
-            -1506572937872915298,
-            -8116008818966574297
-         ],
-         "testVals01": [
-            "5^hg\t|{%~aiR\n^o\")/-@z|!kgJO\fx3E🏇🏽C]mG0jcWD1AIvY\n$ouuioL=\reXFZS"
-         ],
-         "testVals05": [
-            false,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            11556866510831529760,
-            11702086401039868770,
-            6186264799205981701,
-            1734812804568247029
-         ]
+         "testBool": true,
+         "testDouble": 2.3956036100475882E-20,
+         "testInt": -3475392329317596021,
+         "testUint": 3224630522616048042,
+         "testString": "CPUEV~2jO>n.^zk/B6f|XAQtBu@#A9?LpvtvnxQ,*Ek1{"
       },
       {
-         "testVals04": [
-            -1.611149803663539E303,
-            1.2059015554365744E174,
-            8.628165828309298E-220,
-            94950266445175800000,
-            -2.475751376790843E46,
-            -3260.9487014345746
-         ],
-         "testVals03": [
-            -8039248199538401961,
-            -2770986164595799305,
-            -1639489483795908631,
-            -3890516506520674592,
-            7257584211970907811,
-            -3852328753743909132
-         ],
-         "testVals01": [
-            "oDlXsF;4~{~)P.b|0}&2sv'N💂🏽=3+2)oM/t/9d1\r^udyC:NG8ORkaR&6}V\n\f/i",
-            "/SIi6_-kKf$S-👨‍❤️‍💋‍👨M\t\tc2g\"+j,P#%HYW5\t\\/9_F?\t\r93Bk\r4",
-            "@%{ir95BC8ER{NQ2M🦸🏾‍♀️TAhZ_tu<6{rw{h1+i=qNA",
-            "#o\\pBf-UQv-?eHq\"f4W📠N,pT;VO/LJle02ME^\\{5(6GlMX3Y9",
-            "[3Tg🏊🏿‍♀️Nw>:.4vNW}U'\t|y[|Jyyk#}\bVI{_\t|KJfb\\>kb6JT@z\"+z3`on",
-            "j3\ra:D@mpx/9l*iW\b👳🏽‍♂️<rZ@((kC\r|S'\nHogv*\bhVlV%tXOLd<*A^\\O4U!`"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false,
-            false,
-            false,
-            false,
-            true,
-            true,
-            true
-         ],
-         "testVals02": [
-            12877452210260994419,
-            11860614616660135428,
-            7205802604043397330,
-            9444729466643141334,
-            11406043938021437570,
-            5308011996608234475
-         ]
+         "testBool": true,
+         "testDouble": -4.6275311976602E128,
+         "testInt": 1825767779771330372,
+         "testUint": 4983084094586561174,
+         "testString": ")T?0*BTJc-;Dk;?Ho/W\r5={b:kI`S9tY,K5B/uQK>^yS?,$_~4GcF85Ny"
       },
       {
-         "testVals04": [
-            2.64621236035976E230,
-            8.981654376953526E207
-         ],
-         "testVals03": [],
-         "testVals01": [
-            "=B🧑🏻‍🔧T@|$&JGHrv4x%\\'}p\"~!059qR)\b*CCD,G`Khvj\r\f.\b\tCj7|5(zl",
-            "pfg6$A🛋️D\n\n\tNJ\bDQy2j\\{~DnZ5r|iCn8?dfPs",
-            "}2jH&1Bh`JkVZb7_rqP%2?Hxqls,N$9e(}QEg4Ea#🚴.4)F{f_"
-         ],
-         "testVals05": [
-            false,
-            true,
-            false,
-            true,
-            false,
-            false,
-            true,
-            true,
-            false,
-            true
-         ],
-         "testVals02": [
-            6417332244502414853,
-            5595845740799359599,
-            8793176554611921425,
-            10734582584596254887,
-            18104144242995974841,
-            9153603576833968165,
-            15159170374710726827,
-            13224756244928230564,
-            14497063859887809868,
-            18115038659753152229
-         ]
+         "testBool": false,
+         "testDouble": -2.971434119563523E110,
+         "testInt": -5956065282283211277,
+         "testUint": 7355092808132310368,
+         "testString": "LUr=@%<QvZ#!L_KVg]G*yKM/=w/Ax}|ia[xy\"Px.pV$|Ei#b$a"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.372172254014809E-81,
+         "testInt": 2638131586292267444,
+         "testUint": 14704735085478039416,
+         "testString": "9m`=vjq/JiC(%Bz~}zXGgdA0T]fT5pdH@Yz30#lr(qJ7'F:=j:=zvqW]m0{A"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.781127423212404E156,
+         "testInt": 469085078510283215,
+         "testUint": 7783543723793322860,
+         "testString": "(+yb%103bPd{i5h{zA1h2"
+      },
+      {
+         "testBool": false,
+         "testDouble": 3.615392770247928E229,
+         "testInt": 7639837067940597486,
+         "testUint": 1122547872797542650,
+         "testString": "ym6SaPW/]J%3%ykh]ZY{^r5Ac7ybJ|p(D^O4{'{Da5>k:"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.4443725709555579E232,
+         "testInt": -1194055974953398085,
+         "testUint": 14191101238194147098,
+         "testString": ">gePW,?x:?PmMew+hT1mg,%4btf}+'Z;&QJ|aq"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.6829433279674985E-73,
+         "testInt": -1063219411347838665,
+         "testUint": 12671803242843175407,
+         "testString": ",=HGf,C)0<VPwm4%t,zl8x@/~8cklWt,Je{aL-8kOIv2`LNJLZ?[Q,_$eO~s%9"
+      },
+      {
+         "testBool": false,
+         "testDouble": 8.176932118159636E-204,
+         "testInt": 1872882273263139037,
+         "testUint": 2514734738445141615,
+         "testString": "AA<#rFl;VR^z\\|Q#Sq'PEmT!Hx,n=Sf/hj805bB~uvxAB/Hl%Y(j'pi"
       }
    ],
    "q": [
       {
-         "testVals04": [
-            6.584263345238843E249,
-            -4.607482276738871E239
-         ],
-         "testVals03": [
-            -7041820567362219030,
-            1962075667413073961
-         ],
-         "testVals01": [
-            "JerJ6e-#8rjEeTsPjH\t'X.@:0TV<57:~@L7?\t9J{🙇‍♂️\b0I'",
-            "{@>Jg`\nVR;!2Njq$$\fR!BC~hI+\"G5^t🚃MKEf12r`3!-T>C",
-            ",!,_A)B\"ds>2<O\b>\nH?t🧑‍🦱<_I\"w}KL(9z{;Y&svfnn",
-            "Y}3>3🇭🇲um$Oe\"@F9\"w=pvC##V\n1=q#VGZ5Q\tH?r",
-            "7z=flLe\bU(e,g|[-5n\tr`!B#U\nm👳🏿‍♀️g\t$,,",
-            "=\n1}UE!6\rJX~FO,)7DY:!'1y?hnt4XGq\"r$%P{👨🏼‍❤️‍👨🏿)#~0_b$\f<+9$ME~o(|m9\t\tIJ"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false,
-            false,
-            true,
-            false,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            46430671085922183,
-            16153870524997523167,
-            5428397077447852047,
-            13157784313668271393
-         ]
+         "testBool": false,
+         "testDouble": -5.242286271619234E-130,
+         "testInt": -2164698051432286846,
+         "testUint": 8280852648657877684,
+         "testString": "OPofaz=bPuN%];=H/{uk\\=#~M9"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.1149795514121057E-255,
+         "testInt": 145935945195814365,
+         "testUint": 14329699967293197768,
+         "testString": "J42mXG{fzk8CeRF}co;`/~fGQnSv|\n;2j$iCD\"bBho4_j87Y~,</"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.3863595432075986E239,
+         "testInt": 4658173877503063847,
+         "testUint": 11987808183839042521,
+         "testString": ",N-o'|Qg1I2+cU#O)!YX=P:}vvz<,W.FihbPtP25PB#=!`HZ`D36hKRKI"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.5901798516708597E202,
+         "testInt": 7567954326229050889,
+         "testUint": 6323468143855928360,
+         "testString": "HRc!]B}X_Q8X:2T{Q1KC_UUw:6IN.7PwkSCpBhiWQ-gEM"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.97669939608705E222,
+         "testInt": 1725909909382831888,
+         "testUint": 14812738211377129968,
+         "testString": "lR1|Q\rj3W>djrX_4%*h4-xkS6aPdY8!1?n%,.b~w*\"A<gB>sHJ"
+      },
+      {
+         "testBool": false,
+         "testDouble": 4.364564883153184E89,
+         "testInt": 6211060856622789963,
+         "testUint": 16610121623398368473,
+         "testString": "Z%n`rAfQb~BFNFpst%U06:@D~O8ZSQpnn~{[4c7FdS>.L~|,%Gp|+n"
+      },
+      {
+         "testBool": false,
+         "testDouble": 7.874962036376652E302,
+         "testInt": -4536518234381940040,
+         "testUint": 4916497376942948065,
+         "testString": "_2oydMA^_aY}_KA:d#IB2<y1*ynw!}\nk<jg(FJ[eE?r3$tn"
+      },
+      {
+         "testBool": true,
+         "testDouble": -3.3263159416776913E207,
+         "testInt": -8702914598631598173,
+         "testUint": 15854132784903999255,
+         "testString": "oXIgV?8pr0f^9}-[Bb2o=0!P|>K4q+;I_7s|nV3(*C,4Z=V;R=6A5eN>0"
+      },
+      {
+         "testBool": true,
+         "testDouble": 4.1357517473147934E102,
+         "testInt": 1874229504949839342,
+         "testUint": 1120249935373820979,
+         "testString": "X,$]i}nNv<K{McUb*:EI~q<2EX2xF$>d9gnU*n%{HY't:ijN^("
+      },
+      {
+         "testBool": false,
+         "testDouble": 3.530861865258738E178,
+         "testInt": 6684208905161342140,
+         "testUint": 11142399980616850351,
+         "testString": "tL7l7dvpqzeMuILgOM7-."
+      },
+      {
+         "testBool": false,
+         "testDouble": 4.158358530763753E-181,
+         "testInt": 1705799178801705315,
+         "testUint": 2330210345500920798,
+         "testString": "FO7Wjhw\b;MtLUNU>DX.5UlnSJ3P0D(h)p|]"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.605644464118822E-183,
+         "testInt": 6550686822732533725,
+         "testUint": 2891131855576847294,
+         "testString": ">=dce?-~/*l.|h,.iMGC4n[Hx;1eFB\n5Eq+'oy64[]D`y,g"
+      },
+      {
+         "testBool": false,
+         "testDouble": -3.8693229629741155E225,
+         "testInt": -5419326741642253878,
+         "testUint": 164775470554666886,
+         "testString": "O%}F7V.k<EiKaOA+MUhJ?m9U:=>qhs?<@rl*+#jLy@d~L+\tO&~R:o8c7[\bn"
       }
    ],
    "p": [
       {
-         "testVals04": [
-            -1.647168788127719E76
-         ],
-         "testVals03": [
-            8776779873678874000,
-            -5235971958098615565,
-            -6805533481903719640,
-            5631124351477245027,
-            -1972402458385244794
-         ],
-         "testVals01": [
-            "EOzyC\r}C'e}8+)%c6y>l(🧒🏼/YdP0^{O1Dr31a\tTV\"}rZ:#)A'AA1|8Y,dc",
-            "\b!GySY\rtBGve*X;k`\t#Lwt84kPLQin\byBP'📔`F%j-ScVZpZPwk",
-            "mTOMS.J@LFmYde68👨🏼‍🦳n}[\\u;`U,-tga?$5/(><z\b;2QdEus@A-{n",
-            "5OIK3QO'anPy${^v\bJj9a;]}🧔🏼‍♀️tU@*S.<ReC]",
-            "\\\b)m:iWn!\"&9F:💠q$\tQ1k4}HxgD^Bh/GK=w?\\-2uO",
-            "eR\"MfZ<<QHHQqYUSf🤦🏽{}5GT3)h~0.I_MO0c$Ebs39;?hWYv1z]R,A\n!8",
-            "[@mf1\r✋🏾w4`[2Lzg^WhV[11W:t#t\rwj=G9t#o:w\nb%@3lw?qU(`f"
-         ],
-         "testVals05": [
-            false,
-            true,
-            true,
-            false,
-            true
-         ],
-         "testVals02": [
-            15103775421665367757,
-            4263144950905728247,
-            2075205590837516525,
-            17620710200221844365,
-            7181939745701552171,
-            16091912200340266508,
-            16692743845677523584,
-            10806493125082893783,
-            10969724898656224922,
-            17088504110205031194
-         ]
+         "testBool": false,
+         "testDouble": -1.5822435130816202E-158,
+         "testInt": -6801508520191084688,
+         "testUint": 6476868032785251122,
+         "testString": "4\bF:$YMfTQKS`219h^\\u,0I}"
+      },
+      {
+         "testBool": true,
+         "testDouble": 8.30266083869509E-194,
+         "testInt": 5838997618561750533,
+         "testUint": 7263660372667737349,
+         "testString": "`c+=B/`)vqy1ve|#o#xv0Kq0/;}^p\"p91sE&W)K;Y1_c_HG-A-yy"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.000093795137259E97,
+         "testInt": 490266550795494583,
+         "testUint": 4355977765422742008,
+         "testString": "<SjC@ePAg\bvQFpP?<?a$f/..I3fP?-}pXmxcr6zL1w|,LvL.<"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.1418672357935145E-85,
+         "testInt": -4071879985902830033,
+         "testUint": 13130438560123726427,
+         "testString": "*6yXy]ht`ou\b^vT\\Hb*4e]Zf)cb.=q4r;"
+      },
+      {
+         "testBool": true,
+         "testDouble": 7.646040693106766E-264,
+         "testInt": -306301928145993793,
+         "testUint": 13196700644267338646,
+         "testString": "Tm:wHV!uLSkSLxgB-mdB%f\\>\rFaoq9*}'&"
+      },
+      {
+         "testBool": true,
+         "testDouble": 4.001249055173588E289,
+         "testInt": -6421853479492654828,
+         "testUint": 6511027002559872401,
+         "testString": "enhCr5NW!p-\ry=r!C@m&({m=&VAjluB:A)'Wl:8F;orW4dO@NVE-I"
       }
    ],
    "o": [
       {
-         "testVals04": [
-            -2.6162775616230835E-203,
-            -5.575648532016087E119,
-            -3.3930125686513496E139,
-            -5.094405462752621E279,
-            9.082136966707017E-20,
-            -7.0064459741038875E143,
-            -1.788197650956961E-16,
-            -1.1375584383091445E-23,
-            -1.0108090999703444E-98
-         ],
-         "testVals03": [
-            6412373620644024308,
-            -5990657736185421360,
-            -433814273771060127,
-            3374579294985946153,
-            -5169378324628446443,
-            -2904665953893887301,
-            2845060044071870879,
-            1606392062346835250,
-            3586588812957953935
-         ],
-         "testVals01": [
-            "mSHXB=CQg$J{)k@MtC<ORYgZw6\\p🤞🏻E$n\f)*",
-            "Ny\r;G94Q\ny46R|hT\rP2W+'(6\fZuviR-\f👱🏾_OE"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false
-         ],
-         "testVals02": [
-            3580939436501483236,
-            14412684310749750398,
-            13039614627054292331,
-            8585184644016972864,
-            17794070438794895597
-         ]
+         "testBool": true,
+         "testDouble": 1.711060643925789E94,
+         "testInt": -5141162470633008918,
+         "testUint": 284183076796438288,
+         "testString": "VU[[6Pa:W,0[[6--,4s-BkYr"
       },
       {
-         "testVals04": [
-            8.211792475480668E116,
-            1.934641144058413E58
-         ],
-         "testVals03": [
-            -3284492243322007399,
-            -7556866755238319788,
-            -8723594162816705444,
-            -8438393333194347455,
-            -4192124649091826996,
-            -1360267020552323622,
-            -2889742389375069724,
-            -1706178402778137101,
-            8966792035177503298
-         ],
-         "testVals01": [],
-         "testVals05": [
-            true,
-            false,
-            true
-         ],
-         "testVals02": [
-            11227860527562808188,
-            10136148807378809162
-         ]
+         "testBool": false,
+         "testDouble": 3.0562071246188144E-293,
+         "testInt": 1737970186117213844,
+         "testUint": 15703908277212063218,
+         "testString": "AKkgBIQ>;K/*p^;w>F>g71,~3Z*=m|B<2fl?P8GwFdZ7\\_@?"
       }
    ],
    "n": [
       {
-         "testVals04": [
-            6.317556230045695E239,
-            -5.941276079433243E-180,
-            255.6902545615419,
-            -1.5168638957603119E-173,
-            -1.0525497353949451E247
-         ],
-         "testVals03": [
-            524541664444397341,
-            -318221258333607567,
-            2349509745013850318,
-            -980407146259104743,
-            7047665895249457313,
-            8932505731799996790
-         ],
-         "testVals01": [
-            "FV$0\b%l&U\nIx\tMow5MtARR~w👨🏾‍🎓;^C?fC|>5!*fYJ_]\\g|;d?"
-         ],
-         "testVals05": [
-            true,
-            false,
-            true,
-            true,
-            true,
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            12255864277727869979,
-            8838442961548106352
-         ]
+         "testBool": false,
+         "testDouble": -6.037405358311692E-304,
+         "testInt": 4613208815015249676,
+         "testUint": 15272346522204027121,
+         "testString": ",ljBNQf&8\fZM=\bC-&Q"
       },
       {
-         "testVals04": [
-            9.538597898049991E-185,
-            -1.1338390988112992E-173,
-            -1.071386103333999E-158,
-            3.175979976731637E67,
-            -9.028260862841175E-238,
-            -7.577388884629893E60,
-            -5.563761075518029E-173,
-            -5.332138215818726E40
-         ],
-         "testVals03": [
-            6968894707595909897,
-            2508911968562106763,
-            -3782977535114651643,
-            2535384872408379007,
-            -1270711636231358304,
-            258254355722105858,
-            -1776151336307355733,
-            -6638815224566576395,
-            -6102796537285555773,
-            9173739080762425659
-         ],
-         "testVals01": [
-            "NB_j[r0kb5vtlRd8/U'&xk/4,}rkQy$dh%k`\f$K@pU2cdl<b'🧒_9c-&U5i",
-            "cwIO)X1RB45\"<\\ePgDpK9🤵🏼‍♂️<pU.~KbJX\rI(9",
-            "[1|k\rAeo!^BP(X\n[O!Uefe8🤾🏾}'_epf\"o_O`P|i>X0hOtA2#",
-            "qua?5z6\"87f*+w-N-w*wnbp^x[\"k(]fm{b9>iCH\"sbvi👨🏾‍🏫[=#&xo4sv=Y3",
-            "5e:*💳#k<7U-<HIN,/CGq?ea5\t;r^u*4\t`b8D4i\t",
-            "J~JcKp'XLfK{@m=FI585I$i9f&\t5W*m-hu🦝F-v{bY^55o2mUw+"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false,
-            false,
-            false,
-            true
-         ],
-         "testVals02": [
-            3308027930410336245,
-            3555214115819996025,
-            11122347148146412405,
-            16121785296814378457,
-            7340192953304714627,
-            10441789148089507530
-         ]
+         "testBool": false,
+         "testDouble": -4.6724642499822214E79,
+         "testInt": -2930031740030593129,
+         "testUint": 12380326233335776708,
+         "testString": "U)R{U_B4OSoy1@?}oEpn>xFf|5x2@rc5^dw`hbG|#dV,+eZy[^Z"
       },
       {
-         "testVals04": [
-            -5.545780855365993E179,
-            -8.300459853836683E230,
-            1.007724808384486E-183,
-            -2.753371414937963E-95,
-            3.5989393988628335E-135,
-            3.882832355475573E-133,
-            -5.180903506032374E204,
-            7.223006766997816E-52
-         ],
-         "testVals03": [
-            2073706985543900854,
-            8536919586130576376,
-            8021119265457617476
-         ],
-         "testVals01": [
-            ";{utr[53G5m\fnI)95*jc👩🏻‍💻\fEkikt%WW`Dkxqh%kM&ZyPm",
-            ")kO+5\nl&\\t(44T(Me_)n]ft|🧑🏾‍❤️‍💋‍🧑🏿&G\rTB.1Y+Gi%>s+HWJ$#58fe=g_\\5L^y,P&+I",
-            "6eI🙋🏼‍♂️^l+)!+l%\bXtQ[U(V`SC;e.&`*JUj6s%i/L:>@Mm\nQ96I\"+sBwQ\b*[D3",
-            "zD|f\nDr(7#sv_+\n3F^z<?Fj3;_wtY6\\👨🏾‍🍼1-w8\nw\rfPkR'cm=Ez`\bH"
-         ],
-         "testVals05": [
-            false,
-            true,
-            true,
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            7811336554496269416,
-            12072678783580703111,
-            1509374600073994044,
-            1678015254565065021,
-            16202939278478836345,
-            14497310682870878340,
-            2043797933756287994
-         ]
+         "testBool": false,
+         "testDouble": 1.4032776041108005E-277,
+         "testInt": -1120734492487825574,
+         "testUint": 14558621341502503372,
+         "testString": "hvJ)\\RR%6#954X}}IgU@T%ugN*T@B%Ft,9"
       },
       {
-         "testVals04": [
-            3.700379026779964E262,
-            -9.376674786306826E-175,
-            1.0530746483660084E-43
-         ],
-         "testVals03": [
-            -1594630425496292212,
-            6143271214279505815,
-            8154703593814766440,
-            -3985413500912722889,
-            -4558086187666599902,
-            352091158078579375,
-            1619879313151954017,
-            77765751933617860,
-            1765610880600842921
-         ],
-         "testVals01": [
-            "u$-\r0ZiVolIS:>\f-GA%rrlzthw@sDT)$_`KS👨🏼‍🤝‍👨🏾h_S}",
-            "9$D^uKc7`>{{&/Ab9Tc\n/\tkw7aq)x🏙️Mng@`o1\"`*5\\}j*dX2=>`\r",
-            "👨🏻‍🎓f\rtfK\"e%(\tfGR:,Nd5q\nan|/]CvV&c1Ygk0-\"H",
-            "3Z35VI=6|-\n7)F?z*dbw'jLh~\rfq~3Q🥞\b%\\Zsg237cBRM_2K\\48Fco"
-         ],
-         "testVals05": [
-            true,
-            true,
-            true,
-            true,
-            false,
-            true
-         ],
-         "testVals02": [
-            17132013678527174554,
-            10237986827217796198,
-            2385822495497907405,
-            289424883938343735,
-            389911936248480155,
-            6528182609096282100
-         ]
+         "testBool": false,
+         "testDouble": 1.9788481259323747,
+         "testInt": 3253075190217186345,
+         "testUint": 7943979463266262207,
+         "testString": "bq}qL`Lbf@C>VL]S\bj2L|2kAO'kY3"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.465473071375008E-11,
+         "testInt": -8129305397363305929,
+         "testUint": 5860607436427164572,
+         "testString": "\bxZlZ>A4+)#,@h42''FpESx3rP/;6a'6Y7KAP7:t3qf|0mS|klQ}gY4!"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.4848408409933347E124,
+         "testInt": -3177813265764907329,
+         "testUint": 8270700350244252593,
+         "testString": "|{u`$K>-e{pDe\"Os-aaNTD*w~Jb&j7fOuji*I<be3=q_@286Q1bpIoKi"
+      },
+      {
+         "testBool": false,
+         "testDouble": 3.816467242119744E-258,
+         "testInt": -3408320858073893976,
+         "testUint": 2373290358907416795,
+         "testString": "a\r%9JcH&\bh8w}>l|?@g<FiMU"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.3672442318383094E217,
+         "testInt": 3875682339476131417,
+         "testUint": 13332204657719782265,
+         "testString": "<I5rNH()h`dPw}@==*0Ypx>S$~:h!AAzR\nE}wsABx)@J^!"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.4662929256073566E39,
+         "testInt": 4401807498381604923,
+         "testUint": 9379766136172104860,
+         "testString": "om+D*W\\}6OGC-thbx\bi=#eiK\n8^fB"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.5885891070713588E-26,
+         "testInt": -7693048227145040424,
+         "testUint": 12238359369502372542,
+         "testString": "AHk[PXq{0m2&D/f0)JGYx@"
+      },
+      {
+         "testBool": false,
+         "testDouble": -73.20641863707702,
+         "testInt": -5575465996770020680,
+         "testUint": 1258441681336324025,
+         "testString": "ehK|bY&{9'Fw>1fV(?|j)zT0DN,8!e7:sAH37*vz?,*2HdOF.JqJ;0-Crk"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.1324430929800631E-302,
+         "testInt": -4922736314206606860,
+         "testUint": 8140759311855676320,
+         "testString": "POsA}F8mYUGY\tPe[e?nKN/ZNjO#Ox!8iZ6<[%ABByAG)hGH"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.4241635994207195E248,
+         "testInt": -8442596090271697589,
+         "testUint": 18298223183393749816,
+         "testString": "7bCi*pO@FY)8.{bIuL:o7j)9z@t7rxs>+|sOauzuz#?ci)FwDKej3>H`y"
       }
    ],
    "m": [
       {
-         "testVals04": [
-            2.029869279653627E-267,
-            5.840757017467944E187,
-            1.052509040281502E-62
-         ],
-         "testVals03": [
-            5450912124327214710,
-            -3164829849102809927,
-            -5838223331116497921,
-            4048451528683724562,
-            -8728824835990796899
-         ],
-         "testVals01": [
-            "-j1XP$3jpTfMt=F;:T;(-qNvjZsZ8W\fhJ*(8s(UwB%W>>U.s@👍6gh\b",
-            "7\"dB?E[YP/$u^~5`qwIQ5[Xw>&[=P\"rxLoI\fl\ng-(👓xk\rl5",
-            "jNYnT-H%M(5PmCi[rL|c🙇🏿‍♂️^7}\blBce^\td\rmY#",
-            "+entzRe}9:fmKxj]AYx\nT]w>e9T^Z~C)T🏄🏽‍♂️2/>`v#\"!=\"0;3z^2F'z",
-            ":D*LY#.*Zx}\t68D\rTC\bKF☄️u3eVI{H#uC{Ehj}=-,=z2U",
-            "Z\b4k🧘‍♀️C|{)\t@r26@=:2NJ9('jWF^NT`~7?xg!Dk:C=6O#4Z$Q~CCcBc",
-            ".qKs[?\fJj4|v\tQ?4(SMR>f>`yJson1k2TL:[0\fS+Z;10c,😑@k]L#WI]"
-         ],
-         "testVals05": [
-            true,
-            true,
-            false,
-            false,
-            true,
-            true,
-            false,
-            false
-         ],
-         "testVals02": []
+         "testBool": false,
+         "testDouble": 2.125426744757709E-103,
+         "testInt": -6950049996499146049,
+         "testUint": 6946206258083141712,
+         "testString": "j~rn=x-Y}3}W:k$A!&T~:Ab5#P6iC^.&}\\KO_>@jd{zuxac{qRW5AB"
       },
       {
-         "testVals04": [
-            -9.120896939774293E29,
-            -3.8232202301604213E303,
-            -2.8935544874994904E-203,
-            -3.6220482018153023E50,
-            2.3251084535842216E22,
-            -1.2170701397893859E144,
-            -6.482519478281579E-213,
-            -4.069990858357408E-160,
-            -1.3275794823883395E-163,
-            -1.903121946724993E-86
-         ],
-         "testVals03": [
-            -4784533618176928010,
-            -7568825325187343921,
-            8171811360165747535,
-            -2403075365449950270,
-            7445944062432485951
-         ],
-         "testVals01": [
-            "]#U\\4((QHv\t?V7@,O=7k.Z9pm\t<_\f?\tF1zuRPJ2PL&Cd\"@\rZ🏄🏼OqhLL`\"bEiee9c",
-            "Hvb+P>=]D\\G?6u]qjnYc8🍼((!pXAuZv()?/x~!x^a'T(7;'`4~thE;hiJf5",
-            "/s4%l\"^*%~*\rKyQUV03[t&!vuV\\;g\\\tg+lFb\tiY,Ae🍳"
-         ],
-         "testVals05": [],
-         "testVals02": [
-            7503540615421352650,
-            5315762383471841038,
-            3209231518910738619,
-            4100822951526038616,
-            2204952146963512408
-         ]
+         "testBool": false,
+         "testDouble": -1.9602445183410847E191,
+         "testInt": -9173979804527508441,
+         "testUint": 9519384048592548557,
+         "testString": "'K2\fKFluO%P.\f-q+]xx_JL[Z!@IALx"
       },
       {
-         "testVals04": [
-            6.662277132628744E-17,
-            1.2440331316518097E-263,
-            -7.226466370123442E-101,
-            -9098897443.322277,
-            1.5485816211586995E246,
-            -2.1569617640857528E-303,
-            4.333718323811939E-294,
-            1.3636380648055448E51
-         ],
-         "testVals03": [
-            2816556487548104680,
-            2076921916009034410,
-            -4558852423936519363,
-            6518738500412465443,
-            -7549207154837343469,
-            -6648589988760335292,
-            -9081533314612612863,
-            3057673625817878446
-         ],
-         "testVals01": [],
-         "testVals05": [
-            true,
-            false,
-            true,
-            true,
-            true,
-            false,
-            false,
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            11713019834156250658,
-            7325471020499085059,
-            5839374926485889030,
-            9490109128719974356,
-            1744434405453148958,
-            13665725544765163520
-         ]
+         "testBool": false,
+         "testDouble": 4.223864543499982E-154,
+         "testInt": -7351838609863242459,
+         "testUint": 5772579165193818023,
+         "testString": "2\\Ehx}N(uj{wCJO.ktj\"?'vP:.yc|;E.l^<X3AR09>p=Dx+&x)wVGn"
       },
       {
-         "testVals04": [
-            2.629207919298845E-224
-         ],
-         "testVals03": [],
-         "testVals01": [
-            "p_vX6;jg9\fR+*__fq;\t==YXqy\\AD(UFcR2=👩🏾‍🔧^V:rH",
-            "EqnOH)Fo/+=/:6*qb4Qrq#xX🟨#!=Q'Lf+)b{Iv[T",
-            "kn<Oq>Nvvzt}/Bl~,edFYH\fH82\fs+U🤸🏼‍♀️a1Qwmm_\b*\"<e",
-            "~{(Xbg@%:_Zh;gy'+PY\fIEt7👮🏾)+Nk[^IXajeudqKsIH",
-            "\"|I-#'zw}bh9\\}🍰S_U-\n.ZHHhx5i]CnBxRD.jS$4^1",
-            "🧖🏻‍♂️k$<i6~LXe\b-\t\f9<H1VUfgnpmx/@Zu/YbvT`Nif`C^8\"XZM1h1K316+?",
-            "&,y2B\f~|M%N3I8👇🏾6zAcmEQj\th.0[|\\4Evjtr/B7\n61?\f0_`?#VxNpB}KO[@"
-         ],
-         "testVals05": [
-            true,
-            false,
-            true,
-            false,
-            false
-         ],
-         "testVals02": [
-            14434783850040728876,
-            1996359100823112055,
-            1137946354162391797,
-            11831823790413017597,
-            13190939256314253178,
-            5367824025926440182,
-            7955561238089979338,
-            17068711687246047677,
-            15086564974447950481,
-            12946877050743205387
-         ]
+         "testBool": false,
+         "testDouble": -3.916637604567717E-36,
+         "testInt": -3058155161814263641,
+         "testUint": 11702049418241246584,
+         "testString": "lwl,FL]6o`Xl3&[bWD$,m.V/{n9egii$}$zByzn}`\f[tLYFU"
       },
       {
-         "testVals04": [
-            1.658131503333876E-302,
-            -1.1882137078805222E-109,
-            -4.490127094748034E-134,
-            3.3211842683251E-196,
-            -1.3615334150226513E-298,
-            3.421009561974651E-243
-         ],
-         "testVals03": [
-            -5138777287026084732,
-            -963685306241063735,
-            6261722000773313446,
-            -4208085965029079341,
-            4688538992170779671,
-            -3633184630810119636,
-            6212370596389180674,
-            6184726280843905547,
-            1048143597845980403,
-            -3972466437047794163
-         ],
-         "testVals01": [
-            "Ry?XT'bD8$F7i~KL`V!\tCOS.Y\t<=@}%\"Z%6v\"0\"}mio*j%vX8\r=OzO;\r`🇸🇩nG",
-            "w`#&s%;]&W2O3muY0B=@!Y`👱f\".$J+_7~C\"k",
-            "aiX\"</i/'Kqi){$vd9\tG@\tTV9}.M,BvLl?pVW0S!s&,-~*b'`X!🍽️",
-            "RL6Go;]🏄🏻‍♀️&R\r/0nI%=\"\f*yb\nG/%89:QpRKqo\"+Ve\"\bj,\b;Fj",
-            "\\+A\fd🤾🏽‍♀️2P-J\bric|_u5~86VK>8np}0|{J?SP5/6cJY0O&A",
-            "9%:d*IsgH#(k\"Sf>!e]|nz`<w)]Bj;2CtE6~(IzgwHa{Y0👩🏾‍❤️‍👨🏻|X[rc*\r/uf"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false,
-            true
-         ],
-         "testVals02": [
-            8150325482106110314
-         ]
+         "testBool": false,
+         "testDouble": -4.549892808634778E134,
+         "testInt": -3820751172298866156,
+         "testUint": 5760635635248297150,
+         "testString": "v[!w`od?-O'pd9x6cJ)u:t0/{a?K<N9FFPG_+-1R/X2,6j"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.156460126055432E-219,
+         "testInt": 1224523563784058241,
+         "testUint": 593021545578470596,
+         "testString": "~euC*!%ULc^j\"iOV\trD4&OK=?22`{n9tJunz)eB\rB3}<"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.3660887600419985E-143,
+         "testInt": 6478878036200687306,
+         "testUint": 435644679989508807,
+         "testString": "fuPLN&fy=ec.h[&TRc?IquJ!z)r,^Wg2jd.{9K')a.vO:e,Z}Q@hn.>:V"
+      },
+      {
+         "testBool": false,
+         "testDouble": 5.777119387213234E234,
+         "testInt": -2947430810510415225,
+         "testUint": 11326744564237708613,
+         "testString": "^MR'K8}E1&GP<5[-aWY=+*eU`1="
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.853633779191988E-242,
+         "testInt": 6248356711999404391,
+         "testUint": 5448224693017076458,
+         "testString": "Skbmi@?+vSZp;&I`<tUERgcEb}i,ZK&cUfz*"
       }
    ],
    "l": [
       {
-         "testVals04": [
-            2.0785233231919848E-163,
-            8.95335236358262E305,
-            -3.656514422516519E41,
-            1.088572996710845E-41,
-            1.841113074015182E152
-         ],
-         "testVals03": [],
-         "testVals01": [],
-         "testVals05": [
-            true,
-            true,
-            true,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            13078122209019615353,
-            16132741447815521617
-         ]
+         "testBool": false,
+         "testDouble": 4.9355388750169575E-17,
+         "testInt": -7912478569537656807,
+         "testUint": 1522044151845544089,
+         "testString": "{4]ed+!4Z]/]-3=]c2{MowyKf\t"
       },
       {
-         "testVals04": [
-            -6.746569066311874E225,
-            1.9376877528821374E-204,
-            1.7142202351107144E-281,
-            -2.4411522489132707E-45,
-            -5.494574371163146E191,
-            -1.3915178474330676E117
-         ],
-         "testVals03": [
-            -5174550278506425488,
-            6894138563979119407,
-            -994755864960914286,
-            5575407005782435765,
-            -2348633466900644128
-         ],
-         "testVals01": [
-            "z\fj!g\fy!Y`>YpiuoYJF[vJSKXB$j`Y.th\n[S_qnyw0tE7S🤾🏻‍♀️B\t%ln[QjAOxd",
-            "GO\\LIQ🧑🏽‍🦼Q6o:]{`k:6?)Z0qv3~Gb&gR@'hyQ.*4RG[QW(-~rT:\\LG0BxzZ,aWH",
-            "B:7D.8g\fE11uJM;;S|O\f=jS*9`\bR1).n3|3\r_*-sg👨🏼‍🔧Xc\fLmNOhg]4a5",
-            "oH9Av\\cihn`ZcT🏒6[v=7'J92/nQ3_Mu[Z2>mFQi1c]]",
-            "~xT<👨🏿‍🔧?LHoh\\7L^-<\b}Dn'J`@?8EZt+Z_M@JHe<W\"6|A/k",
-            "🤌🏾\\[|0XT}8h$\\Kq-CQ,GFi}R\\\frT#\\;I,0'0P\np$T*~{K5Yv,xgh9]A,K$S0",
-            "i👩🏾‍🤝‍👩🏻}MB?g}PoK!$\f>_@]h{\fY<L$.\"\rJV_CP]$2",
-            "7Um7hM*👩🏻‍🤝‍👨🏾z-ye.ZN3QbVWHYiw#M$eB*5s6M4/RLoD0\tq\nmr"
-         ],
-         "testVals05": [
-            true,
-            true,
-            false,
-            true
-         ],
-         "testVals02": [
-            7336412638352769312,
-            3517787460544336479,
-            2469018668514995830,
-            16404425241052103102,
-            10331566987845116222,
-            4963893920725962878,
-            4237127191905963048,
-            12863975936107645873,
-            13285287415322268256
-         ]
-      },
-      {
-         "testVals04": [
-            1.4433059958813739E289,
-            7.913453712126155E164,
-            3.146243553267605E-13,
-            4.6089393585734165E-212
-         ],
-         "testVals03": [
-            5605596857023026135,
-            -1356908710159512747,
-            -5569040762566113698,
-            -5430121641706376588,
-            1638289625061767501,
-            -3622504251838734994,
-            -5839359577554725478,
-            198182690185495467,
-            6413179119957738171
-         ],
-         "testVals01": [
-            "\"\bhI$XNsA✅8-pDjpV]zzqpQ9f>kPT*Ng",
-            "$d👩🏻‍🎨,lOL`\fex\t;d*9g;+G5t=tETpHm\n{xj3wao-S;On)T$",
-            ")H$,\"j;(~\rfe{p(ot#q\fH)`%UjQ7Li\t\tyBu?Ⓜ️A*.zH-!Zp",
-            "38^\b8x}?*qOWH(c)%E🍥:VR\r3,X<\\qOIj2Z$<<`CEk+d3&+XUS\rgC",
-            "qPM{Dawrtf[wj\r!mz\tRi]ODFVV\be6=zG_hr&!>\t<.A9jtQ3/🤸:t",
-            "khcgn&a=Ssjc\t0/B\"g0🦾iX^mmm9K+dT\\#JA\n\b$hL(#\b|]J_RSL8[i\"=^8q4O",
-            "ac!n.@c/\ra|t-'h6!Mi)zZxt\rmeGzXJd^$6K👩🏿‍🦳",
-            "#LB2aMk]Ww\f+CSwGc\ts'J4UDKH6EeM_*=eQQK9#*DAu+G5👨🏼‍❤️‍👨🏼*&(%0W,\bv\ro"
-         ],
-         "testVals05": [
-            false,
-            true,
-            false,
-            true,
-            false,
-            false,
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            1857293115863792464,
-            2045813968209753537,
-            3460224967049299410,
-            8632387744377630710
-         ]
-      },
-      {
-         "testVals04": [
-            -1.0527360095190531E77,
-            -1.0978274497848433E41
-         ],
-         "testVals03": [
-            -1044047997929881288,
-            2462781416214775018
-         ],
-         "testVals01": [
-            "+C*,)*1fJp&\nXL`\fy%O]`+Lcp$M4[N<u🧑🏻‍🦯e+yRAkm\t9Ypoa6z\";",
-            "_}8{53\ftM\betCx{Tk&L\"GS-iQLp&jM#PQsQ}|6i+d{ew-✍️c[vn-o",
-            "LEE>k&\to!%P}dqu>U$GTD9I0j2🕜h1u(%{`~7Jbk4LU2c<DDqnK,Dx>j\rW\"McK",
-            "6%w4,m]~R.3A👱rib0u[M2n%qaUb=3Rcf(|",
-            "\fT,W\\]Gp🚴🏽/6DX\r)-\b\nNl[$B@A07H(\fPtSsACv8zhD3D\nPm8[NK^^i8e~P5m\"c",
-            "@E,ffQa%5go\tqJb{(HJ\b>:;457+~\n*NH+4z\\🪯u.\b/L:pO{G\"ricI\\~m",
-            "🕸️&NPwl\nq@%u&H🧜H`:F07\"lUSR\fq;{iksR\b=b=_}pbb_w@JC`H=DO87O!h7%CDF8j"
-         ],
-         "testVals05": [
-            false,
-            false,
-            false,
-            false,
-            false,
-            true,
-            true,
-            false,
-            false
-         ],
-         "testVals02": [
-            786064973859878836,
-            1972800306833877580,
-            10483626133770263029,
-            1063408347972107859,
-            7517162167677572699,
-            1881583059036607850,
-            4024481987898020077,
-            14649531632510914185,
-            7076183448729688782,
-            5826437632576459768
-         ]
-      },
-      {
-         "testVals04": [
-            -1.6633693988997928E46,
-            4.311692336655527E-49,
-            -2.40451131995835E-283,
-            -6.91898902343011E33,
-            7.117834018573362E262,
-            -6.852393674866129E182,
-            -2.4061887184554803E-121,
-            -4.446426764627422E180
-         ],
-         "testVals03": [
-            4006506951117588923,
-            8244016145787207004,
-            -7936363624911304730,
-            3985952303926035276,
-            3248124719372137911,
-            -390610450454792277,
-            8392349130958122246,
-            -9128632150010732105,
-            -4482775271989219329,
-            4147512338032319248
-         ],
-         "testVals01": [
-            "~bIuF1Z,<wc\ru\f|P,🚣🏻‍♀️AL=wL9@-FgaJ+]uV9],i[_,p#LM46F%3C,w@j!_",
-            "/ik^?lR`K!\fcB?pKHM*Y+@11x:4}$\bwyh$Q!/U_Ds;🏈&&5@[o'K*o/J4X`in<^",
-            "Uln^#^ZIwAVY\\\b\\l%]]B8>AJ🧑🏽‍🦼LG;\r+Q<g5>MvN_pQg\b+h$R=jzn}\bz\bne🚴🏽‍♂️L+lmn\t",
-            "pQC`sY$+j[&(NpqPKS#OF(/{8X{}}*ouxu4m=Nd_4`hjYX%i&ilHxx]bvO$🗣️ve",
-            "pJ_VH]js+SL)yeHF\"CF[R#f-\r|H(r&&fp@Uy\"=vP🕣pC-\"l,AD;|_c$",
-            "E:DekUauW~gw&HI|~5+N&X*eQKBr8!v_`.+_5\\;(h{w\\x5}👩🏼‍🦱X+JA\"RD/\f\nI,🦹🏼‍♀️&yX",
-            "fy8Z(pk\\3=3laKq?iQMr=t#pD1KEl\f|ME\n`P2🟦/",
-            "?\n0DKDpD(M\fVbO4@2N_B🥘bq{f9+Y/./k`%",
-            "C\\n%😑7]g\n4f3ZOE'Z1G{\"KjK$p+WPIbk>hZA"
-         ],
-         "testVals05": [
-            true,
-            true,
-            true,
-            true,
-            false,
-            false,
-            false,
-            false,
-            true
-         ],
-         "testVals02": [
-            1381409631893617008,
-            13296402082157937372
-         ]
+         "testBool": false,
+         "testDouble": 4.186031335183807E-183,
+         "testInt": -5433510902251551948,
+         "testUint": 7010236159765451057,
+         "testString": "hYpxEh~Zk946#j&M6YU{X9sF\n)Qr@@1AW}u"
       }
    ],
    "k": [
       {
-         "testVals04": [
-            3.055239279203161E-182,
-            -2.514014139979814E-219
-         ],
-         "testVals03": [
-            3612594317839657939
-         ],
-         "testVals01": [
-            "🦻🏿i.Y#M-r-p5sv$t\nN}lk+o\\ybgFb,G1Uk{^x\bNy\tsZ/\"mJn_]:de",
-            "W\rTgZ|s🗃️'+d_YfT|n\\30aky34T]a6hTbP&yYj",
-            "}x\r4.\bpUeH)yu1{\nv).;Nlu{([JsA+$5\tiE🙅-3o)n",
-            "$.\bc\tmSQd/OB3`ova$CPC|M(\\OMQ🦵🏿T-)ozuKSr$`>5v@r|smZ?Zdl4@TtX^e'P",
-            "u{0Zx)|S(0m\tQ,Lzu3q0G🤸🏿^*p_YTy7Y\r!^(\tk}Z9jW",
-            "\n>_e(Mt!M4Q>nJ🖖🏿V{MBOupr]l9`s&nP/+H\b}IlzKF3B\\/E61O*?\\\\=Ngqb\b0",
-            "=V,OCQg:7qPw>QVtCIU_,dOsAk.H🧑🏼‍🤝‍🧑🏻?x=-cX\\t4b3YQt[Di[vqi2|7Xv^]/",
-            "\r[%5)XG^\r'*YW\rW*Mbs\f8&5LN4$(@U^Ct7zc19`w\"+G🦢I4'I6~+1",
-            ">oE\rNB\fI$hQ\b`7\bS3J:D$gt-<,))#Rbc\\ZO?CRq$@#[J\f6\t}*L👩🏻‍🤝‍👩🏼LoEr~D\b"
-         ],
-         "testVals05": [],
-         "testVals02": [
-            1645916850066439040
-         ]
+         "testBool": true,
+         "testDouble": 1.1471976163437306E253,
+         "testInt": 7026252236386752942,
+         "testUint": 11771669666930266350,
+         "testString": "4*2&kPH_.!_nZJsr#;!3rD-L&gU1B8.oP\b#N5qY%BKyQrfiMvv@r_UrTf=5K"
       },
       {
-         "testVals04": [
-            -40657.29561925945,
-            -1.6914516710861068E273,
-            -2.7641845494965174E63,
-            5.441966835620375E219,
-            -9.237553168651482E74,
-            3.5741604480022405E-289,
-            -4.7091002306565626E204,
-            -694841459.1559851
-         ],
-         "testVals03": [
-            -3805730616023960253,
-            8852933112925711765,
-            4968500084272686450
-         ],
-         "testVals01": [
-            "@6o'!+_`Z@GYoGxmF6\r+\\Go👩🏼‍🦯tgQ\bxHr!Sfnert[V6~-px4<riX8H$5$-?z>N(",
-            "a5~{jP)g`👍🏻&\r'Ri~p!1au}c-!?\bP`L?}:[]",
-            "gO:ZV0?nik@Ap}(8~$zim0k0?l-Fn7f||LK~sl'gD0aYs6💔9'P]0h",
-            "of[XtUC\t#)j-4[^*>p5g👅]xEfR9[bq\rz\r",
-            "p'LNKQB🗺️se^h;iED\bU1z!lHG2xG!4/fvtEbseS?}Na5N#(+ZqzYKX[`d+0}q<d>",
-            "x_7U6J{b:+A(pfpt\"2+d2s(L\n@d0\nxHqdb&G&9u?/:XV0J\tNx+$v?t",
-            ".👴🏽z{wZ-ZkK0eiFX7WJG)F6dde3^1o@oV",
-            "+H\\Kr^;!#6FX8YA🎱oueW@C~;h\tJEt?W_Y~\fhz8"
-         ],
-         "testVals05": [
-            false,
-            true,
-            false,
-            true,
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            6077690254020043312,
-            7612986220880548306,
-            14846955198975685765,
-            4983305795304607968,
-            14851240151427733545,
-            4405501200654473540,
-            5961962506973744461
-         ]
+         "testBool": true,
+         "testDouble": -4.627727854712668E-105,
+         "testInt": 9120763245352587588,
+         "testUint": 7656315343826780718,
+         "testString": "(Xri<\\1cwD.[,0uwAN6u_mH[g<gJ<;b@x:N>lz4>@_WZ(b&\fxtR^W"
       },
       {
-         "testVals04": [
-            3.6498189034709983E158,
-            -1.628398547818388E29,
-            1.1802045073277837E-143,
-            -6.0515715566593E-148
-         ],
-         "testVals03": [
-            -142003183855873028,
-            -4818241248768973179
-         ],
-         "testVals01": [],
-         "testVals05": [
-            false,
-            true
-         ],
-         "testVals02": [
-            12799859513550009230,
-            13255108556139414835,
-            12357210472562080940,
-            2971564139174190126,
-            5250877804658280509,
-            6493479268628779430,
-            12003280139481519978,
-            14739935157771299022
-         ]
+         "testBool": false,
+         "testDouble": -9.174260551667507E139,
+         "testInt": -8352368392872654585,
+         "testUint": 15526126966705409885,
+         "testString": "-y[M<0G]%c6su/,G{GIB&?9JB3h{]V*{ogi"
+      },
+      {
+         "testBool": false,
+         "testDouble": -0.05186935618664924,
+         "testInt": 6375051795146622362,
+         "testUint": 15622575738164599265,
+         "testString": "y[d5/\"FP*9/<r3;21/[-Gw%IX+d0:z%o=EcKEfRJ'3Ew)3URC1MgGq'7P"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.5356601798153443E-230,
+         "testInt": -6848091628482517609,
+         "testUint": 2417703701240264462,
+         "testString": "]^HK~98h\"t^1$#pSdsOVR?|7bl1HEFY"
+      },
+      {
+         "testBool": true,
+         "testDouble": -3.3488427767107598E-31,
+         "testInt": -1795475099387252287,
+         "testUint": 13499173314522633046,
+         "testString": ">+Bx1?#?I`L)uUZcyP?h$~RVCf*[:YoTxIgi2y80Xc!Wly%A"
+      },
+      {
+         "testBool": true,
+         "testDouble": -7.217812712789032E120,
+         "testInt": 3523714071758886961,
+         "testUint": 11476493527675090847,
+         "testString": "@;-':w3hVhifUI.r6]1Q?(WJNCTG&p\bC`1rK|rGa:A5n"
+      },
+      {
+         "testBool": true,
+         "testDouble": -3.326474446429363E-42,
+         "testInt": -503393100763716428,
+         "testUint": 7551498560878699721,
+         "testString": "Dd]\bpw^?I@=RK[#;"
       }
    ],
    "j": [
       {
-         "testVals04": [
-            -9648029281.412756,
-            -1.1818593863103685E193,
-            -8.610604365745058E42,
-            -1.6200655867838565E38,
-            1.32274067210206E38,
-            -1.8616011333192346E155,
-            -1.0800623170723802E54,
-            -3.2452137180738685E-232
-         ],
-         "testVals03": [
-            -1833695566223021767,
-            150228862572553240,
-            -8477088307106489156,
-            -1013443214311327147
-         ],
-         "testVals01": [
-            "zF<\"d{Edc}\bPq~i:h6wrR\np<~[/RON=W{I~P<[;V7}m\rf⛑️'KWXG+I_SZ\b`\b>",
-            "#H!s\b<i0ko)IJ5K@s+C|10/{t$\fT2ENOSSoToZ\"KI`<DEKv!🫲🏻O|C#Ovum",
-            "5\tR,\nM|aL\rh5:\"AK%WnNM$t3|mD-ZDK;\b\\\bx+T🤷🏾‍♂️B",
-            "&l#>B.YIrUl<ZCukX👩🏼‍❤️‍👨🏿S+l]]|T`Q6jE8[hh2Kxg|Zlo}mj\fU<\"|",
-            "%|H\r#w%💂🏻‍♂️Mr)X6g7V\"kHI1\f!Q>h@N5iB\nw&",
-            "u|bu\nDZR8Dtn)CeIF(?\bu$6O5JAirP\rUJ[y96l👩🏾‍❤️‍👨🏿",
-            "bZ*d-<🐥*iWB+{+XvMyA9ak^n6>pm:H^v1pxqTgFQv<Q\rM\\l\f.fZQI4I4]6NL",
-            "@jc):[👩🏾‍🤝‍👨🏼UqG#m$QEP\r#&:>o@LmBO\f:it\\rVekr?YM&h"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false,
-            false,
-            false,
-            false,
-            true,
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            7297538697873481334,
-            16485679805022119930,
-            1380863363090134745,
-            264961300615663294,
-            4844514465062216034,
-            17498261247088366243
-         ]
+         "testBool": false,
+         "testDouble": -5.693660938704493E-245,
+         "testInt": 852146803645681719,
+         "testUint": 14421703819360641304,
+         "testString": "8g$_(-=K]>b:N')BJ`f'n)z]|iB"
       },
       {
-         "testVals04": [
-            -5.480419556759724E266
-         ],
-         "testVals03": [
-            5882894321090086976,
-            4892526600084420605,
-            -6040750409627208667,
-            -2616590860720628143,
-            3725266669180490432,
-            -1186222506805208134,
-            -7466361596948874991,
-            7490180816345892233
-         ],
-         "testVals01": [
-            "JCD,Q~S_G(U\r\t=XDSB\t0u%Czd!|\rV5\t~\nIO!0sF~\bhREEc`_]⤵️H\b6[BDVb)5ah",
-            "*r]^?besf'(K5lxcV8lYzgig*lhXh}BWSXs%tZ@p`o6a🧑🏽‍🦲X.Z\thWqJbkY&ccJ",
-            "N#]13rd_nOsF-\"<N37MQ83_d/=_zF\bXp1bMy\f\tAx🫅🏿L=TQ==RTxtf~"
-         ],
-         "testVals05": [
-            false
-         ],
-         "testVals02": [
-            11002396867305537365,
-            7662535358959108654,
-            16476948768823685186,
-            9595276508280537380,
-            5917899180536743018,
-            15729152476053523049,
-            9727279956882423017,
-            5984220278505968676
-         ]
+         "testBool": false,
+         "testDouble": 1.2458793764093171E-304,
+         "testInt": -6442695349376149871,
+         "testUint": 2322886802111969603,
+         "testString": "u!8HI2dWy__)imJqI7GY3Pa-zHemL@$R{M:Q}4"
       },
       {
-         "testVals04": [
-            5.747262147652978E204,
-            -1.0454346253137013E145
-         ],
-         "testVals03": [
-            5031005111231585581,
-            1294884960591435611,
-            3276363346249989132,
-            8410687279959787578,
-            1926349131847378806,
-            -8174336780801803785,
-            -3649069939057475620,
-            -3090166804436545256
-         ],
-         "testVals01": [
-            "}Pa\f|&LpH@Zd*p!KE'!;in'!su?ETl.D%'RZ*QDEW$)w.W\"O\f+hez'_nH",
-            "aS5C.&\\'u\f@t@6(:🖖🏼DSa\b]jR<E)Z*d6o1*lN`#9`kwV"
-         ],
-         "testVals05": [
-            true
-         ],
-         "testVals02": [
-            13973576727839590591,
-            17414946866476293030,
-            17012216089053485392,
-            12943066826135306125
-         ]
+         "testBool": true,
+         "testDouble": 1.4244920134437238E-102,
+         "testInt": 2343714051819154301,
+         "testUint": 16992499711007598804,
+         "testString": "+^ZoEg+v?`Qui[XLawH[PJIP<{6C*9-JR:EDc)q94UHOBZ5:(GX1Y<+>-)[j"
       },
       {
-         "testVals04": [
-            1.6330877821340135E236
-         ],
-         "testVals03": [
-            7066267247514021522,
-            -1317039237974778671,
-            4247783559973651189,
-            -1066255026913339256,
-            -5970625021033536329,
-            -5238615842254276630,
-            8736124831176634541,
-            -7734533657155119703,
-            -1771241792240299110
-         ],
-         "testVals01": [
-            "\f(#9/ZI🧙🏾‍♂️[]\f@-96)B|4Hjxr<{$g\bHc[u.MAx>}mY^)tn?7m\bbNC@3I:\\",
-            "/$,\rzrV3🏂🏾\\thE\":9IJ=7@%\t}g,x\\A3b\\P\fJNia/D9sjR,\bGKEbPx{",
-            "zEO^x\"S/xBrt~Gs:o!O\"🧑🏾‍🎤\bO\tr.;w<f[\riMy4",
-            "m7jaA55+5Nku\"mh7zB+}u?V\"xlhrrh|Sg~rtci:95g}*_\b*HCi!4(eaOI+🐭"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false,
-            true,
-            false,
-            true
-         ],
-         "testVals02": []
+         "testBool": false,
+         "testDouble": 4.470367412477342E108,
+         "testInt": 4776662870877270811,
+         "testUint": 11551089362265758870,
+         "testString": "{jK5gmAC>FbaL![g\"V)|h>Qf/\tLN,!ul<,=TKh1P]Ve9=vW"
       },
       {
-         "testVals04": [
-            -4.280656353643353E56,
-            1.2097060397484816E-94,
-            1.254261476394059E-82,
-            -1.4471122458891786E-240,
-            -1.5093390908262687E252,
-            2.9259405857383334E-206,
-            -5.719882601449953E244,
-            -7.621765489411499E126
-         ],
-         "testVals03": [
-            3195014070509234011,
-            7155082107304651559,
-            2192583243071781946,
-            -991631139688331038
-         ],
-         "testVals01": [
-            "🏌🏻‍♀️=\fBRt<p\tU@-k\b|$p4\n>%X]+jP?^(0\"-lm&7aW02%XL`#:v#ML",
-            "\nM💕\n3ZKB=yXcBo;hwk?yeljh1.sc/?4rA1N(@y.*F.\\s!09~",
-            "bMbKBwO4^BL9O0/s`\bJHq[G]`[lX🖌️tn#0S_ar0XHqy",
-            ";B(d{vPXmYdXB\t\r:vr^{JB*J_wPM=^MWe🧊Vc[D+faQ-\tUr<^2RVa4`x4wWm'",
-            "|$/🫄🏿!!<At0:C4'Dp8(c)\bIbm2*yATZW{b\"QF\\7T3",
-            "ngB4h\\,kV~}E~Ac\b]pH🖐🏻\rd*oUl,4'o^FB_FQeLCSy3\r\"T9_\f?RY\bBA&|Y3W{2?\f",
-            "@vDpVlc7'^:B7C_>peS-tc\nz\f^✍🏻Ds4Tvv.Sos1@q5i",
-            ")l]0(Rtx🏊🏽sm%N9PI,D<7adBAZ;g!il)H(",
-            "H'WQe\nCL(👨‍🍼v,s])u78/Z1YN\bg3w2.wL_qFx(U9cq'QgU~tM\\,7O"
-         ],
-         "testVals05": [
-            true,
-            true,
-            true,
-            true,
-            false,
-            false,
-            true,
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            11426297605262946147,
-            8865273423454179271,
-            16887564612606816912,
-            11136097217642161955,
-            15029026234313997476,
-            8541016591340901515
-         ]
+         "testBool": false,
+         "testDouble": 2.5476664495340853E-215,
+         "testInt": 3457437270718082990,
+         "testUint": 10082620667001043651,
+         "testString": "ab9-opkXmNb`n?.dt]\rb<Dl=*F8eQFr>s9y"
+      },
+      {
+         "testBool": true,
+         "testDouble": -4.947088060949638E-105,
+         "testInt": 1241978194249211390,
+         "testUint": 13446293237147349045,
+         "testString": "7Xr?r[O4\nS{Fg_CO)"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.989891680516404E-169,
+         "testInt": 6916987288431306709,
+         "testUint": 231971075096598494,
+         "testString": "Py!1T}n^FZ/.klrzA!R1"
+      },
+      {
+         "testBool": true,
+         "testDouble": 8.87464287689525E-165,
+         "testInt": 7905383830217884156,
+         "testUint": 15104971724844833416,
+         "testString": "v[)i^Btjut04j.j&|L"
+      },
+      {
+         "testBool": true,
+         "testDouble": -6.631108550769666E-183,
+         "testInt": -6929470269309597483,
+         "testUint": 2768894768414410787,
+         "testString": "d`A'P-n#$6!GQ9{~QXk9=B3:E"
+      },
+      {
+         "testBool": false,
+         "testDouble": -8.662599823912261E-71,
+         "testInt": 9061304185391601021,
+         "testUint": 9489817650599215140,
+         "testString": "AV:EiiQia/MK+IIhA#es7B!yW17xFNFZ`=l,?>~r"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.621186275938046E266,
+         "testInt": -3645589118114939886,
+         "testUint": 13131952614161934016,
+         "testString": "''V=i^phX5@l^oA@,Np{@#8[0Js"
+      },
+      {
+         "testBool": true,
+         "testDouble": -3.145700342069581E-112,
+         "testInt": -8914136859064272645,
+         "testUint": 5145550279958603414,
+         "testString": "53\":isiW*S2]@`#'s%6vyc#hDSM&vj4\\m6J|xob\n[V"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.4905575906814214E246,
+         "testInt": -175531050543792918,
+         "testUint": 16102982114864968880,
+         "testString": "dB5*$vQ47i4&y>&5'V"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.548519280712773E-117,
+         "testInt": -7694668370477933693,
+         "testUint": 5929756651019785190,
+         "testString": ".Mz%95KPz~e84/(mF[~wyMCRyo*,ZiNp[x~hPA{[?Bmkl*a%6J>;yja^vyq?"
+      },
+      {
+         "testBool": false,
+         "testDouble": 8.779916525323285E-101,
+         "testInt": 2413627625095981385,
+         "testUint": 7246078343514988953,
+         "testString": "E=Qs8uCl:;6-8^y4/v\brdYXn>I^Hj?rvxfE"
       }
    ],
    "i": [
       {
-         "testVals04": [
-            -1.5048042732399806E97,
-            -2.0769527837451377E81
-         ],
-         "testVals03": [
-            -485435201914834696,
-            5590360540846041119,
-            -4622303622603882356,
-            -8227995398796957581,
-            5534349215640626227,
-            -373433264084483209,
-            -1160628980609056723,
-            6390447009253263275
-         ],
-         "testVals01": [
-            "🧑🏾‍❤️‍💋‍🧑🏽JEAuGZ1jo4SW_.;8[DI\bmi,qRA~h\tp@3f#|G~\t-.HQr/"
-         ],
-         "testVals05": [
-            true
-         ],
-         "testVals02": [
-            15056521979268938496
-         ]
+         "testBool": true,
+         "testDouble": 1.4221231751514552E-79,
+         "testInt": 994856833982935903,
+         "testUint": 8232184402803539828,
+         "testString": "6SX';'H9h+*bUw/%U"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.0264827465375349E264,
+         "testInt": -8550960622996139466,
+         "testUint": 1441810420383948146,
+         "testString": "$\\u{Y_PYb!e#Bih'>@{rTu2,1#'>i(D}N#S<ixZ>c(v$9p@NMC,n-"
+      },
+      {
+         "testBool": false,
+         "testDouble": -6.055638661016854E134,
+         "testInt": -6321783323073311366,
+         "testUint": 2224899627889554580,
+         "testString": "JA_5GLS\r<]I6(G&F<d~vw1r=wct>oW8WYWioa\t7U>="
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.2293333222128957E59,
+         "testInt": -6562351097280027061,
+         "testUint": 16003271269953578932,
+         "testString": "`=D^k1f+Wd+P4ftkYV@0f\tMI$0"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.4577546194679564E-81,
+         "testInt": 4846141985149521682,
+         "testUint": 5199117949970769053,
+         "testString": "RE<+Euq&^:PUB=ML"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.0973046574132145E305,
+         "testInt": 5818019302376915654,
+         "testUint": 5330625375929285855,
+         "testString": "{cDhF[^z9~x'F+r;ek7=JwA%N.dYsU`pO}pp!"
+      },
+      {
+         "testBool": false,
+         "testDouble": 478852030952439550000,
+         "testInt": 7593115196978611561,
+         "testUint": 624398057450379063,
+         "testString": "8~hVp:9}|h_Q0..@5b$Oj_PKUsE*(0zUmqb#iZ5.p?cNNqnmnok]D-n"
+      },
+      {
+         "testBool": true,
+         "testDouble": 9.880457785106968E-208,
+         "testInt": 5972863634234489122,
+         "testUint": 12315390910708332672,
+         "testString": "3@QaQ:-NEF7P,R^cJ&#V/K=IWdrqd;C!lwzK[TYXk2!S$&]L$$qQ:BhtK!nomD"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.5057512392567994E-266,
+         "testInt": -1361998639052699840,
+         "testUint": 16596711057861166470,
+         "testString": "[dN!aDBSH^[~zKsY=FuTEiCRK\r7v~^CT=zI1:w)"
+      },
+      {
+         "testBool": true,
+         "testDouble": 4.889021708612236E-44,
+         "testInt": -900218033529658634,
+         "testUint": 16591140335905430731,
+         "testString": "kxg_QK@JMbb$cmAz$d^?B~Q>)j\f["
       }
    ],
    "h": [
       {
-         "testVals04": [
-            1.247313909016978E66,
-            2.654722322315458E-137,
-            -1.211475766436351E297,
-            1.1605587839081357E-227,
-            1.0725695900945022E-307,
-            -5.0600597269846184E-256,
-            -2.2971803284765144E64,
-            -2.823973622485114E-156,
-            1.2650998505076585E82,
-            5.4558375935450385E-67
-         ],
-         "testVals03": [
-            -48650152093981963,
-            859164650935241237,
-            -9168189429590881915,
-            -7471876046080755396,
-            4079105572699678128,
-            4247217005836652743
-         ],
-         "testVals01": [
-            "J\f+y8]oZn+J}$j,z📝Fn!lQV9J93[KM5{]ppnvO>5"
-         ],
-         "testVals05": [
-            false,
-            false,
-            true,
-            false,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            8819292597814508082,
-            7964630555418919600,
-            7554655474967335560,
-            12516719799884318421,
-            17678798833134854106,
-            15889051215090501388,
-            4815627926897267897,
-            12479924273026720662,
-            8570855645390082504,
-            11855253072851985754
-         ]
-      },
-      {
-         "testVals04": [
-            -1.3574824803179061E224,
-            -4.039969047085718E259
-         ],
-         "testVals03": [
-            -7121751844129274063,
-            -8989946347706029797,
-            4000147082375643379,
-            -7567336845705423428
-         ],
-         "testVals01": [],
-         "testVals05": [
-            true,
-            true
-         ],
-         "testVals02": [
-            11800254381975923818,
-            13805722558792266384
-         ]
-      },
-      {
-         "testVals04": [
-            -2.198213806383998E-177,
-            -3.809242776204395E138,
-            6.014496616791006E91,
-            -5.5543269191086645E66
-         ],
-         "testVals03": [
-            -3628274895342653608,
-            2264459793737810900,
-            -5372000357520984396,
-            8397915393793031423
-         ],
-         "testVals01": [
-            ">fl:s1TN~+]swt@pm\fH5_\r🏨?[EFV;^Vi!!KJKbsA.dwA\"_Nj4<=P~6",
-            "3*>u,}%c*0]🕵🏼‍♂️[>i%\rLObdkb.rnMwYJ%iS,Pl:+,s--GIPO9T1=S`{T-",
-            "ni>v\\X\rF<w6-kU\r=>M-0\"ig_-Kl!7k🏋🏽‍♂️\r",
-            "😶‍🌫️wM4\r9Of@qe\tA5>!HE0l\t_*]$J0MrI=~33),0$R\fS!&\nhDEi5!`\nsQ7"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false,
-            true,
-            false,
-            false,
-            true
-         ],
-         "testVals02": [
-            2045467467285141708,
-            2257963224686586662,
-            8455897908519523958,
-            16652288154944826875
-         ]
+         "testBool": false,
+         "testDouble": -6.7809897950086305E72,
+         "testInt": 5461448068811901106,
+         "testUint": 10055250206869173593,
+         "testString": "B]5t\"klvrwz8b|&#l%8RYp0#JkHtA|"
       }
    ],
    "g": [
       {
-         "testVals04": [
-            5.810843386519462E33,
-            1.311328360772221E283,
-            4.029509127487863E-30
-         ],
-         "testVals03": [
-            8084910886313151831
-         ],
-         "testVals01": [
-            "$Nr\"1e<A_7tF@lO?*h37SXAn%b?\n<p9m~}(HfaFPC:T_\rtH\rCx👩🏾‍🎓oh^475",
-            "cSC`y/!&l6XmXlx_sj3]=YU!1>\nAotO(@'9]i.$/t,A2&T\nvjj🎅🏼e"
-         ],
-         "testVals05": [
-            false,
-            false,
-            true,
-            false,
-            false,
-            true,
-            false,
-            false,
-            false
-         ],
-         "testVals02": [
-            4410379130702304046,
-            17439117923331492631,
-            10013677632926880131
-         ]
+         "testBool": true,
+         "testDouble": -4.671079678000928E-245,
+         "testInt": 6441617665156112720,
+         "testUint": 3232744845467300177,
+         "testString": "bI]0'N,5'kD^+eCU(NrCM2QTd+Nu|lK6}xc-4cIFAP7oUDmev"
       },
       {
-         "testVals04": [
-            2.154372712885852E125,
-            -1.1611755638876445E285
-         ],
-         "testVals03": [],
-         "testVals01": [],
-         "testVals05": [
-            false,
-            true,
-            true,
-            false,
-            true,
-            true,
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            18286972155813344972,
-            4642169955354483847,
-            6719001902676485824,
-            7580578908345674530,
-            7590314747772910172,
-            4975604247390767892,
-            2433517915084494194,
-            15858798268872416778,
-            12767388177752500907
-         ]
+         "testBool": false,
+         "testDouble": 20095659751.656517,
+         "testInt": 8318658881927143239,
+         "testUint": 12978242787136921956,
+         "testString": "|)&Bu1_j7DS7&TF327K'slH^RifjI@:Qw_PX4&1dj40Z`-^@IpGOr"
+      },
+      {
+         "testBool": true,
+         "testDouble": 6.751950664173292E-124,
+         "testInt": -3694298702206861146,
+         "testUint": 6616428963085612923,
+         "testString": ";jZK4ufk,V4r^rs8Ages'yW#t0;:V-89zcr$~jrH"
+      },
+      {
+         "testBool": true,
+         "testDouble": -5.546164258885567E86,
+         "testInt": -5385661113042850852,
+         "testUint": 14715808707427614411,
+         "testString": "EyR9I[aGpR1Qul_kRs#G;i<"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.153575011458447E-213,
+         "testInt": -154940622963816475,
+         "testUint": 14611609309759710982,
+         "testString": "k:QZ`N(VHa!TM9!W3Ns/*}9L5Y"
       }
    ],
    "f": [
       {
-         "testVals04": [],
-         "testVals03": [
-            6117736406944367657,
-            -3160614754607276021,
-            -5953004574176224833
-         ],
-         "testVals01": [
-            "z,0NT\f@dHD%Qk}5R4[y04\b\r@it{q📄8+g&{?,s7}",
-            "FG4Jzi2zCK`qVg1})WAh|uIhP4RmS☂️uId$+|dHJ\r[\r&4ML\t?wGxVw"
-         ],
-         "testVals05": [
-            false,
-            true,
-            false,
-            false,
-            false,
-            false,
-            true,
-            false,
-            false,
-            true
-         ],
-         "testVals02": [
-            765970571363009954,
-            15018555660370018254,
-            1877793455542412659,
-            8313604506771239481,
-            13980616908843812964,
-            18035139293477476710,
-            16432417393369898443,
-            7944963999649921893,
-            3931965115382594763
-         ]
+         "testBool": false,
+         "testDouble": 4.233300625044885E-255,
+         "testInt": -6642983879362298480,
+         "testUint": 870803227228280284,
+         "testString": "B=>BOXPbQ4cy;}zU'me7216KQ't/%t{$r?6s9F$S0tRWvn~D6wdX"
       },
       {
-         "testVals04": [],
-         "testVals03": [
-            -6981773665568371847,
-            -2372217266153100180,
-            1110478882944773003
-         ],
-         "testVals01": [
-            "g(W+R=-,%}whw\"TuimBR`:;_/j[[LC,fG|v\\0]_\n\niC-\n%xU🤷🏻‍♀️*D+W4"
-         ],
-         "testVals05": [
-            true
-         ],
-         "testVals02": [
-            9781305763821940107,
-            13343391475801969550,
-            11758133939631135119,
-            16777646123071795235,
-            13048902707772950565,
-            366557258481430864,
-            4747387339464583085,
-            5012041816224749348,
-            10668985373683218019
-         ]
-      },
-      {
-         "testVals04": [
-            -2.2308196820485796E223,
-            5.8733990092250315E-18,
-            -8.318863619243935E-222,
-            7.205099026468475E47,
-            -4.942024288465561E48,
-            3.8426979647269495E-111,
-            6.983395904988111E-174,
-            -7.140594400282879E-120
-         ],
-         "testVals03": [],
-         "testVals01": [
-            "%1\nSo&d-r#5!X\rQ}SU3\ns!\tJ*👳🏻‍♀️:?C,NZ//-n]>8@\tRLO\t",
-            "OY-6kr\tJmh🙅🏽‍♀️VUr:J\t6Yp,vpCk+BYF5C|o",
-            "u0c'RazYl'5@LeWK0YELS,Cs\f,D:q1T%KbkCRj[oG;\fc78aR{r🫴🏼N🥔CE9oT_SC3Mb",
-            "|o[b>fF@Bi4*Y-\n\r:$q2@DM%zT🚘qP0GeyN8iI|Y\\!\"?yJW",
-            "+BU\fY{\n|DY.cY1_>ec🚼_!=X<2Z}N[vO1HmD&2>}\bEmi+N6!pa\rY696'x^culv",
-            "6'bhU\fd%@/f|?\"\na?L#yD:KE#q]3Xh=\\#FSt)y(v8wGD^q>eFX:🙍🏾aVX[!"
-         ],
-         "testVals05": [
-            true,
-            true,
-            false,
-            false,
-            true,
-            false,
-            false,
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            9537304376760704054,
-            11408639769920623504,
-            12372437437423635587,
-            4894738286046023978,
-            16522396397368356010,
-            11784055451576126257,
-            6699891119695714033
-         ]
-      },
-      {
-         "testVals04": [
-            -1.6386894809740717E113,
-            -1.4863886615701255E33,
-            -8.521918717856078E-98,
-            1.7179155176035044E-162,
-            2.446478411744761E-199,
-            4.392772493123296E130,
-            -2.7399199470685556E-247
-         ],
-         "testVals03": [
-            9199297877721814750
-         ],
-         "testVals01": [
-            "x;6:\btxImi+>_👫:~WJ`\"+_&~37:MLxm4JnEkL`)V\rJGyblE@dIu9i`Wq",
-            "MKw6*PCK>🇹🇦L\ts=V:uKSgop\\V;#RVFX2GA,3Nogiu@WO\b={Do^M<DK",
-            "Z'B_\f!d22;RjC🤘hL!y^oGF<9'njk`-Dc",
-            "R'M94Kr,H!\n|f7dJ)&%j🏳️‍🌈,Kkh(=a<rB0^[=5ik"
-         ],
-         "testVals05": [
-            true,
-            false,
-            true,
-            true,
-            false,
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            4911498926623785085,
-            9206522814799743931,
-            17906762242970261547,
-            1403168960958393494,
-            9487521190994753667,
-            16006260771588795695,
-            6928879606268273452,
-            8807998598130463589
-         ]
+         "testBool": true,
+         "testDouble": 6.266388830606357E80,
+         "testInt": -7958038467477112496,
+         "testUint": 2222316535419450363,
+         "testString": "k+LyI@@1+DP\\:q3y}+\rl(\"ez;"
       }
    ],
    "e": [
       {
-         "testVals04": [
-            2.5053528615910536E-169,
-            -2.2065616973679926E-168,
-            -7.27095273608712E138,
-            5.714398713134489E-113,
-            4.700426243683268E-49,
-            4.466039653082324E-177,
-            8.957703741784729E121
-         ],
-         "testVals03": [],
-         "testVals01": [
-            "{r:GAA\bC;6Ol^,#Yu|;[0J!xZ🐻@\r0c{AuVhY>\b+R7WDrO",
-            "L)w\f\n0n'T🦶🏼\t1{?N~%lXpXGRUs\bQ\bt6Yi\"n>mLq-^t8M`chR>*a@PsnJ+b"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false
-         ],
-         "testVals02": [
-            17183697681297558535,
-            17819231758587743133,
-            1178637599395481111,
-            9126881899882834034,
-            16531893293072675485
-         ]
+         "testBool": false,
+         "testDouble": -2.0589890341758976E103,
+         "testInt": 5608886517674439323,
+         "testUint": 1617938931326479492,
+         "testString": "XK=u&D}n[HjT&ho*WqrqxR\f:f9e\f9YO14Clny56PZ2Gzce,w"
       },
       {
-         "testVals04": [
-            -7.165096915923853E-287,
-            7.822403001752181E-226,
-            -5.572053500824215E125,
-            -1.6629587996583888E275
-         ],
-         "testVals03": [
-            1202457977735100792,
-            5202871591110250881,
-            8303083859751069156,
-            -8780922083001590091,
-            -2312956843674304943,
-            9003132533485559917,
-            -5820371170586264122,
-            7654556997079600497
-         ],
-         "testVals01": [
-            "!Zj0N9kt{a👨‍👦‍👦h3pB(*9vP3\rLy@[^5V\nI~27",
-            "\b56^Gjw<W=z*1dZe🧑🏽‍🎨e*A\\!yw<]S7;FqD]\bm<}k\n_UV^<",
-            "<g-KDM)S\bP\b+4S:Lj4;=Z>n?i94T\b&WR|J\f>a}Ti👩🏽‍🌾\"iyy\"}u#i\f\t\t7,Bqe\t",
-            "J6/cM4Ea^F$f👩🏻‍🦱\fSXE}&Bbr,\"l6);vneyS?",
-            "t0d#)#Z~-D\bI\b<CX<Rm)R=1`HN\tD♠️oQ~7KQ8[!6V$m4?Ac\bP\\\n=l+\b>",
-            "}%IM*;uF*.👲🏻Lc(!TLBC+J[X,QZRYux\bXW4\f<unUdFH-_@iX*"
-         ],
-         "testVals05": [
-            false,
-            true,
-            false,
-            false,
-            false
-         ],
-         "testVals02": [
-            2883993406700645293,
-            2697781519387001979
-         ]
+         "testBool": false,
+         "testDouble": 3.0007009565764045E-44,
+         "testInt": -1196156364604341008,
+         "testUint": 15389056751648090791,
+         "testString": "'Y6zR_+[\b$dg3D5J6f|3X<4xM`a|tyrogBrFE:("
       },
       {
-         "testVals04": [],
-         "testVals03": [
-            7056953859451002740,
-            5465948126232949319,
-            2367148296503442007,
-            4834060489656381418,
-            4868522846767847388,
-            -2281868123311655699,
-            8388670053172401973,
-            3757612279402297313
-         ],
-         "testVals01": [
-            "📼[U]Z.cJJbheACjyI8z}<b👩🏿‍🍼Efa}ZX\"\bO'%jnp.$\fg!Epn:{46}p~|@G\bNLi}XC5n",
-            "4?WutwySGDBTken)_+~SwPA\bG{nt🧑🏼‍❤️‍💋‍🧑🏻oo8\fXp^",
-            "&.N58p_\\-$hY\b|W]k:y,:\n+8#-I\"o9;CkXKdVJ5hvS@geX|Vhm\r👨🏾‍❤️‍👨🏿u@K4WXFbST%",
-            "9c\fSH}VW#H.vTA4'O{@m-2Lg\"👰🏿‍♀️zIla@LgY3",
-            "[BR5.:@ov]RY-t🧑🏽‍🚀bG5s<?>/2249D\rDMf4nNPTBxr\b"
-         ],
-         "testVals05": [
-            false,
-            true,
-            false,
-            false,
-            true,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            10543283977089543006,
-            4503748649466888211,
-            14412493042974708060,
-            3731813150319432673,
-            7383252841589488414
-         ]
+         "testBool": false,
+         "testDouble": -1.3838595321274812E124,
+         "testInt": -994201242569056124,
+         "testUint": 2116143967890693322,
+         "testString": "KgWYLfj/x?a].mbSv^->^U"
       },
       {
-         "testVals04": [
-            4.716405389032467E202
-         ],
-         "testVals03": [
-            4944263349713334505,
-            -3689191782568845002,
-            -4488825502007463969,
-            -2764839934314899567,
-            1758498206508360235,
-            -3235708326008005797,
-            2962829370506028687,
-            -4248475610339708550,
-            -4573188193548091802
-         ],
-         "testVals01": [
-            "P0zF🧑🏼‍❤️‍🧑🏾n\t`~LMc1Ct(~R\f;4_!d4h2+{wJ_!7eqJ}$EQ=\th!<|sAh9&t;\t",
-            "C$i0E)!&9\b'uhJnT/KMy0Vd{6yX9Sr7xhJYtS55{5AgV<0E\\?dlE[👩🏼‍🤝‍👨🏻])RFH",
-            "rn;bXo>-QW@zFGgVY-3fwx\b\bwm\"S👩🏿‍❤️‍💋‍👨🏼,aw~T)",
-            "<vl\by27G7(jqR\fJ3wun<\tZoDh$qXTP\n4Bx8[9o$/9+\\|r🏌🏽?",
-            "\r_>z\rj9Y6D3JyL\\X\b^0c_=Jg`Q}jWT\f👨🏿‍🎤/I\nS+&]zfj]\bEkXGlM\f[\bmGi",
-            "llRB?n%1|asq*\fQL_b8(ZX🏄OVR!q|\"\r\\_M*BfYH~c_zTH.M!m(Y5",
-            "(U,\nX^🧑🏿‍🚒a~l@&7~EHFH$FhkpI{F;:mWAk:0Pd?TK|Zm!EQXy0+"
-         ],
-         "testVals05": [
-            false,
-            true,
-            false,
-            false,
-            true
-         ],
-         "testVals02": [
-            14732622944743298150,
-            14704397789856853099,
-            15848489081882240005,
-            6036711741220998673,
-            7903031366197732956
-         ]
+         "testBool": false,
+         "testDouble": -2.4287188585184709E-113,
+         "testInt": 4359283709252361500,
+         "testUint": 17631802559468706932,
+         "testString": "Ts^,ta.z#[rBluwx`Y^"
       },
       {
-         "testVals04": [
-            1.1720152578771333E299,
-            5.232982213456678E205,
-            -4.80085250015654E91,
-            -2.117109594730325,
-            -4.091569801404358E237
-         ],
-         "testVals03": [
-            -5154450849427116777,
-            -2291538171378946607,
-            5730023921237320665,
-            -74999054055118633,
-            3869959963409308625,
-            8621729408429251923
-         ],
-         "testVals01": [
-            "|3u>)ghs2a\tlh<g5=:Cd^tugn👱‍♂️bh/$;K~D\bd2XS]H",
-            "3{E>c.j,gB~~DG!\r}fnc\"OL{n👨🏿‍💻\r\b+E4T7_uLPFjs-5G/GyBtU^T",
-            "qD🤵🏽‍♂️1Z~$GGB!/FQ>8nw\b_5,/=9vnBp3iGM'c\"7i}`IFV+",
-            "\rp6id\b🤛🏼R4%\fOEL:7|3sbJ.<n~c/@X\\kLjs\\ZTTD-@;Eh}q71S*D`\"+,>K9l",
-            "Slie\bS\riMo[!%#{icB.u,2`D3*U$?6\fXl/;l-Y\fhz🦹🏽Y6BrF",
-            "`?🎨?:\\jv`CaYHs`)X<2v/T$l\rl=WTDkzyv%]I/<g-C*\\",
-            "3j}WVKAh=0}u\tYc>h;9>Ho^bCGA0{[👩🏾‍❤️‍💋‍👨🏽4%Vh^fscwe4[.",
-            "e<F{]!AA#-szDqIT@C;?daix(1\r=+{Tvl👩🏿‍🤝‍👨🏻m9T$:i]tK#K\tpU1n/Eq"
-         ],
-         "testVals05": [
-            true,
-            true,
-            false,
-            true,
-            false,
-            false,
-            true,
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            3763308435102397000,
-            5107779522716122165,
-            135382684792840598
-         ]
+         "testBool": true,
+         "testDouble": 1.2227528601978636E-282,
+         "testInt": 8074100492550712588,
+         "testUint": 13695342842749242118,
+         "testString": "i`]g[0^_f-OtYibj(Zw\"DM5YI"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.633102360192566E221,
+         "testInt": 6017880510260722844,
+         "testUint": 7087897537497924015,
+         "testString": "VU$T*T\\Gn]*PYS+(v>2p<y$~|aG|m[7=6PBA%(1h<_lUE{!A:F,-:O"
       }
    ],
    "d": [
       {
-         "testVals04": [
-            3.6581742472428516E-227,
-            1.4075304044842654E-33,
-            2.5681100929626604E-251,
-            8.577337065537054E281,
-            -8.773697068514281E-192,
-            1.4444394482478555E-281,
-            -2.3450600689716843E-157,
-            -1.4568784315650455E-304,
-            -6.194574294087723E-73
-         ],
-         "testVals03": [
-            7535926098825671201,
-            3247336853207939832,
-            -3718831154997800879
-         ],
-         "testVals01": [
-            "%i~>#7🚳yHE6iWQ~vu&F-;&SJktO%w;\rPL-*dY%yh}Ti",
-            "azM:E\\WMoiW\"@0.|Ki(I&3\"A61j8,;x1eErB{\f2u^JJ👩🏽‍❤️‍👨🏽tD]aTLUa<;"
-         ],
-         "testVals05": [],
-         "testVals02": [
-            7233870485620956828,
-            12974044824997839760,
-            13221637851221632370,
-            6056376947273814119,
-            14053701761817475525
-         ]
+         "testBool": false,
+         "testDouble": -1.781327978279398E166,
+         "testInt": -8725756186369639139,
+         "testUint": 8024679918611341369,
+         "testString": "H%DS@S&1RiEyfG:L@O+~"
       },
       {
-         "testVals04": [
-            2.2305895609456744E293,
-            2.0836175218079176E-132,
-            -4.794590036867319E-272,
-            1.465398557472417E279,
-            -2.7977967926021876E-297,
-            1.3700443416529533E-242,
-            -2.1397322571324913E-239
-         ],
-         "testVals03": [
-            -7286254391019563838,
-            585822250034885615,
-            3814823639718017969,
-            2158389420902856316,
-            -538605397147396710,
-            5752408103618244058,
-            -7891896374327783265
-         ],
-         "testVals01": [
-            "7\\?%58UL$MB3'^)K{sqCf\t//`M\td88)2🤝🏿flT{b*\rHC+*^F]\"",
-            "MNW$wz+:D=ZClh]4;Me27\f\\IxGr/🤽🏽q@LZe?,'S@q#O=:[\nGDgR.;X'7Y,&|",
-            "*#QM*?Y~)2K$\f:Nl-y[}\"+jCsV👨🏼‍🦲ZyH]D(N?4]\n",
-            "g37Q🤽🏽;L[&73>blo*7y(W(t\"S.eb~KCjDIrII(",
-            "uT1#[,👳🏻‍♂️U+HUxJ/\ragJ9G_Ud%k$Xst:EQt|vVnxFA[5Bh2S<-75\rh@"
-         ],
-         "testVals05": [
-            true,
-            true,
-            false,
-            false,
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            1185734196748320993,
-            11078649928854621506,
-            6709849309401295127,
-            17233416406928232728,
-            4011807237593083387,
-            12310014113562130372,
-            17304336869181967773,
-            766734097904054633
-         ]
+         "testBool": true,
+         "testDouble": 2.019873556437669E-298,
+         "testInt": -8242903347132933934,
+         "testUint": 10893721790449867408,
+         "testString": "}q2.NQq`m!F`b:ed)"
       },
       {
-         "testVals04": [
-            1.952832461212194E137
-         ],
-         "testVals03": [],
-         "testVals01": [
-            "@IOf6ZKUVMN0;L🙅🏾‍♀️;j(%W06-Y=\b3)R*kh{J]gg%n,&@@\n%\rf$\b9TE6@KQ]",
-            "m\t^u\rgD\t7*d1c`c$Gi\"iH\"Yg0🥟.9tPJ'vTp*Y)1{Th6{Yf[N;C\nt|r_OlzUg"
-         ],
-         "testVals05": [
-            true,
-            false
-         ],
-         "testVals02": [
-            6137192839126823620,
-            9824648536211635599,
-            10614691192646482217,
-            749277975058473076,
-            3487112398249086940,
-            5378985347395121433,
-            7082007878472238748,
-            474126920711145624,
-            3072228536682833244
-         ]
+         "testBool": false,
+         "testDouble": -4.792636604615136E273,
+         "testInt": -468365540298491434,
+         "testUint": 7708556854846200989,
+         "testString": "$@^WKYKv1=K0$]LizY^EW-F]b7`OnCvbvljO~U-V\tCjU[e7FLtduAR:dN7"
       },
       {
-         "testVals04": [
-            1.0091481684953091E285,
-            -1.9805007860400882E-258,
-            5.969048242495336E272,
-            1.733239220743584E308,
-            2.799591475511002E-197,
-            -6.179207085476362E207,
-            2.791846839325707E236,
-            1.2068284183299659E288
-         ],
-         "testVals03": [
-            8605480732378458085,
-            3304554683213597225,
-            4633381205378759250,
-            -8487394291739485194,
-            2460532548467916605,
-            7373473127999559442,
-            1587715841470023256
-         ],
-         "testVals01": [
-            "AFOW/=?yKT!|^LUu-~I|M🧛🏽‍♀️T[+`rz`^f/iqTG\\GF",
-            ".STSQV%WKXpxe\")\\-O6.*teG\nJ@)XtR*eGhu🤽🏼‍♂️C7rP&",
-            "2LrkA\f\f,2^lyMb^yPx@X🙇🏽‍♀️Y?UAXki]tCQlFR~y\b<",
-            "{\rAX<dyk|j\n?l!Y5ye29e_\\#N\t]gwq%|<\t2O^\nH.]_N2R##n0vG👷🏼}JgEgI?[r1",
-            "F:Tfc\r,g5:p%-di!}🧍🏾‍♂️ks#\r_Zhv<8M;\b\fF~hw0{)8L(9SKfrea!Xzl\"|",
-            "udqOx!9Rksx\t[*UlA=][SE;GMYI;vz:)xoS4&g>T&O#HgRuMJt\fZ3&\t8h👨🏾‍❤️‍👨🏾Z"
-         ],
-         "testVals05": [
-            false,
-            false,
-            true,
-            true,
-            true,
-            true,
-            true
-         ],
-         "testVals02": [
-            2559520115217332262,
-            14406820770012609299,
-            716823862729900517,
-            14205924828724929332
-         ]
+         "testBool": true,
+         "testDouble": -2.5268152001768167E-279,
+         "testInt": -5844790358753692494,
+         "testUint": 10506977132079035193,
+         "testString": ",^!*k56-0m}zB[c$qNZLYr//GXmf0Xdn<.1I<.w4GF>&vG"
       },
       {
-         "testVals04": [
-            5.634299487334007E186,
-            -1.0987428731609354E-174,
-            -4.92567433625391E89,
-            3.789913316276236E49,
-            1.5610605769940977E198
-         ],
-         "testVals03": [
-            -6890290421559129572,
-            3794764620774223227,
-            -7549978189877030562,
-            -6697345389126184788,
-            -6142709442741374595,
-            -9162902045155376515,
-            2282384641776055617,
-            6971110276530009279,
-            -141086851614721427,
-            3070371576263884462
-         ],
-         "testVals01": [],
-         "testVals05": [
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            6516583830932365420
-         ]
+         "testBool": false,
+         "testDouble": -9.0131003603741E-287,
+         "testInt": 2848495993494053864,
+         "testUint": 11442260968452203231,
+         "testString": "<!Q>hfNt^'m?iWVZI^R%g72fWj\rt!;%S5b3"
+      },
+      {
+         "testBool": false,
+         "testDouble": 5.555293522721034E-55,
+         "testInt": 7092696026059181065,
+         "testUint": 4911907066113306009,
+         "testString": "/NZy>iA)3{{HQ.7lN3zx"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.2601972697293118E-226,
+         "testInt": 8443932771969152127,
+         "testUint": 4156596251342213180,
+         "testString": "{/T*{r!.cic[koZ^TgNU>&~Uvw3,)l2rlSGexg~5"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.5064710812436025E292,
+         "testInt": -7460884127815431909,
+         "testUint": 15871068619026704887,
+         "testString": "HL$qW_zs5Dsa.Sj?WyQz3#Kijq{/C"
       }
    ],
    "c": [
       {
-         "testVals04": [
-            -4.48456891672979E-252,
-            -1.2087581125709252E-163,
-            -1.0440247106931028E-237,
-            -7.730447615308263E-295,
-            1.395195180887256E-115,
-            8.516191620063073E156,
-            -1.0274685876905003E-225,
-            2.2883029661624513E107,
-            9.201142885618456E-48,
-            -5.81753914496382E139
-         ],
-         "testVals03": [
-            -8905050828541542579,
-            -3438012213560340622
-         ],
-         "testVals01": [
-            "F7YeI9=HDko#/%ZiIhxV()2I6NHq!4[SCQFs\nHte$^]2L\"!🤞🏽K`@=Ib",
-            "FEM(🕥Sdhc$>Jnx<[-$#XjUz1`tt,<&tvd\rwPE`xCUXcah6(mp3/1&*t6/>*",
-            "<j\tTRCD'>MIKK<,8CH:RBHMs}qo.3v9l|K\"🚶🏼_H>Nm",
-            "5gn7swpMpr(!IxrTpPrrRT5tL9}|PTX>(\"🧚🏼‍♀️+M$-y'BYPan9a;32",
-            "a\\Z=nv##,6[\"-/\\k%\bT$?-ykP✉️g|Kq\n0\r\febn\n(>T<\nDT5YenTg@LydxfR)p"
-         ],
-         "testVals05": [
-            true,
-            true,
-            true
-         ],
-         "testVals02": [
-            2219519474666273000,
-            4779537060591779234,
-            13556681380508758974,
-            13883864156903837532,
-            13959077714244270064,
-            1956754355529107656,
-            18292042209386536496,
-            7725367074521331176,
-            66842838862336506,
-            8481939727119581874
-         ]
+         "testBool": false,
+         "testDouble": -1.1731060688171746E-199,
+         "testInt": -1538460533836553822,
+         "testUint": 3333958830853802428,
+         "testString": "PuI~JWoqr%;_Ui'cZ~3'#%i9v{15%~i]X"
       },
       {
-         "testVals04": [
-            -7.600144515821141E257,
-            7.569159795951481E211,
-            -1.4555107001418396E-63
-         ],
-         "testVals03": [
-            7722130199941595382,
-            2249943206847737999,
-            -6925327224982309662,
-            -2059991406774210546,
-            8884392364562330492,
-            6879460231408896718,
-            -4148598869164917396,
-            8750536592847113653,
-            -4002703520292758083
-         ],
-         "testVals01": [
-            ":M~@m🖕🏼jE0gTlX\n\ntkmxSKY\nSCh26tt{7D3[>2H#o3\nmU"
-         ],
-         "testVals05": [
-            true,
-            true,
-            true,
-            true,
-            true,
-            false,
-            true,
-            false,
-            false
-         ],
-         "testVals02": [
-            4783367129681374232,
-            8313601676481506956
-         ]
+         "testBool": false,
+         "testDouble": 7.37373427405054E-154,
+         "testInt": -2996887410598940605,
+         "testUint": 10087992942115290301,
+         "testString": "NuQ5$$~V;W&o@+\"omBb;]/b{gGKbDK-R"
+      },
+      {
+         "testBool": true,
+         "testDouble": 5.319118537986094E-172,
+         "testInt": 8967061290679807382,
+         "testUint": 8101491399392479035,
+         "testString": "r%@c7kP[Ai3XnhQMg'Frlj0+1[8XD*KNBy(<AXC#ja%28Bg@]jfTB+dXO\"j!9"
+      },
+      {
+         "testBool": false,
+         "testDouble": 5.570446654592555E-302,
+         "testInt": -745726692684753090,
+         "testUint": 801153342063777754,
+         "testString": "0$N4{%!>Tq6:'}FrrE*_4@."
+      },
+      {
+         "testBool": true,
+         "testDouble": 7.956693353657546E-148,
+         "testInt": 2443039063393682064,
+         "testUint": 3646744188605434224,
+         "testString": "(vhcH5]G9I\rC30u@Ed\\z+oX.I_l/L"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.881186132411882E-159,
+         "testInt": -1834724366732473142,
+         "testUint": 12962953230024648090,
+         "testString": "89eX`h!BH%#}rrX=BGC.wc"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.3490504876129043E-52,
+         "testInt": 1551827645087858630,
+         "testUint": 4924184021929265515,
+         "testString": "$;2@X8^(uZfS@KP*uib>IQ~jSx$Yx$;5;S{GWmDp<)+-uOQ0Dj"
+      },
+      {
+         "testBool": true,
+         "testDouble": -4.80816294246366E-243,
+         "testInt": 188011469006068509,
+         "testUint": 8146165011337972966,
+         "testString": "3n<klG|9RBDW/sjUnVDc@?b@~0*#+e1C$;\\PEVz3Y\teTYScHO+|!Hauk"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.6644489828868724E-281,
+         "testInt": -1930286075242985260,
+         "testUint": 9455961051697049334,
+         "testString": "mI8(bbU'AfEXeBt`3{2^O"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.1192350823662118E193,
+         "testInt": 6639274205673898507,
+         "testUint": 6901091259979936420,
+         "testString": "E@l}<!>LA-@U[|a\\oY}^}WAx%$L|.R}0.Lci<]Wmrc=+^hIco5-jmAo`k+?wLwUd"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.7835802277698908E177,
+         "testInt": -2879509482919415716,
+         "testUint": 4801244385202055054,
+         "testString": "V/?VdNCv4h-lE|u^W;YR,s'B;f~N]S}G%O%t<HECSF`e||]tM>b?41}1^`"
+      },
+      {
+         "testBool": false,
+         "testDouble": 163313875540414850,
+         "testInt": -5874859996231291239,
+         "testUint": 17736269542177085634,
+         "testString": "tkNL*&bCJ;O\tUE0xmgruv0]mIqmC1d@</ZnR\rFeM{zXb~c?_=GxW2S"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.5837577733798835E-243,
+         "testInt": 4232912410462876792,
+         "testUint": 16824583879518585564,
+         "testString": "/$GO?a?bw<z$\t_%v[|df:L!,o|["
+      },
+      {
+         "testBool": false,
+         "testDouble": 8.232972955343229E-200,
+         "testInt": -6214593121333538369,
+         "testUint": 7787786724015818807,
+         "testString": "E}qMgq%B[d]in:b!0EJAq7D?8P|{ferpVmC.oyk%w69&MxF1o&%IIsCp}45kW3Iy"
       }
    ],
    "b": [
       {
-         "testVals04": [],
-         "testVals03": [
-            4736541579136662727,
-            4428674416288259237,
-            6468944508265007851,
-            2751763496079993569,
-            1662665222480664523
-         ],
-         "testVals01": [
-            "w[{HCptG🤹‍♀️tIY]\r9m{7}N),#0f'\tYr<XE\"t\tA&:oGn",
-            "\t6esy|P:zK!N\tYZPiv@\"RjNL+%1)Rs+Ov)L@c`9GB^Dz.🟣dF%@ytY\\\b|=z6|",
-            "[6;$🧝🏾8QEq[,JW8%5]WB'al6F\\%^4O\"V|ICBn;nH;9djV^.(B",
-            "[G1uREO6A]YbZ5\n/iN8'%\b?_📞!)sx4\t\tP&N\bHB/XYL:iWy=LCp@8kwE5",
-            ",Zxam*fk04QFSX^,?C\nwk-3W~g|🤹🏼‍♀️iDu^\b?b\b&;\f105'@",
-            "m`RMgx/fh7gexjogKAnt~A.:v.}r_\n+$4+/*5A]\tO\f'8U$GD'XQf}F(💷/mO`"
-         ],
-         "testVals05": [
-            false,
-            true,
-            false
-         ],
-         "testVals02": [
-            14937238206129713571
-         ]
+         "testBool": false,
+         "testDouble": 2.1204154095637965E126,
+         "testInt": -5409098138452504101,
+         "testUint": 11647567765010071603,
+         "testString": "[`_f>FJhL,(Wv'2zV)}YRvDGF_SW^{TET>/kzO^U"
       },
       {
-         "testVals04": [
-            -2.4258368748517816E-237,
-            1.674326322408828E-36,
-            1.3555963456001208E-153,
-            -6.1763006832112125E-295,
-            7.614176391923027E274,
-            1.2252880885844001E67
-         ],
-         "testVals03": [
-            -7971658673100318135,
-            -6781192184605896770,
-            2314447676530056388
-         ],
-         "testVals01": [
-            "@AM=W]o0g<?8~l.9W~\r9~@UAJg]`w`zmqe🧙🏼‍♂️3-}*👨‍👦‍👦n.tMR=\fC+)XC+H,r+Jp94T>n",
-            ",SX)v{-C3DY🤦🏽‍♀️\"Q4p>m0.BsZElI}#38D!b%",
-            "Hgk^4u\b\b>96?Y:o]9!{mh3:🧑🏿‍🌾HJCY+}iYN*-BKltaOrm%Fztvn!LH`",
-            "\ta0Z\bo,|;♏C91=Dz{x?9|+7tr*1?R-vD,ka#YMpeT",
-            "k{s|mpvXqb0Xdq_🎣E3KVW-8QLzS)6fRDU$6}4\bR__D",
-            "\t[Dq🚴🏿‍♂️7d6hhv!C17~[w%ex1NRo\fM\t$]#(l3jFTr@",
-            "!vEoYXml+Uws1ccbjBxu7A&y@,aJX+quX;>nS-🤽🏿‍♂️f5_~diB7{,KCDQ"
-         ],
-         "testVals05": [
-            false,
-            false
-         ],
-         "testVals02": [
-            5544993888069561106,
-            1544208848987856027
-         ]
+         "testBool": false,
+         "testDouble": -1.4838774204798957E39,
+         "testInt": -1394643810432393861,
+         "testUint": 8818806840786714529,
+         "testString": "yS%g+*(nW0*cs[F`=2QWyn?7``cOX/D?+YuE_gdFprQ1ul}N9'+|;$3U8'{+0d"
       },
       {
-         "testVals04": [
-            6.212350420331527E-283,
-            1.168975901887806E307,
-            -3.872700302328243E90,
-            7.572332747401825E-197
-         ],
-         "testVals03": [
-            -5692746465088574640,
-            -5831404614723166695,
-            8032360301473781289,
-            -7999818360599896447,
-            -7896154801574006328,
-            -183727230443921073,
-            1441558869997168942,
-            -2117805518489245144,
-            -1074462011092270166
-         ],
-         "testVals01": [
-            "*mT1S@👩🏽‍❤️‍👨🏼%%;Q(;v\t.a\\\bwd^W1v{\rD\rb*H&yQ`t!Qj\b['~we=U\r@(",
-            "8&bd6)FCSjj%V`MV3P6{S\no>LZ🫱🏾]CJgX\t2p\n\b",
-            "/03\tK=9m7V6`kJf%vqTc=U\f/ID(`V\bw👨🏻‍💻f\ru)Tw'#!Kb<\rX\"c#p}F",
-            "ky{!?+oJ\bl\f/q&U\fxtO$~Z7C?kr=P👩🏿‍❤️‍👩🏾6~M\n",
-            "1e[:qXU**k:3P]X📇=&g):3vJ\nEnWH\"~fI?XhP^1N1\bt]zA\r\b\\DH#?It^"
-         ],
-         "testVals05": [
-            false,
-            true,
-            true,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            9921966688131841508,
-            4936291303988264069
-         ]
+         "testBool": true,
+         "testDouble": 2.3458490877606296E-260,
+         "testInt": -1087871457955232071,
+         "testUint": 3268493480255393708,
+         "testString": "TA@,kggs?sV#M|tL@M9/I!|HTw;4_|30z7UD,BLKKZ/J8T4SL.x"
       },
       {
-         "testVals04": [
-            -6.853991745403857E243,
-            -4.193778672585644E149
-         ],
-         "testVals03": [
-            -63070987392402100,
-            7754340442732911665,
-            -4573239962571203098,
-            -6921610124707499855
-         ],
-         "testVals01": [],
-         "testVals05": [
-            true,
-            true,
-            true,
-            false,
-            false,
-            true,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            14685598982742359055,
-            12400727833019979748,
-            7697325470951456579
-         ]
+         "testBool": true,
+         "testDouble": 1.1443798981242984E-175,
+         "testInt": -6231968929329645391,
+         "testUint": 1046667924919300818,
+         "testString": "x*Je<E;ow%s!)Ytop?HrfMTtM0T``S;"
+      },
+      {
+         "testBool": true,
+         "testDouble": -8.332578137769563E-233,
+         "testInt": 3923108678607095957,
+         "testUint": 13417294138322735446,
+         "testString": "sKfG]-1J/<s'f0:Y$7cY14282Bl_8#5@j$2Lh;LLhP%O&_U=x8\"oEp4FXUR!<"
+      },
+      {
+         "testBool": false,
+         "testDouble": 205138.58161269128,
+         "testInt": -1343981579365879637,
+         "testUint": 6826509662338505847,
+         "testString": "zjz$ot-kK$!+xy]o"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.4771518087100246E-266,
+         "testInt": 5374878366959696356,
+         "testUint": 1436010270050522072,
+         "testString": "+X(f2(p'_;PULh6|h@=4[A:|Aw"
       }
    ],
    "a": [
       {
-         "testVals04": [
-            1.0839220614482663E215,
-            6.338189686049546E-35
-         ],
-         "testVals03": [
-            6439177757238834128,
-            2911162024140974004,
-            -1839679119154165098,
-            -6623980694058549769,
-            7119985140525288029,
-            2944496482663583376,
-            8125488405500028259,
-            8928092649820007857
-         ],
-         "testVals01": [],
-         "testVals05": [
-            true,
-            true,
-            false,
-            false
-         ],
-         "testVals02": [
-            14411465619553618705
-         ]
+         "testBool": true,
+         "testDouble": 1.6925885530081926E-100,
+         "testInt": -7657609364207820593,
+         "testUint": 10063118889708797550,
+         "testString": "p@Wb\t~CQv*#t$v^]-v2;v\fv[O3^+#mylKicr@.\tGvCd3`4!mxr"
       },
       {
-         "testVals04": [
-            3.0788144650837676E174
-         ],
-         "testVals03": [
-            1220331784882395013,
-            -4389849141024571343,
-            859217201831060131,
-            4377722183352290129,
-            -6823540840951312116,
-            -1179237877735405174,
-            -486158292727757225,
-            692357399195286950,
-            -7472405579591209207,
-            -6034474449526262760
-         ],
-         "testVals01": [],
-         "testVals05": [
-            false,
-            true,
-            false,
-            true,
-            false,
-            false,
-            true,
-            true,
-            false,
-            false
-         ],
-         "testVals02": [
-            15902795812293486551,
-            10403614546115114880,
-            2748125185783045974,
-            16533419027867736485,
-            4038772192906725381
-         ]
+         "testBool": false,
+         "testDouble": 1.9061562264838523E-286,
+         "testInt": 2460946596814688515,
+         "testUint": 18294032586014300688,
+         "testString": "U3My9*ok|7$D%%A7fw]XZx/Q_1My@<`pz0pYCQsSQ5a!NZ8@cV;5h%gFR\n?5P"
       },
       {
-         "testVals04": [
-            -6.388322351334826E106,
-            -14800270701.573095,
-            3.472208823142037E-122,
-            -3.65208102309991E264,
-            8.954780029096762E-154,
-            -1.4829646636938803E-261,
-            5.1876014539192685E280,
-            8.194658193480269E-16,
-            -1.683600535782644E-82,
-            8.792569355599917E-219
-         ],
-         "testVals03": [
-            6697870891428326500,
-            8540547857598068562,
-            6012422717331462115,
-            4715455513023978114,
-            1123934521073275675,
-            -5590295107906354224,
-            -7071236010048945300,
-            -4603779944658229294
-         ],
-         "testVals01": [
-            "3a6TgiBqB?NT$x}vj47gO🧙🏽‍♂️J[ItdSdNu0",
-            "5#5Y+g`jD`194\nE🏃🏽‍♂️]!\t5R-U>d3Ls\nf4(U<kx;t0L'hti[&>\n",
-            "LsAF3FW\rL\"aw<'mU🧍🏼Q2y!]\r/diHo[:c52#?=fE08@<KtaXW6'D\"QP~\b<"
-         ],
-         "testVals05": [
-            true,
-            false,
-            false,
-            true,
-            true
-         ],
-         "testVals02": [
-            561257527370063498,
-            14257348981065656876,
-            951980703258728984,
-            7642156280944638256,
-            15602492704824908264,
-            11326400713781740721
-         ]
+         "testBool": false,
+         "testDouble": 4.828909925481814E222,
+         "testInt": -8267910396247843389,
+         "testUint": 7477415027953086659,
+         "testString": "Bq6xIpciF>GPTa(0wn6UKLVDFbDgPJ'mrLq"
       },
       {
-         "testVals04": [
-            3.8306248117006755E-178,
-            -1.5332981073265045E-108,
-            -5.164588722947087E-45,
-            -1.2543937879958572E103,
-            5.975685838832436E-305,
-            3.1459522191821295E171,
-            -7.470771061429072E275,
-            -2.642883076996625E-95
-         ],
-         "testVals03": [
-            8042701569126186918,
-            -5532330114662224268,
-            -8814700869312800323,
-            -1449003958509088645,
-            -5485300746955151326,
-            -6463739347656994547,
-            194315451326740282,
-            -3874965102362405396,
-            7659745188268808088
-         ],
-         "testVals01": [
-            "l\t\"🧕🏾aM.ud9xw$ec,2%]}*v~hh_SQq>ZAs>SOx8Sd?n!M>3bX[c\niFg",
-            "3lk9ky_a_c^ibiGp;*G!T^@uMtH\nnyS4}\b#c🧑🏼‍🦽aD5z=\n\b.DIO}!N\tUh}UJ)@",
-            "k(SFK🧍🏻‍♀️b5IsNIJxY\t\fQ|m>!\bNV~c,K\nXr\b9n&s8tD&8^t%/?9\fG%",
-            "Xr\rAWf5cdvr👹>L,]o\"Q(_^$yOGm^\"/JTHs}EXc.#:n&x[&(j`6d",
-            "~~Ic3n*g_^\"G🧑🏻‍🔬Gs;0\f$$*p`Y'\r1nILO@\nf,u=H$^)=>x\nz%V\\VPH",
-            "N#D3&R#\fr3Wf=Igg\\IZD?<*🧑‍🎨Y}K!6}[m\r2?|P3HB\"\bGi\b,Zo_zg\bjR&",
-            "w\nA{l🧑🏼‍🤝‍🧑🏿LMuk0H)\"KbD_\r7_53k:ME%\t>.]h.YdYjqg,:YZ\"|N",
-            "L2Gv~%[$)D\\0XqMqT4?R\"8.\tB*#J~ZO,uW>,bacws3.}Z(89@~",
-            "RR]_RCTOm_)24AJe3-(,F\\4\fEsj]🦇qi{6=2mk\"Eo",
-            "i,uO\rfGQs🏋🏻A{2Qjp^\\*?kPS$I`J$Xw\b!)~=qZArS]BYuD<muk"
-         ],
-         "testVals05": [
-            true,
-            true,
-            false,
-            true,
-            true,
-            false,
-            true,
-            true,
-            true,
-            false
-         ],
-         "testVals02": [
-            10062264312056190538,
-            2104245818465987425
-         ]
+         "testBool": false,
+         "testDouble": 4.194951240066193E199,
+         "testInt": -251346507951648114,
+         "testUint": 2938809578113814416,
+         "testString": "X]l4X'jex6ALF^i=W2Ou.bE:9,?B;%"
       },
       {
-         "testVals04": [
-            5.433494033999006E-225,
-            1.970946669561273E105,
-            2.4293630777577864E197,
-            6.166609577092992E225,
-            -5.1705467529157705E168,
-            -3.5869278881900505E232,
-            6.211780242162488E231
-         ],
-         "testVals03": [
-            5275373651231116859,
-            -7603331494673403458,
-            557522614849130325,
-            6720697124407268336
-         ],
-         "testVals01": [
-            "\n`f8🏃🏼‍♀️7N\f}ku(`}\t4\\3/9~zg-$hH-f>9I\n",
-            "R[8'XZXOZt%R,>gWb*'/hL[$,I\"[ag?\\🤜🏼Ep:%>r^38[PY&~ElCF+VT+g*J{K!",
-            "m!4COM\",+~_h($GFdI(<1.DI:DoP/🪸=\fLqV|t-/~ww\bv+Cf",
-            "5+{\rI6w\\r;S8👨‍👦‍👦f;WQV%&\b.[pLF\tXZ;\"1G6k\bM]",
-            "03IU,v67L7.anM^}7|h^{zB🙆🏽‍♂️;<+c\t$R:ba[jG",
-            ",al\nZH*PJ/CqjCy\t8xZf|I0T\nh\n8$AFc9G'q\f&U{🥙@\tB1\rR}~Az_"
-         ],
-         "testVals05": [
-            false,
-            false,
-            true,
-            false,
-            true
-         ],
-         "testVals02": [
-            12063777165984299440,
-            16307956376006612188,
-            9438118814021588207,
-            16920376587506124826,
-            17412102212250009088,
-            13182175566677938472,
-            10488311795002919949
-         ]
+         "testBool": true,
+         "testDouble": 2787906810618.082,
+         "testInt": -7711091261257223182,
+         "testUint": 16865180526079504018,
+         "testString": "\b}bkADPm.(%/s?ajNyQ+6MIZ@{T1S&.i45uDY{4i3[c$?-FEkcacJH#\"UH3,["
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.0280490170587153E-153,
+         "testInt": 3760233798826013328,
+         "testUint": 7671263394989885130,
+         "testString": "_c/i9%Mf_SSQ)+0-Tetm]vsl\\ibBpYr-u*t!M@"
+      },
+      {
+         "testBool": true,
+         "testDouble": 4.065695984285158E-186,
+         "testInt": 3906680384175440226,
+         "testUint": 3019113448247079714,
+         "testString": "lZE/JN4+z9ZQ`&oGU?^IkuG|#a~;5xE9<@[n:9{3a"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.3882048499247927E271,
+         "testInt": 3522748592840529412,
+         "testUint": 6405259295105231897,
+         "testString": "2YI[p1xwd/-8M@}lDx9ss"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.604664408362663E-148,
+         "testInt": 76799860888703859,
+         "testUint": 10601226869472488908,
+         "testString": "P,vYJ<&HfaULK4S*7dSZ7;qlq+E2^/SQW.Jxl!E>rOrz]_6-hRHy!WB"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.91977965275156E-157,
+         "testInt": 608863800626058190,
+         "testUint": 14964107626040882350,
+         "testString": "nR7a`QYH}27PgZp3d#<hkp9ZR]mynN2!x)PT[@>?E}DH:ycF"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.2354738480160216E-308,
+         "testInt": 5889616051296694396,
+         "testUint": 11093009121463192295,
+         "testString": "vmoAAd@f!#G+cyFt-r"
+      },
+      {
+         "testBool": true,
+         "testDouble": 8.52752983064528E115,
+         "testInt": -3184168409304630962,
+         "testUint": 5835198301847999756,
+         "testString": "B8J|\bA7N,>4xvW<)A|Mh`nRV+F=NG9bi\"u8,E"
+      },
+      {
+         "testBool": true,
+         "testDouble": -5.451191439453011E-225,
+         "testInt": -9173534708298356847,
+         "testUint": 9241795265180592845,
+         "testString": "_+qsGa^BL%F@gs^!a.Rmn*h\\n+kcHU/CA.{S{JG8PXeDeGOc>Wr<4&"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.0308924456866166E-59,
+         "testInt": -8132952783093483131,
+         "testUint": 27241224762937918,
+         "testString": "aA&1$-M#~-)D|mU[g$Zdr6`*.*yWm"
       }
    ]
 }

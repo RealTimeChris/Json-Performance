@@ -1,36 +1,14 @@
 name: Benchmark
 
-on:  
+on:
+  workflow_dispatch:
   push:
     branches:
-      - '*'
-  workflow_dispatch:
-    inputs:
-      run_msvc_windows:
-        description: 'Run Build-MSVC-Windows'
-        required: false
-        default: 'false'
-      run_gnucxx_ubuntu:
-        description: 'Run Build-GNUCXX-Ubuntu'
-        required: false
-        default: 'false'
-      run_clang_ubuntu:
-        description: 'Run Build-CLANG-Ubuntu'
-        required: false
-        default: 'false'
-      run_gnucxx_macos:
-        description: 'Run Build-GNUCXX-MacOS'
-        required: false
-        default: 'false'
-      run_clang_macos:
-        description: 'Run Build-CLANG-MacOS'
-        required: false
-        default: 'false'
+    - benchmarking-newer
 
 jobs:
   Build-MSVC-Windows:
     runs-on: windows-latest
-    if: github.event.inputs.run_msvc_windows == 'true'
 
     strategy:
       fail-fast: false
@@ -47,40 +25,44 @@ jobs:
         value: $env:PATH;C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Auxiliary/Build
 
     - name: Install Seaborn
-      run: pip install seaborn
+      run: |
+           pip install seaborn
                 
     - name: Configure CMake
       working-directory: ./
-      run: cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
+      run: |
+           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
 
     - name: Build the Test
       working-directory: ./Build
-      run: cmake --build . --config=${{matrix.build_type}}
+      run: |
+           cmake --build . --config=${{matrix.build_type}}
 
     - name: Install the Test
       working-directory: ./Build
-      run: cmake --install . --config=${{matrix.build_type}}
+      run: |
+           cmake --install . --config=${{matrix.build_type}}
 
     - name: Run the Test
       working-directory: D:/a/Json-Performance/Json-Performance/Install/bin/
-      run: ./Json-Performance
+      run: |
+           ./Json-Performance
       continue-on-error: true
 
     - name: Commit and push the changes to a temp branch.
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      working-directory: D:/a/Json-Performance/Json-Performance/
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+      working-directory:  D:/a/Json-Performance/Json-Performance/
       run: |
-        git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
-        git config --global user.name "RealTimeChris"
-        git checkout -b temp-msvc-windows
-        git add .
-        git commit -m "Updates - MSVC-Windows"
-        git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-msvc-windows
+           git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
+           git config --global user.name "RealTimeChris"
+           git checkout -b temp-msvc-windows
+           git add . 
+           git commit -m "Updates - MSVC-Windows"
+           git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-msvc-windows
 
   Build-GNUCXX-Ubuntu:
     runs-on: ubuntu-latest
-    if: github.event.inputs.run_gnucxx_ubuntu == 'true'
 
     strategy:
       fail-fast: false
@@ -91,44 +73,48 @@ jobs:
     - uses: actions/checkout@v4
      
     - name: Install Seaborn
-      run: pip install seaborn
+      run: |
+           pip install seaborn
   
     - name: Install the latest gnucxx compiler.
       working-directory: ./
       run: |
-        sudo apt-get install build-essential
-        sudo apt-get install g++-12
+           sudo apt-get install build-essential
+           sudo apt-get install g++-12
 
     - name: Configure CMake
       working-directory: ./
-      run: cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/g++-12
+      run: |
+           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/g++-12
 
     - name: Build the Test
       working-directory: ./Build
-      run: cmake --build . --config=${{matrix.build_type}}
+      run: |
+           cmake --build . --config=${{matrix.build_type}}
 
     - name: Install the Test
       working-directory: ./Build
       run: |
-        sudo cmake --install . --config=${{matrix.build_type}}
-        sudo chmod +x /home/runner/work/Json-Performance/Json-Performance/Install/bin/Json-Performance
+           sudo cmake --install . --config=${{matrix.build_type}}
+           sudo chmod +x /home/runner/work/Json-Performance/Json-Performance/Install/bin/Json-Performance
 
     - name: Run the Test
       working-directory: /home/runner/work/Json-Performance/Json-Performance/Install/bin/
-      run: ./Json-Performance
+      run: |
+           ./Json-Performance
       continue-on-error: true
 
     - name: Commit and push the changes to a temp branch.
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
       working-directory: /home/runner/work/Json-Performance/Json-Performance/
       run: |
-        sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
-        sudo git config --global user.name "RealTimeChris"
-        sudo git checkout -b temp-gnucxx-ubuntu
-        sudo git add .
-        sudo git commit -m "Updates - GNUCXX-Ubuntu"
-        sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-gnucxx-ubuntu
+           sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
+           sudo git config --global user.name "RealTimeChris"
+           sudo git checkout -b temp-gnucxx-ubuntu
+           sudo git add . 
+           sudo git commit -m "Updates - GNUCXX-Ubuntu"
+           sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-gnucxx-ubuntu
 
   Build-CLANG-Ubuntu:
     runs-on: ubuntu-latest
@@ -146,7 +132,7 @@ jobs:
            sudo apt update
            wget https://apt.llvm.org/llvm.sh
            chmod u+x llvm.sh
-           sudo ./llvm.sh 20
+           sudo ./llvm.sh 19
 
     - name: Install Seaborn
       run: |
@@ -155,7 +141,7 @@ jobs:
     - name: Configure CMake
       working-directory: ./
       run: |
-           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/clang++-20
+           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/clang++-19
 
     - name: Build the Test
       working-directory: ./Build
@@ -334,12 +320,6 @@ jobs:
       - Build-CLANG-Ubuntu
       - Build-GNUCXX-MacOS
       - Build-CLANG-MacOS
-    if: |
-      github.event.inputs.run_msvc_windows == 'true' ||
-      github.event.inputs.run_gnucxx_ubuntu == 'true' ||
-      github.event.inputs.run_clang_ubuntu == 'true' ||
-      github.event.inputs.run_gnucxx_macos == 'true' ||
-      github.event.inputs.run_clang_macos == 'true'
 
     steps:
     - uses: actions/checkout@v4
@@ -354,11 +334,11 @@ jobs:
         sudo git config pull.ff only
         sudo git checkout benchmarking-newer
         sudo git pull -f origin benchmarking-newer
-        sudo git merge origin/temp-msvc-windows --no-ff || true
-        sudo git merge origin/temp-gnucxx-ubuntu --no-ff || true
-        sudo git merge origin/temp-clang-ubuntu --no-ff || true
-        sudo git merge origin/temp-gnucxx-macos --no-ff || true
-        sudo git merge origin/temp-clang-macos --no-ff || true
+        sudo git merge origin/temp-msvc-windows --no-ff
+        sudo git merge origin/temp-gnucxx-ubuntu --no-ff
+        sudo git merge origin/temp-clang-ubuntu --no-ff
+        sudo git merge origin/temp-gnucxx-macos --no-ff
+        sudo git merge origin/temp-clang-macos --no-ff
         sudo git checkout --orphan newBranch
         sudo git add .
         sudo git commit -m "Updating necessary files."
@@ -369,8 +349,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        sudo git push origin --delete temp-msvc-windows || true
-        sudo git push origin --delete temp-gnucxx-ubuntu || true
-        sudo git push origin --delete temp-clang-ubuntu || true
-        sudo git push origin --delete temp-gnucxx-macos || true
-        sudo git push origin --delete temp-clang-macos || true
+        sudo git push origin --delete temp-msvc-windows
+        sudo git push origin --delete temp-gnucxx-ubuntu
+        sudo git push origin --delete temp-clang-ubuntu
+        sudo git push origin --delete temp-gnucxx-macos
+        sudo git push origin --delete temp-clang-macos
