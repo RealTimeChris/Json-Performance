@@ -206,7 +206,7 @@ struct test_generator {
 		return dis(gen);
 	}
 
-	static std::string generateString() {
+	template<jsonifier::concepts::string_t value_type> static value_type generateValue() {
 		auto length{ disString(gen) };
 
 		std::string result{};
@@ -217,31 +217,59 @@ struct test_generator {
 		return result;
 	}
 
-	static double generateDouble() {
+	template<jsonifier::concepts::float_t value_type> static value_type generateValue() {
 		double logValue = disDouble(gen);
-		bool negative{ generateBool() };
+		bool negative{ generateValue<bool>() };
 		return negative ? -std::exp(logValue) : std::exp(logValue);
 	}
 
-	static bool generateBool() {
+	template<jsonifier::concepts::bool_t value_type> static value_type generateValue() {
 		return static_cast<bool>(disBool(gen) >= 50);
 	}
 
-	static uint64_t generateUint() {
-		return disUint(gen);
+	template<jsonifier::concepts::uns64_t value_type> static value_type generateValue() {
+		size_t length{ randomizeNumberUniform(1ull, 20ull) };
+
+		uint64_t min_val = (length == 1) ? 0 : static_cast<uint64_t>(std::pow(10, length - 1));
+		uint64_t max_val = static_cast<uint64_t>(std::pow(10, length)) - 1;
+		if (min_val > max_val) {
+			std::swap(min_val, max_val);
+		}
+		std::uniform_int_distribution<uint64_t> dis(min_val, max_val);
+		return dis(gen);
 	}
 
-	static int64_t generateInt() {
-		return disInt(gen);
+	template<jsonifier::concepts::sig64_t value_type> static value_type generateValue() {
+		size_t length{ randomizeNumberUniform(1ull, 19ull) };
+
+		int64_t min_val = (length == 1) ? 0 : static_cast<int64_t>(std::pow(10, length - 1));
+		int64_t max_val = static_cast<int64_t>(std::pow(10, length)) - 1;
+		if (min_val > max_val) {
+			std::swap(min_val, max_val);
+		}
+		std::uniform_int_distribution<int64_t> dis(min_val, max_val);
+		auto returnValue{ dis(gen) };
+		return generateValue<bool>() ? returnValue : -returnValue;
 	}
 
 	static test_struct generateTestStruct() {
 		test_struct returnValues{};
-		returnValues.testBool = generateBool();
-		returnValues.testDouble = generateDouble();
-		returnValues.testInt	= generateInt();
-		returnValues.testUint	= generateUint();
-		returnValues.testString = generateString();
+		returnValues.testBool = generateValue<bool>();
+		returnValues.testDouble = generateValue<double>();
+		returnValues.testInt	= generateValue<int64_t>();
+		returnValues.testUint	= generateValue<uint64_t>();
+		returnValues.testString = generateValue<std::string>();
+		return returnValues;
+	}
+
+	template<typename value_type> static std::vector<std::vector<value_type>> generateValues(size_t vecCount, size_t valueCount) {
+		std::vector<std::vector<value_type>> returnValues{};
+		returnValues.resize(vecCount);
+		for (size_t x = 0; x < vecCount; ++x) {
+			for (size_t y = 0; y < valueCount; ++y) {
+				returnValues[x].emplace_back(generateValue<value_type>());
+			}
+		}
 		return returnValues;
 	}
 
