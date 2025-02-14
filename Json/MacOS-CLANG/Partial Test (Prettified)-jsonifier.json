@@ -1,0 +1,32 @@
+{
+   "m": [
+      {
+         "testBool": false,
+         "testString": "{\" \" \"m\": [\n      \"\n\"        \"testBool\\: true,\n"
+      },
+      {
+         "testBool": true,
+         "testString": "{\" \" \"m\": [\n     "
+      },
+      {
+         "testBool": true,
+         "testString": "{\" \"\r\"m\": [\n    \r \"\n\"        \"testBool\\"
+      },
+      {
+         "testBool": false,
+         "testString": "{\" \"\r\"m\": [\n    \r \"\n\"        \"testBool\\: true,\n         \"t"
+      },
+      {
+         "testBool": true,
+         "testString": "{\" \"\r\"m\": [\n    \r \"\n\"    "
+      },
+      {
+         "testBool": false,
+         "testString": "{\f \"\r\"m\": [\n    \b \"\n\"        \"testBoo\\\\: true,\n       "
+      },
+      {
+         "testBool": true,
+         "testString": "{\f \"\r\"m\": [\n    \b \"\n\"        \"testBoo\\\\:"
+      }
+   ]
+}
