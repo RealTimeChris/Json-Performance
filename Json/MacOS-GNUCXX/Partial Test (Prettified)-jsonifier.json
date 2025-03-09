@@ -1,0 +1,48 @@
+{
+   "m": [
+      {
+         "testBool": false,
+         "testString": "{\" \" \"m\": [\n      \"\n\""
+      },
+      {
+         "testBool": false,
+         "testString": "{\" \" \"m\": [\n      \"\n\"        \"testBool\": true,\n     \n   \"testStr"
+      },
+      {
+         "testBool": false,
+         "testString": "{\" \" \"m\": [\n      \"\n\"        \"testBool\": true,\n     \n "
+      },
+      {
+         "testBool": true,
+         "testString": "{\" \" \"m\": [\n      \"\n\"        \"testBool\": true,\n     \n   \"te"
+      },
+      {
+         "testBool": false,
+         "testString": "{\r \" \"m\": [\n      \"\n\"        \"testBoo"
+      },
+      {
+         "testBool": false,
+         "testString": "{\r \" \"m\": [\n      \"\n\"        \"testBool\": t"
+      },
+      {
+         "testBool": false,
+         "testString": "{\r \" \"m\": [\n      \"\n\"  "
+      },
+      {
+         "testBool": true,
+         "testString": "{\r \" \"m\": [\n      \"\n\"        \"testBool\": tru"
+      },
+      {
+         "testBool": false,
+         "testString": "{\r \" \"m\": [\n    \t \"\n\" "
+      },
+      {
+         "testBool": false,
+         "testString": "{\r \" \"m\": [\n    \t \"\n\"        \"testB"
+      },
+      {
+         "testBool": true,
+         "testString": "{\r \" \"m\": [\n    \t \"\n\"        \"testBoo"
+      }
+   ]
+}

@@ -1,0 +1,1622 @@
+{
+   "z": [
+      {
+         "testBool": false,
+         "testDouble": -5.183665547752514E-269,
+         "testInt": -12473627433094,
+         "testUint": 65720396367884,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\t\t\r\b\b\\\r\b\n\t\f\n\t\f\\\\\b\r\\\r\f\fs\t\t\f\t\n\n\t\"\"\\\\\t\\\b\b\n\b\b "
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.543108022706462E297,
+         "testInt": -80216,
+         "testUint": 32860402540,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\t\t\r\b\b\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": -5.248083466181906E34,
+         "testInt": 1332,
+         "testUint": 136088303708247341,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\t\t\r\b\b\\\r\b\n\n\f\n\t\f\\\\\\\r\\\r\f\fs\t\t\f\t\n\n\t\"\"\\\\\t\\\b\b\n\b\b \b  \\\t\""
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.6507099186356335E-79,
+         "testInt": -22520,
+         "testUint": 412455240266695,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\t\\\r\b\b\\\r\b\n\n\f\n\t\f\\\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": 6.9182268798480395E171,
+         "testInt": -33787,
+         "testUint": 31,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\t\\\r\b\b\\\r\b\n\n\f\n\t\f\\\\\\\r\\\r\f\fs\t\t\f\t\n\n\t\"\"\\\\\t\\\b\b\n\b\b \b  \\\t\"\"stDou"
+      },
+      {
+         "testBool": true,
+         "testDouble": 5.320634404633596E35,
+         "testInt": 6,
+         "testUint": 53042516929209335,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\t\\\r\b\b\\\r\b\n\n\f\n\t\f\\\\\\\r\\\r\f\fs\t\t\f\t\n\n\t\"\"\\\\\t\\\b\b\n\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": -9.685420993955035E-8,
+         "testInt": -12280490254,
+         "testUint": 673035980274117279,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\t\\\r\b\b\\\r\b\n\n\f\n\t\f\\\\\\\r\\\r\f\ts\t\t\f\t\n\n\t\"\"\\\\\t\\\b\b\n"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.1561186306164617E-195,
+         "testInt": 91521201831794345,
+         "testUint": 68373965780375,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\t\\\r\b\b\\\r\b\n\n\f\n\t\f\\\\\\\r\\\r\f\ts\t\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.5431323829060374E-282,
+         "testInt": -3509462840902063,
+         "testUint": 21,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\t\\\r\b\b\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.2051311541982662E240,
+         "testInt": -715643472695481,
+         "testUint": 3941,
+         "testString": "\b\f\"\f\f\b\"\f\b\\\t\\\r\b\b\\\r\b\n\n\f\n\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.214281754818434E-90,
+         "testInt": 4676872747,
+         "testUint": 664273396550263558,
+         "testString": "\b\f\"\f\f\b\"\f\b\\\t\\\r\b\b\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -6.070933036336662E39,
+         "testInt": 55913,
+         "testUint": 13641758940449192817,
+         "testString": "\b\f\"\f\f\b\"\f\b\\\t\\\r\b\b\\\r\b\n\n\f\n\t\f\\\\\\\r\\\r\f\ts\t\t\f\t"
+      }
+   ],
+   "y": [
+      {
+         "testBool": false,
+         "testDouble": 4.348893612923517E101,
+         "testInt": 0,
+         "testUint": 846,
+         "testString": "\b\b\"\f\f\b\"\f\f\\\\\t\r\b\b\\\r\b\n\t\r\n"
+      },
+      {
+         "testBool": false,
+         "testDouble": 3.371209085936295E-66,
+         "testInt": -20323,
+         "testUint": 34855359598785,
+         "testString": "\b\b\"\f\f\b\"\f\f\\\\\t\r\b\b\\\r\b\n\t\r\n\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": 4.0035134433049315E-206,
+         "testInt": -27894590233,
+         "testUint": 6,
+         "testString": "\b\b\"\f\f\b\"\f\f\\\\\t\r\b\b\\\r\b\n\t\r\n\t\f\"\\\b\r\\\r\f\fs\t\t\f\t\n\n\t\"\"\\\\\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.4251693033531689E163,
+         "testInt": -730420049830658898,
+         "testUint": 380561,
+         "testString": "\b\b\"\f\f\b\"\f\f\\\\\t\r\b\b\\\r\b\n\t\r\n\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.398993947711857E95,
+         "testInt": 5962808952658913468,
+         "testUint": 357200922782,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\\\t\r\b\b\\\r\b\n\t\f\n\t\f\"\\\b\r\\\r\f\fs\t\t\f\t\n\n\t\"\"\\\\\t\\\b\b\n\b"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.1696582064402879E-299,
+         "testInt": -11219,
+         "testUint": 1310974681,
+         "testString": "\b\b\"\f\f\b\"\f\b\\\\\t\r\b\b\\\r\b"
+      }
+   ],
+   "x": [
+      {
+         "testBool": true,
+         "testDouble": 2.0485576599691318E102,
+         "testInt": -29,
+         "testUint": 608113215841725,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\b\b \b  \\\t\"\"stDou"
+      },
+      {
+         "testBool": true,
+         "testDouble": 9.091703515263512E-306,
+         "testInt": 1567994983,
+         "testUint": 73303874787875,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\\\n\n\t\"\"\\\\\t\\\b\b\n\b\b \b  \\\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": 5.7316788196846913E-275,
+         "testInt": 4326812170,
+         "testUint": 1307477673183566606,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\\\n\n\t\"\""
+      },
+      {
+         "testBool": false,
+         "testDouble": -8.765681703555312E-58,
+         "testInt": 641354,
+         "testUint": 59574,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -0.22094522249258278,
+         "testInt": 30544571788291,
+         "testUint": 793943261691,
+         "testString": "\b\b\"\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\\\n"
+      },
+      {
+         "testBool": false,
+         "testDouble": -5.1792475853637135E-86,
+         "testInt": 502705924679,
+         "testUint": 6570144390,
+         "testString": "\b\b\"\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\\\n\n\t\"\""
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.7108926664014545E305,
+         "testInt": -2478455640208552,
+         "testUint": 710752433876263417,
+         "testString": "\b\b\"\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\\\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\t\n\n\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": 4.4953356695581997E-305,
+         "testInt": -5,
+         "testUint": 6,
+         "testString": "\b\b\"\f\f\b\"\f\f\\\\\"\r\b\b\\\r\b\n\t\r\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\t\n\n\t\"\"\\\\\t\\\b\b\n\b\b \b "
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.1872140792439584E268,
+         "testInt": -23617143,
+         "testUint": 26,
+         "testString": "\b\b\"\f\f\b\"\f\f\\\\\"\r\b\b\\\r\b\n\t\r\n\t\f\"\\\b\r\\\r\f\fs\t\t\f\t\n\n\t\"\"\\\\\t\\"
+      }
+   ],
+   "w": [
+      {
+         "testBool": true,
+         "testDouble": 9.841717447327306E269,
+         "testInt": -7478702394266740357,
+         "testUint": 58731154416244786,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.1363547376808993E244,
+         "testInt": 338180,
+         "testUint": 692,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\t\t\f\"\n"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.3935670511350322E-132,
+         "testInt": -88299941751,
+         "testUint": 309987,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\b\b \b  \\\t\""
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.470101868952045E298,
+         "testInt": 44398,
+         "testUint": 828775,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n"
+      },
+      {
+         "testBool": false,
+         "testDouble": -15382226462781560,
+         "testInt": 882257551,
+         "testUint": 9146,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.3280423551705081E-304,
+         "testInt": 89282719627948,
+         "testUint": 3569232589783453937,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.8236309389366115E-212,
+         "testInt": -450908922171667,
+         "testUint": 973769501,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.966346334054597E-306,
+         "testInt": 24,
+         "testUint": 81918088,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\b\b \b  \\\t\"\"st"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.9196212123354443E-103,
+         "testInt": -8,
+         "testUint": 50746592,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\"\n\n"
+      },
+      {
+         "testBool": false,
+         "testDouble": -3.78289196205437E-105,
+         "testInt": -501490376,
+         "testUint": 9932944152,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\b\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.881656988300753E97,
+         "testInt": -326330959,
+         "testUint": 2279178406968504844,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\"\\\b\r\\\r\"\fs\t\t\f\"\n\n\t\"\"\\\\\t\\\b\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.831337862559379E-73,
+         "testInt": -482835881214,
+         "testUint": 1139262,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r"
+      }
+   ],
+   "v": [
+      {
+         "testBool": true,
+         "testDouble": 3.714473609170848E21,
+         "testInt": 51881419530,
+         "testUint": 36,
+         "testString": "\"\b\"\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -4.5886095624280725E25,
+         "testInt": 4680223526705647,
+         "testUint": 8,
+         "testString": "\b\b\"\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b\n\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": -0.00013469442567825654,
+         "testInt": -7523932,
+         "testUint": 7193968070,
+         "testString": "\b\b\"\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\r\b \b  \\"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.283406479322323E37,
+         "testInt": -7704656638,
+         "testUint": 46317416,
+         "testString": "\b\b\f\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\t\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\r\b \b  \\\t\"\"stDou"
+      },
+      {
+         "testBool": true,
+         "testDouble": -5.883446026208119E124,
+         "testInt": -5,
+         "testUint": 584184641196983493,
+         "testString": "\b\b\f\f\f\b\"\n\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\t\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\r\b \b  \\\t\"\""
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.015430695795283E57,
+         "testInt": 82017814203,
+         "testUint": 8112565673433,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.0597350320741555E-99,
+         "testInt": -98484478589767,
+         "testUint": 7512740,
+         "testString": "\b\b\f\f\f\b\"\f\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r"
+      }
+   ],
+   "u": [
+      {
+         "testBool": false,
+         "testDouble": 4.035065108897654E211,
+         "testInt": -7407169844,
+         "testUint": 6447905,
+         "testString": "\"\r\f\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\n\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\n\t\\\b\b\n\r\b \b  \\\t\"\""
+      },
+      {
+         "testBool": true,
+         "testDouble": -6.248965465599187E-242,
+         "testInt": 73669837951,
+         "testUint": 11456755539524115883,
+         "testString": "\"\r\f\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\n\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\n\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": -9.673760176148851E-84,
+         "testInt": -71,
+         "testUint": 8957,
+         "testString": "\"\r\f\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\n\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\n\t\\\b\b\n\r\b \b  \\\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -7.19529216992233E159,
+         "testInt": 28591888162284,
+         "testUint": 858704937831,
+         "testString": "\"\r\f\f\f\b\"\t\f\f\\\"\r\b\t\t\r\b\f\t\\\n\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": -4.039845384675778E-190,
+         "testInt": 402407711768598086,
+         "testUint": 12432961350964063102,
+         "testString": "\"\r\f\f\f\b\"\t\f\f\\\"\r\b\t\t\r\b\f\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.311710109819015E181,
+         "testInt": -9605264,
+         "testUint": 3249316948,
+         "testString": "\"\b\f\f\f\b\"\t\f\f\\\"\r\b\t\t\r\b\n\t\\\n\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\n\t\\\b\b\n\r\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.890451452584054E66,
+         "testInt": 1905085643293,
+         "testUint": 24721866,
+         "testString": "\"\b\f\f\f\b\"\t\f\\\\\"\r\b\t\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.795373495431935E-200,
+         "testInt": 3451074,
+         "testUint": 463345642,
+         "testString": "\"\b\f\f\f\b\"\t\f\\\\\"\r\b\t\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\n\t\\\b\b\n\r\b \b"
+      },
+      {
+         "testBool": true,
+         "testDouble": -6.910548164256248E-238,
+         "testInt": 387070842,
+         "testUint": 2324,
+         "testString": "\"\b\f\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\\\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 6.524446855692535E-306,
+         "testInt": 65108699804112,
+         "testUint": 979188,
+         "testString": "\"\b\f\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\r\b \b  \\\t\"\"s"
+      },
+      {
+         "testBool": false,
+         "testDouble": -8.990911233800104E155,
+         "testInt": -48887988281689,
+         "testUint": 3,
+         "testString": "\"\b\f\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\r\b \b  \\\t\""
+      },
+      {
+         "testBool": false,
+         "testDouble": -7.456766646036748E123,
+         "testInt": 116058,
+         "testUint": 81095582951442,
+         "testString": "\"\b\f\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\r\b \b  "
+      },
+      {
+         "testBool": false,
+         "testDouble": 5.829190295939088E-16,
+         "testInt": -63397277846949847,
+         "testUint": 14168657162030123428,
+         "testString": "\"\b\"\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b\n\t\\\n\t\f\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\\\t\\\b\b\n\r\b \b  \\\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.390128172271503E-147,
+         "testInt": -3553636,
+         "testUint": 569595377,
+         "testString": "\"\b\"\f\f\b\"\t\f\\\\\"\r\b\b\t\r\b"
+      }
+   ],
+   "t": [
+      {
+         "testBool": false,
+         "testDouble": 2.1314356590866E-108,
+         "testInt": -99,
+         "testUint": 986,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r\b \b  \\\t\""
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.0305967852285866E-8,
+         "testInt": -314703576,
+         "testUint": 573563,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\t\t\n\\\\\b\r\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": 5.997518503159894E-267,
+         "testInt": 23,
+         "testUint": 405,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r\b \b  \\\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.4512746704138545E-292,
+         "testInt": 56295,
+         "testUint": 1537150384231140326,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\t\\\n\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.1091854277118368E-97,
+         "testInt": 109614415,
+         "testUint": 60,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\""
+      },
+      {
+         "testBool": false,
+         "testDouble": 5.812432952337991E-94,
+         "testInt": 7943226936,
+         "testUint": 55376811300283610,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\n\t\\\b\b\n\r\b \b  \\\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": -3.776879155115877E238,
+         "testInt": 7194,
+         "testUint": 7379846122859905772,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\"\\\n\t\\\b\b\n\r\b "
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.1182746653486912E-174,
+         "testInt": -759,
+         "testUint": 8792871469,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\n\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.7588127294467888E294,
+         "testInt": -40209062,
+         "testUint": 676732635220,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\n\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n\n\t\"\""
+      },
+      {
+         "testBool": true,
+         "testDouble": -6.884049730581934E115,
+         "testInt": -117488607192628,
+         "testUint": 3370836505181833,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\n\t\n\\\\\b\r"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.079290346523054E124,
+         "testInt": -236646187,
+         "testUint": 267896338171607127,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -3.829078124087765E-203,
+         "testInt": -5585945464,
+         "testUint": 72,
+         "testString": "\"\r\"\f\f\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\n\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\n"
+      }
+   ],
+   "s": [
+      {
+         "testBool": false,
+         "testDouble": 1.5365150093350369E199,
+         "testInt": -858761123266228023,
+         "testUint": 21635799118490145,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\""
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.0613491577118447E286,
+         "testInt": 51797,
+         "testUint": 942418435,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\"st"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.3897966643018948E-98,
+         "testInt": 262,
+         "testUint": 872,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\r\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.0801413585974671E169,
+         "testInt": 678451801,
+         "testUint": 624355327599,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r\b \b  \\\t\""
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.273156902719072E-165,
+         "testInt": 40738610172,
+         "testUint": 49800344166,
+         "testString": "\"\r\"\f\"\b\"\t\f\f\\\"\r\b\b\t\r\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 8.293633193661511E-198,
+         "testInt": 49375616765321562,
+         "testUint": 47057240766822,
+         "testString": "\"\r\"\f\"\b\"\t\f\f\\\"\r\b\b\t\r"
+      },
+      {
+         "testBool": false,
+         "testDouble": 3.3036576054979076E-225,
+         "testInt": 2475706607,
+         "testUint": 711140200,
+         "testString": "\"\r\"\f\"\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\t\t\n\\\\\b"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.5915658513787822E97,
+         "testInt": 42559579274660,
+         "testUint": 628287448102409506,
+         "testString": "\"\r\"\f\"\b\"\t\f\f\\\"\r\b\t\t\r\\\f\t\\\t\t\n\\\\\b\r\\\r\"\fs\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r"
+      }
+   ],
+   "r": [
+      {
+         "testBool": true,
+         "testDouble": 7.688021066007218E-153,
+         "testInt": 649,
+         "testUint": 11609958812858544603,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n "
+      },
+      {
+         "testBool": true,
+         "testDouble": -7.093733960316138E168,
+         "testInt": -56,
+         "testUint": 86,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\"\f\n\t\"\t\\\n\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.271951444437914E-139,
+         "testInt": -17914028,
+         "testUint": 39448,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\t\\\f\t\\\t\t\n\\\\\b"
+      },
+      {
+         "testBool": false,
+         "testDouble": 4.4392187105210275E205,
+         "testInt": -1,
+         "testUint": 95809,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\t\\\f\t\\\t\t\n"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.1977390009484785E167,
+         "testInt": 4600304735,
+         "testUint": 634856,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\"\f\n\t\"\t\\"
+      }
+   ],
+   "q": [
+      {
+         "testBool": false,
+         "testDouble": 5.49889627969071E-199,
+         "testInt": -54392236651,
+         "testUint": 68699930783054,
+         "testString": "\"\r\"\f\\\r\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\f\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\"s"
+      },
+      {
+         "testBool": true,
+         "testDouble": -5.238142590169779E254,
+         "testInt": -133067127731,
+         "testUint": 61,
+         "testString": "\"\r\"\f\r\b\"\"\f\t\\\"\r\f\b\t\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 6.826290224224741E-14,
+         "testInt": -744144428216694558,
+         "testUint": 958263115193404537,
+         "testString": "\"\r\"\f\r\b\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\f\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\"st"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.957262600903937E-73,
+         "testInt": -5686293824936,
+         "testUint": 12986840400767807006,
+         "testString": "\"\r\"\f\r\b\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\f\f\n\t\"\t\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -5.866149649858724E-8,
+         "testInt": 0,
+         "testUint": 2,
+         "testString": "\"\r\"\f\"\b\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.1374942771340943E-262,
+         "testInt": 8988282776390,
+         "testUint": 27558577392,
+         "testString": "\"\r\"\f\"\b\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -3.6650174900090324E179,
+         "testInt": 1779986998,
+         "testUint": 18611394294616334,
+         "testString": "\"\r\"\f\"\b\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n "
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.0055721711616075E227,
+         "testInt": 524020213461,
+         "testUint": 59,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.0969549227446734E-201,
+         "testInt": -3818,
+         "testUint": 18231634037709249502,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\"\f\n\t\"\t\\\n\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.682366185722753E110,
+         "testInt": -3537,
+         "testUint": 568923811,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.780566591247849E-58,
+         "testInt": 96437929942256191,
+         "testUint": 92742170562,
+         "testString": "\"\r\"\f\"\b\"\"\f\f\\\"\r\b\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\"\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\"
+      }
+   ],
+   "p": [
+      {
+         "testBool": false,
+         "testDouble": -8.008834858253745E268,
+         "testInt": 64373102,
+         "testUint": 93120,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\f\f\n\t\"\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.870069426834314E-50,
+         "testInt": 78,
+         "testUint": 44580186275337181,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts"
+      },
+      {
+         "testBool": true,
+         "testDouble": 7.02490860832975E-108,
+         "testInt": -4348020709,
+         "testUint": 4017217599345207813,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 5.096473196081526E135,
+         "testInt": -1951140936244652,
+         "testUint": 63628458068111,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 7.403508907219623E92,
+         "testInt": -1206417143378336,
+         "testUint": 6641928648192,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\f\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.587467065808157E-273,
+         "testInt": 1996044871355261,
+         "testUint": 4318483843615,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": 8.534501418533029E143,
+         "testInt": 3,
+         "testUint": 94792181298,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.254418952296475E105,
+         "testInt": -552428,
+         "testUint": 33144,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\\\t\f\f\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\"stD"
+      }
+   ],
+   "o": [
+      {
+         "testBool": true,
+         "testDouble": 1.3095506682527671E251,
+         "testInt": 105796047441764,
+         "testUint": 78,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\\\t\t\n\\\r\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\\n\t\\\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.4369937276345381E-115,
+         "testInt": 554,
+         "testUint": 500799159249100,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.7916907552687714E239,
+         "testInt": -740952937854651,
+         "testUint": 1987139022027079,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\"stDo"
+      },
+      {
+         "testBool": true,
+         "testDouble": -3.6704995366554516E-292,
+         "testInt": -2,
+         "testUint": 2,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\\\t\t\n\\\\\b\r\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -6.903329941675276E-259,
+         "testInt": 4048653771942575272,
+         "testUint": 989250,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\\\t\t\n\\\\\b\r\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.9425679865135643E274,
+         "testInt": -21861811217013,
+         "testUint": 666262895695914072,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.395216062485593E-192,
+         "testInt": -9309,
+         "testUint": 888584017141,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.3543205118673062E182,
+         "testInt": -916664341762,
+         "testUint": 2234461891703559602,
+         "testString": "\"\r\"\f\\\n\"\"\t\t\\\"\r\f\b\t\t\\\f\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": 131132135.42067775,
+         "testInt": 912318,
+         "testUint": 64369923721,
+         "testString": "\"\r\"\f\\\n\"\"\t\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n "
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.2936193501445943E275,
+         "testInt": 91891430234,
+         "testUint": 4,
+         "testString": "\"\r\"\f\\\n\"\"\t\t\\\"\r\f\b\t\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": 3.826854842746869E305,
+         "testInt": 9,
+         "testUint": 177689158,
+         "testString": "\"\r\"\f\\\n\"\"\t\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\"stDou"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.5713125640776077E-19,
+         "testInt": 42959337897,
+         "testUint": 28,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": 24.651392404621223,
+         "testInt": -8293170969486,
+         "testUint": 749847,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\\n\t\\\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.695843817296424E-204,
+         "testInt": -482754,
+         "testUint": 4638859423065621,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t\t\\\f\t\\\t\t\n\\\\\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\\n\t\\\b"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.1002800553251029E-256,
+         "testInt": 41,
+         "testUint": 66552,
+         "testString": "\"\r\"\f\\\n\"\"\f\t\\\"\r\f\b\t"
+      }
+   ],
+   "n": [
+      {
+         "testBool": true,
+         "testDouble": -495059742786831.7,
+         "testInt": 4287590,
+         "testUint": 9060732502806306,
+         "testString": "\n\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\\s\r\t\b\f\"\t\t\"\t\\\n\t\\\b\b\n\r\b \n "
+      },
+      {
+         "testBool": false,
+         "testDouble": -3.757775286175184E272,
+         "testInt": -7048819519494,
+         "testUint": 6151120764441651899,
+         "testString": "\n\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.286876722693752E254,
+         "testInt": -124096657276958981,
+         "testUint": 67170883822593,
+         "testString": "\n\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\ts\r\t\b\f\"\n\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.718809273319167E214,
+         "testInt": -6123792866873,
+         "testUint": 53050853152216,
+         "testString": "\n\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\ts\r\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.782376599295398E-120,
+         "testInt": 8151945041385695623,
+         "testUint": 410240,
+         "testString": "\n\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\r\"\ts\r\t\b\f\"\n\t\"\t\\\n\t\\\b\b\n\r\b "
+      },
+      {
+         "testBool": false,
+         "testDouble": 5.909057471752578E-129,
+         "testInt": -6144826312,
+         "testUint": 932,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.1848514880654052E-210,
+         "testInt": -6692338394,
+         "testUint": 6506620334694189,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\r\"\ts\r\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.441616754215796E-115,
+         "testInt": 8753319296981612361,
+         "testUint": 11700026904285774967,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\""
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.680644371256663E132,
+         "testInt": 22978010997,
+         "testUint": 2117,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": -3.238261977763578E-30,
+         "testInt": 14410667,
+         "testUint": 47769660774303,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\\n"
+      },
+      {
+         "testBool": true,
+         "testDouble": -6.831413084424789E-281,
+         "testInt": -6816986477,
+         "testUint": 356741548611283204,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\r\t\t\n\\\r\b\r\\\r\"\ts\r\t\b\f\f\n\t\"\t\\\n\t\\\b\b\n\r"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.7516031208854976E68,
+         "testInt": 99860444,
+         "testUint": 1841813782664486,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\r\t\t\n"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.5019217362322298E236,
+         "testInt": -4244788708243990607,
+         "testUint": 4096,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\r\t\t\n\\\r\b"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.1911998575274465E-164,
+         "testInt": 2272975983565700,
+         "testUint": 8521660,
+         "testString": "\"\r\"\r\\\n\"\"\t\t\\\"\r\f\t\t\t\\\f\t\\\t\t\n\\\r"
+      }
+   ],
+   "m": [
+      {
+         "testBool": false,
+         "testDouble": -2.788934774286592E-156,
+         "testInt": 70974759406474976,
+         "testUint": 125858,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.3057605833621637E192,
+         "testInt": -64811072195340347,
+         "testUint": 6748486500,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\r\"\\s\r\t\b\f\"\t\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\"stDou"
+      },
+      {
+         "testBool": false,
+         "testDouble": -5.637882655142175E-155,
+         "testInt": -61370404371,
+         "testUint": 50309355030,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\r\"\\s\r\t\b\f\"\t\t\"\t\\\n\t\\\b\b\n\r\b \n "
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.867097543002946E-97,
+         "testInt": 910748,
+         "testUint": 59500666,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\r\"\\s\r\t\b\f\"\t\t\"\t\\\n\t\\\b\b\n\r\b \n  \\\t\"\""
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.638627454721953E-204,
+         "testInt": -26585661358896601,
+         "testUint": 28,
+         "testString": "\\\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\r\"\\s\r\t\b\f"
+      },
+      {
+         "testBool": false,
+         "testDouble": 4.870214055633139E-165,
+         "testInt": -1979577422174620517,
+         "testUint": 67,
+         "testString": "\\\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\r\"\\s\r\t\b\f\"\t\t\"\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -3.2273194186460343E105,
+         "testInt": -273341922799,
+         "testUint": 6105949807930267,
+         "testString": "\\\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.1674884506605415E167,
+         "testInt": -28016509712115181,
+         "testUint": 2588942279130293803,
+         "testString": "\\\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\\s\r\t\b\f\"\t\t\"\t\\\n"
+      },
+      {
+         "testBool": false,
+         "testDouble": -9.920429052906849E205,
+         "testInt": 23298750,
+         "testUint": 17065846682157644737,
+         "testString": "\\\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -595754026064910.8,
+         "testInt": -224849191,
+         "testUint": 6522117197564380712,
+         "testString": "\\\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\\s\r\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.2592431885716573E-252,
+         "testInt": -8615807,
+         "testUint": 263632993330353,
+         "testString": "\\\r\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\\s\r\t\b\f"
+      }
+   ],
+   "l": [
+      {
+         "testBool": false,
+         "testDouble": 2.8363670431425004E-246,
+         "testInt": -6356,
+         "testUint": 242632313,
+         "testString": "\\\n\"\f\\\n\"\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\""
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.221353633637793E-211,
+         "testInt": -3,
+         "testUint": 7051430376198,
+         "testString": "\\\n\"\f\\\n\"\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n"
+      },
+      {
+         "testBool": true,
+         "testDouble": -4.8499212600151276E-285,
+         "testInt": 4559755,
+         "testUint": 2,
+         "testString": "\\\n\"\f\\\n\"\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\fs\b\t\\\f\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\"st"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.8706626918842112E-26,
+         "testInt": 1009744,
+         "testUint": 29290038,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\fs\b\t\\\f\"\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.874027758115945E91,
+         "testInt": 647622602877193731,
+         "testUint": 1,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\fs\b\t\\\f\"\t\t\"\t\\\n\t\\\b\b\n\r\b \"  "
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.632224675897002E-64,
+         "testInt": 55459662499304709,
+         "testUint": 8656704578,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\fs\b\t\\\f"
+      },
+      {
+         "testBool": false,
+         "testDouble": 7.162383175767848E246,
+         "testInt": -9495174376391,
+         "testUint": 6709666,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\ts\b\t\\\f\"\t\t\"\t\\\n\t\\\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": 5.083848207349114E-156,
+         "testInt": 38779350898,
+         "testUint": 27680494765021855,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\\\n\\\r\b\r\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.0241815300065339E-243,
+         "testInt": -415737612297486,
+         "testUint": 345816528105475,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\\\n\\\r\b\r\\\"\"\ts\b"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.7460588747209033E303,
+         "testInt": 400971835989771,
+         "testUint": 178,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\ts\b\t\\\f\"\t\t\"\t\\\n\t\\\b\b\n\r\b \"  \\\t\"\"s"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.0073017477537012E-277,
+         "testInt": 487865167,
+         "testUint": 30806,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\rs\b\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -9.88658744292363E189,
+         "testInt": 31774135,
+         "testUint": 77,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\\s\r\t\\\f\"\t\t\"\t\\\n\t\\\b\b\n\r\b \"  \\\t\"\"s"
+      },
+      {
+         "testBool": false,
+         "testDouble": 5.781502895201151E184,
+         "testInt": 5333928,
+         "testUint": 5151390013505932,
+         "testString": "\\\n\"\f\\\n\"\"\t\t\\\"\r\f\t\t\t\\\b\t\r\t\t\n\\\r\b\r\\\"\"\\s\r\t\b\f\""
+      }
+   ],
+   "k": [
+      {
+         "testBool": false,
+         "testDouble": 1.6141148703881077E38,
+         "testInt": 16141574746539194,
+         "testUint": 1661292392442451917,
+         "testString": "\\\n\"\b\\\n\"\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\fs\b\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.698174508840135E26,
+         "testInt": -21686991,
+         "testUint": 414231813842320094,
+         "testString": "\\\n\"\f\\\n\"\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.61297398956762E172,
+         "testInt": -97271,
+         "testUint": 12311537737893737896,
+         "testString": "\\\n\"\f\\\n\"\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": 7.449519862573329E124,
+         "testInt": 17,
+         "testUint": 4,
+         "testString": "\\\n\"\f\\\n\"\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\fs\b\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \""
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.886373562697773E255,
+         "testInt": 747626926,
+         "testUint": 6265683,
+         "testString": "\\\n\"\f\\\n\"\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\""
+      },
+      {
+         "testBool": true,
+         "testDouble": -9.397770206706267E-129,
+         "testInt": 408619,
+         "testUint": 4770826,
+         "testString": "\\\n\"\f\\\n\"\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\fs\b\t\\\n\"\t\t"
+      }
+   ],
+   "j": [
+      {
+         "testBool": false,
+         "testDouble": 8.652211909984923E288,
+         "testInt": -7266089496,
+         "testUint": 4,
+         "testString": "\\\n\"\b\\\n\r\"\t\r\\\"\r\f\\\t\t\\\r\t\r\t\\\n"
+      },
+      {
+         "testBool": true,
+         "testDouble": 8.8985961758607E42,
+         "testInt": -9186878745,
+         "testUint": 9625209833,
+         "testString": "\\\n\"\b\\\n\r\"\t\r\\\"\r\f\t\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\fs\b\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\"stDou"
+      }
+   ],
+   "i": [
+      {
+         "testBool": false,
+         "testDouble": -1.5616438978987675E-154,
+         "testInt": 2328997,
+         "testUint": 516865698,
+         "testString": "\\\n\"\b\\\n\r\"\n\r\\\"\r\f\\\t\t\\\"\t\r\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \" "
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.0147100418290123E-133,
+         "testInt": 95298308271968,
+         "testUint": 483276293121451688,
+         "testString": "\\\n\"\b\\\n\r\"\t\r\\\"\r\f\\\t\t\\\r\t\r\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.869019174448337E-280,
+         "testInt": -575370,
+         "testUint": 7704290471666542383,
+         "testString": "\\\n\"\b\\\n\r\"\t\r\\\"\r\f\\\t\t\\\r\t\r\t\\\n"
+      }
+   ],
+   "h": [
+      {
+         "testBool": true,
+         "testDouble": -4.273688789221666E-67,
+         "testInt": -3710,
+         "testUint": 4497385132579516,
+         "testString": "\\\n\"\b\\\f\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.1181459362212524E-277,
+         "testInt": 3596,
+         "testUint": 311358969367343140,
+         "testString": "\\\n\"\b\\\f\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\""
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.612585807575254E46,
+         "testInt": -869239849869,
+         "testUint": 967446912,
+         "testString": "\\\n\"\b\\\n\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \n  \\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 6.261448258601708E114,
+         "testInt": 279534586,
+         "testUint": 7945448387892737847,
+         "testString": "\\\n\"\b\\\n\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \""
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.5114853089067234E-150,
+         "testInt": -95,
+         "testUint": 4047050433,
+         "testString": "\\\n\"\b\\\n\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 4.1464850710052646E206,
+         "testInt": -3446856513787660059,
+         "testUint": 57605689408109,
+         "testString": "\\\n\"\b\\\n\r\"\n\r\\\"\r\f\\\t\t\\\"\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t"
+      }
+   ],
+   "g": [
+      {
+         "testBool": true,
+         "testDouble": 1.6769152078671653E229,
+         "testInt": -68763,
+         "testUint": 2384868778429474,
+         "testString": "\\\n\"\"\\\f\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\f"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.9150853964289975E-194,
+         "testInt": 279481,
+         "testUint": 8463748935066645,
+         "testString": "\\\n\"\"\\\f\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 5.986368862911828E-261,
+         "testInt": 997328127,
+         "testUint": 6,
+         "testString": "\\\n\"\"\\\f\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\"st"
+      }
+   ],
+   "f": [
+      {
+         "testBool": false,
+         "testDouble": -1.125663528922377E-240,
+         "testInt": -12,
+         "testUint": 6580355625497694315,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\""
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.290297895152165E-113,
+         "testInt": 2910339356,
+         "testUint": 908719787903028997,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\"st"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.7249442541929825E-185,
+         "testInt": 42094609782274004,
+         "testUint": 1,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\"\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.4818173237613479E137,
+         "testInt": -9850028841,
+         "testUint": 1543867,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\"\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\""
+      },
+      {
+         "testBool": false,
+         "testDouble": 2.0646812843169675E145,
+         "testInt": -335769,
+         "testUint": 2461965549,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\"\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\"stDo"
+      },
+      {
+         "testBool": true,
+         "testDouble": -7.43107239795578E130,
+         "testInt": 3896258,
+         "testUint": 70094877235,
+         "testString": "\\\"\"\"\\\f\r\"\n\r\b\"\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 9.400569780075878E22,
+         "testInt": 5515074324,
+         "testUint": 5148702775562806,
+         "testString": "\\\"\"\"\\\f\r\"\n\r\b\"\r\f\\\t\t\\\b\t\"\t\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.6499954266629254E-225,
+         "testInt": -2988094709963141332,
+         "testUint": 7319651460599,
+         "testString": "\\\"\"\"\\\f\r\"\n\r\b\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\"s"
+      },
+      {
+         "testBool": true,
+         "testDouble": 5.166363905279393E280,
+         "testInt": -42380705828769427,
+         "testUint": 5680252863685,
+         "testString": "\\\"\"\"\\\f\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": -2.80985841237152E176,
+         "testInt": 347203773623567926,
+         "testUint": 2113455793783669,
+         "testString": "\\\n\"\"\\\f\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": -6.5330042472452135E156,
+         "testInt": -417886560814,
+         "testUint": 6272978423643656,
+         "testString": "\\\n\"\"\\\f\r\"\n\r\\\"\r\f\\\t\t\\\r\t\""
+      },
+      {
+         "testBool": true,
+         "testDouble": 7.919220757918668E-289,
+         "testInt": 123108602159,
+         "testUint": 9067476777,
+         "testString": "\\\n\"\"\\\f\r\"\n\r\\\"\r\f\\\t\t\\\r\t\"\t"
+      }
+   ],
+   "e": [
+      {
+         "testBool": true,
+         "testDouble": 2.5256232023426025E-79,
+         "testInt": -40,
+         "testUint": 38641256,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": -0.0000038223234210983346,
+         "testInt": 61334122110993,
+         "testUint": 44004530411940,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \""
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.2207882533727917E-231,
+         "testInt": 379,
+         "testUint": 1767150,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\"
+      }
+   ],
+   "d": [
+      {
+         "testBool": false,
+         "testDouble": 1.3969008225727042E281,
+         "testInt": 13152833625056,
+         "testUint": 718700342589,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\""
+      },
+      {
+         "testBool": false,
+         "testDouble": 3.200754442959914E282,
+         "testInt": 7100469229190087,
+         "testUint": 1448759974781027637,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\""
+      },
+      {
+         "testBool": false,
+         "testDouble": -6.733647340851919E34,
+         "testInt": -749,
+         "testUint": 46103859934753,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\"\r\r\f\\\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -4.1253435392669736E248,
+         "testInt": 6395076533,
+         "testUint": 853423016,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\"\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r"
+      },
+      {
+         "testBool": false,
+         "testDouble": -7.978606448183631E125,
+         "testInt": -309,
+         "testUint": 57230030,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\"\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.747618503750638E204,
+         "testInt": -46679378157943,
+         "testUint": 7081415050640,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\"stDo"
+      },
+      {
+         "testBool": true,
+         "testDouble": 8.068435452183214E-210,
+         "testInt": -73,
+         "testUint": 7570226,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\""
+      },
+      {
+         "testBool": true,
+         "testDouble": 16393473812629812,
+         "testInt": 55404909026484316,
+         "testUint": 988927,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": 2.4790029790826487E250,
+         "testInt": -903629085816326,
+         "testUint": 7572900,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\\\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \" "
+      },
+      {
+         "testBool": true,
+         "testDouble": 380.24913049279974,
+         "testInt": 171663,
+         "testUint": 6,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\""
+      },
+      {
+         "testBool": true,
+         "testDouble": -15348.574714292601,
+         "testInt": 26388696,
+         "testUint": 326579,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.8171745281278117E229,
+         "testInt": 5672643499950377,
+         "testUint": 93,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\f"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.2314730118875112E210,
+         "testInt": -993253,
+         "testUint": 8643949237,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.464450510641357E101,
+         "testInt": -24181864589202,
+         "testUint": 75065624928711895,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -1.0124061135007654E279,
+         "testInt": -2,
+         "testUint": 420217481,
+         "testString": "\n\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\"
+      }
+   ],
+   "c": [
+      {
+         "testBool": true,
+         "testDouble": 2.0943985420972653E-188,
+         "testInt": 2376224,
+         "testUint": 459687,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\"stDou"
+      }
+   ],
+   "b": [
+      {
+         "testBool": false,
+         "testDouble": 4.1934182743538237E-181,
+         "testInt": -71233153064123418,
+         "testUint": 5063850685206,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\"
+      },
+      {
+         "testBool": true,
+         "testDouble": 6.067428386351225E-267,
+         "testInt": -814186,
+         "testUint": 20401050436,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": -2.268061458280728E-299,
+         "testInt": 8977475,
+         "testUint": 15310393075114746654,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 4.861461546184895E21,
+         "testInt": -4822674,
+         "testUint": 3019208930623,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.2196436716401849E-253,
+         "testInt": -6381,
+         "testUint": 6879,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\"\"stD"
+      },
+      {
+         "testBool": true,
+         "testDouble": -9.298287986833906E277,
+         "testInt": -6519,
+         "testUint": 3036122203279,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\""
+      }
+   ],
+   "a": [
+      {
+         "testBool": false,
+         "testDouble": 1.7125070100654556E184,
+         "testInt": 772054530,
+         "testUint": 25,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\"\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\""
+      },
+      {
+         "testBool": true,
+         "testDouble": 3.787552604410163E73,
+         "testInt": 4292608748543197900,
+         "testUint": 327407075834377,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\"\t\"\t\\\n\\\r"
+      },
+      {
+         "testBool": true,
+         "testDouble": -1.3630151961896493E75,
+         "testInt": -39433798579,
+         "testUint": 1660938267858,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.1111536306206318E-120,
+         "testInt": -1199583506037,
+         "testUint": 6367,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\"\t\"\t\\\n\\"
+      },
+      {
+         "testBool": false,
+         "testDouble": 1.0525580309661877E-77,
+         "testInt": 42081423005092,
+         "testUint": 319276,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\"\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \""
+      },
+      {
+         "testBool": false,
+         "testDouble": -6.376406890203958E-289,
+         "testInt": -2283452697611,
+         "testUint": 2050000461,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\""
+      },
+      {
+         "testBool": false,
+         "testDouble": -6.254801782331001E91,
+         "testInt": 10964875190907007,
+         "testUint": 662,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b"
+      },
+      {
+         "testBool": true,
+         "testDouble": 6.811834188555669E-131,
+         "testInt": -649364470220,
+         "testUint": 1848411316,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r\n \"  \\\t\""
+      },
+      {
+         "testBool": false,
+         "testDouble": 4.110821506667912E264,
+         "testInt": -61773341855458,
+         "testUint": 87858,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t\\\b\b\n\r"
+      },
+      {
+         "testBool": true,
+         "testDouble": 1.0796610825909905E105,
+         "testInt": 97179855670137,
+         "testUint": 17909219549489444620,
+         "testString": "\r\"\"\"\\\f\r\"\n\r\b\r\r\f\"\t\t\\\b\t\"\t\\\n\\\r\b\r\\\"\"\fs\"\t\\\n\"\t\t\"\t\\\n\t"
+      }
+   ]
+}
