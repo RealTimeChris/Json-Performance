@@ -44,112 +44,6 @@ namespace tests {
 
 	template<json_library lib, test_type type, typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testName> struct json_test_helper;
 
-	template<typename value_type> struct parse_raw_json_data {};
-
-	template<> struct parse_raw_json_data<test_struct> {
-		test_struct impl(jsonifier::raw_json_data& rawJsonData) {
-			test_struct output{};
-			if (rawJsonData.getType() == jsonifier::json_type::object) {
-				auto& json_object = rawJsonData.getObject();
-				for (auto& [key, value]: json_object) {
-					if (key == "testString" && value.getType() == jsonifier::json_type::array) {
-						for (auto& element: value.getArray()) {
-							if (element.getType() == jsonifier::json_type::string) {
-								output.testString = static_cast<std::string>(element.getString());
-							}
-						}
-					} else if (key == "testUint" && value.getType() == jsonifier::json_type::array) {
-						for (auto& element: value.getArray()) {
-							if (element.getType() == jsonifier::json_type::number) {
-								output.testUint = element.getUint();
-							}
-						}
-					} else if (key == "testInt" && value.getType() == jsonifier::json_type::array) {
-						for (auto& element: value.getArray()) {
-							if (element.getType() == jsonifier::json_type::number) {
-								output.testInt = element.getInt();
-							}
-						}
-					} else if (key == "testDouble" && value.getType() == jsonifier::json_type::array) {
-						for (auto& element: value.getArray()) {
-							if (element.getType() == jsonifier::json_type::number) {
-								output.testDouble = element.getDouble();
-							}
-						}
-					} else if (key == "testBool" && value.getType() == jsonifier::json_type::array) {
-						for (auto& element: value.getArray()) {
-							if (element.getType() == jsonifier::json_type::boolean) {
-								output.testBool = element.getBool();
-							}
-						}
-					}
-				}
-			}
-			return {};
-		}
-	};
-
-	template<typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
-	struct json_test_helper<json_library::jsonifier, test_type::parse_and_serialize_raw_json_data, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const test_data_type& testData) {
-			static constexpr bnch_swt::string_literal testName{ testNameNew };
-			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read-Raw-Json-Data" };
-			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write-Raw-Json-Data" };
-			static constexpr bool partialRead{ std::is_same_v<test_data_type, partial_test<partial_test_struct>> || std::is_same_v<test_data_type, twitter_partial_message> };
-			static constexpr bool knownOrder{ true };
-			std::vector<std::string> newStrings{ iterations };
-			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl };
-			jsonifier::jsonifier_core parser{};
-			std::string newBuffer{};
-			parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testData, newBuffer);
-			for (auto& value: parser.getErrors()) {
-				std::cout << "Jsonifier Error: " << value << std::endl;
-			}
-			std::string newerBuffer{};
-			parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData, newerBuffer);
-			std::string newestBuffer{ newBuffer };
-			if (auto error =
-					glz::read<glz::opts{ .error_on_unknown_keys = !partialRead, .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newestBuffer);
-				error) {
-				std::cout << "Glaze Error: " << glz::format_error(error, newestBuffer) << std::endl;
-			}
-			newestBuffer.clear();
-			if (auto error =
-					glz::write<glz::opts{ .error_on_unknown_keys = !partialRead, .skip_null_members = false, .prettify = !minified, .minified = minified }>(testData, newestBuffer);
-				error) {
-				std::cout << "Glaze Error: " << glz::format_error(error, newestBuffer) << std::endl;
-			}
-			for (size_t x = 0; x < newestBuffer.size() && x < newerBuffer.size(); ++x) {
-				if (newestBuffer[x] != newerBuffer[x]) {
-					std::cout << "DIFFERENT AT INDEX: " << x;
-					std::cout << "JSONIFIER VALUES: " << jsonifier::string_view{ newerBuffer.data() + x, 128 } << std::endl;
-					std::cout << "GLAZE VALUES: " << jsonifier::string_view{ newestBuffer.data() + x, 128 } << std::endl;
-					break;
-				}
-			}
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "teal">([&]() mutable {
-					parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testData, newBuffer);
-					bnch_swt::doNotOptimizeAway(testData);
-					return newerBuffer.size();
-				});
-			for (auto& value: parser.getErrors()) {
-				std::cout << "Jsonifier Error: " << value << std::endl;
-			}
-			parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData, newerBuffer);
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "steelblue">([&]() mutable {
-					parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testData, newerBuffer);
-					bnch_swt::doNotOptimizeAway(newerBuffer);
-					return newerBuffer.size();
-				});
-			r.readResult  = result<result_type::read>{ "teal", readResult };
-			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
-			bnch_swt::file_loader::saveFile(static_cast<std::string>(newerBuffer), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
-			return r;
-		}
-	};
-
 	template<typename value_type>
 	concept pod_type = std::is_same_v<std::vector<std::vector<bool>>, value_type> || std::is_same_v<std::vector<std::vector<std::string>>, value_type> ||
 		std::is_same_v<std::vector<std::vector<int64_t>>, value_type> || std::is_same_v<std::vector<std::vector<uint64_t>>, value_type> ||
@@ -183,18 +77,23 @@ namespace tests {
 				testDatas[x].resize(testDataNew[x].size());
 			}
 			size_t currentIndex{};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "teal">([&]() mutable {
+			struct parse_test_struct {
+				BNCH_SWT_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, test_data_type& testDatas, size_t& currentIndex,
+					std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
-						parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDatas[currentIndex][x],
+						parserNew.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDatas[currentIndex][x],
 							newStrings[currentIndex][x]);
 						bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
 						newSize += newStrings[currentIndex][x].size();
 					}
 					++currentIndex;
 					return newSize;
-				});
+				}
+			};
+			bnch_swt::performance_metrics readResult =
+				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName,  parse_test_struct>(parser, testDatas,
+					currentIndex, newStrings);
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
@@ -204,17 +103,22 @@ namespace tests {
 				}
 			}
 			currentIndex = 0;
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "steelblue">([&]() mutable {
+			struct serialize_test_struct {
+				BNCH_SWT_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, test_data_type& testDatas, size_t& currentIndex,
+					std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
-						parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDatas[currentIndex][x], newStrings[currentIndex][x]);
+						parserNew.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDatas[currentIndex][x], newStrings[currentIndex][x]);
 						bnch_swt::doNotOptimizeAway(newStrings[currentIndex][x]);
 						newSize += newStrings[currentIndex][x].size();
 					}
 					++currentIndex;
 					return newSize;
-				});
+				}
+			};
+			bnch_swt::performance_metrics writeResult =
+				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName,  serialize_test_struct>(parser,
+					testDatas, currentIndex, newStrings);
 			r.readResult  = result<result_type::read>{ "teal", readResult };
 			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(parser.serializeJson(testDatas)),
@@ -240,7 +144,7 @@ namespace tests {
 			std::vector<test_data_type> testDatas{ iterations };
 			size_t currentIndex{};
 			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "teal">([&]() mutable {
+				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
 					parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDatas[currentIndex],
 						newStrings[currentIndex]);
 					bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
@@ -256,7 +160,7 @@ namespace tests {
 			}
 			currentIndex = 0;
 			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "steelblue">([&]() mutable {
+				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
 					parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDatas[currentIndex], newStrings[currentIndex]);
 					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
 					auto newSize = newStrings[currentIndex].size();
@@ -286,7 +190,7 @@ namespace tests {
 			std::vector<test_data_type> testDatas{ iterations };
 			size_t currentIndex{};
 			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "teal">([&]() mutable {
+				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
 					parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDatas[currentIndex], newString);
 					bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
 					auto newSize = newString.size();
@@ -301,7 +205,7 @@ namespace tests {
 			}
 			currentIndex = 0;
 			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "steelblue">([&]() mutable {
+				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
 					parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDatas[currentIndex], newStrings[currentIndex]);
 					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
 					auto newSize = newStrings[currentIndex].size();
@@ -324,7 +228,7 @@ namespace tests {
 			jsonifier::jsonifier_core parser{};
 			std::vector<std::string> newStrings{ iterations };
 			size_t currentIndex{};
-			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "steelblue">([&]() mutable {
+			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
 				parser.prettifyJson(newBuffer, newStrings[currentIndex]);
 				bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
 				auto newSize = newStrings[currentIndex].size();
@@ -349,7 +253,7 @@ namespace tests {
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl };
 			jsonifier::jsonifier_core parser{};
 			size_t currentIndex{};
-			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "steelblue">([&]() mutable {
+			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
 				parser.minifyJson(newBuffer, newStrings[currentIndex]);
 				bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
 				auto newSize = newStrings[currentIndex].size();
@@ -372,7 +276,7 @@ namespace tests {
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl };
 			jsonifier::jsonifier_core parser{};
 			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName, "teal">([&]() mutable {
+				bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
 					if (auto result = parser.validateJson(newBuffer); !result) {
 						bnch_swt::doNotOptimizeAway(result);
 						return uint64_t{};
@@ -422,8 +326,8 @@ namespace tests {
 				testDatas[x].resize(testDataNew[x].size());
 			}
 			size_t currentIndex{};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<glazeLibraryName, "teal">([&]() mutable {
+			struct parse_test_struct {
+				BNCH_SWT_INLINE static size_t impl(test_data_type& testDatas, size_t& currentIndex, std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
 						get_ref_t<decltype(testDatas[currentIndex][x])> reference = testDatas[currentIndex][x];
@@ -440,15 +344,19 @@ namespace tests {
 					}
 					++currentIndex;
 					return newSize;
-				});
+				}
+			};
+			bnch_swt::performance_metrics readResult =
+				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  parse_test_struct>(testDatas, currentIndex,
+					newStrings);
 			for (size_t x = 0; x < iterations; ++x) {
 				for (size_t y = 0; y < testDataNew[x].size(); ++y) {
 					newStrings[x][y] = std::string{};
 				}
 			}
 			currentIndex = 0;
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<glazeLibraryName, "steelblue">([&]() mutable {
+			struct serialize_test_struct {
+				BNCH_SWT_INLINE static size_t impl(test_data_type& testDatas, size_t& currentIndex, std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
 						auto newResult = glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testDatas[currentIndex][x],
@@ -459,7 +367,11 @@ namespace tests {
 					}
 					++currentIndex;
 					return newSize;
-				});
+				}
+			};
+			bnch_swt::performance_metrics writeResult =
+				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  serialize_test_struct>(testDatas,
+					currentIndex, newStrings);
 			r.readResult  = result<result_type::read>{ "dodgerblue", readResult };
 			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
 			std::string newString{};
@@ -485,25 +397,31 @@ namespace tests {
 				( void )newResult;
 			}
 			size_t currentIndex{};
-			bnch_swt::performance_metrics readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,
-				"dodgerblue">([&]() mutable {
-				if (auto error = glz::read<
-						glz::opts{ .error_on_unknown_keys = !partialRead, .skip_null_members = false, .prettify = !minified, .minified = minified, .partial_read = partialRead }>(
-						testDatas[currentIndex], newStrings[currentIndex]);
-					error) {
-					std::cout << "Glaze Error: " << glz::format_error(error, newStrings[currentIndex]) << std::endl;
+			struct parse_test_struct {
+				BNCH_SWT_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::vector<std::string>& newStrings) {
+					if (auto error = glz::read<glz::opts{ .error_on_unknown_keys = !partialRead,
+							.skip_null_members									 = false,
+							.prettify											 = !minified,
+							.minified											 = minified,
+							.partial_read										 = partialRead }>(testDatas[currentIndex], newStrings[currentIndex]);
+						error) {
+						std::cout << "Glaze Error: " << glz::format_error(error, newStrings[currentIndex]) << std::endl;
+					}
+					bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+					auto newSize = newStrings[currentIndex].size();
+					++currentIndex;
+					return newSize;
 				}
-				bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
-				auto newSize = newStrings[currentIndex].size();
-				++currentIndex;
-				return newSize;
-			});
+			};
+			bnch_swt::performance_metrics readResult =
+				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  parse_test_struct>(testDatas,
+					currentIndex, newStrings);
 			for (size_t x = 0; x < iterations; ++x) {
 				newStrings[x] = std::string{};
 			}
 			currentIndex = 0;
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<glazeLibraryName, "skyblue">([&]() mutable {
+			struct serialize_test_struct {
+				BNCH_SWT_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::vector<std::string>& newStrings) {
 					auto newResult =
 						glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testDatas[currentIndex], newStrings[currentIndex]);
 					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
@@ -511,7 +429,11 @@ namespace tests {
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
-				});
+				}
+			};
+			bnch_swt::performance_metrics writeResult =
+				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  serialize_test_struct>(testDatas,
+					currentIndex, newStrings);
 			r.readResult  = result<result_type::read>{ "dodgerblue", readResult };
 			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
@@ -533,25 +455,31 @@ namespace tests {
 			auto newResult = glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testDataNew, newString);
 			( void )newResult;
 			size_t currentIndex{};
-			bnch_swt::performance_metrics readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,
-				"dodgerblue">([&]() mutable {
-				if (auto error = glz::read<
-						glz::opts{ .error_on_unknown_keys = !partialRead, .skip_null_members = false, .prettify = !minified, .minified = minified, .partial_read = partialRead }>(
-						testDatas[currentIndex], newString);
-					error) {
-					std::cout << "Glaze Error: " << glz::format_error(error, newStrings[currentIndex]) << std::endl;
+			struct parse_test_struct {
+				BNCH_SWT_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::string& newString, std::vector<std::string>& newStrings) {
+					if (auto error = glz::read<glz::opts{ .error_on_unknown_keys = !partialRead,
+							.skip_null_members									 = false,
+							.prettify											 = !minified,
+							.minified											 = minified,
+							.partial_read										 = partialRead }>(testDatas[currentIndex], newString);
+						error) {
+						std::cout << "Glaze Error: " << glz::format_error(error, newStrings[currentIndex]) << std::endl;
+					}
+					bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+					auto newSize = newString.size();
+					++currentIndex;
+					return newSize;
 				}
-				bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
-				auto newSize = newString.size();
-				++currentIndex;
-				return newSize;
-			});
+			};
+			bnch_swt::performance_metrics readResult =
+				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  parse_test_struct>(testDatas,
+					currentIndex, newString, newStrings);
 			for (size_t x = 0; x < iterations; ++x) {
 				testDatas[x] = testDatas[0];
 			}
 			currentIndex = 0;
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<glazeLibraryName, "skyblue">([&]() mutable {
+			struct serialize_test_struct {
+				BNCH_SWT_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::vector<std::string>& newStrings) {
 					auto newResultNew =
 						glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testDatas[currentIndex], newStrings[currentIndex]);
 					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
@@ -559,7 +487,11 @@ namespace tests {
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
-				});
+				}
+			};
+			bnch_swt::performance_metrics writeResult =
+				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  serialize_test_struct>(testDatas,
+					currentIndex, newStrings);
 			r.readResult  = result<result_type::read>{ "dodgerblue", readResult };
 			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
@@ -575,13 +507,18 @@ namespace tests {
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl };
 			size_t currentIndex{};
 
-			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<glazeLibraryName, "skyblue">([&]() mutable {
-				glz::prettify_json(newBuffer, newStrings[currentIndex]);
-				bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
-				auto newSize = newStrings[currentIndex].size();
-				++currentIndex;
-				return newSize;
-			});
+			struct prettify_test_struct {
+				BNCH_SWT_INLINE static size_t impl(std::string& newBuffer, std::vector<std::string>& newStrings, size_t& currentIndex) {
+					glz::prettify_json(newBuffer, newStrings[currentIndex]);
+					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+					auto newSize = newStrings[currentIndex].size();
+					++currentIndex;
+					return newSize;
+				}
+			};
+
+			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  prettify_test_struct>(
+				newBuffer, newStrings, currentIndex);
 
 			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
@@ -598,13 +535,19 @@ namespace tests {
 			std::vector<std::string> newStrings{ iterations };
 			size_t currentIndex{};
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl };
-			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<glazeLibraryName, "skyblue">([&]() mutable {
-				glz::minify_json(newestBuffer, newStrings[currentIndex]);
-				bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
-				auto newSize = newStrings[currentIndex].size();
-				++currentIndex;
-				return newSize;
-			});
+
+			struct minify_test_struct {
+				BNCH_SWT_INLINE static size_t impl(std::string& newestBuffer, std::vector<std::string>& newStrings, size_t& currentIndex) {
+					glz::minify_json(newestBuffer, newStrings[currentIndex]);
+					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+					auto newSize = newStrings[currentIndex].size();
+					++currentIndex;
+					return newSize;
+				}
+			};
+
+			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  minify_test_struct>(
+				newestBuffer, newStrings, currentIndex);
 
 			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
@@ -618,14 +561,19 @@ namespace tests {
 		JSONIFIER_CLANG_INLINE static auto run(std::string& newBuffer) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl };
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<glazeLibraryName, "dodgerblue">([&]() mutable {
+
+			struct validate_test_struct {
+				BNCH_SWT_INLINE static size_t impl(std::string& newBuffer) {
 					if (auto result = glz::validate_json(newBuffer); result) {
 						bnch_swt::doNotOptimizeAway(result);
 						return size_t{};
 					}
 					return newBuffer.size();
-				});
+				}
+			};
+
+			bnch_swt::performance_metrics readResult =
+				bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  validate_test_struct>(newBuffer);
 
 			bnch_swt::file_loader::saveFile(newBuffer, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			r.readResult = result<result_type::read>{ "dodgerblue", readResult };
@@ -657,8 +605,10 @@ namespace tests {
 				testDatas[x].resize(testDataNew[x].size());
 			}
 			size_t currentIndex{};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName, "cadetblue">([&]() mutable {
+
+			struct parse_test_struct {
+				BNCH_SWT_INLINE static size_t impl(simdjson::ondemand::parser& parser, test_data_type& testDatas, size_t& currentIndex,
+					std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
 						getValue(testDatas[currentIndex][x], static_cast<simdjson::ondemand::document>(parser.iterate(newStrings[currentIndex][x])));
@@ -667,7 +617,12 @@ namespace tests {
 					}
 					++currentIndex;
 					return newSize;
-				});
+				}
+			};
+
+			bnch_swt::performance_metrics readResult =
+				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName,  parse_test_struct>(parser,
+					testDatas, currentIndex, newStrings);
 			r.readResult = result<result_type::read>{ "cadetblue", readResult };
 			std::string newString{};
 			auto newResult = glz::write_json(testDatas, newString);
@@ -692,8 +647,10 @@ namespace tests {
 				parserNew.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDataNew[x], newStrings[x]);
 			}
 			size_t currentIndex{};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName, "cadetblue">([&]() mutable {
+
+			struct parse_test_struct {
+				BNCH_SWT_INLINE static size_t impl(simdjson::ondemand::parser& parser, std::vector<test_data_type>& testDatas, size_t& currentIndex,
+					std::vector<std::string>& newStrings) {
 					try {
 						getValue(testDatas[currentIndex], parser.iterate(newStrings[currentIndex]).value().get_value());
 						bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
@@ -706,7 +663,12 @@ namespace tests {
 					}
 					++currentIndex;
 					return size_t{};
-				});
+				}
+			};
+
+			bnch_swt::performance_metrics readResult =
+				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName,  parse_test_struct>(parser,
+					testDatas, currentIndex, newStrings);
 			r.readResult = result<result_type::read>{ "cadetblue", readResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			return r;
@@ -730,8 +692,9 @@ namespace tests {
 			newString.clear();
 			parserNew.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDataNewer, newString);
 			size_t currentIndex{};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName, "cadetblue">([&]() mutable {
+
+			struct parse_test_struct {
+				BNCH_SWT_INLINE static size_t impl(simdjson::ondemand::parser& parser, std::vector<test_data_type>& testDatas, size_t& currentIndex, std::string& newString) {
 					try {
 						getValue(testDatas[currentIndex], parser.iterate(newString).value().get_value());
 						bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
@@ -744,7 +707,12 @@ namespace tests {
 					}
 					++currentIndex;
 					return newString.size();
-				});
+				}
+			};
+
+			bnch_swt::performance_metrics readResult =
+				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName,  parse_test_struct>(parser,
+					testDatas, currentIndex, newString);
 			r.readResult = result<result_type::read>{ "cadetblue", readResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newString), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			return r;
@@ -761,18 +729,24 @@ namespace tests {
 			std::vector<std::string> newStrings{ iterations };
 			size_t currentIndex{};
 
-			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName, "cornflowerblue">([&]() mutable {
-				try {
-					newStrings[currentIndex] = simdjson::minify(parser.parse(newBuffer));
-					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
-					auto newSize = newStrings[currentIndex].size();
-					++currentIndex;
-					return newSize;
-				} catch (std::exception& error) {
-					std::cout << "Simdjson Error: " << error.what() << std::endl;
-					return newStrings[currentIndex].size();
+			struct minify_test_struct {
+				BNCH_SWT_INLINE static size_t impl(simdjson::dom::parser& parser, std::string& newBuffer, std::vector<std::string>& newStrings, size_t& currentIndex) {
+					try {
+						newStrings[currentIndex] = simdjson::minify(parser.parse(newBuffer));
+						bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+						auto newSize = newStrings[currentIndex].size();
+						++currentIndex;
+						return newSize;
+					} catch (std::exception& error) {
+						std::cout << "Simdjson Error: " << error.what() << std::endl;
+						return newStrings[currentIndex].size();
+					}
 				}
-			});
+			};
+
+			auto writeResult =
+				bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName, minify_test_struct>(parser,
+					newBuffer, newStrings, currentIndex);
 
 			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			r.writeResult = result<result_type::write>{ "cornflowerblue", writeResult };

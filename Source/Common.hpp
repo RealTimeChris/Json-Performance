@@ -50,7 +50,7 @@ constexpr auto getCurrentOperatingSystem() {
 	} else if constexpr (osNameNew.operator std::string_view().contains("darwin")) {
 		return bnch_swt::string_literal{ "MacOS" };
 	} else {
-		return bnch_swt::string_literal{ "" };
+		return bnch_swt::string_literal{ "x" };
 	}
 }
 
@@ -65,7 +65,7 @@ constexpr auto getCurrentCompilerId() {
 	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("msvc")) {
 		return bnch_swt::string_literal{ "MSVC" };
 	} else {
-		return bnch_swt::string_literal{ "" };
+		return bnch_swt::string_literal{ "x" };
 	}
 }
 

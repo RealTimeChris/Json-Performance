@@ -34,5 +34,6 @@ Here's a few benchmarks on a few common operating system/compiler platforms. Alt
 4. Then enter `cmake --build ./Build --config=RELEASE_OR_DEBUG`
 5. Then enter `cmake --install ./Build`
 6. Run the executable from wherever it was installed to!
+1. 
 #### Note:
 These benchmarks were executed using the CPU benchmark library [BenchmarkSuite](https://github.com/RealTimeChris/BenchmarkSuite)
