@@ -28,40 +28,44 @@
 #include "Twitter.hpp"
 #include "Discord.hpp"
 #include "Canada.hpp"
+#include <unordered_set>
 #include <thread>
+#include <random>
 
 #if defined(NDEBUG)
-static constexpr auto maxIterationCount{ 100 };
+static constexpr auto maxIterations{ 1400 };
+static constexpr auto measuredIterations{ 20 };
 #else
-static constexpr auto maxIterationCount{ 5 };
+static constexpr auto maxIterations{ 200 };
+static constexpr auto measuredIterations{ 25 };
 #endif
 
 constexpr auto getCurrentOperatingSystem() {
-	constexpr jsonifier_internal::string_literal osName{ OPERATING_SYSTEM_NAME };
-	constexpr auto osNameNew = jsonifier_internal::toLower(osName);
-	if constexpr (osNameNew.view().operator std::string_view().contains("linux")) {
-		return jsonifier_internal::string_literal{ "Ubuntu" };
-	} else if constexpr (osNameNew.view().operator std::string_view().contains("windows")) {
-		return jsonifier_internal::string_literal{ "Windows" };
-	} else if constexpr (osNameNew.view().operator std::string_view().contains("darwin")) {
-		return jsonifier_internal::string_literal{ "MacOS" };
+	constexpr bnch_swt::string_literal osName{ OPERATING_SYSTEM_NAME };
+	constexpr auto osNameNew = bnch_swt::internal::toLower(osName);
+	if constexpr (osNameNew.operator std::string_view().contains("linux")) {
+		return bnch_swt::string_literal{ "Ubuntu" };
+	} else if constexpr (osNameNew.operator std::string_view().contains("windows")) {
+		return bnch_swt::string_literal{ "Windows" };
+	} else if constexpr (osNameNew.operator std::string_view().contains("darwin")) {
+		return bnch_swt::string_literal{ "MacOS" };
 	} else {
-		return jsonifier_internal::string_literal{ "" };
+		return bnch_swt::string_literal{ "x" };
 	}
 }
 
 constexpr auto getCurrentCompilerId() {
-	constexpr jsonifier_internal::string_literal compilerId{ COMPILER_ID };
-	constexpr auto osCompilerIdNew = jsonifier_internal::toLower(compilerId);
-	if constexpr (osCompilerIdNew.view().operator std::string_view().contains("gnu") || osCompilerIdNew.view().operator std::string_view().contains("gcc") ||
-		osCompilerIdNew.view().operator std::string_view().contains("g++") || osCompilerIdNew.view().operator std::string_view().contains("apple")) {
-		return jsonifier_internal::string_literal{ "GNUCXX" };
-	} else if constexpr (osCompilerIdNew.view().operator std::string_view().contains("clang")) {
-		return jsonifier_internal::string_literal{ "CLANG" };
-	} else if constexpr (osCompilerIdNew.view().operator std::string_view().contains("msvc")) {
-		return jsonifier_internal::string_literal{ "MSVC" };
+	constexpr bnch_swt::string_literal compilerId{ COMPILER_ID };
+	constexpr auto osCompilerIdNew = bnch_swt::internal::toLower(compilerId);
+	if constexpr (osCompilerIdNew.operator std::string_view().contains("gnu") || osCompilerIdNew.operator std::string_view().contains("gcc") ||
+		osCompilerIdNew.operator std::string_view().contains("g++") || osCompilerIdNew.operator std::string_view().contains("apple")) {
+		return bnch_swt::string_literal{ "GNUCXX" };
+	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("clang")) {
+		return bnch_swt::string_literal{ "CLANG" };
+	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("msvc")) {
+		return bnch_swt::string_literal{ "MSVC" };
 	} else {
-		return jsonifier_internal::string_literal{ "" };
+		return bnch_swt::string_literal{ "x" };
 	}
 }
 
@@ -69,37 +73,27 @@ constexpr auto getCurrentPathImpl() {
 	return getCurrentOperatingSystem() + "-" + getCurrentCompilerId();
 }
 
-constexpr jsonifier_internal::string_literal basePath{ BASE_PATH };
-constexpr jsonifier_internal::string_literal testPath{ basePath + "/Source" };
-constexpr jsonifier_internal::string_literal readMePath{ BASE_PATH };
-constexpr jsonifier_internal::string_literal jsonPath{ basePath + "/Json" };
-constexpr jsonifier_internal::string_literal jsonOutPath{ jsonPath + "/" + getCurrentPathImpl() };
-constexpr jsonifier_internal::string_literal graphsPath{ basePath + "/Graphs/" + getCurrentPathImpl() + "/" };
-constexpr jsonifier_internal::string_literal jsonifierLibraryName{ "jsonifier" };
-constexpr jsonifier_internal::string_literal jsonifierCommitUrlBase{ "https://github.com/realtimechris/jsonifier/commit/" };
-constexpr jsonifier_internal::string_literal simdjsonLibraryName{ "simdjson" };
-constexpr jsonifier_internal::string_literal simdjsonCommitUrlBase{ "https://github.com/simdjson/simdjson/commit/" };
-constexpr jsonifier_internal::string_literal glazeLibraryName{ "glaze" };
-constexpr jsonifier_internal::string_literal glazeCommitUrlBase{ "https://github.com/stephenberry/glaze/commit/" };
-constexpr jsonifier_internal::string_literal jsonifierCommitUrl{ jsonifierCommitUrlBase + JSONIFIER_COMMIT };
-constexpr jsonifier_internal::string_literal simdjsonCommitUrl{ simdjsonCommitUrlBase + SIMDJSON_COMMIT };
-constexpr jsonifier_internal::string_literal glazeCommitUrl{ glazeCommitUrlBase + GLAZE_COMMIT };
-
-class test_base {
-  public:
-	test_base() noexcept = default;
-
-	test_base(const std::string& stringNew, const std::string& fileContentsNew, bool areWeAFailingTestNew)
-		: fileContents{ fileContentsNew }, areWeAFailingTest{ areWeAFailingTestNew }, testName{ stringNew } {};
-	std::string fileContents{};
-	bool areWeAFailingTest{};
-	std::string testName{};
-};
+constexpr bnch_swt::string_literal currentPath{ getCurrentPathImpl() };
+constexpr bnch_swt::string_literal basePath{ BASE_PATH };
+constexpr bnch_swt::string_literal testPath{ basePath + "/Source" };
+constexpr bnch_swt::string_literal readMePath{ BASE_PATH };
+constexpr bnch_swt::string_literal jsonPath{ basePath + "/Json" };
+constexpr bnch_swt::string_literal jsonOutPath{ jsonPath + "/" + getCurrentPathImpl() };
+constexpr bnch_swt::string_literal graphsPath{ basePath + "/Graphs/" + getCurrentPathImpl() + "/" };
+constexpr bnch_swt::string_literal jsonifierLibraryName{ "jsonifier" };
+constexpr bnch_swt::string_literal jsonifierCommitUrlBase{ "https://github.com/realtimechris/jsonifier/commit/" };
+constexpr bnch_swt::string_literal simdjsonLibraryName{ "simdjson" };
+constexpr bnch_swt::string_literal simdjsonCommitUrlBase{ "https://github.com/simdjson/simdjson/commit/" };
+constexpr bnch_swt::string_literal glazeLibraryName{ "glaze" };
+constexpr bnch_swt::string_literal glazeCommitUrlBase{ "https://github.com/stephenberry/glaze/commit/" };
+constexpr bnch_swt::string_literal jsonifierCommitUrl{ jsonifierCommitUrlBase + JSONIFIER_COMMIT };
+constexpr bnch_swt::string_literal simdjsonCommitUrl{ simdjsonCommitUrlBase + SIMDJSON_COMMIT };
+constexpr bnch_swt::string_literal glazeCommitUrl{ glazeCommitUrlBase + GLAZE_COMMIT };
 
 std::string getCPUInfo() {
-	char brand[49] = { 0 };
+	char brand[49]{};
 	int32_t regs[12]{};
-	size_t length{};
+	uint64_t length{};
 #if defined(__x86_64__) || defined(_M_AMD64)
 	static constexpr auto cpuid = [](int32_t* eax, int32_t* ebx, int32_t* ecx, int32_t* edx) {
 	#if defined(_MSC_VER)
@@ -149,15 +143,6 @@ std::string getCPUInfo() {
 #endif
 }
 
-std::string getCurrentWorkingDirectory() {
-	try {
-		return std::filesystem::current_path().string();
-	} catch (const std::filesystem::filesystem_error& e) {
-		std::cout << "Error: " << e.what() << std::endl;
-		return "";
-	}
-}
-
 void executePythonScript(const std::string& scriptPath, const std::string& argument01, const std::string& argument02) {
 #if defined(JSONIFIER_WIN)
 	static std::string pythonName{ "python " };
@@ -171,40 +156,25 @@ void executePythonScript(const std::string& scriptPath, const std::string& argum
 	}
 }
 
-bool processFilesInFolder(std::unordered_map<std::string, test_base>& resultFileContents, const std::string& testType) noexcept {
-	try {
-		for (const auto& entry: std::filesystem::directory_iterator(std::string{ testPath } + testType)) {
-			if (entry.is_regular_file()) {
-				const std::string fileName = entry.path().filename().string();
-
-				if (fileName.size() >= 5 && fileName.substr(fileName.size() - 5) == std::string{ ".json" }) {
-					std::ifstream file(entry.path());
-					if (file.is_open()) {
-						std::string fileContents((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
-						bool returnValue					= (fileName.find(".json") != std::string::npos);
-						resultFileContents[fileName.data()] = { fileName, fileContents, returnValue };
-						file.close();
-					} else {
-						std::cerr << "Error opening file: " << fileName << std::endl;
-						return false;
-					}
-				}
-			}
-		}
-	} catch (const std::exception& e) {
-		std::cerr << "Error while processing files: " << e.what() << std::endl;
-		return false;
-	}
-
-	return true;
-}
-
 struct test_struct {
-	std::vector<std::string> testStrings{};
-	std::vector<uint64_t> testUints{};
-	std::vector<double> testDoubles{};
-	std::vector<int64_t> testInts{};
-	std::vector<bool> testBools{};
+	std::string testString{};
+	uint64_t testUint{};
+	int64_t testInt{};
+	double testDouble{};
+	bool testBool{};
+};
+
+struct partial_test_struct {
+	std::string testString{};
+	bool testBool{};
+};
+
+struct abc_test_struct {
+	bool testBool{};
+	double testDouble{};
+	int64_t testInt{};
+	uint64_t testUint{};
+	std::string testString{};
 };
 
 template<typename value_type> struct test {
@@ -215,17 +185,20 @@ template<typename value_type> struct partial_test {
 	std::vector<value_type> m, s;
 };
 
-inline static std::random_device randomEngine{};
-inline static std::mt19937_64 gen{ randomEngine() };
-static constexpr std::string_view charset{ "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~\"\\\r\b\f\t\n" };
-
-template<typename value_type> struct test_generator {
-	std::vector<value_type> a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
-
-	template<typename value_type01, typename value_type02> static value_type01 randomizeNumberUniform(value_type01 start, value_type02 end) {
-		std::uniform_real_distribution<value_type01> dis{ start, static_cast<value_type01>(end) };
-		return dis(gen);
-	}
+struct test_generator {
+	static constexpr std::string_view charSet{ "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
+											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
+											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
+											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~\"\\\b\f\n\r\t" };
+	inline static std::uniform_real_distribution<double> disDouble{ log(std::numeric_limits<double>::min()), log(std::numeric_limits<double>::max()) };
+	inline static std::uniform_int_distribution<int64_t> disInt{ std::numeric_limits<int64_t>::min(), std::numeric_limits<int64_t>::max() };
+	inline static std::uniform_int_distribution<uint64_t> disUint{ std::numeric_limits<uint64_t>::min(), std::numeric_limits<uint64_t>::max() };
+	inline static std::uniform_int_distribution<uint64_t> disCharSet{ 0ull, charSet.size() - 1 };
+	inline static std::uniform_int_distribution<uint64_t> disString{ 16ull, 64ull };
+	inline static std::uniform_int_distribution<uint64_t> disUnicodeEmoji{ 0ull, std::size(unicode_emoji::unicodeEmoji) - 1 };
+	inline static std::uniform_int_distribution<uint64_t> disBool{ 0, 100 };
+	inline static std::random_device randomEngine{};
+	inline static std::mt19937_64 gen{ randomEngine() };
 
 	template<jsonifier::concepts::integer_t value_type01, jsonifier::concepts::integer_t value_type02>
 	static value_type01 randomizeNumberUniform(value_type01 start, value_type02 end) {
@@ -233,124 +206,110 @@ template<typename value_type> struct test_generator {
 		return dis(gen);
 	}
 
-	static void insertUnicodeInJSON(std::string& jsonString) {
-		auto newStringView = unicode_emoji::unicodeEmoji[randomizeNumberUniform(0ull, std::size(unicode_emoji::unicodeEmoji) - 1)];
-		jsonString += static_cast<std::string>(newStringView);
-	}
-
-	static std::string generateString() {
-		auto length{ randomizeNumberUniform(32ull, 64ull) };
-		constexpr size_t charsetSize = charset.size();
-		auto unicodeCount			 = length / 4ull;
-		std::vector<size_t> unicodeIndices{};
-		static constexpr auto checkForPresenceOfIndex = [](auto& indices, auto index, auto length, auto&& checkForPresenceOfIndexNew) -> void {
-			if (std::find(indices.begin(), indices.end(), index) != indices.end()) {
-				index = randomizeNumberUniform(0ull, length);
-				checkForPresenceOfIndexNew(indices, index, length, checkForPresenceOfIndexNew);
-			} else {
-				indices.emplace_back(index);
-			}
-		};
-		for (size_t x = 0; x < unicodeCount; ++x) {
-			auto newValue = randomizeNumberUniform(0ull, length);
-			checkForPresenceOfIndex(unicodeIndices, newValue, length, checkForPresenceOfIndex);
-		}
-		std::sort(unicodeIndices.begin(), unicodeIndices.end(), std::less<size_t>{});
+	template<jsonifier::concepts::string_t value_type> static value_type generateValue() {
+		auto length{ disString(gen) };
 
 		std::string result{};
-		size_t insertedUnicode = 0;
-		auto iter			   = unicodeIndices.begin();
-		for (size_t x = 0; x < length; ++x) {
-			if (iter < unicodeIndices.end() && x == *iter) [[unlikely]] {
-				insertUnicodeInJSON(result);
-				insertedUnicode++;
-				++iter;
-			} else {
-				result += charset[randomizeNumberUniform(0ull, charsetSize - 1)];
-			}
+		for (uint64_t x = 0; x < length; ++x) {
+			result += charSet[disCharSet(gen)];
 		}
 
 		return result;
 	}
 
-	static double generateDouble() {
-		double min = std::numeric_limits<double>::min();
-		double max = std::numeric_limits<double>::max();
-		std::uniform_real_distribution<double> dis(log(min), log(max));
-		double logValue = dis(gen);
-		bool negative{ generateBool() };
+	template<jsonifier::concepts::float_t value_type> static value_type generateValue() {
+		double logValue = disDouble(gen);
+		bool negative{ generateValue<bool>() };
 		return negative ? -std::exp(logValue) : std::exp(logValue);
 	}
 
-	static bool generateBool() {
-		return static_cast<bool>(randomizeNumberUniform(0, 100) >= 50);
-	};
+	template<jsonifier::concepts::bool_t value_type> static value_type generateValue() {
+		return static_cast<bool>(disBool(gen) >= 50);
+	}
 
-	static size_t generateUint() {
-		return randomizeNumberUniform(std::numeric_limits<size_t>::min(), std::numeric_limits<size_t>::max());
-	};
+	template<jsonifier::concepts::uns64_t value_type> static value_type generateValue() {
+		size_t length{ randomizeNumberUniform(1ull, 20ull) };
 
-	static int64_t generateInt() {
-		return randomizeNumberUniform(std::numeric_limits<int64_t>::min(), std::numeric_limits<int64_t>::max());
-	};
+		uint64_t min_val = (length == 1) ? 0 : static_cast<uint64_t>(std::pow(10, length - 1));
+		uint64_t max_val = static_cast<uint64_t>(std::pow(10, length)) - 1;
+		if (min_val > max_val) {
+			std::swap(min_val, max_val);
+		}
+		std::uniform_int_distribution<uint64_t> dis(min_val, max_val);
+		return dis(gen);
+	}
 
-	test_generator() {
+	template<jsonifier::concepts::sig64_t value_type> static value_type generateValue() {
+		size_t length{ randomizeNumberUniform(1ull, 19ull) };
+
+		int64_t min_val = (length == 1) ? 0 : static_cast<int64_t>(std::pow(10, length - 1));
+		int64_t max_val = static_cast<int64_t>(std::pow(10, length)) - 1;
+		if (min_val > max_val) {
+			std::swap(min_val, max_val);
+		}
+		std::uniform_int_distribution<int64_t> dis(min_val, max_val);
+		auto returnValue{ dis(gen) };
+		return generateValue<bool>() ? returnValue : -returnValue;
+	}
+
+	static test_struct generateTestStruct() {
+		test_struct returnValues{};
+		returnValues.testBool = generateValue<bool>();
+		returnValues.testDouble = generateValue<double>();
+		returnValues.testInt	= generateValue<int64_t>();
+		returnValues.testUint	= generateValue<uint64_t>();
+		returnValues.testString = generateValue<std::string>();
+		return returnValues;
+	}
+
+	template<typename value_type> static std::vector<std::vector<value_type>> generateValues(size_t vecCount, size_t valueCount) {
+		std::vector<std::vector<value_type>> returnValues{};
+		returnValues.resize(vecCount);
+		for (size_t x = 0; x < vecCount; ++x) {
+			for (size_t y = 0; y < valueCount; ++y) {
+				returnValues[x].emplace_back(generateValue<value_type>());
+			}
+		}
+		return returnValues;
+	}
+
+	static test<test_struct> generateTest() {
+		test<test_struct> returnValues{};
 		auto fill = [&](auto& v) {
-			auto arraySize01 = randomizeNumberUniform(15ull, 25ull);
+			const auto arraySize01 = randomizeNumberUniform(1ull, 15ull);
 			v.resize(arraySize01);
-			for (size_t x = 0; x < arraySize01; ++x) {
-				auto arraySize02 = randomizeNumberUniform(15ull, 35ull);
-				auto arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
-					auto newString = generateString();
-					v[x].testStrings.emplace_back(newString);
-				}
-				arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
-					v[x].testUints.emplace_back(generateUint());
-				}
-				arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
-					v[x].testInts.emplace_back(generateInt());
-				}
-				arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
-					auto newBool = generateBool();
-					v[x].testBools.emplace_back(newBool);
-				}
-				arraySize03 = randomizeNumberUniform(0ull, arraySize02);
-				for (size_t y = 0; y < arraySize03; ++y) {
-					v[x].testDoubles.emplace_back(generateDouble());
-				}
+			for (uint64_t x = 0; x < arraySize01; ++x) {
+				v[x] = generateTestStruct();
 			}
 		};
 
-		fill(a);
-		fill(b);
-		fill(c);
-		fill(d);
-		fill(e);
-		fill(f);
-		fill(g);
-		fill(h);
-		fill(i);
-		fill(j);
-		fill(k);
-		fill(l);
-		fill(m);
-		fill(n);
-		fill(o);
-		fill(p);
-		fill(q);
-		fill(r);
-		fill(s);
-		fill(t);
-		fill(u);
-		fill(v);
-		fill(w);
-		fill(x);
-		fill(y);
-		fill(z);
+		fill(returnValues.a);
+		fill(returnValues.b);
+		fill(returnValues.c);
+		fill(returnValues.d);
+		fill(returnValues.e);
+		fill(returnValues.f);
+		fill(returnValues.g);
+		fill(returnValues.h);
+		fill(returnValues.i);
+		fill(returnValues.j);
+		fill(returnValues.k);
+		fill(returnValues.l);
+		fill(returnValues.m);
+		fill(returnValues.n);
+		fill(returnValues.o);
+		fill(returnValues.p);
+		fill(returnValues.q);
+		fill(returnValues.r);
+		fill(returnValues.s);
+		fill(returnValues.t);
+		fill(returnValues.u);
+		fill(returnValues.v);
+		fill(returnValues.w);
+		fill(returnValues.x);
+		fill(returnValues.y);
+		fill(returnValues.z);
+		return returnValues;
 	}
 };
 
@@ -387,15 +346,15 @@ enum class result_type { read = 0, write = 1 };
 
 template<result_type type> constexpr auto enumToString() {
 	if constexpr (type == result_type::read) {
-		return jsonifier_internal::string_literal{ "Read" };
+		return bnch_swt::string_literal{ "Read" };
 	} else {
-		return jsonifier_internal::string_literal{ "Write" };
+		return bnch_swt::string_literal{ "Write" };
 	}
 }
 
 template<result_type type> struct result {
-	std::optional<double> jsonSpeedVariation{};
-	std::optional<size_t> byteLength{};
+	std::optional<double> jsonSpeedPercentageDeviation{};
+	std::optional<uint64_t> byteLength{};
 	std::optional<double> jsonCycles{};
 	std::optional<double> jsonSpeed{};
 	std::optional<double> jsonTime{};
@@ -408,11 +367,11 @@ template<result_type type> struct result {
 	result& operator=(const result&) noexcept = default;
 	result(const result&) noexcept			  = default;
 
-	result(const std::string& colorNew, size_t byteLengthNew, const bnch_swt::performance_metrics& results) {
-		byteLength.emplace(byteLengthNew);
-		jsonTime.emplace(results.timeInns);
-		jsonSpeedVariation.emplace(results.throughputVariation.value());
-		jsonSpeed.emplace(results.throughputMbPerSec.value());
+	result(const std::string& colorNew, const bnch_swt::performance_metrics& results) {
+		byteLength.emplace(results.bytesProcessed);
+		jsonTime.emplace(results.timeInNs);
+		jsonSpeedPercentageDeviation.emplace(results.throughputPercentageDeviation);
+		jsonSpeed.emplace(results.throughputMbPerSec);
 		if (results.cyclesPerByte.has_value()) {
 			jsonCycles.emplace(results.cyclesPerByte.value() * 1024 * 1024);
 		}
@@ -439,7 +398,6 @@ struct results_data {
 	std::unordered_set<std::string> jsonifierExcludedKeys{};
 	result<result_type::write> writeResult{};
 	result<result_type::read> readResult{};
-	size_t iterations{};
 	std::string name{};
 	std::string test{};
 	std::string url{};
@@ -454,18 +412,12 @@ struct results_data {
 		}
 	}
 
-	results_data& operator=(results_data&&) noexcept	  = default;
-	results_data(results_data&&) noexcept				  = default;
-	results_data& operator=(const results_data&) noexcept = default;
-	results_data(const results_data&) noexcept			  = default;
-
 	results_data() noexcept = default;
 
-	results_data(const std::string& nameNew, const std::string& testNew, const std::string& urlNew, size_t iterationsNew) {
-		iterations = iterationsNew;
-		name	   = nameNew;
-		test	   = testNew;
-		url		   = urlNew;
+	results_data(const std::string& nameNew, const std::string& testNew, const std::string& urlNew) {
+		name = nameNew;
+		test = testNew;
+		url	 = urlNew;
 	}
 
 	void checkForMissingKeys() {
@@ -480,20 +432,20 @@ struct results_data {
 		std::string finalString{ "| [" + name + "](" + url + ") | " };
 		if (readResult.jsonTime.has_value() && readResult.byteLength.has_value()) {
 			std::ostringstream finalStream{};
-			finalStream << std::setprecision(6) << readResult.jsonSpeed.value() << " | " << std::setprecision(6) << readResult.jsonSpeedVariation.value() << " | ";
+			finalStream << std::setprecision(6) << readResult.jsonSpeed.value() << " | " << std::setprecision(6) << readResult.jsonSpeedPercentageDeviation.value() << " | ";
 			if (readResult.jsonCycles.has_value()) {
 				finalStream << std::setprecision(6) << readResult.jsonCycles.value() << " | ";
 			}
-			finalStream << readResult.byteLength.value() << " | " << std::setprecision(6) << readResult.jsonTime.value() << " | ";
+			finalStream << static_cast<uint64_t>(readResult.byteLength.value()) << " | " << std::setprecision(6) << readResult.jsonTime.value() << " | ";
 			finalString += finalStream.str();
 		}
 		if (writeResult.jsonTime.has_value() && writeResult.byteLength.has_value()) {
 			std::ostringstream finalStream{};
-			finalStream << std::setprecision(6) << writeResult.jsonSpeed.value() << " | " << std::setprecision(6) << writeResult.jsonSpeedVariation.value() << " | ";
+			finalStream << std::setprecision(6) << writeResult.jsonSpeed.value() << " | " << std::setprecision(6) << writeResult.jsonSpeedPercentageDeviation.value() << " | ";
 			if (writeResult.jsonCycles.has_value()) {
 				finalStream << std::setprecision(6) << writeResult.jsonCycles.value() << " | ";
 			}
-			finalStream << writeResult.byteLength.value() << " | " << std::setprecision(6) << writeResult.jsonTime.value() << " | ";
+			finalStream << static_cast<uint64_t>(writeResult.byteLength.value()) << " | " << std::setprecision(6) << writeResult.jsonTime.value() << " | ";
 			finalString += finalStream.str();
 		}
 		return finalString;
@@ -516,4 +468,22 @@ std::tm getTime() {
 	std::time_t result = std::time(nullptr);
 	return *localtime(&result);
 #endif
+}
+
+static std::string urlEncode(std::string value) {
+	std::ostringstream escaped;
+	escaped.fill('0');
+	escaped << std::hex;
+
+	for (char c: value) {
+		if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
+			escaped << c;
+		} else if (c == ':') {
+			escaped << '%' << std::setw(2) << int32_t(( unsigned char )' ');
+		} else {
+			escaped << '%' << std::setw(2) << int32_t(( unsigned char )c);
+		}
+	}
+
+	return escaped.str();
 }
