@@ -80,12 +80,12 @@ jobs:
       working-directory: ./
       run: |
            sudo apt-get install build-essential
-           sudo apt-get install g++-12
+           sudo apt-get install g++-14
 
     - name: Configure CMake
       working-directory: ./
       run: |
-           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/g++-12
+           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/g++-14
 
     - name: Build the Test
       working-directory: ./Build
@@ -132,7 +132,7 @@ jobs:
            sudo apt update
            wget https://apt.llvm.org/llvm.sh
            chmod u+x llvm.sh
-           sudo ./llvm.sh 19
+           sudo ./llvm.sh 20
 
     - name: Install Seaborn
       run: |
@@ -141,7 +141,7 @@ jobs:
     - name: Configure CMake
       working-directory: ./
       run: |
-           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/clang++-19
+           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/clang++-20
 
     - name: Build the Test
       working-directory: ./Build
@@ -173,77 +173,83 @@ jobs:
            sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-clang-ubuntu
         
   Build-GNUCXX-MacOS:
-    runs-on: macos-latest
+      runs-on: macos-latest
+      strategy:
+        fail-fast: false
+        matrix:
+          build_type: [Release]
+      steps:
+      - uses: actions/checkout@v4
+  
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+  
+      - name: Create requirements.txt
+        run: |
+          echo seaborn > requirements.txt
+          echo matplotlib >> requirements.txt
+          echo pandas >> requirements.txt
+  
+      - name: Install dependencies
+        run: |
+          python -m venv env
+          source env/bin/activate
+          pip install -r requirements.txt
+  
+      - name: Install GCC
+        run: |
+          brew install gcc
+  
+      - name: Set up GCC environment
+        run: |
+          GCC_PATH=$(brew --prefix gcc)
+          GCC_VER=$(ls ${GCC_PATH}/bin/gcc-* 2>/dev/null | grep -oE '[0-9]+$' | sort -rn | head -1)
 
-    strategy:
-      fail-fast: false
-      matrix:
-        build_type: [Release]
+          echo "CC=${GCC_PATH}/bin/gcc-${GCC_VER}" >> $GITHUB_ENV
+          echo "CXX=${GCC_PATH}/bin/g++-${GCC_VER}" >> $GITHUB_ENV
 
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.x'
-    
-    - name: Create requirements.txt
-      run: |
-        echo seaborn > requirements.txt
-        echo matplotlib >> requirements.txt
-        echo pandas >> requirements.txt
-    
-    - name: Install dependencies
-      run: |
-        python -m venv env
-        source env/bin/activate
-        pip install -r requirements.txt
-    
-    - name: Install the latest GNUCXX compiler
-      run: |
-        brew install gcc --force-bottle
-    
-    - name: Determine g++ path
-      id: gpp_path
-      run: |
-        echo "G++ Path: $(which g++)"
-        echo "GXX_PATH=$(which g++)" >> $GITHUB_ENV
-    
-    - name: Configure CMake
-      working-directory: ./
-      run: |
-        cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=${{env.GXX_PATH}}
-    
-    - name: Build the Test
-      working-directory: ./Build
-      run: |
-        cmake --build . --config=${{ matrix.build_type }}
-    
-    - name: Install the Test
-      working-directory: ./Build
-      run: |
-        sudo cmake --install . --config=${{ matrix.build_type }}
-        sudo chmod +x /Users/runner/work/Json-Performance/Json-Performance/Install/bin/Json-Performance
-    
-    - name: Run the Test
-      working-directory: /Users/runner/work/Json-Performance/Json-Performance/Install/bin/
-      run: |
-        source /Users/runner/work/Json-Performance/Json-Performance/env/bin/activate
-        ./Json-Performance
-      continue-on-error: true
-    
-    - name: Commit and push the changes to a temp branch.
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
-      working-directory: /Users/runner/work/Json-Performance/Json-Performance/
-      run: |
-        sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
-        sudo git config --global user.name "RealTimeChris"
-        sudo git checkout -b temp-gnucxx-macos
-        sudo git add . 
-        sudo git commit -m "Updates - GNUCXX-MacOS"
-        sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-gnucxx-macos
+          ${GCC_PATH}/bin/gcc-${GCC_VER} --version
+          ${GCC_PATH}/bin/g++-${GCC_VER} --version
+  
+      - name: Configure CMake
+        working-directory: ./
+        run: |
+          cmake -S . -B ./Build \
+            -DCMAKE_BUILD_TYPE=${{matrix.build_type}} \
+            -DCMAKE_C_COMPILER=${{ env.CC }} \
+            -DCMAKE_CXX_COMPILER=${{ env.CXX }}
+  
+      - name: Build the Test
+        working-directory: ./Build
+        run: |
+          cmake --build . --config=${{ matrix.build_type }}
+  
+      - name: Install the Test
+        working-directory: ./Build
+        run: |
+          sudo cmake --install . --config=${{ matrix.build_type }}
+          sudo chmod +x /Users/runner/work/Json-Performance/Json-Performance/Install/bin/Json-Performance
+  
+      - name: Run the Test
+        working-directory: /Users/runner/work/Json-Performance/Json-Performance/Install/bin/
+        run: |
+          source /Users/runner/work/Json-Performance/Json-Performance/env/bin/activate
+          ./Json-Performance
+        continue-on-error: true
+  
+      - name: Commit and push the changes to a temp branch.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+        working-directory: /Users/runner/work/Json-Performance/Json-Performance/
+        run: |
+          sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
+          sudo git config --global user.name "RealTimeChris"
+          sudo git checkout -b temp-gnucxx-macos
+          sudo git add . 
+          sudo git commit -m "Updates - GNUCXX-MacOS"
+          sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-gnucxx-macos
 
   Build-CLANG-MacOS:
     runs-on: macos-latest
@@ -280,7 +286,7 @@ jobs:
     - name: Configure CMake
       working-directory: ./
       run: |
-        cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/opt/homebrew/opt/llvm/bin/clang++
+        cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
     
     - name: Build the Test
       working-directory: ./Build

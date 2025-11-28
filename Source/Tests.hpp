@@ -55,7 +55,7 @@ namespace tests {
 
 	template<pod_type test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const test_data_type& testDataNew) {
+		JSONIFIER_INLINE static auto run(const test_data_type& testDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
@@ -78,22 +78,21 @@ namespace tests {
 			}
 			size_t currentIndex{};
 			struct parse_test_struct {
-				BNCH_SWT_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, test_data_type& testDatas, size_t& currentIndex,
+				JSONIFIER_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, test_data_type& testDatas, size_t& currentIndex,
 					std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
 						parserNew.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDatas[currentIndex][x],
 							newStrings[currentIndex][x]);
-						bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+						bnch_swt::do_not_optimize_away(testDatas[currentIndex]);
 						newSize += newStrings[currentIndex][x].size();
 					}
 					++currentIndex;
 					return newSize;
 				}
 			};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName,  parse_test_struct>(parser, testDatas,
-					currentIndex, newStrings);
+			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<jsonifierLibraryName, parse_test_struct>(parser,
+				testDatas, currentIndex, newStrings);
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
@@ -104,23 +103,22 @@ namespace tests {
 			}
 			currentIndex = 0;
 			struct serialize_test_struct {
-				BNCH_SWT_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, test_data_type& testDatas, size_t& currentIndex,
+				JSONIFIER_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, test_data_type& testDatas, size_t& currentIndex,
 					std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
 						parserNew.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDatas[currentIndex][x], newStrings[currentIndex][x]);
-						bnch_swt::doNotOptimizeAway(newStrings[currentIndex][x]);
+						bnch_swt::do_not_optimize_away(newStrings[currentIndex][x]);
 						newSize += newStrings[currentIndex][x].size();
 					}
 					++currentIndex;
 					return newSize;
 				}
 			};
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName,  serialize_test_struct>(parser,
-					testDatas, currentIndex, newStrings);
-			r.readResult  = result<result_type::read>{ "teal", readResult };
-			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
+			auto writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template run_benchmark<jsonifierLibraryName, serialize_test_struct>(parser,
+				testDatas, currentIndex, newStrings);
+			r.readResult	 = result<result_type::read>{ "teal", readResult };
+			r.writeResult	 = result<result_type::write>{ "steelblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(parser.serializeJson(testDatas)),
 				jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
 			return r;
@@ -129,7 +127,7 @@ namespace tests {
 
 	template<iterative_test_type test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const std::vector<test_data_type>& testDataNew) {
+		JSONIFIER_INLINE static auto run(const std::vector<test_data_type>& testDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
@@ -143,15 +141,19 @@ namespace tests {
 			}
 			std::vector<test_data_type> testDatas{ iterations };
 			size_t currentIndex{};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
-					parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDatas[currentIndex],
+			struct parse_test_struct {
+				JSONIFIER_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, std::vector<test_data_type>& testDatas, size_t& currentIndex,
+					std::vector<std::string>& newStrings) {
+					parserNew.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDatas[currentIndex],
 						newStrings[currentIndex]);
-					bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+					bnch_swt::do_not_optimize_away(testDatas[currentIndex]);
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
-				});
+				}
+			};
+			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<jsonifierLibraryName, parse_test_struct>(parser,
+				testDatas, currentIndex, newStrings);
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
@@ -159,16 +161,20 @@ namespace tests {
 				newStrings[x] = std::string{};
 			}
 			currentIndex = 0;
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
-					parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDatas[currentIndex], newStrings[currentIndex]);
-					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+			struct serialize_test_struct {
+				JSONIFIER_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, std::vector<test_data_type>& testDatas, size_t& currentIndex,
+					std::vector<std::string>& newStrings) {
+					parserNew.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDatas[currentIndex], newStrings[currentIndex]);
+					bnch_swt::do_not_optimize_away(newStrings[currentIndex]);
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
-				});
-			r.readResult  = result<result_type::read>{ "teal", readResult };
-			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
+				}
+			};
+			auto writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template run_benchmark<jsonifierLibraryName, serialize_test_struct>(parser,
+				testDatas, currentIndex, newStrings);
+			r.readResult	 = result<result_type::read>{ "teal", readResult };
+			r.writeResult	 = result<result_type::write>{ "steelblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]),
 				jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
 			return r;
@@ -177,7 +183,7 @@ namespace tests {
 
 	template<typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const test_data_type& testDataNew) {
+		JSONIFIER_INLINE static auto run(const test_data_type& testDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
@@ -189,31 +195,39 @@ namespace tests {
 			std::string newString{ parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDataNew) };
 			std::vector<test_data_type> testDatas{ iterations };
 			size_t currentIndex{};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
-					parser.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDatas[currentIndex], newString);
-					bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
-					auto newSize = newString.size();
+			struct parse_test_struct {
+				JSONIFIER_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, std::vector<test_data_type>& testDatas, size_t& currentIndex, std::string& newStrings) {
+					parserNew.parseJson<jsonifier::parse_options{ .partialRead = partialRead, .knownOrder = knownOrder, .minified = minified }>(testDatas[currentIndex],
+						newStrings);
+					bnch_swt::do_not_optimize_away(testDatas[currentIndex]);
+					auto newSize = newStrings.size();
 					++currentIndex;
 					return newSize;
-				});
+				}
+			};
+			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<jsonifierLibraryName, parse_test_struct>(parser,
+				testDatas, currentIndex, newString);
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
 			for (size_t x = 0; x < iterations; ++x) {
-				testDatas[x] = testDatas[0];
+				newStrings[x] = std::string{};
 			}
 			currentIndex = 0;
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
-					parser.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDatas[currentIndex], newStrings[currentIndex]);
-					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+			struct serialize_test_struct {
+				JSONIFIER_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, std::vector<test_data_type>& testDatas, size_t& currentIndex,
+					std::vector<std::string>& newStrings) {
+					parserNew.serializeJson<jsonifier::serialize_options{ .prettify = !minified }>(testDatas[currentIndex], newStrings[currentIndex]);
+					bnch_swt::do_not_optimize_away(newStrings[currentIndex]);
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
-				});
-			r.readResult  = result<result_type::read>{ "teal", readResult };
-			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
+				}
+			};
+			auto writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template run_benchmark<jsonifierLibraryName, serialize_test_struct>(parser,
+				testDatas, currentIndex, newStrings);
+			r.readResult	 = result<result_type::read>{ "teal", readResult };
+			r.writeResult	 = result<result_type::write>{ "steelblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]),
 				jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
 			return r;
@@ -222,19 +236,23 @@ namespace tests {
 
 	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::prettify, std::string, false, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(std::string& newBuffer) {
+		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl };
 			jsonifier::jsonifier_core parser{};
 			std::vector<std::string> newStrings{ iterations };
 			size_t currentIndex{};
-			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
-				parser.prettifyJson(newBuffer, newStrings[currentIndex]);
-				bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
-				auto newSize = newStrings[currentIndex].size();
-				++currentIndex;
-				return newSize;
-			});
+			struct prettify_test_struct {
+				JSONIFIER_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, size_t& currentIndex, std::vector<std::string>& newStrings, std::string& newerBuffer) {
+					parserNew.prettifyJson(newerBuffer, newStrings[currentIndex]);
+					bnch_swt::do_not_optimize_away(newStrings[currentIndex]);
+					auto newSize = newStrings[currentIndex].size();
+					++currentIndex;
+					return newSize;
+				}
+			};
+			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<jsonifierLibraryName, prettify_test_struct>(parser,
+				currentIndex, newStrings, newBuffer);
 
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
@@ -247,19 +265,23 @@ namespace tests {
 
 	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::minify, std::string, false, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(std::string& newBuffer) {
+		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			std::vector<std::string> newStrings{ iterations };
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl };
 			jsonifier::jsonifier_core parser{};
 			size_t currentIndex{};
-			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
-				parser.minifyJson(newBuffer, newStrings[currentIndex]);
-				bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
-				auto newSize = newStrings[currentIndex].size();
-				++currentIndex;
-				return newSize;
-			});
+			struct minify_test_struct {
+				JSONIFIER_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, size_t& currentIndex, std::vector<std::string>& newStrings, std::string& newerBuffer) {
+					parserNew.minifyJson(newerBuffer, newStrings[currentIndex]);
+					bnch_swt::do_not_optimize_away(newStrings[currentIndex]);
+					auto newSize = newStrings[currentIndex].size();
+					++currentIndex;
+					return newSize;
+				}
+			};
+			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<jsonifierLibraryName, minify_test_struct>(parser,
+				currentIndex, newStrings, newBuffer);
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
@@ -271,18 +293,21 @@ namespace tests {
 
 	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::jsonifier, test_type::validate, std::string, false, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(std::string& newBuffer) {
+		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			results_data r{ jsonifierLibraryName, testName, jsonifierCommitUrl };
-			jsonifier::jsonifier_core parser{};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<jsonifierLibraryName>([&]() mutable {
-					if (auto result = parser.validateJson(newBuffer); !result) {
-						bnch_swt::doNotOptimizeAway(result);
+			struct validate_test_struct {
+				JSONIFIER_INLINE static size_t impl(jsonifier::jsonifier_core<>& parserNew, std::string& newerBuffer) {
+					if (auto result = parserNew.validateJson(newerBuffer); !result) {
+						bnch_swt::do_not_optimize_away(result);
 						return uint64_t{};
 					}
-					return static_cast<uint64_t>(newBuffer.size());
-				});
+					return static_cast<uint64_t>(newerBuffer.size());
+				}
+			};
+			jsonifier::jsonifier_core parser{};
+			auto readResult =
+				bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<jsonifierLibraryName, validate_test_struct>(parser, newBuffer);
 
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
@@ -305,7 +330,7 @@ namespace tests {
 
 	template<pod_type test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::glaze, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const test_data_type& testDataNew) {
+		JSONIFIER_INLINE static auto run(const test_data_type& testDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
@@ -327,7 +352,7 @@ namespace tests {
 			}
 			size_t currentIndex{};
 			struct parse_test_struct {
-				BNCH_SWT_INLINE static size_t impl(test_data_type& testDatas, size_t& currentIndex, std::vector<std::vector<std::string>>& newStrings) {
+				JSONIFIER_INLINE static size_t impl(test_data_type& testDatas, size_t& currentIndex, std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
 						get_ref_t<decltype(testDatas[currentIndex][x])> reference = testDatas[currentIndex][x];
@@ -339,16 +364,15 @@ namespace tests {
 							error) {
 							std::cout << "Glaze Error: " << glz::format_error(error, newStrings[currentIndex][x]) << std::endl;
 						}
-						bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+						bnch_swt::do_not_optimize_away(testDatas[currentIndex]);
 						newSize += newStrings[currentIndex][x].size();
 					}
 					++currentIndex;
 					return newSize;
 				}
 			};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  parse_test_struct>(testDatas, currentIndex,
-					newStrings);
+			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, parse_test_struct>(testDatas,
+				currentIndex, newStrings);
 			for (size_t x = 0; x < iterations; ++x) {
 				for (size_t y = 0; y < testDataNew[x].size(); ++y) {
 					newStrings[x][y] = std::string{};
@@ -356,24 +380,23 @@ namespace tests {
 			}
 			currentIndex = 0;
 			struct serialize_test_struct {
-				BNCH_SWT_INLINE static size_t impl(test_data_type& testDatas, size_t& currentIndex, std::vector<std::vector<std::string>>& newStrings) {
+				JSONIFIER_INLINE static size_t impl(test_data_type& testDatas, size_t& currentIndex, std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
 						auto newResult = glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testDatas[currentIndex][x],
 							newStrings[currentIndex][x]);
 						( void )newResult;
-						bnch_swt::doNotOptimizeAway(newStrings[currentIndex][x]);
+						bnch_swt::do_not_optimize_away(newStrings[currentIndex][x]);
 						newSize += newStrings[currentIndex][x].size();
 					}
 					++currentIndex;
 					return newSize;
 				}
 			};
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  serialize_test_struct>(testDatas,
-					currentIndex, newStrings);
-			r.readResult  = result<result_type::read>{ "dodgerblue", readResult };
-			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
+			auto writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, serialize_test_struct>(testDatas,
+				currentIndex, newStrings);
+			r.readResult	 = result<result_type::read>{ "dodgerblue", readResult };
+			r.writeResult	 = result<result_type::write>{ "skyblue", writeResult };
 			std::string newString{};
 			auto newResult = glz::write_json(testDatas, newString);
 			( void )newResult;
@@ -384,7 +407,7 @@ namespace tests {
 
 	template<iterative_test_type test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::glaze, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const std::vector<test_data_type>& testDataNew) {
+		JSONIFIER_INLINE static auto run(const std::vector<test_data_type>& testDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
@@ -398,7 +421,7 @@ namespace tests {
 			}
 			size_t currentIndex{};
 			struct parse_test_struct {
-				BNCH_SWT_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::vector<std::string>& newStrings) {
+				JSONIFIER_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::vector<std::string>& newStrings) {
 					if (auto error = glz::read<glz::opts{ .error_on_unknown_keys = !partialRead,
 							.skip_null_members									 = false,
 							.prettify											 = !minified,
@@ -407,35 +430,33 @@ namespace tests {
 						error) {
 						std::cout << "Glaze Error: " << glz::format_error(error, newStrings[currentIndex]) << std::endl;
 					}
-					bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+					bnch_swt::do_not_optimize_away(testDatas[currentIndex]);
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
 				}
 			};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  parse_test_struct>(testDatas,
-					currentIndex, newStrings);
+			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, parse_test_struct>(testDatas,
+				currentIndex, newStrings);
 			for (size_t x = 0; x < iterations; ++x) {
 				newStrings[x] = std::string{};
 			}
 			currentIndex = 0;
 			struct serialize_test_struct {
-				BNCH_SWT_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::vector<std::string>& newStrings) {
+				JSONIFIER_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::vector<std::string>& newStrings) {
 					auto newResult =
 						glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testDatas[currentIndex], newStrings[currentIndex]);
-					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+					bnch_swt::do_not_optimize_away(newStrings[currentIndex]);
 					( void )newResult;
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
 				}
 			};
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  serialize_test_struct>(testDatas,
-					currentIndex, newStrings);
-			r.readResult  = result<result_type::read>{ "dodgerblue", readResult };
-			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
+			auto writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, serialize_test_struct>(testDatas,
+				currentIndex, newStrings);
+			r.readResult	 = result<result_type::read>{ "dodgerblue", readResult };
+			r.writeResult	 = result<result_type::write>{ "skyblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			return r;
 		}
@@ -443,7 +464,7 @@ namespace tests {
 
 	template<typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::glaze, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const test_data_type& testDataNew) {
+		JSONIFIER_INLINE static auto run(const test_data_type& testDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
@@ -456,7 +477,7 @@ namespace tests {
 			( void )newResult;
 			size_t currentIndex{};
 			struct parse_test_struct {
-				BNCH_SWT_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::string& newString, std::vector<std::string>& newStrings) {
+				JSONIFIER_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::string& newString, std::vector<std::string>& newStrings) {
 					if (auto error = glz::read<glz::opts{ .error_on_unknown_keys = !partialRead,
 							.skip_null_members									 = false,
 							.prettify											 = !minified,
@@ -465,35 +486,33 @@ namespace tests {
 						error) {
 						std::cout << "Glaze Error: " << glz::format_error(error, newStrings[currentIndex]) << std::endl;
 					}
-					bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+					bnch_swt::do_not_optimize_away(testDatas[currentIndex]);
 					auto newSize = newString.size();
 					++currentIndex;
 					return newSize;
 				}
 			};
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  parse_test_struct>(testDatas,
-					currentIndex, newString, newStrings);
+			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, parse_test_struct>(testDatas,
+				currentIndex, newString, newStrings);
 			for (size_t x = 0; x < iterations; ++x) {
 				testDatas[x] = testDatas[0];
 			}
 			currentIndex = 0;
 			struct serialize_test_struct {
-				BNCH_SWT_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::vector<std::string>& newStrings) {
+				JSONIFIER_INLINE static size_t impl(std::vector<test_data_type>& testDatas, size_t& currentIndex, std::vector<std::string>& newStrings) {
 					auto newResultNew =
 						glz::write<glz::opts{ .skip_null_members = false, .prettify = !minified, .minified = minified }>(testDatas[currentIndex], newStrings[currentIndex]);
-					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+					bnch_swt::do_not_optimize_away(newStrings[currentIndex]);
 					( void )newResultNew;
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
 				}
 			};
-			bnch_swt::performance_metrics writeResult =
-				bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  serialize_test_struct>(testDatas,
-					currentIndex, newStrings);
-			r.readResult  = result<result_type::read>{ "dodgerblue", readResult };
-			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
+			auto writeResult = bnch_swt::benchmark_stage<testNameWrite, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, serialize_test_struct>(testDatas,
+				currentIndex, newStrings);
+			r.readResult	 = result<result_type::read>{ "dodgerblue", readResult };
+			r.writeResult	 = result<result_type::write>{ "skyblue", writeResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			return r;
 		}
@@ -501,24 +520,24 @@ namespace tests {
 
 	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::glaze, test_type::prettify, std::string, false, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(std::string& newBuffer) {
+		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			std::vector<std::string> newStrings{ iterations };
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl };
 			size_t currentIndex{};
 
 			struct prettify_test_struct {
-				BNCH_SWT_INLINE static size_t impl(std::string& newBuffer, std::vector<std::string>& newStrings, size_t& currentIndex) {
+				JSONIFIER_INLINE static size_t impl(std::string& newBuffer, std::vector<std::string>& newStrings, size_t& currentIndex) {
 					glz::prettify_json(newBuffer, newStrings[currentIndex]);
-					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+					bnch_swt::do_not_optimize_away(newStrings[currentIndex]);
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
 				}
 			};
 
-			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  prettify_test_struct>(
-				newBuffer, newStrings, currentIndex);
+			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, prettify_test_struct>(newBuffer,
+				newStrings, currentIndex);
 
 			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
@@ -528,7 +547,7 @@ namespace tests {
 	};
 
 	template<size_t iterations, bnch_swt::string_literal testNameNew> struct json_test_helper<json_library::glaze, test_type::minify, std::string, false, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(std::string& newBuffer) {
+		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 
 			std::string newestBuffer{ newBuffer };
@@ -537,17 +556,17 @@ namespace tests {
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl };
 
 			struct minify_test_struct {
-				BNCH_SWT_INLINE static size_t impl(std::string& newestBuffer, std::vector<std::string>& newStrings, size_t& currentIndex) {
+				JSONIFIER_INLINE static size_t impl(std::string& newestBuffer, std::vector<std::string>& newStrings, size_t& currentIndex) {
 					glz::minify_json(newestBuffer, newStrings[currentIndex]);
-					bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+					bnch_swt::do_not_optimize_away(newStrings[currentIndex]);
 					auto newSize = newStrings[currentIndex].size();
 					++currentIndex;
 					return newSize;
 				}
 			};
 
-			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  minify_test_struct>(
-				newestBuffer, newStrings, currentIndex);
+			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, minify_test_struct>(newestBuffer,
+				newStrings, currentIndex);
 
 			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
@@ -558,22 +577,21 @@ namespace tests {
 
 	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::glaze, test_type::validate, std::string, false, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(std::string& newBuffer) {
+		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			results_data r{ glazeLibraryName, testName, glazeCommitUrl };
 
 			struct validate_test_struct {
-				BNCH_SWT_INLINE static size_t impl(std::string& newBuffer) {
+				JSONIFIER_INLINE static size_t impl(std::string& newBuffer) {
 					if (auto result = glz::validate_json(newBuffer); result) {
-						bnch_swt::doNotOptimizeAway(result);
+						bnch_swt::do_not_optimize_away(result);
 						return size_t{};
 					}
 					return newBuffer.size();
 				}
 			};
 
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<glazeLibraryName,  validate_test_struct>(newBuffer);
+			auto readResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, validate_test_struct>(newBuffer);
 
 			bnch_swt::file_loader::saveFile(newBuffer, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			r.readResult = result<result_type::read>{ "dodgerblue", readResult };
@@ -584,7 +602,7 @@ namespace tests {
 
 	template<pod_type test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::simdjson, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const test_data_type& testDataNew) {
+		JSONIFIER_INLINE static auto run(const test_data_type& testDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
@@ -607,12 +625,12 @@ namespace tests {
 			size_t currentIndex{};
 
 			struct parse_test_struct {
-				BNCH_SWT_INLINE static size_t impl(simdjson::ondemand::parser& parser, test_data_type& testDatas, size_t& currentIndex,
+				JSONIFIER_INLINE static size_t impl(simdjson::ondemand::parser& parser, test_data_type& testDatas, size_t& currentIndex,
 					std::vector<std::vector<std::string>>& newStrings) {
 					size_t newSize{};
 					for (size_t x = 0; x < testDatas[currentIndex].size(); ++x) {
 						getValue(testDatas[currentIndex][x], static_cast<simdjson::ondemand::document>(parser.iterate(newStrings[currentIndex][x])));
-						bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+						bnch_swt::do_not_optimize_away(testDatas[currentIndex]);
 						newSize += newStrings[currentIndex][x].size();
 					}
 					++currentIndex;
@@ -620,10 +638,9 @@ namespace tests {
 				}
 			};
 
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName,  parse_test_struct>(parser,
-					testDatas, currentIndex, newStrings);
-			r.readResult = result<result_type::read>{ "cadetblue", readResult };
+			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<simdjsonLibraryName, parse_test_struct>(parser,
+				testDatas, currentIndex, newStrings);
+			r.readResult	= result<result_type::read>{ "cadetblue", readResult };
 			std::string newString{};
 			auto newResult = glz::write_json(testDatas, newString);
 			( void )newResult;
@@ -634,7 +651,7 @@ namespace tests {
 
 	template<iterative_test_type test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::simdjson, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const std::vector<test_data_type>& testDataNew) {
+		JSONIFIER_INLINE static auto run(const std::vector<test_data_type>& testDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
@@ -649,11 +666,11 @@ namespace tests {
 			size_t currentIndex{};
 
 			struct parse_test_struct {
-				BNCH_SWT_INLINE static size_t impl(simdjson::ondemand::parser& parser, std::vector<test_data_type>& testDatas, size_t& currentIndex,
+				JSONIFIER_INLINE static size_t impl(simdjson::ondemand::parser& parser, std::vector<test_data_type>& testDatas, size_t& currentIndex,
 					std::vector<std::string>& newStrings) {
 					try {
 						getValue(testDatas[currentIndex], parser.iterate(newStrings[currentIndex]).value().get_value());
-						bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+						bnch_swt::do_not_optimize_away(testDatas[currentIndex]);
 						auto newSize = newStrings[currentIndex].size();
 						++currentIndex;
 						return newSize;
@@ -666,10 +683,9 @@ namespace tests {
 				}
 			};
 
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName,  parse_test_struct>(parser,
-					testDatas, currentIndex, newStrings);
-			r.readResult = result<result_type::read>{ "cadetblue", readResult };
+			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<simdjsonLibraryName, parse_test_struct>(parser,
+				testDatas, currentIndex, newStrings);
+			r.readResult	= result<result_type::read>{ "cadetblue", readResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			return r;
 		}
@@ -677,7 +693,7 @@ namespace tests {
 
 	template<typename test_data_type, bool minified, size_t iterations, const bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::simdjson, test_type::parse_and_serialize, test_data_type, minified, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static auto run(const test_data_type& testDataNew) {
+		JSONIFIER_INLINE static auto run(const test_data_type& testDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			static constexpr bnch_swt::string_literal testNameRead{ testName + "-Read" };
 			static constexpr bnch_swt::string_literal testNameWrite{ testName + "-Write" };
@@ -694,10 +710,10 @@ namespace tests {
 			size_t currentIndex{};
 
 			struct parse_test_struct {
-				BNCH_SWT_INLINE static size_t impl(simdjson::ondemand::parser& parser, std::vector<test_data_type>& testDatas, size_t& currentIndex, std::string& newString) {
+				JSONIFIER_INLINE static size_t impl(simdjson::ondemand::parser& parser, std::vector<test_data_type>& testDatas, size_t& currentIndex, std::string& newString) {
 					try {
 						getValue(testDatas[currentIndex], parser.iterate(newString).value().get_value());
-						bnch_swt::doNotOptimizeAway(testDatas[currentIndex]);
+						bnch_swt::do_not_optimize_away(testDatas[currentIndex]);
 						auto newSize = newString.size();
 						++currentIndex;
 						return newSize;
@@ -710,10 +726,9 @@ namespace tests {
 				}
 			};
 
-			bnch_swt::performance_metrics readResult =
-				bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName,  parse_test_struct>(parser,
-					testDatas, currentIndex, newString);
-			r.readResult = result<result_type::read>{ "cadetblue", readResult };
+			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<simdjsonLibraryName, parse_test_struct>(parser,
+				testDatas, currentIndex, newString);
+			r.readResult	= result<result_type::read>{ "cadetblue", readResult };
 			bnch_swt::file_loader::saveFile(static_cast<std::string>(newString), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			return r;
 		}
@@ -722,7 +737,7 @@ namespace tests {
 	template<size_t iterations, bnch_swt::string_literal testNameNew>
 	struct json_test_helper<json_library::simdjson, test_type::minify, std::string, false, iterations, testNameNew> {
 		static constexpr bnch_swt::string_literal testName{ testNameNew };
-		JSONIFIER_CLANG_INLINE static auto run(std::string& newBuffer) {
+		JSONIFIER_INLINE static auto run(std::string& newBuffer) {
 			results_data r{ simdjsonLibraryName, testName, simdjsonCommitUrl };
 
 			simdjson::dom::parser parser{};
@@ -730,10 +745,10 @@ namespace tests {
 			size_t currentIndex{};
 
 			struct minify_test_struct {
-				BNCH_SWT_INLINE static size_t impl(simdjson::dom::parser& parser, std::string& newBuffer, std::vector<std::string>& newStrings, size_t& currentIndex) {
+				JSONIFIER_INLINE static size_t impl(simdjson::dom::parser& parser, std::string& newBuffer, std::vector<std::string>& newStrings, size_t& currentIndex) {
 					try {
 						newStrings[currentIndex] = simdjson::minify(parser.parse(newBuffer));
-						bnch_swt::doNotOptimizeAway(newStrings[currentIndex]);
+						bnch_swt::do_not_optimize_away(newStrings[currentIndex]);
 						auto newSize = newStrings[currentIndex].size();
 						++currentIndex;
 						return newSize;
@@ -744,9 +759,8 @@ namespace tests {
 				}
 			};
 
-			auto writeResult =
-				bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template runBenchmark<simdjsonLibraryName, minify_test_struct>(parser,
-					newBuffer, newStrings, currentIndex);
+			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<simdjsonLibraryName, minify_test_struct>(parser,
+				newBuffer, newStrings, currentIndex);
 
 			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			r.writeResult = result<result_type::write>{ "cornflowerblue", writeResult };
@@ -755,7 +769,7 @@ namespace tests {
 		}
 	};
 
-#if defined(JSONIFIER_MAC)
+#if JSONIFIER_PLATFORM_MAC
 	constexpr bnch_swt::string_literal table_header = bnch_swt::string_literal{
 		R"(
 | Library | Read (MB/S) | Read Percentage Deviation (+/-%) | Read Length (Bytes) | Read Time (ns) | Write (MB/S) | Write Percentage Deviation (+/-%) | Write Length (Bytes) | Write Time (ns) |
@@ -794,7 +808,7 @@ namespace tests {
 		R"( iterations on a ()" + getCPUInfo() + R"(), where the most stable 20 subsequent iterations are sampled.
 
 #### Note:
-These benchmarks were executed using the CPU benchmark library [BenchmarkSuite](https://github.com/RealTimeChris/BenchmarkSuite).)" };
+These benchmarks were executed using the CPU benchmark library [benchmarksuite](https://github.com/RealTimeChris/benchmarksuite).)" };
 
 	constexpr bnch_swt::string_literal section002{ bnch_swt::string_literal{ R"(#### Using the following commits:
 ----
@@ -837,7 +851,7 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 	template<test_type type, typename test_data_type, bool minified, uint64_t iterations, bnch_swt::string_literal testName> struct json_tests_helper;
 
 	template<test_type type, typename test_data_type, bool minified, uint64_t iterations, bnch_swt::string_literal testNameNew> struct json_tests_helper {
-		template<typename test_data_type_new> JSONIFIER_CLANG_INLINE static test_results run(const test_data_type_new& jsonDataNew) {
+		template<typename test_data_type_new> JSONIFIER_INLINE static test_results run(const test_data_type_new& jsonDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			test_results jsonResults{};
 			jsonResults.testName = testName.operator std::string();
@@ -867,14 +881,14 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 				}
 				++iter;
 			}
-			bnch_swt::benchmark_stage<testNameNew + "-Read", iterations, measuredIterations>::printResults();
-			bnch_swt::benchmark_stage<testNameNew + "-Write", iterations, measuredIterations>::printResults();
+			bnch_swt::benchmark_stage<testNameNew + "-Read", iterations, measuredIterations>::print_results();
+			bnch_swt::benchmark_stage<testNameNew + "-Write", iterations, measuredIterations>::print_results();
 			return jsonResults;
 		}
 	};
 
 	template<uint64_t iterations, bnch_swt::string_literal testNameNew> struct json_tests_helper<test_type::prettify, std::string, false, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static test_results run(std::string& jsonDataNew) {
+		JSONIFIER_INLINE static test_results run(std::string& jsonDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			test_results jsonResults{};
 			jsonResults.testName = testName.operator std::string();
@@ -898,13 +912,13 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 				}
 				++iter;
 			}
-			bnch_swt::benchmark_stage<testNameNew, iterations, measuredIterations>::printResults();
+			bnch_swt::benchmark_stage<testNameNew, iterations, measuredIterations>::print_results();
 			return jsonResults;
 		}
 	};
 
 	template<uint64_t iterations, bnch_swt::string_literal testNameNew> struct json_tests_helper<test_type::minify, std::string, false, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static test_results run(std::string& jsonDataNew) {
+		JSONIFIER_INLINE static test_results run(std::string& jsonDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			test_results jsonResults{};
 			jsonResults.testName = testName.operator std::string();
@@ -931,13 +945,13 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 				}
 				++iter;
 			}
-			bnch_swt::benchmark_stage<testNameNew, iterations, measuredIterations>::printResults();
+			bnch_swt::benchmark_stage<testNameNew, iterations, measuredIterations>::print_results();
 			return jsonResults;
 		}
 	};
 
 	template<uint64_t iterations, bnch_swt::string_literal testNameNew> struct json_tests_helper<test_type::validate, std::string, false, iterations, testNameNew> {
-		JSONIFIER_CLANG_INLINE static test_results run(std::string& jsonDataNew) {
+		JSONIFIER_INLINE static test_results run(std::string& jsonDataNew) {
 			static constexpr bnch_swt::string_literal testName{ testNameNew };
 			test_results jsonResults{};
 			jsonResults.testName = testName.operator std::string();
@@ -961,12 +975,12 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 				}
 				++iter;
 			}
-			bnch_swt::benchmark_stage<testNameNew, iterations, measuredIterations>::printResults();
+			bnch_swt::benchmark_stage<testNameNew, iterations, measuredIterations>::print_results();
 			return jsonResults;
 		}
 	};
 
-	JSONIFIER_CLANG_INLINE void testFunction() {
+	JSONIFIER_INLINE void testFunction() {
 		std::string jsonDataNew{};
 		jsonifier::jsonifier_core parser{};
 		std::vector<test<test_struct>> jsonDataNewer{ maxIterations };

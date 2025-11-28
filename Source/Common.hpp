@@ -22,7 +22,7 @@
 /// https://github.com/RealTimeChris/jsonifier
 #pragma once
 
-#include <BnchSwt/BenchmarkSuite.hpp>
+#include <bnch_swt/index.hpp>
 #include "UnicodeEmoji.hpp"
 #include "CitmCatalog.hpp"
 #include "Twitter.hpp"
@@ -42,7 +42,7 @@ static constexpr auto measuredIterations{ 25 };
 
 constexpr auto getCurrentOperatingSystem() {
 	constexpr bnch_swt::string_literal osName{ OPERATING_SYSTEM_NAME };
-	constexpr auto osNameNew = bnch_swt::internal::toLower(osName);
+	constexpr auto osNameNew = bnch_swt::internal::to_lower(osName);
 	if constexpr (osNameNew.operator std::string_view().contains("linux")) {
 		return bnch_swt::string_literal{ "Ubuntu" };
 	} else if constexpr (osNameNew.operator std::string_view().contains("windows")) {
@@ -56,11 +56,11 @@ constexpr auto getCurrentOperatingSystem() {
 
 constexpr auto getCurrentCompilerId() {
 	constexpr bnch_swt::string_literal compilerId{ COMPILER_ID };
-	constexpr auto osCompilerIdNew = bnch_swt::internal::toLower(compilerId);
+	constexpr auto osCompilerIdNew = bnch_swt::internal::to_lower(compilerId);
 	if constexpr (osCompilerIdNew.operator std::string_view().contains("gnu") || osCompilerIdNew.operator std::string_view().contains("gcc") ||
-		osCompilerIdNew.operator std::string_view().contains("g++") || osCompilerIdNew.operator std::string_view().contains("apple")) {
+		osCompilerIdNew.operator std::string_view().contains("g++")) {
 		return bnch_swt::string_literal{ "GNUCXX" };
-	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("clang")) {
+	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("clang") || osCompilerIdNew.operator std::string_view().contains("appleclang")) {
 		return bnch_swt::string_literal{ "CLANG" };
 	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("msvc")) {
 		return bnch_swt::string_literal{ "MSVC" };
@@ -144,7 +144,7 @@ std::string getCPUInfo() {
 }
 
 void executePythonScript(const std::string& scriptPath, const std::string& argument01, const std::string& argument02) {
-#if defined(JSONIFIER_WIN)
+#if JSONIFIER_PLATFORM_WINDOWS
 	static std::string pythonName{ "python " };
 #else
 	static std::string pythonName{ "python3 " };
@@ -367,13 +367,13 @@ template<result_type type> struct result {
 	result& operator=(const result&) noexcept = default;
 	result(const result&) noexcept			  = default;
 
-	result(const std::string& colorNew, const bnch_swt::performance_metrics& results) {
-		byteLength.emplace(results.bytesProcessed);
-		jsonTime.emplace(results.timeInNs);
-		jsonSpeedPercentageDeviation.emplace(results.throughputPercentageDeviation);
-		jsonSpeed.emplace(results.throughputMbPerSec);
-		if (results.cyclesPerByte.has_value()) {
-			jsonCycles.emplace(results.cyclesPerByte.value() * 1024 * 1024);
+	result(const std::string& colorNew, const bnch_swt::performance_metrics<bnch_swt::benchmark_types::cpu>& results) {
+		byteLength.emplace(results.bytes_processed);
+		jsonTime.emplace(results.time_in_ns);
+		jsonSpeedPercentageDeviation.emplace(results.throughput_percentage_deviation);
+		jsonSpeed.emplace(results.throughput_mb_per_sec);
+		if (results.cycles_per_byte.has_value()) {
+			jsonCycles.emplace(results.cycles_per_byte.value() * 1024 * 1024);
 		}
 		color = colorNew;
 	}
@@ -459,7 +459,7 @@ struct test_results {
 };
 
 std::tm getTime() {
-#if defined(JSONIFIER_WIN)
+#if JSONIFIER_PLATFORM_WINDOWS
 	std::time_t result = std::time(nullptr);
 	std::tm resultTwo{};
 	localtime_s(&resultTwo, &result);
