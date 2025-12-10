@@ -22,9 +22,9 @@
 /// https://github.com/RealTimeChris/jsonifier
 #pragma once
 
-#include "Jsonifier.hpp"
-#include "Simdjson.hpp"
-#include "Glaze.hpp"
+#include "jsonifier.hpp"
+#include "simdjson.hpp"
+#include "glaze.hpp"
 
 namespace tests {
 
