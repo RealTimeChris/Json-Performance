@@ -119,7 +119,7 @@ namespace tests {
 				testDatas, currentIndex, newStrings);
 			r.readResult	 = result<result_type::read>{ "teal", readResult };
 			r.writeResult	 = result<result_type::write>{ "steelblue", writeResult };
-			bnch_swt::file_loader::saveFile(static_cast<std::string>(parser.serializeJson(testDatas)),
+			bnch_swt::file_loader::save_file(static_cast<std::string>(parser.serializeJson(testDatas)),
 				jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
 			return r;
 		}
@@ -175,7 +175,7 @@ namespace tests {
 				testDatas, currentIndex, newStrings);
 			r.readResult	 = result<result_type::read>{ "teal", readResult };
 			r.writeResult	 = result<result_type::write>{ "steelblue", writeResult };
-			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]),
+			bnch_swt::file_loader::save_file(static_cast<std::string>(newStrings[0]),
 				jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
 			return r;
 		}
@@ -228,7 +228,7 @@ namespace tests {
 				testDatas, currentIndex, newStrings);
 			r.readResult	 = result<result_type::read>{ "teal", readResult };
 			r.writeResult	 = result<result_type::write>{ "steelblue", writeResult };
-			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]),
+			bnch_swt::file_loader::save_file(static_cast<std::string>(newStrings[0]),
 				jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
 			return r;
 		}
@@ -257,7 +257,7 @@ namespace tests {
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
-			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
+			bnch_swt::file_loader::save_file(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
 			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
 			return r;
 		}
@@ -285,7 +285,7 @@ namespace tests {
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
-			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
+			bnch_swt::file_loader::save_file(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
 			r.writeResult = result<result_type::write>{ "steelblue", writeResult };
 			return r;
 		}
@@ -312,7 +312,7 @@ namespace tests {
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Jsonifier Error: " << value << std::endl;
 			}
-			bnch_swt::file_loader::saveFile(newBuffer, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
+			bnch_swt::file_loader::save_file(newBuffer, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-jsonifier.json");
 			r.readResult = result<result_type::read>{ "teal", readResult };
 			return r;
 		}
@@ -400,7 +400,7 @@ namespace tests {
 			std::string newString{};
 			auto newResult = glz::write_json(testDatas, newString);
 			( void )newResult;
-			bnch_swt::file_loader::saveFile(newString, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
+			bnch_swt::file_loader::save_file(newString, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			return r;
 		}
 	};
@@ -457,7 +457,7 @@ namespace tests {
 				currentIndex, newStrings);
 			r.readResult	 = result<result_type::read>{ "dodgerblue", readResult };
 			r.writeResult	 = result<result_type::write>{ "skyblue", writeResult };
-			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
+			bnch_swt::file_loader::save_file(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			return r;
 		}
 	};
@@ -513,7 +513,7 @@ namespace tests {
 				currentIndex, newStrings);
 			r.readResult	 = result<result_type::read>{ "dodgerblue", readResult };
 			r.writeResult	 = result<result_type::write>{ "skyblue", writeResult };
-			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
+			bnch_swt::file_loader::save_file(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			return r;
 		}
 	};
@@ -539,7 +539,7 @@ namespace tests {
 			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, prettify_test_struct>(newBuffer,
 				newStrings, currentIndex);
 
-			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
+			bnch_swt::file_loader::save_file(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
 
 			return r;
@@ -568,7 +568,7 @@ namespace tests {
 			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, minify_test_struct>(newestBuffer,
 				newStrings, currentIndex);
 
-			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
+			bnch_swt::file_loader::save_file(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			r.writeResult = result<result_type::write>{ "skyblue", writeResult };
 
 			return r;
@@ -593,7 +593,7 @@ namespace tests {
 
 			auto readResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<glazeLibraryName, validate_test_struct>(newBuffer);
 
-			bnch_swt::file_loader::saveFile(newBuffer, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
+			bnch_swt::file_loader::save_file(newBuffer, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-glaze.json");
 			r.readResult = result<result_type::read>{ "dodgerblue", readResult };
 
 			return r;
@@ -644,7 +644,7 @@ namespace tests {
 			std::string newString{};
 			auto newResult = glz::write_json(testDatas, newString);
 			( void )newResult;
-			bnch_swt::file_loader::saveFile(newString, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
+			bnch_swt::file_loader::save_file(newString, jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			return r;
 		}
 	};
@@ -686,7 +686,7 @@ namespace tests {
 			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<simdjsonLibraryName, parse_test_struct>(parser,
 				testDatas, currentIndex, newStrings);
 			r.readResult	= result<result_type::read>{ "cadetblue", readResult };
-			bnch_swt::file_loader::saveFile(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
+			bnch_swt::file_loader::save_file(static_cast<std::string>(newStrings[0]), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			return r;
 		}
 	};
@@ -729,7 +729,7 @@ namespace tests {
 			auto readResult = bnch_swt::benchmark_stage<testNameRead, iterations, measuredIterations>::template run_benchmark<simdjsonLibraryName, parse_test_struct>(parser,
 				testDatas, currentIndex, newString);
 			r.readResult	= result<result_type::read>{ "cadetblue", readResult };
-			bnch_swt::file_loader::saveFile(static_cast<std::string>(newString), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
+			bnch_swt::file_loader::save_file(static_cast<std::string>(newString), jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			return r;
 		}
 	};
@@ -762,7 +762,7 @@ namespace tests {
 			auto writeResult = bnch_swt::benchmark_stage<testName, iterations, measuredIterations>::template run_benchmark<simdjsonLibraryName, minify_test_struct>(parser,
 				newBuffer, newStrings, currentIndex);
 
-			bnch_swt::file_loader::saveFile(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
+			bnch_swt::file_loader::save_file(newStrings[0], jsonOutPath.operator std::string() + "/" + testName.operator std::string() + "-simdjson.json");
 			r.writeResult = result<result_type::write>{ "cornflowerblue", writeResult };
 
 			return r;
@@ -988,13 +988,13 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 			jsonDataNewer[x] = test_generator::generateTest();
 		}
 		parser.serializeJson<jsonifier::serialize_options{ .prettify = true }>(jsonDataNewer[0], jsonDataNew);
-		bnch_swt::file_loader::saveFile(jsonDataNew, jsonOutPath.operator std::string() + "/Json Test (Prettified).json");
+		bnch_swt::file_loader::save_file(jsonDataNew, jsonOutPath.operator std::string() + "/Json Test (Prettified).json");
 		std::string jsonMinifiedData = parser.minifyJson(jsonDataNew);
-		bnch_swt::file_loader::saveFile(jsonMinifiedData, jsonOutPath.operator std::string() + "/Json Test (Minified).json");
-		bnch_swt::file_loader::saveFile(jsonDataNew, jsonOutPath.operator std::string() + "/Partial Test (Prettified).json");
-		bnch_swt::file_loader::saveFile(jsonMinifiedData, jsonOutPath.operator std::string() + "/Partial Test (Minified).json");
-		bnch_swt::file_loader::saveFile(jsonDataNew, jsonOutPath.operator std::string() + "/Abc (Out of Order) Test (Prettified).json");
-		bnch_swt::file_loader::saveFile(jsonMinifiedData, jsonOutPath.operator std::string() + "/Abc (Out of Order) Test (Minified).json");
+		bnch_swt::file_loader::save_file(jsonMinifiedData, jsonOutPath.operator std::string() + "/Json Test (Minified).json");
+		bnch_swt::file_loader::save_file(jsonDataNew, jsonOutPath.operator std::string() + "/Partial Test (Prettified).json");
+		bnch_swt::file_loader::save_file(jsonMinifiedData, jsonOutPath.operator std::string() + "/Partial Test (Minified).json");
+		bnch_swt::file_loader::save_file(jsonDataNew, jsonOutPath.operator std::string() + "/Abc (Out of Order) Test (Prettified).json");
+		bnch_swt::file_loader::save_file(jsonMinifiedData, jsonOutPath.operator std::string() + "/Abc (Out of Order) Test (Minified).json");
 		std::string newTimeString{};
 		newTimeString.resize(1024);
 		std::tm resultTwo{ getTime() };
@@ -1006,7 +1006,7 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		{
 			std::vector<std::vector<double>> doubleData{ test_generator::generateValues<double>(maxIterations, 100) };
 			parser.serializeJson<jsonifier::serialize_options{ .prettify = true }>(doubleData, jsonDataNew);
-			bnch_swt::file_loader::saveFile(jsonDataNew, jsonOutPath.operator std::string() + "/Double Test.json");
+			bnch_swt::file_loader::save_file(jsonDataNew, jsonOutPath.operator std::string() + "/Double Test.json");
 			testResults = json_tests_helper<test_type::parse_and_serialize, std::vector<std::vector<double>>, false, maxIterations, "Double Test">::run(doubleData);
 			newerString += testResults.markdownResults;
 			benchmark_data.emplace_back(testResults);
@@ -1014,7 +1014,7 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		{
 			std::vector<std::vector<std::string>> stringData{ test_generator::generateValues<std::string>(maxIterations, 100) };
 			parser.serializeJson<jsonifier::serialize_options{ .prettify = true }>(stringData, jsonDataNew);
-			bnch_swt::file_loader::saveFile(jsonDataNew, jsonOutPath.operator std::string() + "/String Test.json");
+			bnch_swt::file_loader::save_file(jsonDataNew, jsonOutPath.operator std::string() + "/String Test.json");
 			testResults = json_tests_helper<test_type::parse_and_serialize, std::vector<std::vector<std::string>>, false, maxIterations, "String Test">::run(stringData);
 			newerString += testResults.markdownResults;
 			benchmark_data.emplace_back(testResults);
@@ -1022,7 +1022,7 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		{
 			std::vector<std::vector<uint64_t>> uintData{ test_generator::generateValues<uint64_t>(maxIterations, 100) };
 			parser.serializeJson<jsonifier::serialize_options{ .prettify = true }>(uintData, jsonDataNew);
-			bnch_swt::file_loader::saveFile(jsonDataNew, jsonOutPath.operator std::string() + "/Uint Test.json");
+			bnch_swt::file_loader::save_file(jsonDataNew, jsonOutPath.operator std::string() + "/Uint Test.json");
 			testResults = json_tests_helper<test_type::parse_and_serialize, std::vector<std::vector<uint64_t>>, false, maxIterations, "Uint Test">::run(uintData);
 			newerString += testResults.markdownResults;
 			benchmark_data.emplace_back(testResults);
@@ -1030,7 +1030,7 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		{
 			std::vector<std::vector<int64_t>> intData{ test_generator::generateValues<int64_t>(maxIterations, 100) };
 			parser.serializeJson<jsonifier::serialize_options{ .prettify = true }>(intData, jsonDataNew);
-			bnch_swt::file_loader::saveFile(jsonDataNew, jsonOutPath.operator std::string() + "/Int Test.json");
+			bnch_swt::file_loader::save_file(jsonDataNew, jsonOutPath.operator std::string() + "/Int Test.json");
 			testResults = json_tests_helper<test_type::parse_and_serialize, std::vector<std::vector<int64_t>>, false, maxIterations, "Int Test">::run(intData);
 			newerString += testResults.markdownResults;
 			benchmark_data.emplace_back(testResults);
@@ -1038,7 +1038,7 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		{
 			std::vector<std::vector<bool>> boolData{ test_generator::generateValues<bool>(maxIterations, 100) };
 			parser.serializeJson<jsonifier::serialize_options{ .prettify = true }>(boolData, jsonDataNew);
-			bnch_swt::file_loader::saveFile(jsonDataNew, jsonOutPath.operator std::string() + "/Bool Test.json");
+			bnch_swt::file_loader::save_file(jsonDataNew, jsonOutPath.operator std::string() + "/Bool Test.json");
 			testResults = json_tests_helper<test_type::parse_and_serialize, std::vector<std::vector<bool>>, false, maxIterations, "Bool Test">::run(boolData);
 			newerString += testResults.markdownResults;
 			benchmark_data.emplace_back(testResults);
@@ -1075,15 +1075,15 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		newerString += testResults.markdownResults;
 		benchmark_data.emplace_back(testResults);
 		{
-			std::string discordData{ bnch_swt::file_loader::loadFile(jsonPath.operator std::string() + "/" + "/Discord Test (Prettified).json") };
+			std::string discordData{ bnch_swt::file_loader::load_file(jsonPath.operator std::string() + "/" + "/Discord Test (Prettified).json") };
 			discord_message discordDataNew{};
 			parser.parseJson<jsonifier::parse_options{ .knownOrder = true }>(discordDataNew, discordData);
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Error: " << value << std::endl;
 			}
-			bnch_swt::file_loader::saveFile(discordData, jsonOutPath.operator std::string() + "/Discord Test (Prettified).json");
-			std::string discordMinifiedData{ bnch_swt::file_loader::loadFile(jsonPath.operator std::string() + "/" + "/Discord Test (Minified).json") };
-			bnch_swt::file_loader::saveFile(discordMinifiedData, jsonOutPath.operator std::string() + "/Discord Test (Minified).json");
+			bnch_swt::file_loader::save_file(discordData, jsonOutPath.operator std::string() + "/Discord Test (Prettified).json");
+			std::string discordMinifiedData{ bnch_swt::file_loader::load_file(jsonPath.operator std::string() + "/" + "/Discord Test (Minified).json") };
+			bnch_swt::file_loader::save_file(discordMinifiedData, jsonOutPath.operator std::string() + "/Discord Test (Minified).json");
 			testResults = json_tests_helper<test_type::parse_and_serialize, discord_message, false, maxIterations, "Discord Test (Prettified)">::run(discordDataNew);
 			newerString += testResults.markdownResults;
 			benchmark_data.emplace_back(testResults);
@@ -1092,15 +1092,15 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 			benchmark_data.emplace_back(testResults);
 		}
 		{
-			std::string canadaData{ bnch_swt::file_loader::loadFile(jsonPath.operator std::string() + "/" + "/Canada Test (Prettified).json") };
+			std::string canadaData{ bnch_swt::file_loader::load_file(jsonPath.operator std::string() + "/" + "/Canada Test (Prettified).json") };
 			canada_message canadaDataNew{};
 			parser.parseJson<jsonifier::parse_options{ .knownOrder = true }>(canadaDataNew, canadaData);
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Error: " << value << std::endl;
 			}
-			bnch_swt::file_loader::saveFile(canadaData, jsonOutPath.operator std::string() + "/Canada Test (Prettified).json");
-			std::string canadaMinifiedData{ bnch_swt::file_loader::loadFile(jsonPath.operator std::string() + "/" + "/Canada Test (Minified).json") };
-			bnch_swt::file_loader::saveFile(canadaMinifiedData, jsonOutPath.operator std::string() + "/Canada Test (Minified).json");
+			bnch_swt::file_loader::save_file(canadaData, jsonOutPath.operator std::string() + "/Canada Test (Prettified).json");
+			std::string canadaMinifiedData{ bnch_swt::file_loader::load_file(jsonPath.operator std::string() + "/" + "/Canada Test (Minified).json") };
+			bnch_swt::file_loader::save_file(canadaMinifiedData, jsonOutPath.operator std::string() + "/Canada Test (Minified).json");
 			testResults = json_tests_helper<test_type::parse_and_serialize, canada_message, false, maxIterations, "Canada Test (Prettified)">::run(canadaDataNew);
 			newerString += testResults.markdownResults;
 			benchmark_data.emplace_back(testResults);
@@ -1109,15 +1109,15 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 			benchmark_data.emplace_back(testResults);
 		}
 		{
-			std::string citmCatalogData{ bnch_swt::file_loader::loadFile(jsonPath.operator std::string() + "/" + "/CitmCatalog Test (Prettified).json") };
+			std::string citmCatalogData{ bnch_swt::file_loader::load_file(jsonPath.operator std::string() + "/" + "/CitmCatalog Test (Prettified).json") };
 			citm_catalog_message citmCatalogDataNew{};
 			parser.parseJson<jsonifier::parse_options{ .knownOrder = true }>(citmCatalogDataNew, citmCatalogData);
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Error: " << value << std::endl;
 			}
-			bnch_swt::file_loader::saveFile(citmCatalogData, jsonOutPath.operator std::string() + "/CitmCatalog Test (Prettified).json");
-			std::string citmCatalogMinifiedData{ bnch_swt::file_loader::loadFile(jsonPath.operator std::string() + "/" + "/CitmCatalog Test (Minified).json") };
-			bnch_swt::file_loader::saveFile(citmCatalogMinifiedData, jsonOutPath.operator std::string() + "/CitmCatalog Test (Minified).json");
+			bnch_swt::file_loader::save_file(citmCatalogData, jsonOutPath.operator std::string() + "/CitmCatalog Test (Prettified).json");
+			std::string citmCatalogMinifiedData{ bnch_swt::file_loader::load_file(jsonPath.operator std::string() + "/" + "/CitmCatalog Test (Minified).json") };
+			bnch_swt::file_loader::save_file(citmCatalogMinifiedData, jsonOutPath.operator std::string() + "/CitmCatalog Test (Minified).json");
 			testResults = json_tests_helper<test_type::parse_and_serialize, citm_catalog_message, false, maxIterations, "CitmCatalog Test (Prettified)">::run(citmCatalogDataNew);
 			newerString += testResults.markdownResults;
 			benchmark_data.emplace_back(testResults);
@@ -1126,18 +1126,18 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 			benchmark_data.emplace_back(testResults);
 		}
 		{
-			std::string twitterData{ bnch_swt::file_loader::loadFile(jsonPath.operator std::string() + "/" + "/Twitter Test (Prettified).json") };
+			std::string twitterData{ bnch_swt::file_loader::load_file(jsonPath.operator std::string() + "/" + "/Twitter Test (Prettified).json") };
 			twitter_message twitterDataNew{};
 			parser.parseJson<jsonifier::parse_options{ .knownOrder = true }>(twitterDataNew, twitterData);
 			for (auto& value: parser.getErrors()) {
 				std::cout << "Error: " << value << std::endl;
 			}
-			bnch_swt::file_loader::saveFile(twitterData, jsonOutPath.operator std::string() + "/Twitter Test (Prettified).json");
-			std::string twitterMinifiedData{ bnch_swt::file_loader::loadFile(jsonPath.operator std::string() + "/" + "/Twitter Test (Minified).json") };
-			bnch_swt::file_loader::saveFile(twitterMinifiedData, jsonOutPath.operator std::string() + "/Twitter Test (Minified).json");
-			bnch_swt::file_loader::saveFile(twitterData, jsonOutPath.operator std::string() + "/Minify Test.json");
-			bnch_swt::file_loader::saveFile(twitterMinifiedData, jsonOutPath.operator std::string() + "/Prettify Test.json");
-			bnch_swt::file_loader::saveFile(twitterData, jsonOutPath.operator std::string() + "/Validate Test.json");
+			bnch_swt::file_loader::save_file(twitterData, jsonOutPath.operator std::string() + "/Twitter Test (Prettified).json");
+			std::string twitterMinifiedData{ bnch_swt::file_loader::load_file(jsonPath.operator std::string() + "/" + "/Twitter Test (Minified).json") };
+			bnch_swt::file_loader::save_file(twitterMinifiedData, jsonOutPath.operator std::string() + "/Twitter Test (Minified).json");
+			bnch_swt::file_loader::save_file(twitterData, jsonOutPath.operator std::string() + "/Minify Test.json");
+			bnch_swt::file_loader::save_file(twitterMinifiedData, jsonOutPath.operator std::string() + "/Prettify Test.json");
+			bnch_swt::file_loader::save_file(twitterData, jsonOutPath.operator std::string() + "/Validate Test.json");
 			twitter_partial_message twitterPartialDataNew{};
 			parser.parseJson<jsonifier::parse_options{}>(twitterPartialDataNew, twitterData);
 			testResults =
@@ -1191,8 +1191,8 @@ In contrast, hash-based solutions offer a viable alternative by circumventing th
 		}
 		parser.serializeJson<jsonifier::serialize_options{ .prettify = true }>(resultsData, resultsStringJson);
 		std::cout << "Json Data: " << resultsStringJson << std::endl;
-		bnch_swt::file_loader::saveFile(resultsStringJson, jsonOutPath.operator std::string() + "/Results.json");
-		bnch_swt::file_loader::saveFile(static_cast<std::string>(newerString), readMePath.operator std::string() + "/" + currentPath.operator std::string() + ".md");
+		bnch_swt::file_loader::save_file(resultsStringJson, jsonOutPath.operator std::string() + "/Results.json");
+		bnch_swt::file_loader::save_file(static_cast<std::string>(newerString), readMePath.operator std::string() + "/" + currentPath.operator std::string() + ".md");
 		std::cout << "Md Data: " << newerString << std::endl;
 		executePythonScript(basePath.operator std::string() + "/GenerateGraphs.py", jsonOutPath.operator std::string() + "/Results.json", graphsPath.operator std::string());
 #if !defined(NDEBUG)

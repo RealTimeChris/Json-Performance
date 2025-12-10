@@ -59,7 +59,7 @@ constexpr auto getCurrentCompilerId() {
 	constexpr auto osCompilerIdNew = bnch_swt::internal::to_lower(compilerId);
 	if constexpr (osCompilerIdNew.operator std::string_view().contains("gnu") || osCompilerIdNew.operator std::string_view().contains("gcc") ||
 		osCompilerIdNew.operator std::string_view().contains("g++")) {
-		return bnch_swt::string_literal{ "GNUCXX" };
+		return bnch_swt::string_literal{ "GCC" };
 	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("clang") || osCompilerIdNew.operator std::string_view().contains("appleclang")) {
 		return bnch_swt::string_literal{ "CLANG" };
 	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("msvc")) {
@@ -144,7 +144,7 @@ std::string getCPUInfo() {
 }
 
 void executePythonScript(const std::string& scriptPath, const std::string& argument01, const std::string& argument02) {
-#if JSONIFIER_PLATFORM_WINDOWS
+#if defined(JSONIFIER_WIN)
 	static std::string pythonName{ "python " };
 #else
 	static std::string pythonName{ "python3 " };
@@ -186,75 +186,29 @@ template<typename value_type> struct partial_test {
 };
 
 struct test_generator {
-	static constexpr std::string_view charSet{ "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
-											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
-											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
-											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~\"\\\b\f\n\r\t" };
-	inline static std::uniform_real_distribution<double> disDouble{ log(std::numeric_limits<double>::min()), log(std::numeric_limits<double>::max()) };
-	inline static std::uniform_int_distribution<int64_t> disInt{ std::numeric_limits<int64_t>::min(), std::numeric_limits<int64_t>::max() };
-	inline static std::uniform_int_distribution<uint64_t> disUint{ std::numeric_limits<uint64_t>::min(), std::numeric_limits<uint64_t>::max() };
-	inline static std::uniform_int_distribution<uint64_t> disCharSet{ 0ull, charSet.size() - 1 };
-	inline static std::uniform_int_distribution<uint64_t> disString{ 16ull, 64ull };
-	inline static std::uniform_int_distribution<uint64_t> disUnicodeEmoji{ 0ull, std::size(unicode_emoji::unicodeEmoji) - 1 };
-	inline static std::uniform_int_distribution<uint64_t> disBool{ 0, 100 };
-	inline static std::random_device randomEngine{};
-	inline static std::mt19937_64 gen{ randomEngine() };
-
-	template<jsonifier::concepts::integer_t value_type01, jsonifier::concepts::integer_t value_type02>
-	static value_type01 randomizeNumberUniform(value_type01 start, value_type02 end) {
-		std::uniform_int_distribution<value_type01> dis{ start, static_cast<value_type01>(end) };
-		return dis(gen);
-	}
-
 	template<jsonifier::concepts::string_t value_type> static value_type generateValue() {
-		auto length{ disString(gen) };
-
-		std::string result{};
-		for (uint64_t x = 0; x < length; ++x) {
-			result += charSet[disCharSet(gen)];
-		}
-
-		return result;
+		return bnch_swt::random_generator<std::string>::impl(bnch_swt::random_generator<uint64_t>::impl(16ull, 64ull));
 	}
 
 	template<jsonifier::concepts::float_t value_type> static value_type generateValue() {
-		double logValue = disDouble(gen);
-		bool negative{ generateValue<bool>() };
-		return negative ? -std::exp(logValue) : std::exp(logValue);
+		return bnch_swt::random_generator<double>::impl();
 	}
 
 	template<jsonifier::concepts::bool_t value_type> static value_type generateValue() {
-		return static_cast<bool>(disBool(gen) >= 50);
+		return bnch_swt::random_generator<bool>::impl();
 	}
 
 	template<jsonifier::concepts::uns64_t value_type> static value_type generateValue() {
-		size_t length{ randomizeNumberUniform(1ull, 20ull) };
-
-		uint64_t min_val = (length == 1) ? 0 : static_cast<uint64_t>(std::pow(10, length - 1));
-		uint64_t max_val = static_cast<uint64_t>(std::pow(10, length)) - 1;
-		if (min_val > max_val) {
-			std::swap(min_val, max_val);
-		}
-		std::uniform_int_distribution<uint64_t> dis(min_val, max_val);
-		return dis(gen);
+		return bnch_swt::random_generator<uint64_t>::impl();
 	}
 
 	template<jsonifier::concepts::sig64_t value_type> static value_type generateValue() {
-		size_t length{ randomizeNumberUniform(1ull, 19ull) };
-
-		int64_t min_val = (length == 1) ? 0 : static_cast<int64_t>(std::pow(10, length - 1));
-		int64_t max_val = static_cast<int64_t>(std::pow(10, length)) - 1;
-		if (min_val > max_val) {
-			std::swap(min_val, max_val);
-		}
-		std::uniform_int_distribution<int64_t> dis(min_val, max_val);
-		auto returnValue{ dis(gen) };
-		return generateValue<bool>() ? returnValue : -returnValue;
+		return bnch_swt::random_generator<int64_t>::impl();
 	}
 
 	static test_struct generateTestStruct() {
 		test_struct returnValues{};
-		returnValues.testBool = generateValue<bool>();
+		returnValues.testBool	= generateValue<bool>();
 		returnValues.testDouble = generateValue<double>();
 		returnValues.testInt	= generateValue<int64_t>();
 		returnValues.testUint	= generateValue<uint64_t>();
@@ -276,7 +230,7 @@ struct test_generator {
 	static test<test_struct> generateTest() {
 		test<test_struct> returnValues{};
 		auto fill = [&](auto& v) {
-			const auto arraySize01 = randomizeNumberUniform(1ull, 15ull);
+			const auto arraySize01 = bnch_swt::random_generator<uint64_t>::impl(1ull, 15ull);
 			v.resize(arraySize01);
 			for (uint64_t x = 0; x < arraySize01; ++x) {
 				v[x] = generateTestStruct();
@@ -459,7 +413,7 @@ struct test_results {
 };
 
 std::tm getTime() {
-#if JSONIFIER_PLATFORM_WINDOWS
+#if defined(JSONIFIER_WIN)
 	std::time_t result = std::time(nullptr);
 	std::tm resultTwo{};
 	localtime_s(&resultTwo, &result);

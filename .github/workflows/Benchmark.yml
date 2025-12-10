@@ -61,7 +61,7 @@ jobs:
            git commit -m "Updates - MSVC-Windows"
            git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-msvc-windows
 
-  Build-GNUCXX-Ubuntu:
+  Build-GCC-Ubuntu:
     runs-on: ubuntu-latest
 
     strategy:
@@ -113,7 +113,7 @@ jobs:
            sudo git config --global user.name "RealTimeChris"
            sudo git checkout -b temp-gnucxx-ubuntu
            sudo git add . 
-           sudo git commit -m "Updates - GNUCXX-Ubuntu"
+           sudo git commit -m "Updates - GCC-Ubuntu"
            sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-gnucxx-ubuntu
 
   Build-CLANG-Ubuntu:
@@ -172,7 +172,7 @@ jobs:
            sudo git commit -m "Updates - CLANG-Ubuntu"
            sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-clang-ubuntu
         
-  Build-GNUCXX-MacOS:
+  Build-GCC-MacOS:
       runs-on: macos-latest
       strategy:
         fail-fast: false
@@ -248,7 +248,7 @@ jobs:
           sudo git config --global user.name "RealTimeChris"
           sudo git checkout -b temp-gnucxx-macos
           sudo git add . 
-          sudo git commit -m "Updates - GNUCXX-MacOS"
+          sudo git commit -m "Updates - GCC-MacOS"
           sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-gnucxx-macos
 
   Build-CLANG-MacOS:
@@ -322,9 +322,9 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - Build-MSVC-Windows
-      - Build-GNUCXX-Ubuntu
+      - Build-GCC-Ubuntu
       - Build-CLANG-Ubuntu
-      - Build-GNUCXX-MacOS
+      - Build-GCC-MacOS
       - Build-CLANG-MacOS
 
     steps:
