@@ -12,15 +12,15 @@ Here's a few benchmarks on a few common operating system/compiler platforms. Alt
 #### Microsoft Windows/MSVC:
 ----
 [![MSVC/Windows](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=Microsoft&logoColor=green&label=MSVC&labelColor=pewter&color=blue&branch=benchmarking-newer)](https://github.com/RealTimeChris/Json-Performance/blob/main/Windows-MSVC.md)
-#### Ubuntu Linux/GNUCXX:
+#### Ubuntu Linux/GCC:
 ----
-[![GNUCXX/Linux](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=linux&logoColor=green&label=GNUCXX&labelColor=pewter&color=blue&branch=benchmarking-newer)](https://github.com/RealTimeChris/Json-Performance/blob/main/Ubuntu-GNUCXX.md)
+[![GCC/Linux](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=linux&logoColor=green&label=GCC&labelColor=pewter&color=blue&branch=benchmarking-newer)](https://github.com/RealTimeChris/Json-Performance/blob/main/Ubuntu-GCC.md)
 #### MacOS/CLANG:
 ----
 [![CLANG/MacOS](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=apple&logoColor=green&label=CLANG&labelColor=pewter&color=blue&branch=benchmarking-newer)](https://github.com/RealTimeChris/Json-Performance/blob/main/MacOS-CLANG.md)
-#### MacOS/GNUCXX:
+#### MacOS/GCC:
 ----
-[![GNUCXX/MacOS](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=apple&logoColor=green&label=GNUCXX&labelColor=pewter&color=blue&branch=benchmarking-newer)](https://github.com/RealTimeChris/Json-Performance/blob/main/MacOS-GNUCXX.md)
+[![GCC/MacOS](https://img.shields.io/github/actions/workflow/status/RealTimeChris/Json-Performance/Benchmark.yml?style=plastic&logo=apple&logoColor=green&label=GCC&labelColor=pewter&color=blue&branch=benchmarking-newer)](https://github.com/RealTimeChris/Json-Performance/blob/main/MacOS-GCC.md)
 
 ### Pre-requisites:
 ---

@@ -13,16 +13,16 @@ def parse_args():
 
 def get_raw_speeds(df):
     raw_speeds = {"Read": [], "Write": []}
-    libraries = df["libraryName"].unique()
+    libraries = df["library_name"].unique()
 
     for result_type in raw_speeds.keys():
-        result_type_df = df[df["resultType"] == result_type].sort_values(by="resultSpeed")
+        result_type_df = df[df["result_type"] == result_type].sort_values(by="result_speed")
 
         if result_type_df.empty:
             raw_speeds[result_type] = [0] * len(libraries)
             continue
 
-        speed_map = dict(zip(result_type_df["libraryName"], result_type_df["resultSpeed"]))
+        speed_map = dict(zip(result_type_df["library_name"], result_type_df["result_speed"]))
 
         raw_speeds[result_type] = [
             speed_map.get(library, 0) for library in libraries
@@ -32,24 +32,24 @@ def get_raw_speeds(df):
 
 def calculate_cumulative_speedup(df):
     cumulative_speedups = {"Read": [], "Write": []}
-    libraries = df["libraryName"].unique()
+    libraries = df["library_name"].unique()
 
     for result_type in cumulative_speedups.keys():
-        result_type_df = df[df["resultType"] == result_type].sort_values(by="resultSpeed")
+        result_type_df = df[df["result_type"] == result_type].sort_values(by="result_speed")
 
         if result_type_df.empty:
             cumulative_speedups[result_type] = [0] * len(libraries)
             continue
 
-        slowest_speed = result_type_df.iloc[0]["resultSpeed"]
+        slowest_speed = result_type_df.iloc[0]["result_speed"]
         result_type_speedups = [100]
 
         for i in range(1, len(result_type_df)):
-            current_speed = result_type_df.iloc[i]["resultSpeed"]
+            current_speed = result_type_df.iloc[i]["result_speed"]
             speedup = ((current_speed / slowest_speed) - 1) * 100 + 100
             result_type_speedups.append(speedup)
 
-        speedup_map = dict(zip(result_type_df["libraryName"], result_type_speedups))
+        speedup_map = dict(zip(result_type_df["library_name"], result_type_speedups))
         cumulative_speedups[result_type] = [
             speedup_map.get(library, 0) for library in libraries
         ]
@@ -85,21 +85,21 @@ def plot_speed_results(
     plt.gcf().set_facecolor("#0d1117")
     ax = plt.gca()
 
-    has_read_results = "Read" in df["resultType"].unique()
-    has_write_results = "Write" in df["resultType"].unique()
+    has_read_results = "Read" in df["result_type"].unique()
+    has_write_results = "Write" in df["result_type"].unique()
 
     if has_read_results:
-        sort_df = df[df["resultType"] == "Read"].sort_values(by="resultSpeed", ascending=False)
+        sort_df = df[df["result_type"] == "Read"].sort_values(by="result_speed", ascending=False)
     elif has_write_results:
-        sort_df = df[df["resultType"] == "Write"].sort_values(by="resultSpeed", ascending=False)
+        sort_df = df[df["result_type"] == "Write"].sort_values(by="result_speed", ascending=False)
     else:
         print("No read or write results found in the DataFrame.")
         return
 
-    sorted_libraries = sort_df["libraryName"].tolist()
+    sorted_libraries = sort_df["library_name"].tolist()
 
     library_colors = {
-        (row['libraryName'], row['resultType']): row['color']
+        (row['library_name'], row['result_type']): row['color']
         for _, row in df.iterrows()
     }
 
@@ -169,11 +169,11 @@ def main():
 
         cumulative_speedups = calculate_cumulative_speedup(df)
         
-        plot_speed_results(df, raw_speed, output_folder, test["testName"], is_cumulative = False, y_label = "Result Speed (MB/s)")
+        plot_speed_results(df, raw_speed, output_folder, test["test_name"], is_cumulative = False, y_label = "Result Speed (MB/s)")
         
-        plot_speed_results(df, cumulative_speedups, output_folder, test["testName"], is_cumulative = True, y_label = "Cumulative Speedup (%)", label_metric="%")
+        plot_speed_results(df, cumulative_speedups, output_folder, test["test_name"], is_cumulative = True, y_label = "Cumulative Speedup (%)", label_metric="%")
         
-        print(f'Graphs saved successfully for {test["testName"]}!')
+        print(f'Graphs saved successfully for {test["test_name"]}!')
 
 if __name__ == "__main__":
     main()

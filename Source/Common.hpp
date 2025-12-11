@@ -23,86 +23,85 @@
 #pragma once
 
 #include <bnch_swt/index.hpp>
-#include "UnicodeEmoji.hpp"
-#include "CitmCatalog.hpp"
-#include "Twitter.hpp"
-#include "Discord.hpp"
-#include "Canada.hpp"
+#include "citm_catalog.hpp"
+#include "twitter.hpp"
+#include "discord.hpp"
+#include "canada.hpp"
 #include <unordered_set>
 #include <thread>
 #include <random>
 
 #if defined(NDEBUG)
-static constexpr auto maxIterations{ 1400 };
-static constexpr auto measuredIterations{ 20 };
+static constexpr auto max_iterations{ 1400 };
+static constexpr auto measured_iterations{ 20 };
 #else
-static constexpr auto maxIterations{ 200 };
-static constexpr auto measuredIterations{ 25 };
+static constexpr auto max_iterations{ 200 };
+static constexpr auto measured_iterations{ 25 };
 #endif
 
-constexpr auto getCurrentOperatingSystem() {
-	constexpr bnch_swt::string_literal osName{ OPERATING_SYSTEM_NAME };
-	constexpr auto osNameNew = bnch_swt::internal::to_lower(osName);
-	if constexpr (osNameNew.operator std::string_view().contains("linux")) {
+constexpr auto get_current_operating_system() {
+	constexpr bnch_swt::string_literal os_name{ OPERATING_SYSTEM_NAME };
+	constexpr auto os_name_new = bnch_swt::internal::to_lower(os_name);
+	if constexpr (os_name_new.operator std::string_view().contains("linux")) {
 		return bnch_swt::string_literal{ "Ubuntu" };
-	} else if constexpr (osNameNew.operator std::string_view().contains("windows")) {
+	} else if constexpr (os_name_new.operator std::string_view().contains("windows")) {
 		return bnch_swt::string_literal{ "Windows" };
-	} else if constexpr (osNameNew.operator std::string_view().contains("darwin")) {
+	} else if constexpr (os_name_new.operator std::string_view().contains("darwin")) {
 		return bnch_swt::string_literal{ "MacOS" };
 	} else {
 		return bnch_swt::string_literal{ "x" };
 	}
 }
 
-constexpr auto getCurrentCompilerId() {
-	constexpr bnch_swt::string_literal compilerId{ COMPILER_ID };
-	constexpr auto osCompilerIdNew = bnch_swt::internal::to_lower(compilerId);
-	if constexpr (osCompilerIdNew.operator std::string_view().contains("gnu") || osCompilerIdNew.operator std::string_view().contains("gcc") ||
-		osCompilerIdNew.operator std::string_view().contains("g++")) {
-		return bnch_swt::string_literal{ "GNUCXX" };
-	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("clang") || osCompilerIdNew.operator std::string_view().contains("appleclang")) {
+constexpr auto get_current_compiler_id() {
+	constexpr bnch_swt::string_literal compiler_id{ COMPILER_ID };
+	constexpr auto os_compiler_id_new = bnch_swt::internal::to_lower(compiler_id);
+	if constexpr (os_compiler_id_new.operator std::string_view().contains("gnu") || os_compiler_id_new.operator std::string_view().contains("gcc") ||
+		os_compiler_id_new.operator std::string_view().contains("g++")) {
+		return bnch_swt::string_literal{ "GCC" };
+	} else if constexpr (os_compiler_id_new.operator std::string_view().contains("clang") || os_compiler_id_new.operator std::string_view().contains("appleclang")) {
 		return bnch_swt::string_literal{ "CLANG" };
-	} else if constexpr (osCompilerIdNew.operator std::string_view().contains("msvc")) {
+	} else if constexpr (os_compiler_id_new.operator std::string_view().contains("msvc")) {
 		return bnch_swt::string_literal{ "MSVC" };
 	} else {
 		return bnch_swt::string_literal{ "x" };
 	}
 }
 
-constexpr auto getCurrentPathImpl() {
-	return getCurrentOperatingSystem() + "-" + getCurrentCompilerId();
+constexpr auto get_current_path_impl() {
+	return get_current_operating_system() + "-" + get_current_compiler_id();
 }
 
-constexpr bnch_swt::string_literal currentPath{ getCurrentPathImpl() };
-constexpr bnch_swt::string_literal basePath{ BASE_PATH };
-constexpr bnch_swt::string_literal testPath{ basePath + "/Source" };
-constexpr bnch_swt::string_literal readMePath{ BASE_PATH };
-constexpr bnch_swt::string_literal jsonPath{ basePath + "/Json" };
-constexpr bnch_swt::string_literal jsonOutPath{ jsonPath + "/" + getCurrentPathImpl() };
-constexpr bnch_swt::string_literal graphsPath{ basePath + "/Graphs/" + getCurrentPathImpl() + "/" };
-constexpr bnch_swt::string_literal jsonifierLibraryName{ "jsonifier" };
-constexpr bnch_swt::string_literal jsonifierCommitUrlBase{ "https://github.com/realtimechris/jsonifier/commit/" };
-constexpr bnch_swt::string_literal simdjsonLibraryName{ "simdjson" };
-constexpr bnch_swt::string_literal simdjsonCommitUrlBase{ "https://github.com/simdjson/simdjson/commit/" };
-constexpr bnch_swt::string_literal glazeLibraryName{ "glaze" };
-constexpr bnch_swt::string_literal glazeCommitUrlBase{ "https://github.com/stephenberry/glaze/commit/" };
-constexpr bnch_swt::string_literal jsonifierCommitUrl{ jsonifierCommitUrlBase + JSONIFIER_COMMIT };
-constexpr bnch_swt::string_literal simdjsonCommitUrl{ simdjsonCommitUrlBase + SIMDJSON_COMMIT };
-constexpr bnch_swt::string_literal glazeCommitUrl{ glazeCommitUrlBase + GLAZE_COMMIT };
+constexpr bnch_swt::string_literal current_path{ get_current_path_impl() };
+constexpr bnch_swt::string_literal base_path{ BASE_PATH };
+constexpr bnch_swt::string_literal test_path{ base_path + "/Source" };
+constexpr bnch_swt::string_literal read_me_path{ BASE_PATH };
+constexpr bnch_swt::string_literal json_path{ base_path + "/Json" };
+constexpr bnch_swt::string_literal json_out_path{ json_path + "/" + get_current_path_impl() };
+constexpr bnch_swt::string_literal graphs_path{ base_path + "/Graphs/" + get_current_path_impl() + "/" };
+constexpr bnch_swt::string_literal jsonifier_library_name{ "jsonifier" };
+constexpr bnch_swt::string_literal jsonifier_commit_url_base{ "https://github.com/realtimechris/jsonifier/commit/" };
+constexpr bnch_swt::string_literal simdjson_library_name{ "simdjson" };
+constexpr bnch_swt::string_literal simdjson_commit_url_base{ "https://github.com/simdjson/simdjson/commit/" };
+constexpr bnch_swt::string_literal glaze_library_name{ "glaze" };
+constexpr bnch_swt::string_literal glaze_commit_url_base{ "https://github.com/stephenberry/glaze/commit/" };
+constexpr bnch_swt::string_literal jsonifier_commit_url{ jsonifier_commit_url_base + JSONIFIER_COMMIT };
+constexpr bnch_swt::string_literal simdjson_commit_url{ simdjson_commit_url_base + SIMDJSON_COMMIT };
+constexpr bnch_swt::string_literal glaze_commit_url{ glaze_commit_url_base + GLAZE_COMMIT };
 
-std::string getCPUInfo() {
+std::string get_cpu_info() {
 	char brand[49]{};
 	int32_t regs[12]{};
 	uint64_t length{};
 #if defined(__x86_64__) || defined(_M_AMD64)
 	static constexpr auto cpuid = [](int32_t* eax, int32_t* ebx, int32_t* ecx, int32_t* edx) {
 	#if defined(_MSC_VER)
-		int32_t cpuInfo[4];
-		__cpuidex(cpuInfo, *eax, *ecx);
-		*eax = cpuInfo[0];
-		*ebx = cpuInfo[1];
-		*ecx = cpuInfo[2];
-		*edx = cpuInfo[3];
+		int32_t cpu_info[4];
+		__cpuidex(cpu_info, *eax, *ecx);
+		*eax = cpu_info[0];
+		*ebx = cpu_info[1];
+		*ecx = cpu_info[2];
+		*edx = cpu_info[3];
 	#elif defined(HAVE_GCC_GET_CPUID) && defined(USE_GCC_GET_CPUID)
 		uint32_t level = *eax;
 		__get_cpuid(level, eax, ebx, ecx, edx);
@@ -128,28 +127,28 @@ std::string getCPUInfo() {
 	cpuid(regs + 8, regs + 9, regs + 10, regs + 11);
 	memcpy(brand, regs, sizeof(regs));
 	length = std::strlen(brand) > 0 ? std::strlen(brand) - 1 : 0;
-	std::string returnValues{};
-	returnValues.resize(length - 1);
-	std::copy(brand, brand + length, returnValues.data());
-	return returnValues.substr(0, returnValues.find_last_of("abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ") + 1);
+	std::string return_values{};
+	return_values.resize(length - 1);
+	std::copy(brand, brand + length, return_values.data());
+	return return_values.substr(0, return_values.find_last_of("abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ") + 1);
 #else
-	char newBuffer[256];
-	size_t bufferSize = sizeof(newBuffer);
-	if (sysctlbyname("machdep.cpu.brand_string", &newBuffer, &bufferSize, nullptr, 0) == 0) {
-		return std::string(newBuffer);
+	char new_buffer[256];
+	size_t buffer_size = sizeof(new_buffer);
+	if (sysctlbyname("machdep.cpu.brand_string", &new_buffer, &buffer_size, nullptr, 0) == 0) {
+		return std::string(new_buffer);
 	} else {
 		return std::string{ "Unknown CPU" };
 	}
 #endif
 }
 
-void executePythonScript(const std::string& scriptPath, const std::string& argument01, const std::string& argument02) {
+void execute_python_script(const std::string& script_path, const std::string& argument_01, const std::string& argument_02) {
 #if defined(JSONIFIER_WIN)
-	static std::string pythonName{ "python " };
+	static std::string python_name{ "python " };
 #else
-	static std::string pythonName{ "python3 " };
+	static std::string python_name{ "python3 " };
 #endif
-	std::string command = pythonName + scriptPath + " " + argument01 + " " + argument02;
+	std::string command = python_name + script_path + " " + argument_01 + " " + argument_02;
 	int32_t result		= system(command.data());
 	if (result != 0) {
 		std::cout << "Error: Failed to execute Python script. Command exited with code " << result << std::endl;
@@ -157,24 +156,24 @@ void executePythonScript(const std::string& scriptPath, const std::string& argum
 }
 
 struct test_struct {
-	std::string testString{};
-	uint64_t testUint{};
-	int64_t testInt{};
-	double testDouble{};
-	bool testBool{};
+	std::string test_string{};
+	uint64_t test_uint{};
+	int64_t test_int{};
+	double test_double{};
+	bool test_bool{};
 };
 
 struct partial_test_struct {
-	std::string testString{};
-	bool testBool{};
+	std::string test_string{};
+	bool test_bool{};
 };
 
 struct abc_test_struct {
-	bool testBool{};
-	double testDouble{};
-	int64_t testInt{};
-	uint64_t testUint{};
-	std::string testString{};
+	bool test_bool{};
+	double test_double{};
+	int64_t test_int{};
+	uint64_t test_uint{};
+	std::string test_string{};
 };
 
 template<typename value_type> struct test {
@@ -185,155 +184,251 @@ template<typename value_type> struct partial_test {
 	std::vector<value_type> m, s;
 };
 
+BNCH_SWT_HOST std::string generate_integer_part(uint64_t min_length = 1, uint64_t max_length = 15) {
+	uint64_t length = bnch_swt::random_generator<uint64_t>::impl(min_length, max_length);
+
+	if (length == 1 && bnch_swt::random_generator<uint64_t>::impl(0, 1) == 0 && bnch_swt::random_generator<uint64_t>::impl(0, 9) == 0)
+		return "0";
+
+	std::string s;
+	s += std::to_string(bnch_swt::random_generator<uint64_t>::impl(1, 9));
+
+	for (uint64_t i = 1; i < length; ++i) {
+		s += std::to_string(bnch_swt::random_generator<uint64_t>::impl(0, 9));
+	}
+	return s;
+}
+
+BNCH_SWT_HOST std::string maybe_add_sign(const std::string& s) {
+	return (bnch_swt::random_generator<uint64_t>::impl(0, 1) == 1) ? ("-" + s) : s;
+}
+
+BNCH_SWT_HOST std::string generate_1_simple_integer() {
+	return maybe_add_sign(generate_integer_part(1, 10));
+}
+
+BNCH_SWT_HOST std::string generate_2_simple_float() {
+	std::string s = generate_integer_part(1, 5);
+	s += ".";
+
+	uint64_t fractional_length = bnch_swt::random_generator<uint64_t>::impl(1, 10);
+	for (uint64_t i = 0; i < fractional_length; ++i) {
+		s += std::to_string(bnch_swt::random_generator<uint64_t>::impl(0, 9));
+	}
+	return maybe_add_sign(s);
+}
+
+BNCH_SWT_HOST std::string generate_3_scientific() {
+	std::string s;
+
+	if (bnch_swt::random_generator<uint64_t>::impl(0, 1) == 0) {
+		s = generate_integer_part(1, 3) + ".";
+		s += std::to_string(bnch_swt::random_generator<uint64_t>::impl(0, 9));
+	} else {
+		s = generate_integer_part(1, 5);
+	}
+
+	s += (bnch_swt::random_generator<uint64_t>::impl(0, 1) == 0 ? 'e' : 'E');
+	s += (bnch_swt::random_generator<uint64_t>::impl(0, 1) == 0 ? '+' : '-');
+	uint64_t exponent = bnch_swt::random_generator<uint64_t>::impl(1, 100);
+	s += std::to_string(exponent);
+
+	return maybe_add_sign(s);
+}
+
+BNCH_SWT_HOST std::string generate_4_min_max_boundary() {
+	if (bnch_swt::random_generator<uint64_t>::impl(0, 1) == 0) {
+		double mantissa	  = bnch_swt::random_generator<double>::impl(1.0, 9.9);
+		uint64_t exponent = bnch_swt::random_generator<uint64_t>::impl(300, 308);
+		double val		  = mantissa * std::pow(10.0, exponent);
+		if (bnch_swt::random_generator<uint64_t>::impl(0, 1) == 1)
+			val = -val;
+
+		std::stringstream ss;
+		ss << std::scientific << std::setprecision(16) << val;
+		return ss.str();
+	} else {
+		double mantissa	  = bnch_swt::random_generator<double>::impl(1.0, 9.9);
+		uint64_t exponent = bnch_swt::random_generator<uint64_t>::impl(300, 308);
+		double val		  = mantissa * std::pow(10.0, static_cast<double>(-static_cast<int64_t>(exponent)));
+		if (bnch_swt::random_generator<uint64_t>::impl(0, 1) == 1)
+			val = -val;
+
+		std::stringstream ss;
+		ss << std::scientific << std::setprecision(16) << val;
+		return ss.str();
+	}
+}
+
+BNCH_SWT_HOST std::string generate_5_precision_boundary() {
+	std::string s;
+	s += maybe_add_sign(std::to_string(bnch_swt::random_generator<uint64_t>::impl(1, 9)));
+	s += ".";
+
+	for (uint64_t i = 0; i < 18; ++i) {
+		s += std::to_string(bnch_swt::random_generator<uint64_t>::impl(0, 9));
+	}
+
+	if (bnch_swt::random_generator<uint64_t>::impl(0, 1) == 0) {
+		s += 'e';
+		s += std::to_string(bnch_swt::random_generator<uint64_t>::impl(1, 100));
+	}
+	return s;
+}
+
+BNCH_SWT_HOST std::string generate_6_zero_subnormal() {
+	if (bnch_swt::random_generator<uint64_t>::impl(0, 1) == 0) {
+		static constexpr std::array zero_forms = { "0", "0.0", "-0.0", "0e0", "-0e5", "0.0e-10" };
+		uint64_t index						   = bnch_swt::random_generator<uint64_t>::impl(0, zero_forms.size() - 1);
+		return zero_forms[index];
+	} else {
+		double mantissa = bnch_swt::random_generator<double>::impl(1.0, 9.9);
+		double val		= mantissa * std::pow(10.0, -315);
+
+		std::stringstream ss;
+		ss << std::scientific << std::setprecision(16) << val;
+		return maybe_add_sign(ss.str());
+	}
+}
+
+BNCH_SWT_HOST std::string generate_7_structural_edge() {
+	static constexpr std::array edge_forms = { "1e10", "-9e-10", "0.1", "-9.0", "1.2e0", "-3e+0", "123.000000", "0.0000001" };
+	uint64_t index						   = bnch_swt::random_generator<uint64_t>::impl(0, edge_forms.size() - 1);
+	return edge_forms[index];
+}
+
+BNCH_SWT_HOST std::string generate_random_double_string() {
+	static constexpr std::array weights = { 40.0, 30.0, 10.0, 5.0, 5.0, 5.0, 5.0 };
+
+	static constexpr std::array generators = { generate_1_simple_integer, generate_2_simple_float, generate_3_scientific, generate_4_min_max_boundary,
+		generate_5_precision_boundary, generate_6_zero_subnormal, generate_7_structural_edge };
+
+	uint64_t roll = bnch_swt::random_generator<uint64_t>::impl(0, 99);
+
+	uint64_t cumulative_weight = 0;
+	for (size_t i = 0; i < weights.size(); ++i) {
+		cumulative_weight += static_cast<uint64_t>(weights[i]);
+		if (roll < cumulative_weight) {
+			return generators[i]();
+		}
+	}
+	return generators.back()();
+}
+
+BNCH_SWT_HOST double generate_random_double() {
+	double test_double;
+	do {
+		std::string test_string = generate_random_double_string();
+		auto new_ptr			= test_string.data() + test_string.size();
+		test_double= strtod(test_string.data(), &new_ptr);
+	} while (test_double == std::numeric_limits<double>::infinity() || test_double == std::numeric_limits<double>::quiet_NaN() ||
+		test_double == -std::numeric_limits<double>::infinity());
+	return test_double;
+}
+
 struct test_generator {
-	static constexpr std::string_view charSet{ "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
-											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
-											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~!#$%&'()*+,-./"
-											   "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~\"\\\b\f\n\r\t" };
-	inline static std::uniform_real_distribution<double> disDouble{ log(std::numeric_limits<double>::min()), log(std::numeric_limits<double>::max()) };
-	inline static std::uniform_int_distribution<int64_t> disInt{ std::numeric_limits<int64_t>::min(), std::numeric_limits<int64_t>::max() };
-	inline static std::uniform_int_distribution<uint64_t> disUint{ std::numeric_limits<uint64_t>::min(), std::numeric_limits<uint64_t>::max() };
-	inline static std::uniform_int_distribution<uint64_t> disCharSet{ 0ull, charSet.size() - 1 };
-	inline static std::uniform_int_distribution<uint64_t> disString{ 16ull, 64ull };
-	inline static std::uniform_int_distribution<uint64_t> disUnicodeEmoji{ 0ull, std::size(unicode_emoji::unicodeEmoji) - 1 };
-	inline static std::uniform_int_distribution<uint64_t> disBool{ 0, 100 };
-	inline static std::random_device randomEngine{};
-	inline static std::mt19937_64 gen{ randomEngine() };
-
-	template<jsonifier::concepts::integer_t value_type01, jsonifier::concepts::integer_t value_type02>
-	static value_type01 randomizeNumberUniform(value_type01 start, value_type02 end) {
-		std::uniform_int_distribution<value_type01> dis{ start, static_cast<value_type01>(end) };
-		return dis(gen);
+	template<jsonifier::concepts::string_t value_type> static value_type generate_value() {
+		return bnch_swt::random_generator<std::string>::impl(bnch_swt::random_generator<uint64_t>::impl(16ull, 64ull));
 	}
 
-	template<jsonifier::concepts::string_t value_type> static value_type generateValue() {
-		auto length{ disString(gen) };
-
-		std::string result{};
-		for (uint64_t x = 0; x < length; ++x) {
-			result += charSet[disCharSet(gen)];
-		}
-
-		return result;
+	template<jsonifier::concepts::float_t value_type> static value_type generate_value() {
+		return generate_random_double();
 	}
 
-	template<jsonifier::concepts::float_t value_type> static value_type generateValue() {
-		double logValue = disDouble(gen);
-		bool negative{ generateValue<bool>() };
-		return negative ? -std::exp(logValue) : std::exp(logValue);
+	template<jsonifier::concepts::bool_t value_type> static value_type generate_value() {
+		return bnch_swt::random_generator<bool>::impl();
 	}
 
-	template<jsonifier::concepts::bool_t value_type> static value_type generateValue() {
-		return static_cast<bool>(disBool(gen) >= 50);
+	template<jsonifier::concepts::uns64_t value_type> static value_type generate_value() {
+		return bnch_swt::random_generator<uint64_t>::impl();
 	}
 
-	template<jsonifier::concepts::uns64_t value_type> static value_type generateValue() {
-		size_t length{ randomizeNumberUniform(1ull, 20ull) };
-
-		uint64_t min_val = (length == 1) ? 0 : static_cast<uint64_t>(std::pow(10, length - 1));
-		uint64_t max_val = static_cast<uint64_t>(std::pow(10, length)) - 1;
-		if (min_val > max_val) {
-			std::swap(min_val, max_val);
-		}
-		std::uniform_int_distribution<uint64_t> dis(min_val, max_val);
-		return dis(gen);
+	template<jsonifier::concepts::sig64_t value_type> static value_type generate_value() {
+		return bnch_swt::random_generator<int64_t>::impl();
 	}
 
-	template<jsonifier::concepts::sig64_t value_type> static value_type generateValue() {
-		size_t length{ randomizeNumberUniform(1ull, 19ull) };
-
-		int64_t min_val = (length == 1) ? 0 : static_cast<int64_t>(std::pow(10, length - 1));
-		int64_t max_val = static_cast<int64_t>(std::pow(10, length)) - 1;
-		if (min_val > max_val) {
-			std::swap(min_val, max_val);
-		}
-		std::uniform_int_distribution<int64_t> dis(min_val, max_val);
-		auto returnValue{ dis(gen) };
-		return generateValue<bool>() ? returnValue : -returnValue;
+	static test_struct generate_test_struct() {
+		test_struct return_values{};
+		return_values.test_bool	  = generate_value<bool>();
+		return_values.test_double = generate_value<double>();
+		return_values.test_int	  = generate_value<int64_t>();
+		return_values.test_uint	  = generate_value<uint64_t>();
+		return_values.test_string = generate_value<std::string>();
+		return return_values;
 	}
 
-	static test_struct generateTestStruct() {
-		test_struct returnValues{};
-		returnValues.testBool = generateValue<bool>();
-		returnValues.testDouble = generateValue<double>();
-		returnValues.testInt	= generateValue<int64_t>();
-		returnValues.testUint	= generateValue<uint64_t>();
-		returnValues.testString = generateValue<std::string>();
-		return returnValues;
-	}
-
-	template<typename value_type> static std::vector<std::vector<value_type>> generateValues(size_t vecCount, size_t valueCount) {
-		std::vector<std::vector<value_type>> returnValues{};
-		returnValues.resize(vecCount);
-		for (size_t x = 0; x < vecCount; ++x) {
-			for (size_t y = 0; y < valueCount; ++y) {
-				returnValues[x].emplace_back(generateValue<value_type>());
+	template<typename value_type> static std::vector<std::vector<value_type>> generate_values(size_t vec_count, size_t value_count) {
+		std::vector<std::vector<value_type>> return_values{};
+		return_values.resize(vec_count);
+		for (size_t x = 0; x < vec_count; ++x) {
+			for (size_t y = 0; y < value_count; ++y) {
+				return_values[x].emplace_back(generate_value<value_type>());
 			}
 		}
-		return returnValues;
+		return return_values;
 	}
 
-	static test<test_struct> generateTest() {
-		test<test_struct> returnValues{};
+	static test<test_struct> generate_test() {
+		test<test_struct> return_values{};
 		auto fill = [&](auto& v) {
-			const auto arraySize01 = randomizeNumberUniform(1ull, 15ull);
-			v.resize(arraySize01);
-			for (uint64_t x = 0; x < arraySize01; ++x) {
-				v[x] = generateTestStruct();
+			const auto array_size_01 = bnch_swt::random_generator<uint64_t>::impl(1ull, 15ull);
+			v.resize(array_size_01);
+			for (uint64_t x = 0; x < array_size_01; ++x) {
+				v[x] = generate_test_struct();
 			}
 		};
 
-		fill(returnValues.a);
-		fill(returnValues.b);
-		fill(returnValues.c);
-		fill(returnValues.d);
-		fill(returnValues.e);
-		fill(returnValues.f);
-		fill(returnValues.g);
-		fill(returnValues.h);
-		fill(returnValues.i);
-		fill(returnValues.j);
-		fill(returnValues.k);
-		fill(returnValues.l);
-		fill(returnValues.m);
-		fill(returnValues.n);
-		fill(returnValues.o);
-		fill(returnValues.p);
-		fill(returnValues.q);
-		fill(returnValues.r);
-		fill(returnValues.s);
-		fill(returnValues.t);
-		fill(returnValues.u);
-		fill(returnValues.v);
-		fill(returnValues.w);
-		fill(returnValues.x);
-		fill(returnValues.y);
-		fill(returnValues.z);
-		return returnValues;
+		fill(return_values.a);
+		fill(return_values.b);
+		fill(return_values.c);
+		fill(return_values.d);
+		fill(return_values.e);
+		fill(return_values.f);
+		fill(return_values.g);
+		fill(return_values.h);
+		fill(return_values.i);
+		fill(return_values.j);
+		fill(return_values.k);
+		fill(return_values.l);
+		fill(return_values.m);
+		fill(return_values.n);
+		fill(return_values.o);
+		fill(return_values.p);
+		fill(return_values.q);
+		fill(return_values.r);
+		fill(return_values.s);
+		fill(return_values.t);
+		fill(return_values.u);
+		fill(return_values.v);
+		fill(return_values.w);
+		fill(return_values.x);
+		fill(return_values.y);
+		fill(return_values.z);
+		return return_values;
 	}
 };
 
 struct test_element_final {
-	std::string libraryName{};
-	std::string resultType{};
-	double resultSpeed{};
+	std::string library_name{};
+	std::string result_type{};
+	double result_speed{};
 	std::string color{};
 	bool operator>(const test_element_final& other) const noexcept {
-		return resultSpeed > other.resultSpeed;
+		return result_speed > other.result_speed;
 	}
 };
 
 struct test_element_pair {
-	test_element_final writeData{};
-	test_element_final readData{};
+	test_element_final write_data{};
+	test_element_final read_data{};
 	bool operator>(const test_element_pair& other) const noexcept {
-		return writeData > other.writeData && readData > other.readData;
+		return write_data > other.write_data && read_data > other.read_data;
 	}
 };
 
 struct test_elements_final {
 	std::vector<test_element_final> results{};
-	std::string testName{};
+	std::string test_name{};
 };
 
 using test_results_final = std::vector<test_elements_final>;
@@ -344,7 +439,7 @@ template<typename value_type> struct abc_test {
 
 enum class result_type { read = 0, write = 1 };
 
-template<result_type type> constexpr auto enumToString() {
+template<result_type type> constexpr auto enum_to_string() {
 	if constexpr (type == result_type::read) {
 		return bnch_swt::string_literal{ "Read" };
 	} else {
@@ -353,11 +448,11 @@ template<result_type type> constexpr auto enumToString() {
 }
 
 template<result_type type> struct result {
-	std::optional<double> jsonSpeedPercentageDeviation{};
-	std::optional<uint64_t> byteLength{};
-	std::optional<double> jsonCycles{};
-	std::optional<double> jsonSpeed{};
-	std::optional<double> jsonTime{};
+	std::optional<double> json_speed_percentage_deviation{};
+	std::optional<uint64_t> byte_length{};
+	std::optional<double> json_cycles{};
+	std::optional<double> json_speed{};
+	std::optional<double> json_time{};
 	std::string color{};
 
 	result() noexcept = default;
@@ -367,27 +462,27 @@ template<result_type type> struct result {
 	result& operator=(const result&) noexcept = default;
 	result(const result&) noexcept			  = default;
 
-	result(const std::string& colorNew, const bnch_swt::performance_metrics<bnch_swt::benchmark_types::cpu>& results) {
-		byteLength.emplace(results.bytes_processed);
-		jsonTime.emplace(results.time_in_ns);
-		jsonSpeedPercentageDeviation.emplace(results.throughput_percentage_deviation);
-		jsonSpeed.emplace(results.throughput_mb_per_sec);
+	result(const std::string& color_new, const bnch_swt::performance_metrics<bnch_swt::benchmark_types::cpu>& results) {
+		byte_length.emplace(results.bytes_processed);
+		json_time.emplace(results.time_in_ns);
+		json_speed_percentage_deviation.emplace(results.throughput_percentage_deviation);
+		json_speed.emplace(results.throughput_mb_per_sec);
 		if (results.cycles_per_byte.has_value()) {
-			jsonCycles.emplace(results.cycles_per_byte.value() * 1024 * 1024);
+			json_cycles.emplace(results.cycles_per_byte.value() * 1024 * 1024);
 		}
-		color = colorNew;
+		color = color_new;
 	}
 
 	operator bool() const noexcept {
-		return jsonSpeed.has_value();
+		return json_speed.has_value();
 	}
 
 	bool operator>(const result& other) const noexcept {
-		if (jsonSpeed.has_value() && other.jsonSpeed.has_value()) {
-			return jsonSpeed.value() > other.jsonSpeed.value();
-		} else if (!jsonSpeed.has_value()) {
+		if (json_speed.has_value() && other.json_speed.has_value()) {
+			return json_speed.value() > other.json_speed.value();
+		} else if (!json_speed.has_value()) {
 			return false;
-		} else if (!other.jsonSpeed.has_value()) {
+		} else if (!other.json_speed.has_value()) {
 			return true;
 		}
 		return false;
@@ -395,18 +490,18 @@ template<result_type type> struct result {
 };
 
 struct results_data {
-	std::unordered_set<std::string> jsonifierExcludedKeys{};
-	result<result_type::write> writeResult{};
-	result<result_type::read> readResult{};
+	std::unordered_set<std::string> jsonifier_excluded_keys{};
+	result<result_type::write> write_result{};
+	result<result_type::read> read_result{};
 	std::string name{};
 	std::string test{};
 	std::string url{};
 
 	bool operator>(const results_data& other) const noexcept {
-		if (readResult && other.readResult) {
-			return readResult > other.readResult;
-		} else if (writeResult && other.writeResult) {
-			return writeResult > other.writeResult;
+		if (read_result && other.read_result) {
+			return read_result > other.read_result;
+		} else if (write_result && other.write_result) {
+			return write_result > other.write_result;
 		} else {
 			return false;
 		}
@@ -414,63 +509,64 @@ struct results_data {
 
 	results_data() noexcept = default;
 
-	results_data(const std::string& nameNew, const std::string& testNew, const std::string& urlNew) {
-		name = nameNew;
-		test = testNew;
-		url	 = urlNew;
+	results_data(const std::string& name_new, const std::string& test_new, const std::string& url_new) {
+		name = name_new;
+		test = test_new;
+		url	 = url_new;
 	}
 
-	void checkForMissingKeys() {
-		if (!writeResult.jsonSpeed.has_value()) {
-			jsonifierExcludedKeys.emplace("writeResult");
-		} else if (!readResult.jsonSpeed.has_value()) {
-			jsonifierExcludedKeys.emplace("readResult");
+	void check_for_missing_keys() {
+		if (!write_result.json_speed.has_value()) {
+			jsonifier_excluded_keys.emplace("write_result");
+		} else if (!read_result.json_speed.has_value()) {
+			jsonifier_excluded_keys.emplace("read_result");
 		}
 	}
 
-	std::string jsonStats() const noexcept {
-		std::string finalString{ "| [" + name + "](" + url + ") | " };
-		if (readResult.jsonTime.has_value() && readResult.byteLength.has_value()) {
-			std::ostringstream finalStream{};
-			finalStream << std::setprecision(6) << readResult.jsonSpeed.value() << " | " << std::setprecision(6) << readResult.jsonSpeedPercentageDeviation.value() << " | ";
-			if (readResult.jsonCycles.has_value()) {
-				finalStream << std::setprecision(6) << readResult.jsonCycles.value() << " | ";
+	std::string json_stats() const noexcept {
+		std::string final_string{ "| [" + name + "](" + url + ") | " };
+		if (read_result.json_time.has_value() && read_result.byte_length.has_value()) {
+			std::ostringstream final_stream{};
+			final_stream << std::setprecision(6) << read_result.json_speed.value() << " | " << std::setprecision(6) << read_result.json_speed_percentage_deviation.value() << " | ";
+			if (read_result.json_cycles.has_value()) {
+				final_stream << std::setprecision(6) << read_result.json_cycles.value() << " | ";
 			}
-			finalStream << static_cast<uint64_t>(readResult.byteLength.value()) << " | " << std::setprecision(6) << readResult.jsonTime.value() << " | ";
-			finalString += finalStream.str();
+			final_stream << static_cast<uint64_t>(read_result.byte_length.value()) << " | " << std::setprecision(6) << read_result.json_time.value() << " | ";
+			final_string += final_stream.str();
 		}
-		if (writeResult.jsonTime.has_value() && writeResult.byteLength.has_value()) {
-			std::ostringstream finalStream{};
-			finalStream << std::setprecision(6) << writeResult.jsonSpeed.value() << " | " << std::setprecision(6) << writeResult.jsonSpeedPercentageDeviation.value() << " | ";
-			if (writeResult.jsonCycles.has_value()) {
-				finalStream << std::setprecision(6) << writeResult.jsonCycles.value() << " | ";
+		if (write_result.json_time.has_value() && write_result.byte_length.has_value()) {
+			std::ostringstream final_stream{};
+			final_stream << std::setprecision(6) << write_result.json_speed.value() << " | " << std::setprecision(6) << write_result.json_speed_percentage_deviation.value()
+						 << " | ";
+			if (write_result.json_cycles.has_value()) {
+				final_stream << std::setprecision(6) << write_result.json_cycles.value() << " | ";
 			}
-			finalStream << static_cast<uint64_t>(writeResult.byteLength.value()) << " | " << std::setprecision(6) << writeResult.jsonTime.value() << " | ";
-			finalString += finalStream.str();
+			final_stream << static_cast<uint64_t>(write_result.byte_length.value()) << " | " << std::setprecision(6) << write_result.json_time.value() << " | ";
+			final_string += final_stream.str();
 		}
-		return finalString;
+		return final_string;
 	}
 };
 
 struct test_results {
 	std::vector<results_data> results{};
-	std::string markdownResults{};
-	std::string testName{};
+	std::string markdown_results{};
+	std::string test_name{};
 };
 
-std::tm getTime() {
+std::tm get_time() {
 #if defined(JSONIFIER_WIN)
 	std::time_t result = std::time(nullptr);
-	std::tm resultTwo{};
-	localtime_s(&resultTwo, &result);
-	return resultTwo;
+	std::tm result_two{};
+	localtime_s(&result_two, &result);
+	return result_two;
 #else
 	std::time_t result = std::time(nullptr);
 	return *localtime(&result);
 #endif
 }
 
-static std::string urlEncode(std::string value) {
+static std::string url_encode(std::string value) {
 	std::ostringstream escaped;
 	escaped.fill('0');
 	escaped << std::hex;
