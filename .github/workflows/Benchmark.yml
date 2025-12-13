@@ -1,0 +1,362 @@
+name: Benchmark
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - benchmarking-newer
+
+jobs:
+  Build-MSVC-Windows:
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [Release]
+
+    steps:
+    - uses: actions/checkout@v4
+      
+    - name: Append the directory of 'vcvarsall.bat' to PATH environment variable
+      uses: myci-actions/export-env-var-powershell@1
+      with:
+        name: PATH
+        value: $env:PATH;C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Auxiliary/Build
+
+    - name: Install Seaborn
+      run: |
+           pip install seaborn
+                
+    - name: Configure CMake
+      working-directory: ./
+      run: |
+           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
+
+    - name: Build the Test
+      working-directory: ./Build
+      run: |
+           cmake --build . --config=${{matrix.build_type}}
+
+    - name: Install the Test
+      working-directory: ./Build
+      run: |
+           cmake --install . --config=${{matrix.build_type}}
+
+    - name: Run the Test
+      working-directory: D:/a/Json-Performance/Json-Performance/Install/bin/
+      run: |
+           ./Json-Performance
+      continue-on-error: true
+
+    - name: Commit and push the changes to a temp branch.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+      working-directory:  D:/a/Json-Performance/Json-Performance/
+      run: |
+           git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
+           git config --global user.name "RealTimeChris"
+           git checkout -b temp-msvc-windows
+           git add . 
+           git commit -m "Updates - MSVC-Windows"
+           git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-msvc-windows
+
+  Build-GCC-Ubuntu:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [Release]
+
+    steps:
+    - uses: actions/checkout@v4
+     
+    - name: Install Seaborn
+      run: |
+           pip install seaborn
+  
+    - name: Install the latest gnucxx compiler.
+      working-directory: ./
+      run: |
+           sudo apt-get install build-essential
+           sudo apt-get install g++-14
+
+    - name: Configure CMake
+      working-directory: ./
+      run: |
+           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/g++-14
+
+    - name: Build the Test
+      working-directory: ./Build
+      run: |
+           cmake --build . --config=${{matrix.build_type}}
+
+    - name: Install the Test
+      working-directory: ./Build
+      run: |
+           sudo cmake --install . --config=${{matrix.build_type}}
+           sudo chmod +x /home/runner/work/Json-Performance/Json-Performance/Install/bin/Json-Performance
+
+    - name: Run the Test
+      working-directory: /home/runner/work/Json-Performance/Json-Performance/Install/bin/
+      run: |
+           ./Json-Performance
+      continue-on-error: true
+
+    - name: Commit and push the changes to a temp branch.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+      working-directory: /home/runner/work/Json-Performance/Json-Performance/
+      run: |
+           sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
+           sudo git config --global user.name "RealTimeChris"
+           sudo git checkout -b temp-gnucxx-ubuntu
+           sudo git add . 
+           sudo git commit -m "Updates - GCC-Ubuntu"
+           sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-gnucxx-ubuntu
+
+  Build-CLANG-Ubuntu:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [Release]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install the latest Clang compiler.
+      run: |
+           sudo apt update
+           wget https://apt.llvm.org/llvm.sh
+           chmod u+x llvm.sh
+           sudo ./llvm.sh 20
+
+    - name: Install Seaborn
+      run: |
+           sudo pip install seaborn
+                
+    - name: Configure CMake
+      working-directory: ./
+      run: |
+           cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}} -DCMAKE_CXX_COMPILER=/usr/bin/clang++-20
+
+    - name: Build the Test
+      working-directory: ./Build
+      run: |
+           cmake --build . --config=${{matrix.build_type}}
+
+    - name: Install the Test
+      working-directory: ./Build
+      run: |
+           sudo cmake --install . --config=${{matrix.build_type}}
+           sudo chmod +x /home/runner/work/Json-Performance/Json-Performance/Install/bin/Json-Performance
+
+    - name: Run the Test
+      working-directory: /home/runner/work/Json-Performance/Json-Performance/Install/bin/
+      run: |
+           ./Json-Performance
+      continue-on-error: true
+                
+    - name: Commit and push the changes to a temp branch.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+      working-directory: /home/runner/work/Json-Performance/Json-Performance/
+      run: |
+           sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
+           sudo git config --global user.name "RealTimeChris"
+           sudo git checkout -b temp-clang-ubuntu
+           sudo git add . 
+           sudo git commit -m "Updates - CLANG-Ubuntu"
+           sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-clang-ubuntu
+        
+  Build-GCC-MacOS:
+      runs-on: macos-latest
+      strategy:
+        fail-fast: false
+        matrix:
+          build_type: [Release]
+      steps:
+      - uses: actions/checkout@v4
+  
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+  
+      - name: Create requirements.txt
+        run: |
+          echo seaborn > requirements.txt
+          echo matplotlib >> requirements.txt
+          echo pandas >> requirements.txt
+  
+      - name: Install dependencies
+        run: |
+          python -m venv env
+          source env/bin/activate
+          pip install -r requirements.txt
+  
+      - name: Install GCC
+        run: |
+          brew install gcc
+  
+      - name: Set up GCC environment
+        run: |
+          GCC_PATH=$(brew --prefix gcc)
+          GCC_VER=$(ls ${GCC_PATH}/bin/gcc-* 2>/dev/null | grep -oE '[0-9]+$' | sort -rn | head -1)
+
+          echo "CC=${GCC_PATH}/bin/gcc-${GCC_VER}" >> $GITHUB_ENV
+          echo "CXX=${GCC_PATH}/bin/g++-${GCC_VER}" >> $GITHUB_ENV
+
+          ${GCC_PATH}/bin/gcc-${GCC_VER} --version
+          ${GCC_PATH}/bin/g++-${GCC_VER} --version
+  
+      - name: Configure CMake
+        working-directory: ./
+        run: |
+          cmake -S . -B ./Build \
+            -DCMAKE_BUILD_TYPE=${{matrix.build_type}} \
+            -DCMAKE_C_COMPILER=${{ env.CC }} \
+            -DCMAKE_CXX_COMPILER=${{ env.CXX }}
+  
+      - name: Build the Test
+        working-directory: ./Build
+        run: |
+          cmake --build . --config=${{ matrix.build_type }}
+  
+      - name: Install the Test
+        working-directory: ./Build
+        run: |
+          sudo cmake --install . --config=${{ matrix.build_type }}
+          sudo chmod +x /Users/runner/work/Json-Performance/Json-Performance/Install/bin/Json-Performance
+  
+      - name: Run the Test
+        working-directory: /Users/runner/work/Json-Performance/Json-Performance/Install/bin/
+        run: |
+          source /Users/runner/work/Json-Performance/Json-Performance/env/bin/activate
+          ./Json-Performance
+        continue-on-error: true
+  
+      - name: Commit and push the changes to a temp branch.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+        working-directory: /Users/runner/work/Json-Performance/Json-Performance/
+        run: |
+          sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
+          sudo git config --global user.name "RealTimeChris"
+          sudo git checkout -b temp-gnucxx-macos
+          sudo git add . 
+          sudo git commit -m "Updates - GCC-MacOS"
+          sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-gnucxx-macos
+
+  Build-CLANG-MacOS:
+    runs-on: macos-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [Release]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+    
+    - name: Create requirements.txt
+      run: |
+        echo seaborn > requirements.txt
+        echo matplotlib >> requirements.txt
+        echo pandas >> requirements.txt
+    
+    - name: Install dependencies
+      run: |
+        python -m venv env
+        source env/bin/activate
+        pip install -r requirements.txt
+    
+    - name: Install the latest clang compiler.
+      run: |
+        brew install llvm
+    
+    - name: Configure CMake
+      working-directory: ./
+      run: |
+        cmake -S . -B ./Build -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
+    
+    - name: Build the Test
+      working-directory: ./Build
+      run: |
+        cmake --build . --config=${{ matrix.build_type }}
+    
+    - name: Install the Test
+      working-directory: ./Build
+      run: |
+        sudo cmake --install . --config=${{ matrix.build_type }}
+        sudo chmod +x /Users/runner/work/Json-Performance/Json-Performance/Install/bin/Json-Performance
+    
+    - name: Run the Test
+      working-directory: /Users/runner/work/Json-Performance/Json-Performance/Install/bin/
+      run: |
+        source /Users/runner/work/Json-Performance/Json-Performance/env/bin/activate
+        ./Json-Performance
+      continue-on-error: true
+    
+    - name: Commit and push the changes to a temp branch.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+      working-directory: /Users/runner/work/Json-Performance/Json-Performance/
+      run: |
+        sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
+        sudo git config --global user.name "RealTimeChris"
+        sudo git checkout -b temp-clang-macos
+        sudo git add . 
+        sudo git commit -m "Updates - CLANG-MacOS"
+        sudo git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/RealTimeChris/Json-Performance.git temp-clang-macos
+
+  Merge-Branches:
+    runs-on: ubuntu-latest
+    needs:
+      - Build-MSVC-Windows
+      - Build-GCC-Ubuntu
+      - Build-CLANG-Ubuntu
+      - Build-GCC-MacOS
+      - Build-CLANG-MacOS
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Merge all temporary branches into the benchmarking branch
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        sudo git config --global user.email "40668522+RealTimeChris@users.noreply.github.com"
+        sudo git config --global user.name "RealTimeChris"
+        sudo git fetch origin
+        sudo git config pull.ff only
+        sudo git checkout benchmarking-newer
+        sudo git pull -f origin benchmarking-newer
+        sudo git merge origin/temp-msvc-windows --no-ff
+        sudo git merge origin/temp-gnucxx-ubuntu --no-ff
+        sudo git merge origin/temp-clang-ubuntu --no-ff
+        sudo git merge origin/temp-gnucxx-macos --no-ff
+        sudo git merge origin/temp-clang-macos --no-ff
+        sudo git checkout --orphan newBranch
+        sudo git add .
+        sudo git commit -m "Updating necessary files."
+        sudo git branch -m benchmarking
+        sudo git push origin benchmarking -f
+
+    - name: Delete temporary branches
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        sudo git push origin --delete temp-msvc-windows
+        sudo git push origin --delete temp-gnucxx-ubuntu
+        sudo git push origin --delete temp-clang-ubuntu
+        sudo git push origin --delete temp-gnucxx-macos
+        sudo git push origin --delete temp-clang-macos
