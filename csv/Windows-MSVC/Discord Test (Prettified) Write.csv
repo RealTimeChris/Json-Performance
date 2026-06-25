@@ -1,0 +1,8 @@
+# Discord Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,4512.7,1.8804,5.9683ms,94370,30,4.21909e+06,19943.3,Win
+glaze,4038.21,2.01628,6.9142ms,94370,30,6.05775e+06,22286.7,Loss

@@ -1,0 +1,9 @@
+# Double Test Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,892.099,1.85969,13.1612ms,1811,64,82960.3,1936,Win
+glaze,684.815,1.81579,7.84998ms,1811,128,268429,2522,Loss
+simdjson,154.147,2.45862,3.31904ms,1811,30,2.27651e+06,11204.3,Loss

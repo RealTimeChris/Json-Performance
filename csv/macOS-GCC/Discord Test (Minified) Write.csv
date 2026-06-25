@@ -1,0 +1,8 @@
+# Discord Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,4960.41,1.36539,3.26784ms,56369,30,656867,10837.3,Win
+glaze,2729.52,0.453425,5.248ms,56369,30,239244,19694.9,Loss

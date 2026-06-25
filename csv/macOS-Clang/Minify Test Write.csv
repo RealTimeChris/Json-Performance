@@ -1,0 +1,9 @@
+# Minify Test Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1735.33,0.623253,62.7352ms,466906,30,7.67263e+07,256594,Win
+jsonifier,1279.22,2.30703,453.666ms,466906,64,4.12722e+09,348085,Loss
+simdjson,642.982,1.4193,7800.34ms,466906,512,4.94631e+10,692517,Loss

@@ -1,0 +1,8 @@
+# Twitter Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,3764.49,0.194752,18.6388ms,264040,30,509110,66890.5,Win
+glaze,2676.57,2.35938,1329.85ms,263923,512,2.52036e+09,94037,Loss

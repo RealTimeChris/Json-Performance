@@ -1,0 +1,8 @@
+# Abc (Out of Order) Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,5221.84,0.105745,2.01047ms,33713,30,1271.72,6157.07,Win
+glaze,5084.37,0.190456,1.96648ms,33689,30,4345.21,6319.03,Loss

@@ -1,0 +1,8 @@
+# Double Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,504.701,0.0355694,1.0239ms,1811,30,44.4471,3422.03,Win
+glaze,263.451,0.0980926,3.56603ms,1798,32,1304.37,6508.62,Loss

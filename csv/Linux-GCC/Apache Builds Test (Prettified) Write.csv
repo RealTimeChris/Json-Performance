@@ -1,0 +1,8 @@
+# Apache Builds Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,6350.09,1.17222,7.23984ms,136024,30,1.72033e+06,20428.5,Win
+glaze,5700.63,2.24061,6.27924ms,136046,30,7.80152e+06,22759.5,Loss

@@ -1,0 +1,8 @@
+# Marine IK Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,794.332,0.94308,515.231ms,1834197,30,1.29392e+10,2.20214e+06,Win
+glaze,683.379,1.16439,1505.15ms,1833577,32,2.84065e+10,2.55881e+06,Loss

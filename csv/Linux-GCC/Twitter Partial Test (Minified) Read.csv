@@ -1,0 +1,8 @@
+# Twitter Partial Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,6058.84,0.770747,26.2848ms,264040,32,3.28348e+06,41560.4,Win
+simdjson,5340.57,0.812754,12.1678ms,264040,30,4.40559e+06,47150.1,Loss

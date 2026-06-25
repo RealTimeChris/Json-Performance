@@ -1,0 +1,9 @@
+# Double Test Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1161.08,0.0242818,1.60257ms,1811,30,3.91379,1487.5,Win
+glaze,867.049,0.110249,0.809699ms,1811,30,144.685,1991.93,Loss
+simdjson,258.538,0.0377879,2.59853ms,1811,30,191.168,6680.27,Loss

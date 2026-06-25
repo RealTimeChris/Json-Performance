@@ -1,0 +1,8 @@
+# Instruments Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,6906.91,0.380618,5.26234ms,108313,30,97206,14955.4,Win
+jsonifier,6350.93,0.375508,11.4084ms,108313,32,119365,16264.6,Loss

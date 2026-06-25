@@ -1,0 +1,9 @@
+# CitmCatalog Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1971.96,0.509804,146.903ms,500299,32,4.86877e+07,241953,Win
+jsonifier,1715.59,0.40444,72.3484ms,500299,30,3.79543e+07,278109,Loss
+simdjson,1005.28,0.780407,341.461ms,500299,32,4.39011e+08,474615,Loss

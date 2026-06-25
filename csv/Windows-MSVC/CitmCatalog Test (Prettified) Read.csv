@@ -1,0 +1,9 @@
+# CitmCatalog Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1938.43,0.653874,168.984ms,1439562,30,6.43384e+08,708240,Win
+jsonifier,1854.52,0.670506,178.073ms,1439562,30,7.39141e+08,740287,Loss
+simdjson,1231.69,0.446974,269.762ms,1439562,30,7.44632e+08,1.11462e+06,Loss

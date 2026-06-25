@@ -1,0 +1,8 @@
+# Abc (In Order) Partial Test (Minified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,4068.81,0.818025,2.4169ms,33713,30,125347,7901.87,Win
+simdjson,2957.25,2.2378,7.01978ms,33713,32,1.89414e+06,10872,Loss

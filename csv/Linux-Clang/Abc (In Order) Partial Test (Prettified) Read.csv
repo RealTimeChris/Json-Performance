@@ -1,0 +1,8 @@
+# Abc (In Order) Partial Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,8510.34,0.0490708,1.6594ms,48024,30,209.214,5381.6,Win
+simdjson,7863.43,0.400926,1.70636ms,48024,30,16358.4,5824.33,Loss

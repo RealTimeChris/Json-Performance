@@ -1,0 +1,8 @@
+# Google Maps Response Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,5063.12,0.38297,2.7188ms,31235,30,15229.9,5883.33,Win
+jsonifier,4483.62,2.18282,10.5261ms,31235,64,1.34599e+06,6643.75,Loss

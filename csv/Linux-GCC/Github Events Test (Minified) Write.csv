@@ -1,0 +1,8 @@
+# Github Events Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,6727.52,0.48236,2.26711ms,52708,30,38967.9,7471.73,Tie
+jsonifier,6678.3,0.184899,2.31394ms,52708,30,5810.44,7526.8,Tie

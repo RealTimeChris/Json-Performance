@@ -1,0 +1,8 @@
+# Double Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,658.362,0.39553,1.8622ms,1811,30,3229.89,2623.33,Win
+glaze,401.688,0.155431,7.9319ms,1798,64,2817.46,4268.75,Loss

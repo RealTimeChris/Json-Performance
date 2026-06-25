@@ -1,0 +1,8 @@
+# String Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,4158.97,0.121018,0.784962ms,8813,30,179.43,2020.87,Win
+glaze,3226.88,0.221991,0.966477ms,8813,30,1002.94,2604.6,Loss

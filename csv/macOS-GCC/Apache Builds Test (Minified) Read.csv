@@ -1,0 +1,9 @@
+# Apache Builds Test (Minified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,834.562,0.123665,27.191ms,94651,30,536717,108160,Win
+glaze,775.064,0.367202,28.7439ms,94651,30,5.48664e+06,116463,Loss
+simdjson,624.075,0.870929,35.9969ms,94651,30,4.76063e+07,144640,Loss

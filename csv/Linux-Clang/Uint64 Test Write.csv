@@ -1,0 +1,8 @@
+# Uint64 Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2964.35,0.188553,0.604038ms,3873,30,165.586,1246,Win
+glaze,857.172,0.445361,2.58542ms,3873,32,11785.1,4309.03,Loss

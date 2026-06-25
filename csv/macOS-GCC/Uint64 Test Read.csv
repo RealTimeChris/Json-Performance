@@ -1,0 +1,9 @@
+# Uint64 Test Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1482.18,1.87401,7.74195ms,3873,128,279157,2492,Win
+jsonifier,1349.99,2.05109,4.13798ms,3873,64,201549,2736,Loss
+simdjson,358.609,0.839991,3.01594ms,3873,30,224555,10299.7,Loss

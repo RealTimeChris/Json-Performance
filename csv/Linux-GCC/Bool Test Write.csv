@@ -1,0 +1,8 @@
+# Bool Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1389.96,0.0344747,0.447467ms,905,30,1.37471,620.933,Win
+glaze,373.292,0.164728,0.885058ms,905,30,435.168,2312.07,Loss

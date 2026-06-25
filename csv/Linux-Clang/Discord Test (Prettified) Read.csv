@@ -1,0 +1,9 @@
+# Discord Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,2651.87,0.9769,22.1815ms,98048,32,3.79684e+06,35260.3,Win
+jsonifier,2493.25,0.759213,11.6156ms,98048,30,2.43218e+06,37503.7,Loss
+simdjson,1851.64,1.07673,65.6065ms,98048,64,1.89215e+07,50499,Loss

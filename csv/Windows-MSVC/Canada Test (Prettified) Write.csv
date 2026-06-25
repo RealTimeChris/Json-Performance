@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1761.92,0.741346,2075.21ms,6661897,32,2.28673e+10,3.60588e+06,Win
+glaze,1130.84,1.14692,1380.18ms,6661897,30,1.24559e+11,5.61818e+06,Loss

@@ -1,0 +1,8 @@
+# CitmCatalog Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,4704.27,2.09405,25.7082ms,500299,30,1.35323e+08,101423,Win
+glaze,4377,1.68202,27.8185ms,500299,30,1.00854e+08,109007,Loss

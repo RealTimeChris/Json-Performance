@@ -1,0 +1,8 @@
+# Mesh Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1320.78,0.1169,115.885ms,642697,30,8.82875e+06,464061,Win
+glaze,920.948,0.802861,165.698ms,642692,30,8.56521e+08,665531,Loss

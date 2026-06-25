@@ -1,0 +1,9 @@
+# Mesh Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1375.28,1.63949,214.625ms,1306201,30,6.61566e+09,905771,Win
+simdjson,1255.62,0.103486,239.758ms,1306201,30,3.16222e+07,992094,Loss
+jsonifier,1237.9,0.420311,243.119ms,1306201,30,5.36677e+08,1.00629e+06,Loss

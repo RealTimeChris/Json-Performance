@@ -1,0 +1,8 @@
+# Apache Builds Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,4835.96,1.44447,100.109ms,94651,256,1.86098e+07,18665.6,Win
+jsonifier,3591.97,1.45218,7.4041ms,94651,30,3.99528e+06,25130,Loss

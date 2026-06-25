@@ -1,0 +1,9 @@
+#  Stage Results
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Wins,Ties,Losses
+jsonifier,58,5,6
+glaze,6,5,50
+simdjson,0,0,34

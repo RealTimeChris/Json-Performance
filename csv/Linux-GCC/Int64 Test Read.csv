@@ -1,0 +1,9 @@
+# Int64 Test Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2130.31,0.0361957,0.855268ms,3862,30,11.7483,1728.9,Win
+glaze,1843.97,0.0673197,0.804672ms,3862,30,54.2402,1997.37,Loss
+simdjson,482.495,0.523989,2.24396ms,3862,30,47996,7633.43,Loss

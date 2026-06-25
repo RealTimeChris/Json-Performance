@@ -1,0 +1,8 @@
+# Instruments Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,4682.47,1.68993,6.4975ms,108313,30,4.16938e+06,22060,Win
+glaze,4284.93,1.96118,7.4597ms,108313,30,6.70547e+06,24106.7,Loss

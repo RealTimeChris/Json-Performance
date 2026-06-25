@@ -1,0 +1,9 @@
+# Mesh Test (Minified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,803.463,2.29217,236.357ms,642697,30,9.17269e+09,762853,Win
+jsonifier,719.737,0.96405,216.051ms,642697,30,2.02202e+09,851594,Loss
+simdjson,622.653,0.127366,232.38ms,642697,30,4.71575e+07,984375,Loss

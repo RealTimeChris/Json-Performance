@@ -1,0 +1,8 @@
+# Twitter Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,6173.47,0.805094,17.4554ms,399830,30,7.41833e+06,61765.5,Tie
+jsonifier,6077.28,1.6104,16.7661ms,399947,30,3.0646e+07,62761.5,Tie

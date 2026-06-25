@@ -1,0 +1,8 @@
+# Twitter Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,5487.52,1.17596,18.1143ms,399947,30,2.00427e+07,69506.7,Win
+glaze,3456.07,1.58548,134.167ms,399830,64,1.95832e+08,110330,Loss

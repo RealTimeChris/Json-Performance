@@ -1,0 +1,8 @@
+# Mesh Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1446.72,0.637271,102.608ms,642697,30,2.18681e+08,423663,Win
+glaze,603.435,0.531069,245.806ms,642692,30,8.72906e+08,1.01572e+06,Loss

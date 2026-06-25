@@ -1,0 +1,8 @@
+# Random Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,4633.82,1.02007,42.5736ms,785750,30,8.16341e+07,161713,Win
+glaze,4324.82,0.913675,102.562ms,785750,32,8.01985e+07,173267,Loss

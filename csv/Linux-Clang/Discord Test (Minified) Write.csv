@@ -1,0 +1,8 @@
+# Discord Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,6611.17,0.253259,2.72716ms,56369,30,12722.6,8131.33,Win
+jsonifier,5409.59,0.0663788,7.52879ms,56369,32,1392.39,9937.47,Loss

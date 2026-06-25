@@ -1,0 +1,8 @@
+# Marine IK Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2168.95,2.12833,5538.73ms,9930848,64,5.52753e+11,4.36654e+06,Win
+glaze,1301.51,2.08812,1828.83ms,9930228,30,6.92559e+11,7.27634e+06,Loss

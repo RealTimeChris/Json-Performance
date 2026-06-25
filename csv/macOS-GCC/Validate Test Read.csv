@@ -1,0 +1,8 @@
+# Validate Test Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,2345.85,0.398304,62.8541ms,631514,30,3.13702e+07,256734,Win
+jsonifier,2319.02,0.126266,64.319ms,631514,30,3.22588e+06,259703,Loss
