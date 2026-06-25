@@ -1,0 +1,9 @@
+# Marine IK Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,3196.81,0.821597,821.58ms,10252236,30,1.89427e+10,3.05845e+06,0.950394,Win
+glaze,2569.17,0.908044,942.386ms,10252236,30,3.58251e+10,3.80563e+06,1.18255,Loss
+simdjson,1897.62,0.627559,1312.52ms,10252236,30,3.13654e+10,5.15241e+06,1.60117,Loss

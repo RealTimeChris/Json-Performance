@@ -1,0 +1,9 @@
+# Github Events Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,2312.68,1.81813,8.57006ms,71665,30,8.66073e+06,29552.3,1.31246,Win
+glaze,1629.78,1.17936,11.061ms,71665,30,7.33783e+06,41935,1.86291,Tie
+jsonifier,1621.52,1.18513,56.7315ms,71665,64,1.5969e+07,42148.7,1.87292,Tie

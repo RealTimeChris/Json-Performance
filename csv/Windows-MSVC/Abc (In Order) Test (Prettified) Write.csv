@@ -1,0 +1,8 @@
+# Abc (In Order) Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,4111.45,2.44734,60.6181ms,48024,256,1.90263e+07,11139.5,0.737202,Win
+glaze,2304.42,2.07558,414.855ms,48000,1024,1.74075e+08,19864.6,1.31634,Loss

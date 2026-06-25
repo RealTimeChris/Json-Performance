@@ -1,0 +1,8 @@
+# Instruments Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1847.52,1.46491,13.0099ms,108313,30,2.01245e+07,55910.4,Win
+glaze,1472.95,1.60724,94.3941ms,108313,64,8.1306e+07,70128,Loss

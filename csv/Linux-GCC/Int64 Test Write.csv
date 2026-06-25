@@ -1,0 +1,8 @@
+# Int64 Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,3000.81,0.175159,0.597156ms,3862,30,138.654,1227.37,0.997186,Win
+glaze,1402.28,0.14567,0.932544ms,3862,30,439.155,2626.5,2.14256,Loss

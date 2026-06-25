@@ -1,0 +1,9 @@
+# Minify Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2600.86,0.769975,42.8671ms,466906,30,5.21314e+07,171203,1.16841,Win
+glaze,2000.91,0.598839,55.2228ms,466906,30,5.32776e+07,222537,1.51869,Loss
+simdjson,1173.66,0.886196,91.9815ms,466906,30,3.3912e+08,379390,2.58893,Loss

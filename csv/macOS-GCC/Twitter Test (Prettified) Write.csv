@@ -1,0 +1,8 @@
+# Twitter Test (Prettified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,3604.06,1.25106,29.0801ms,399947,30,5.25897e+07,105830,Win
+glaze,3286.23,0.754914,68.7511ms,399830,32,2.45527e+07,116032,Loss

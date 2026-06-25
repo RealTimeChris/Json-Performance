@@ -1,0 +1,8 @@
+# Random Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,3935.74,0.929299,49.2706ms,785750,30,9.39177e+07,190396,0.771898,Win
+jsonifier,3733.43,1.21776,118.454ms,785750,32,1.91171e+08,200713,0.813704,Loss

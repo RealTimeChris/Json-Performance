@@ -1,0 +1,8 @@
+# Mesh Test (Prettified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2086.09,0.326257,133.621ms,1225964,30,1.00307e+08,560461,Win
+glaze,1230.85,0.735176,228.471ms,1225970,30,1.46304e+09,949897,Loss

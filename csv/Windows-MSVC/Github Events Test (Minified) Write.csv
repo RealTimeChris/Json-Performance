@@ -1,0 +1,8 @@
+# Github Events Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,5019.93,1.01995,3.8931ms,52708,30,312920,10013.3,0.603652,Tie
+jsonifier,4924.85,1.23299,3.5332ms,52708,30,475126,10206.7,0.616144,Tie

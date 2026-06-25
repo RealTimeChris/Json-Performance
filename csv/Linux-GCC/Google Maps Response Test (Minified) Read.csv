@@ -1,0 +1,9 @@
+# Google Maps Response Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1598.51,0.067696,2.12252ms,11812,30,682.754,7047.07,1.89498,Win
+glaze,1393.36,1.38796,4.99666ms,11812,32,402927,8084.62,2.17037,Loss
+simdjson,1112.87,0.0580203,2.90943ms,11812,30,1034.75,10122.3,2.72426,Loss

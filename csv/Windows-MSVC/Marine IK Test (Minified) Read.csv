@@ -1,0 +1,9 @@
+# Marine IK Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,669.866,0.748679,630.768ms,1834197,30,1.14664e+10,2.61131e+06,4.53675,Win
+glaze,308.289,0.837413,1378.41ms,1834197,30,6.77295e+10,5.67399e+06,9.85865,Loss
+simdjson,241.439,0.502598,1757.36ms,1834197,30,3.97776e+10,7.24499e+06,12.5882,Loss

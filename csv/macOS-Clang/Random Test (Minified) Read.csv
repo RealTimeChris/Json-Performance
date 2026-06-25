@@ -1,0 +1,9 @@
+# Random Test (Minified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1091.97,0.216845,86.3125ms,409725,30,1.80627e+07,357833,Win
+glaze,719.757,0.192275,131.873ms,409725,30,3.26873e+07,542883,Tie
+simdjson,718.08,0.917476,139.774ms,409725,30,7.47739e+08,544151,Tie

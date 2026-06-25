@@ -1,0 +1,9 @@
+# Abc (In Order) Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1570.4,1.61284,6.1087ms,33713,30,3.27099e+06,20473.3,1.93308,Win
+glaze,1367.94,0.336741,7.4494ms,33713,30,187920,23503.3,2.22093,Loss
+simdjson,683.632,0.941362,12.5603ms,33713,30,5.8801e+06,47030,4.44337,Loss

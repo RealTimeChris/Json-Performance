@@ -1,0 +1,8 @@
+# Double Test Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,557.886,0.529278,0.82525ms,1811,30,8054.44,3095.8,Win
+glaze,405.566,0.124966,2.54971ms,1798,32,893.286,4227.94,Loss

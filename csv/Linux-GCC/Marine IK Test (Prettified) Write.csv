@@ -1,0 +1,8 @@
+# Marine IK Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2567.47,1.01973,916.298ms,9930848,30,4.24473e+10,3.68876e+06,1.18326,Win
+glaze,1857.68,0.886652,1283.35ms,9930228,30,6.12918e+10,5.09785e+06,1.63513,Loss

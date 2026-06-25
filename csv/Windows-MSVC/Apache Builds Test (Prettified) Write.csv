@@ -1,0 +1,8 @@
+# Apache Builds Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,4485.03,0.835037,18.9788ms,136046,32,1.86725e+06,28928.1,0.676988,Win
+jsonifier,4036.88,0.96612,20.1145ms,136024,32,3.08426e+06,32134.4,0.752293,Loss

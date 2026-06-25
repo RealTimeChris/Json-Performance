@@ -1,0 +1,8 @@
+# Canada Test (Minified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1453.36,1.00037,325.895ms,2090234,30,5.6479e+09,1.37158e+06,2.0902,Win
+glaze,1388.5,0.38959,350.618ms,2090234,30,9.38495e+08,1.43565e+06,2.18791,Loss

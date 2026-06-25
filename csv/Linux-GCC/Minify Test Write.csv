@@ -1,0 +1,9 @@
+# Minify Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,2446.09,0.398483,150.636ms,466906,32,1.68378e+07,182036,1.24226,Tie
+jsonifier,2441.83,0.650654,44.4567ms,466906,30,4.22326e+07,182353,1.24437,Tie
+simdjson,1293.12,2.44713,82.7323ms,466906,30,2.13018e+09,344342,2.3491,Loss

@@ -1,0 +1,8 @@
+# Prettify Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,3618,0.734364,111.693ms,699405,32,5.86534e+07,184357,0.839892,Tie
+jsonifier,3481.91,2.02582,103.729ms,699405,32,4.81918e+08,191563,0.87217,Tie

@@ -1,0 +1,8 @@
+# Validate Test Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,3361.12,0.620289,104.769ms,631514,32,3.9531e+07,179184,0.903972,Win
+jsonifier,2889.36,0.670972,51.8079ms,631514,30,5.86805e+07,208440,1.05162,Loss

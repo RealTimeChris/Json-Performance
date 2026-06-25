@@ -1,0 +1,8 @@
+# Mesh Test (Prettified) Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2595.2,1.66076,109.257ms,1225964,30,1.67939e+09,450512,1.17064,Win
+glaze,1628.56,0.980948,226.373ms,1225970,30,1.48787e+09,717921,1.86534,Loss

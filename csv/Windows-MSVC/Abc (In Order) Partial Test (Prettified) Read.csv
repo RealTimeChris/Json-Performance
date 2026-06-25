@@ -1,0 +1,8 @@
+# Abc (In Order) Partial Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,4985.41,0.135429,3.4856ms,48024,30,4643.68,9186.67,0.607425,Win
+simdjson,1990.69,0.0548748,6.872ms,48024,30,4781.61,23006.7,1.5249,Loss

@@ -1,0 +1,8 @@
+# Int64 Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2954.35,0.743111,1.5473ms,3862,30,2574.71,1246.67,1.00926,Win
+glaze,1453.85,0.345543,1.8919ms,3862,30,2298.85,2533.33,2.06195,Loss

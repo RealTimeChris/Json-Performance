@@ -1,0 +1,9 @@
+# Apache Builds Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1525.21,0.557396,15.91ms,94651,30,3.26466e+06,59182.6,1.99179,Win
+glaze,1264.07,0.792458,17.3526ms,94651,30,9.6069e+06,71409.3,2.40329,Tie
+simdjson,1241.88,0.886503,18.6487ms,94651,30,1.24558e+07,72685,2.44627,Tie

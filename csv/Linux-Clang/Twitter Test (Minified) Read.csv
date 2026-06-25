@@ -1,0 +1,9 @@
+# Twitter Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2222.96,0.793845,77.9541ms,264040,30,2.42587e+07,113276,1.36673,Win
+glaze,1653.44,2.06122,402.745ms,264040,128,1.26131e+09,152294,1.83741,Loss
+simdjson,1373.19,1.84298,47.0882ms,264040,30,3.42641e+08,183375,2.21258,Loss

@@ -1,0 +1,8 @@
+# Prettify Test Write Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,3240.51,0.711819,50.8997ms,699405,30,6.44009e+07,205833,0.937624,Win
+glaze,2713.64,1.46176,59.4616ms,699405,30,3.87282e+08,245797,1.11986,Loss

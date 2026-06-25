@@ -1,0 +1,9 @@
+# CitmCatalog Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2294.63,0.657028,150.78ms,1490030,30,4.96652e+08,619273,Win
+glaze,1920.27,0.140318,178.312ms,1490030,30,3.23453e+07,740002,Loss
+simdjson,1570.89,0.853583,210.036ms,1490030,30,1.78859e+09,904585,Loss

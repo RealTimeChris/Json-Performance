@@ -1,0 +1,9 @@
+# Int64 Test Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2297.15,0.2079,1.6707ms,3862,30,333.333,1603.33,1.29883,Win
+glaze,1316.96,0.270167,1.9686ms,3862,30,1712.64,2796.67,2.28269,Loss
+simdjson,392.933,1.85063,3.576ms,3862,30,902713,9373.33,7.71894,Loss

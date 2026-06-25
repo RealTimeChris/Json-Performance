@@ -1,0 +1,9 @@
+# Bool Test Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2160.75,0.0686237,0.38469ms,905,30,2.25402,399.433,1.34018,Win
+glaze,714.742,0.0453993,0.591343ms,905,30,9.01609,1207.53,4.1884,Loss
+simdjson,220.638,0.0704107,1.27028ms,905,30,227.582,3911.73,13.6655,Loss

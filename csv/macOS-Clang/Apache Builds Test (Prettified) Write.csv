@@ -1,0 +1,8 @@
+# Apache Builds Test (Prettified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,2897.86,0.033574,10.8675ms,136046,30,6778.65,44772.2,Win
+jsonifier,2719.79,0.0251805,11.6292ms,136024,30,4327.27,47695.9,Loss
