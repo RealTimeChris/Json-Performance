@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+simdjson,2041.68,1.34916,8529.01ms,6885124,128,2.40983e+11,3.21605e+06,Tie
+jsonifier,1964.99,1.96811,4242.61ms,6885124,64,2.76809e+11,3.34157e+06,Tie

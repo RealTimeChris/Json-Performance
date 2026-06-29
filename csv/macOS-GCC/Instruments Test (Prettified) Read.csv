@@ -1,0 +1,8 @@
+# Instruments Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2467.94,0.693518,22.529ms,222373,30,1.06545e+07,85930.7,Win
+simdjson,1715.36,1.32963,29.4651ms,222373,30,8.10655e+07,123631,Loss

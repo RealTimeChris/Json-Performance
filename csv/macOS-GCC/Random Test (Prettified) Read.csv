@@ -1,0 +1,8 @@
+# Random Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1100.1,1.03384,399.685ms,814756,32,1.70628e+09,706312,Win
+simdjson,955.548,0.454824,197.731ms,814756,30,4.10353e+08,813158,Loss

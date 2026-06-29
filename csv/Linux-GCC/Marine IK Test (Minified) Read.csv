@@ -1,0 +1,8 @@
+# Marine IK Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+simdjson,557.259,2.46184,1866.27ms,1834197,32,1.91094e+11,3.13899e+06,Win
+jsonifier,484.869,2.06293,4436.04ms,1834197,64,3.5448e+11,3.60762e+06,Loss

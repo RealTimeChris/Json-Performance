@@ -1,0 +1,8 @@
+#  Stage Results
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Wins,Ties,Losses
+jsonifier,17,3,6
+simdjson,8,3,17

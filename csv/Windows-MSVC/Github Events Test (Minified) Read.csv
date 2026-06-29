@@ -1,0 +1,8 @@
+# Github Events Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1112.74,1.06159,13.6648ms,52708,30,6.89926e+06,45173.3,Win
+simdjson,821.434,0.844349,16.6469ms,52708,30,8.00892e+06,61193.3,Loss

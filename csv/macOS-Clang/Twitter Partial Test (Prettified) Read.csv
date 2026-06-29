@@ -1,0 +1,8 @@
+# Twitter Partial Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+simdjson,4231.53,0.348585,22.359ms,399947,30,2.96174e+06,90137.3,Win
+jsonifier,3943.17,0.334415,24.5326ms,399947,30,3.13911e+06,96729.1,Loss

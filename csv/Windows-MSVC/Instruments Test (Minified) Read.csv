@@ -1,0 +1,8 @@
+# Instruments Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1453.16,1.38301,18.8379ms,108313,30,2.89939e+07,71083.3,Win
+simdjson,613.915,0.860916,41.9457ms,108313,30,6.29487e+07,168257,Loss

@@ -1,0 +1,8 @@
+# Instruments Test (Minified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1510.2,0.113159,17.8279ms,108313,30,179718,68398.6,Win
+simdjson,1049.68,0.179686,24.213ms,108313,30,937992,98406.9,Loss
