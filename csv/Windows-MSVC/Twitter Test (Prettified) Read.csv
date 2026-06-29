@@ -1,0 +1,8 @@
+# Twitter Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,14071,1.3817,8.2991ms,399947,30,4.20823e+06,27106.7,Tie
+simdjson,13560.8,1.49427,8.4986ms,399947,30,5.29926e+06,28126.7,Tie

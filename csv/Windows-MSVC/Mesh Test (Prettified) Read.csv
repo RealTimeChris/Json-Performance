@@ -1,0 +1,8 @@
+# Mesh Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,12636,1.70894,23.1145ms,1225964,30,7.50082e+07,92526.7,Tie
+simdjson,12416,0.903037,24.4092ms,1225964,30,2.16933e+07,94166.7,Tie

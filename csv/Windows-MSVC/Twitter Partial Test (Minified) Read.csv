@@ -1,0 +1,8 @@
+# Twitter Partial Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,13830.9,0.572011,12.7497ms,264040,32,347056,18206.2,Win
+simdjson,12353.6,1.18574,6.4628ms,264040,30,1.75247e+06,20383.3,Loss

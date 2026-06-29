@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,6129.82,1.8255,12384ms,6885124,512,1.95776e+11,1.07118e+06,Win
+simdjson,5394.01,1.50255,12397.4ms,6885124,512,1.71287e+11,1.21731e+06,Loss

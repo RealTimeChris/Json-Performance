@@ -1,0 +1,8 @@
+# Marine IK Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,13893.9,0.520472,164.065ms,9930848,30,3.7761e+08,681653,Win
+simdjson,12378.6,1.27996,188.376ms,9930848,30,2.87704e+09,765093,Loss

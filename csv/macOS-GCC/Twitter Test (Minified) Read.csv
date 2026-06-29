@@ -1,0 +1,8 @@
+# Twitter Test (Minified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-24.6.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,7523.91,0.798413,9.20602ms,264040,30,2.14205e+06,33467.7,Win
+simdjson,4600.81,2.06125,1113.46ms,264040,1024,1.30326e+09,54731.2,Loss

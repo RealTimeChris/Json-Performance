@@ -1,0 +1,8 @@
+# Abc (In Order) Partial Test (Minified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,7447.87,2.3444,1.13296ms,33713,30,307266,4316.83,Win
+simdjson,6635.18,0.0842501,1.26025ms,33713,30,499.978,4845.57,Loss
