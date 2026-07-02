@@ -1,0 +1,8 @@
+# Abc (In Order) Partial Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+simdjson,4756.63,0.322538,4.07494ms,33713,32,15209.3,6759.25,Win
+jsonifier,4047.01,0.0617482,4.71676ms,33713,32,770.06,7944.44,Loss

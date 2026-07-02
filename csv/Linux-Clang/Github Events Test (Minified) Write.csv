@@ -1,0 +1,8 @@
+# Github Events Test (Minified) Write Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,4096.55,0.279842,3.1719ms,52708,30,35372.5,12270.4,Tie
+jsonifier,4079.29,1.74345,7.24229ms,52708,32,1.47691e+06,12322.3,Tie

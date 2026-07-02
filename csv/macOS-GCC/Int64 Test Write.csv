@@ -1,0 +1,8 @@
+# Int64 Test Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1683.31,2.45737,2.7712ms,3862,64,185019,2188,Win
+glaze,1057.14,1.84872,4.30797ms,3862,64,265509,3484,Loss

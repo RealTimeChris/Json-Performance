@@ -1,0 +1,8 @@
+# Uint64 Test Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1756.36,0.127475,1.57287ms,3873,32,229.967,2102.97,Win
+glaze,1097.68,0.379743,1.10387ms,3873,30,4898.3,3364.9,Loss

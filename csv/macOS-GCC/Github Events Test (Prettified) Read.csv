@@ -1,0 +1,9 @@
+# Github Events Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+simdjson,1357.95,0.171756,12.278ms,71665,30,224178,50329.6,Win
+glaze,1307.62,0.305366,17.569ms,71665,30,764210,52266.7,Loss
+jsonifier,1067.32,0.636242,19.7609ms,71665,30,4.97953e+06,64034.1,Loss

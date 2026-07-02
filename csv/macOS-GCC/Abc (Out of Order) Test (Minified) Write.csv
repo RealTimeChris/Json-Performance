@@ -1,0 +1,8 @@
+# Abc (Out of Order) Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2393.72,0.752096,3.41888ms,33713,30,306136,13431.5,Tie
+glaze,2373.92,0.700942,3.6201ms,33689,30,269978,13533.9,Tie

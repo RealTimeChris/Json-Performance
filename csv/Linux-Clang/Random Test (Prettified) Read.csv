@@ -1,0 +1,9 @@
+# Random Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+simdjson,948.409,0.291438,196.411ms,814756,30,1.71032e+08,819279,Win
+jsonifier,906.842,0.0997748,206.536ms,814756,30,2.19258e+07,856833,Loss
+glaze,883.116,0.189002,211.599ms,814756,30,8.29607e+07,879852,Loss

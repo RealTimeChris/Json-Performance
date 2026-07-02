@@ -1,0 +1,8 @@
+# Twitter Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2738.7,0.69318,35.3068ms,399947,30,2.79594e+07,139270,Win
+glaze,1546.66,0.598859,60.82ms,399830,30,6.53934e+07,246537,Loss

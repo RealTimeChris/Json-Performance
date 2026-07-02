@@ -1,0 +1,9 @@
+#  Stage Results
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Wins,Ties,Losses
+jsonifier,43,6,20
+glaze,11,6,44
+simdjson,8,2,24

@@ -1,0 +1,9 @@
+# CitmCatalog Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1067.41,0.332839,108.371ms,500299,30,6.64026e+07,446989,Win
+jsonifier,1014.82,0.221385,112.661ms,500299,30,3.25015e+07,470156,Loss
+simdjson,685.173,0.158999,167.838ms,500299,30,3.67762e+07,696353,Loss

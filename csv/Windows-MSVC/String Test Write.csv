@@ -1,0 +1,8 @@
+# String Test Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1779.96,0.206907,4.6164ms,8813,32,3054.44,4721.88,Win
+glaze,1537.45,0.521345,2.646ms,8813,30,24367.8,5466.67,Loss

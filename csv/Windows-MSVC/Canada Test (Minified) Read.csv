@@ -1,0 +1,9 @@
+# Canada Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,210.116,0.665426,2284.93ms,2090234,30,1.19561e+11,9.48714e+06,Tie
+jsonifier,205.76,1.29121,2369.53ms,2090234,30,4.69443e+11,9.68801e+06,Tie
+simdjson,171.587,0.604037,2796.91ms,2090234,30,1.4773e+11,1.16174e+07,Loss

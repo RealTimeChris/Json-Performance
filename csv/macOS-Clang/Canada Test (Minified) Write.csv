@@ -1,0 +1,8 @@
+# Canada Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1577.59,0.816476,742.092ms,2090234,32,3.40595e+09,1.26357e+06,Win
+glaze,1513.3,0.449958,316.37ms,2090234,30,1.05391e+09,1.31725e+06,Loss

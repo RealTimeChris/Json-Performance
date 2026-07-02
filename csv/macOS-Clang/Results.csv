@@ -1,0 +1,9 @@
+#  Stage Results
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Wins,Ties,Losses
+jsonifier,45,6,18
+glaze,15,5,41
+simdjson,5,4,25

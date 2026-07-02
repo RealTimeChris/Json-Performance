@@ -1,0 +1,8 @@
+# Apache Builds Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,3127.76,1.19758,10.4661ms,136024,30,7.40113e+06,41474.6,Win
+glaze,1670.45,0.981696,19.0757ms,136046,30,1.74413e+07,77669.8,Loss

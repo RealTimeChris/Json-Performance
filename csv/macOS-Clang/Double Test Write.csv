@@ -1,0 +1,8 @@
+# Double Test Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,402.952,0.566682,1.19196ms,1811,30,17698.3,4286.13,Tie
+glaze,396.592,0.135716,1.35304ms,1798,30,1032.94,4323.6,Tie

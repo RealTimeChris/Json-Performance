@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1719.14,0.208693,895.343ms,6661897,30,1.78447e+09,3.69562e+06,Win
+glaze,1537.97,0.143025,997.861ms,6661897,30,1.04725e+09,4.13096e+06,Loss

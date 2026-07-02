@@ -1,0 +1,8 @@
+# Random Test (Minified) Write Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2420.03,0.393314,39.752ms,409725,30,1.20989e+07,161463,Win
+glaze,2176.81,0.401978,43.8657ms,409725,30,1.56195e+07,179503,Loss

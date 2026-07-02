@@ -1,0 +1,8 @@
+# Double Test Write Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,381.329,2.01344,1.15283ms,1811,30,249479,4529.17,Tie
+glaze,369.589,0.238834,2.84239ms,1798,32,3929.03,4639.5,Tie

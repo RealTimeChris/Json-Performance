@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2053.06,0.112314,742.98ms,6661897,30,3.62392e+08,3.09454e+06,Win
+glaze,1889.04,0.0565127,810.407ms,6661897,30,1.08375e+08,3.36324e+06,Loss

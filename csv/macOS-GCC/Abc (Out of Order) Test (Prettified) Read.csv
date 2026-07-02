@@ -1,0 +1,9 @@
+# Abc (Out of Order) Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1699.24,2.12249,18.4161ms,49505,32,1.11284e+07,27784,Win
+jsonifier,1029.06,0.55615,2423.76ms,49505,2048,1.33332e+08,45878.6,Loss
+simdjson,290.716,2.28679,40.7529ms,49505,30,4.13747e+08,162398,Loss

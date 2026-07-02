@@ -1,0 +1,9 @@
+# Github Events Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,660.587,1.43043,21.1408ms,52708,30,3.55427e+07,76093.3,Win
+glaze,490.77,1.77279,26.4402ms,52708,30,9.89087e+07,102423,Loss
+simdjson,421.123,0.826721,70.0142ms,52708,32,3.11605e+07,119362,Loss

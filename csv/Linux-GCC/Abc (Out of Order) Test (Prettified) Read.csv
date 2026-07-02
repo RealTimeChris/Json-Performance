@@ -1,0 +1,9 @@
+# Abc (Out of Order) Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1415.98,0.843964,19.532ms,49505,32,2.53386e+06,33342.1,Win
+jsonifier,712.85,0.829641,16.5347ms,49505,30,9.0574e+06,66229.5,Loss
+simdjson,289.501,0.465308,39.6232ms,49505,30,1.72743e+07,163080,Loss

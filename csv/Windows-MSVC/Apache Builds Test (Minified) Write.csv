@@ -1,0 +1,8 @@
+# Apache Builds Test (Minified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1636.54,1.58293,14.8712ms,94651,30,2.28687e+07,55156.7,Win
+jsonifier,1495.55,1.43914,15.8648ms,94651,30,2.2635e+07,60356.7,Loss

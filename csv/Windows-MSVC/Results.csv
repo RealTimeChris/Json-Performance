@@ -1,0 +1,9 @@
+#  Stage Results
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Wins,Ties,Losses
+jsonifier,51,5,12
+glaze,15,3,43
+simdjson,0,2,32

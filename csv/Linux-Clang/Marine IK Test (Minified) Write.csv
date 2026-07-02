@@ -1,0 +1,8 @@
+# Marine IK Test (Minified) Write Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,493.89,0.0577534,850.923ms,1833577,30,1.25434e+08,3.54053e+06,Win
+jsonifier,473.662,0.099064,883.027ms,1834197,30,4.01521e+08,3.69298e+06,Loss

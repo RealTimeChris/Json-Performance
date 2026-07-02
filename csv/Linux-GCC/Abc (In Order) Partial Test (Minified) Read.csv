@@ -1,0 +1,8 @@
+# Abc (In Order) Partial Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,3206.23,0.0618628,2.7306ms,33713,30,1154.48,10027.7,Win
+simdjson,2670.26,2.38936,3.12837ms,33713,30,2.48296e+06,12040.5,Loss

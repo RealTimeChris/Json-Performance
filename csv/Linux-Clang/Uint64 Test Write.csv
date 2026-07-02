@@ -1,0 +1,8 @@
+# Uint64 Test Write Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2118.04,0.0448193,0.5657ms,3873,30,18.3264,1743.87,Win
+glaze,1331.76,0.598652,0.857319ms,3873,30,8270.19,2773.47,Loss

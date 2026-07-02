@@ -1,0 +1,8 @@
+# Instruments Test (Minified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1554.56,0.849278,17.2873ms,108313,30,9.55361e+06,66446.7,Win
+glaze,1302.1,0.680179,20.5396ms,108313,30,8.73459e+06,79330,Loss

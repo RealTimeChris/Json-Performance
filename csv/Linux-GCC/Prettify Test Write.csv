@@ -1,0 +1,8 @@
+# Prettify Test Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1922.33,0.600722,83.8508ms,699405,30,1.30338e+08,346977,Win
+glaze,1607.5,0.460107,99.3149ms,699405,30,1.09344e+08,414933,Loss

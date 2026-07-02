@@ -1,0 +1,9 @@
+# Minify Test Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1232.99,0.519263,89.0776ms,466906,30,1.05497e+08,361137,Win
+glaze,998.4,0.429181,109.077ms,466906,30,1.09914e+08,445990,Loss
+simdjson,541.844,0.366785,198.663ms,466906,30,2.72556e+08,821780,Loss

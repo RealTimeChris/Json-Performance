@@ -1,0 +1,9 @@
+# Twitter Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1561.47,0.379497,60.6003ms,409612,30,2.70405e+07,250172,Win
+simdjson,1330.72,0.404472,70.9853ms,409612,30,4.22934e+07,293553,Loss
+jsonifier,1126.75,0.354206,84.0649ms,409612,30,4.52399e+07,346692,Loss

@@ -1,0 +1,8 @@
+# Github Events Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2337.37,1.29203,7.28832ms,70103,30,4.09719e+06,28602.9,Win
+glaze,2256.79,1.12278,7.56418ms,70103,30,3.31895e+06,29624.1,Loss

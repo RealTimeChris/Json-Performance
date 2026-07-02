@@ -1,0 +1,9 @@
+# Apache Builds Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,978.495,1.59383,22.2588ms,94651,30,6.48539e+07,92250.1,Win
+glaze,860.156,0.477721,25.8098ms,94651,30,7.5399e+06,104942,Loss
+simdjson,630.791,0.426666,34.7982ms,94651,30,1.11835e+07,143100,Loss

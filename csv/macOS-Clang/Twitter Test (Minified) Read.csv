@@ -1,0 +1,9 @@
+# Twitter Test (Minified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2087.67,1.39552,30.3535ms,264040,30,8.49983e+07,120617,Win
+glaze,1338.08,0.99204,44.4068ms,264040,30,1.04557e+08,188186,Tie
+simdjson,1337.45,0.288986,45.965ms,264040,30,8.88094e+06,188275,Tie

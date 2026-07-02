@@ -1,0 +1,8 @@
+# Apache Builds Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,3576.07,2.2728,8.79377ms,136024,30,2.03922e+07,36275.2,Win
+glaze,3179.02,1.48597,9.83428ms,136046,30,1.10338e+07,40812.4,Loss

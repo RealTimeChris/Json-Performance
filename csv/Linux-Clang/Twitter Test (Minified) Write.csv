@@ -1,0 +1,8 @@
+# Twitter Test (Minified) Write Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,4406.38,0.773304,14.6736ms,264040,30,5.85865e+06,57146.3,Win
+glaze,3207.77,0.730299,19.0757ms,263923,30,9.85081e+06,78464.7,Loss

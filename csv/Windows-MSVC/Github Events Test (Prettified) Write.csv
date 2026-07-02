@@ -1,0 +1,8 @@
+# Github Events Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2815.36,0.488655,7.2446ms,70103,30,403954,23746.7,Win
+glaze,1694.69,0.25832,11.0862ms,70103,30,311552,39450,Loss

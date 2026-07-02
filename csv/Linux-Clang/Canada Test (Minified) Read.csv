@@ -1,0 +1,9 @@
+# Canada Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,478.064,0.123666,1002.57ms,2090234,30,7.97703e+08,4.16974e+06,Win
+jsonifier,423.369,0.0917196,1131.23ms,2090234,30,5.59496e+08,4.70843e+06,Loss
+simdjson,313.406,0.0592119,1526.14ms,2090234,30,4.25513e+08,6.36044e+06,Loss

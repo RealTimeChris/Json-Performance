@@ -1,0 +1,8 @@
+# Twitter Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2821.45,0.639947,33.0295ms,399947,30,2.24527e+07,135185,Win
+glaze,2016.02,0.582225,46.7327ms,399830,30,3.63802e+07,189139,Loss

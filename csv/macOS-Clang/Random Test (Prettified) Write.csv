@@ -1,0 +1,8 @@
+# Random Test (Prettified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2701.67,0.367636,68.8767ms,785750,30,3.11932e+07,277365,Win
+glaze,2280.79,0.143059,79.8281ms,785750,30,6.6275e+06,328549,Loss

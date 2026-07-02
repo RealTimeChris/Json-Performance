@@ -1,0 +1,8 @@
+# Mesh Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1375.75,0.182337,204.194ms,1225964,30,7.20353e+07,849841,Win
+glaze,972.665,0.149669,289.348ms,1225970,30,9.71003e+07,1.20203e+06,Loss

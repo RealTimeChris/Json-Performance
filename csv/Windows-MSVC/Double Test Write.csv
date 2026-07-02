@@ -1,0 +1,8 @@
+# Double Test Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,306.768,0.497671,2.6251ms,1811,30,23551.7,5630,Win
+glaze,212.831,0.15385,3.3346ms,1798,30,4609.2,8056.67,Loss

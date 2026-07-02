@@ -1,0 +1,8 @@
+# CitmCatalog Test (Minified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1854.13,0.498395,62.3419ms,500299,30,4.93458e+07,257330,Tie
+glaze,1836.57,0.447979,63.1385ms,500299,30,4.0633e+07,259789,Tie

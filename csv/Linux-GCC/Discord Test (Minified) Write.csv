@@ -1,0 +1,8 @@
+# Discord Test (Minified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1860.14,1.10026,7.28409ms,56369,30,3.03318e+06,28899.8,Tie
+jsonifier,1830.38,0.0436335,7.43348ms,56369,30,4926.75,29369.7,Tie

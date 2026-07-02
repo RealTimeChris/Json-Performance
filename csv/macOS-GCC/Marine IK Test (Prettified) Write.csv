@@ -1,0 +1,8 @@
+# Marine IK Test (Prettified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2573.99,0.444011,955.007ms,9930848,30,8.00695e+09,3.67942e+06,Win
+glaze,2260.89,0.510678,1052.01ms,9930228,30,1.37269e+10,4.1887e+06,Loss

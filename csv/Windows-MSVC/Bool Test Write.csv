@@ -1,0 +1,8 @@
+# Bool Test Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,430.82,0.166389,1.7171ms,905,30,333.333,2003.33,Win
+glaze,163.668,0.180323,2.5285ms,905,30,2712.64,5273.33,Loss

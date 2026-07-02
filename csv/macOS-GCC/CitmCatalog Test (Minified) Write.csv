@@ -1,0 +1,8 @@
+# CitmCatalog Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1648.61,2.33355,182.049ms,500299,32,1.4595e+09,289408,Tie
+jsonifier,1610,2.11651,942.099ms,500299,128,5.03569e+09,296350,Tie

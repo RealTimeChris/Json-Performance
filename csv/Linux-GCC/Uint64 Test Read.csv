@@ -1,0 +1,9 @@
+# Uint64 Test Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1286.81,0.129695,0.977509ms,3873,30,415.747,2870.33,Win
+glaze,1166.21,0.110232,1.03698ms,3873,30,365.661,3167.17,Loss
+simdjson,302.058,2.46034,3.17409ms,3873,30,2.71536e+06,12228.1,Loss

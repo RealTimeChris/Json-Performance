@@ -1,0 +1,8 @@
+# String Test Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2188.24,0.14183,1.21035ms,8813,30,890.257,3840.87,Win
+glaze,1855.54,0.364574,1.40509ms,8813,30,8180.88,4529.53,Loss

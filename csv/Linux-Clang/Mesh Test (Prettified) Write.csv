@@ -1,0 +1,8 @@
+# Mesh Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1238.11,0.0535171,227.337ms,1225970,30,7.66213e+06,944326,Win
+jsonifier,1206.19,0.0702477,233.253ms,1225964,30,1.39095e+07,969311,Loss

@@ -1,0 +1,8 @@
+# Marine IK Test (Minified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,557.238,0.188823,752.006ms,1834197,30,1.054e+09,3.1391e+06,Win
+glaze,350.478,0.074961,1197.31ms,1833577,30,4.19633e+08,4.98929e+06,Loss

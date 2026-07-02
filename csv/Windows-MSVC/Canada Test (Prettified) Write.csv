@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1252.96,0.208763,1217.73ms,6661897,30,3.36167e+09,5.07064e+06,Win
+glaze,761.876,0.21581,2008.8ms,6661897,30,9.71612e+09,8.33899e+06,Loss

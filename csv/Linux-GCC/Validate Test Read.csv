@@ -1,0 +1,8 @@
+# Validate Test Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1928.09,0.291292,75.5665ms,631514,30,2.48366e+07,312361,Tie
+jsonifier,1922.27,1.49428,73.8265ms,631514,30,6.57544e+08,313306,Tie

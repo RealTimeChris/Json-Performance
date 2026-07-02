@@ -1,0 +1,8 @@
+# Bool Test Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,765.138,1.91698,6.69312ms,905,256,119700,1128,Win
+glaze,345.783,2.48137,3.37101ms,905,64,245500,2496,Loss

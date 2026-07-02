@@ -1,0 +1,9 @@
+# Apache Builds Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,527.965,2.26395,140.528ms,136024,32,9.9016e+08,245703,Tie
+jsonifier,513.848,2.21617,61.5736ms,136024,30,9.39052e+08,252453,Tie
+simdjson,470.959,0.463998,68.833ms,136024,30,4.90025e+07,275443,Loss

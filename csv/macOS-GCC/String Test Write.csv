@@ -1,0 +1,8 @@
+# String Test Write Test Results 
+#**CPU:** Apple M1 (Virtual)
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,2429.11,1.3079,10.402ms,8813,128,262128,3460,Win
+jsonifier,2155.21,1.56373,1.09286ms,8813,30,111562,3899.73,Loss

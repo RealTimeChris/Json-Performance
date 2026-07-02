@@ -1,0 +1,9 @@
+# Abc (Out of Order) Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1499.38,1.07551,5.54341ms,33713,30,1.59558e+06,21443,Tie
+jsonifier,1472.4,1.19102,5.52848ms,33713,30,2.02909e+06,21835.9,Tie
+simdjson,310.446,0.378579,25.3099ms,33713,30,4.61166e+06,103565,Loss

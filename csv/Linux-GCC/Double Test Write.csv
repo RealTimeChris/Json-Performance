@@ -1,0 +1,8 @@
+# Double Test Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,420.571,0.0802618,1.28329ms,1811,30,325.909,4106.57,Win
+glaze,283.903,0.272323,1.7453ms,1798,30,8115.77,6039.77,Loss

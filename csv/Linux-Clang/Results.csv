@@ -1,0 +1,9 @@
+#  Stage Results
+#**CPU:** AMD EPYC 9V74 80-Core Processor
+#**OS:** Linux-6.17.0-1018-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Wins,Ties,Losses
+jsonifier,43,3,23
+glaze,20,3,38
+simdjson,3,0,31

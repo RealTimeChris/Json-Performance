@@ -1,0 +1,8 @@
+# Discord Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2196.33,1.49023,11.1571ms,94370,30,1.11867e+07,40976.7,Win
+glaze,1131.53,1.00495,20.4432ms,94370,30,1.91665e+07,79536.7,Loss
