@@ -1,0 +1,132 @@
+name: Benchmark
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - '*'
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - os: ubuntu-latest
+            compiler: clang
+            name: "Linux Clang"
+            branch: temp-full-parsing-utf-8-ubuntu-clang
+            commit_msg: "Updates - Linux-Clang"
+            install_path: /home/runner/work/Json-Performance/Json-Performance/install/bin/Json-Performance
+            run_path: /home/runner/work/Json-Performance/Json-Performance/install/bin/
+            work_path: /home/runner/work/Json-Performance/Json-Performance/
+          - os: ubuntu-latest
+            compiler: gcc
+            name: "Linux GCC"
+            branch: temp-full-parsing-utf-8-ubuntu-gcc
+            commit_msg: "Updates - Linux-GCC"
+            install_path: /home/runner/work/Json-Performance/Json-Performance/install/bin/Json-Performance
+            run_path: /home/runner/work/Json-Performance/Json-Performance/install/bin/
+            work_path: /home/runner/work/Json-Performance/Json-Performance/
+          - os: macos-latest
+            compiler: clang
+            name: "macOS Clang"
+            branch: temp-full-parsing-utf-8-macos-clang
+            commit_msg: "Updates - macOS-Clang"
+            install_path: /Users/runner/work/Json-Performance/Json-Performance/install/bin/Json-Performance
+            run_path: /Users/runner/work/Json-Performance/Json-Performance/install/bin/
+            work_path: /Users/runner/work/Json-Performance/Json-Performance/
+          - os: macos-latest
+            compiler: gcc
+            name: "macOS GCC"
+            branch: temp-full-parsing-utf-8-macos-gcc
+            commit_msg: "Updates - macOS-GCC"
+            install_path: /Users/runner/work/Json-Performance/Json-Performance/install/bin/Json-Performance
+            run_path: /Users/runner/work/Json-Performance/Json-Performance/install/bin/
+            work_path: /Users/runner/work/Json-Performance/Json-Performance/
+          - os: windows-latest
+            compiler: msvc
+            name: "Windows MSVC"
+            branch: temp-full-parsing-utf-8-windows-msvc
+            commit_msg: "Updates - Windows-MSVC"
+            run_path: D:/a/Json-Performance/Json-Performance/install/bin/
+            work_path: D:/a/Json-Performance/Json-Performance/
+
+    runs-on: ${{ matrix.config.os }}
+    name: Build on ${{ matrix.config.name }}
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Setup Clang (Linux)
+      if: matrix.config.os == 'ubuntu-latest' && matrix.config.compiler == 'clang'
+      run: |
+        wget https://apt.llvm.org/llvm.sh
+        chmod u+x llvm.sh
+        DEV_VERSION=$(awk -F'[][]' '/LLVM_VERSION_PATTERNS/ {print $2}' llvm.sh | sort -n | tail -n 1)
+        sudo ./llvm.sh $DEV_VERSION
+        echo "CXX_BIN=/usr/bin/clang++-$DEV_VERSION" >> $GITHUB_ENV
+        echo "C_BIN=/usr/bin/clang-$DEV_VERSION" >> $GITHUB_ENV
+    - name: Setup GCC (Linux)
+      if: matrix.config.os == 'ubuntu-latest' && matrix.config.compiler == 'gcc'
+      run: |
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+        sudo apt-get update
+        DEV_VERSION=$(apt-cache search '^g\+\+-[0-9]+$' | awk '{print $1}' | sort -V | tail -n 1 | sed 's/g++-//')
+        sudo apt-get install -y gcc-$DEV_VERSION g++-$DEV_VERSION
+        echo "CXX_BIN=/usr/bin/g++-$DEV_VERSION" >> $GITHUB_ENV
+        echo "C_BIN=/usr/bin/gcc-$DEV_VERSION" >> $GITHUB_ENV
+    - name: Setup Clang (macOS)
+      if: matrix.config.os == 'macos-latest' && matrix.config.compiler == 'clang'
+      run: |
+        brew install llvm
+        echo "CXX_BIN=$(brew --prefix llvm)/bin/clang++" >> $GITHUB_ENV
+        echo "C_BIN=$(brew --prefix llvm)/bin/clang" >> $GITHUB_ENV
+    - name: Setup GCC (macOS)
+      if: matrix.config.os == 'macos-latest' && matrix.config.compiler == 'gcc'
+      run: |
+        brew install gcc
+        GCC_VERSION=$(brew list --versions gcc | awk '{print $2}' | cut -d. -f1)
+        echo "CXX_BIN=$(brew --prefix gcc)/bin/g++-$GCC_VERSION" >> $GITHUB_ENV
+        echo "C_BIN=$(brew --prefix gcc)/bin/gcc-$GCC_VERSION" >> $GITHUB_ENV
+    - name: Install Modern Bash (macOS)
+      if: matrix.config.os == 'macos-latest'
+      run: |
+        brew install bash
+        echo "$(brew --prefix bash)/bin" >> $GITHUB_PATH
+
+    - name: Setup MSVC (Windows)
+      if: matrix.config.compiler == 'msvc'
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Run Script (Windows)
+      if: matrix.config.compiler == 'msvc'
+      run: ./sweep-msvc.ps1
+
+    - name: Run Script (macOS-Clang)
+      if: matrix.config.os == 'macos-latest' && matrix.config.compiler == 'clang'
+      run: | 
+          sudo chmod +x ./sweep-macos-clang.sh
+          sed -i '' 's/\r$//' ./sweep-macos-clang.sh
+          bash ./sweep-macos-clang.sh
+
+    - name: Run Script (macOS-GCC)
+      if: matrix.config.os == 'macos-latest' && matrix.config.compiler == 'gcc'
+      run: |            
+          sudo chmod +x ./sweep-macos-gcc.sh
+          sed -i '' 's/\r$//' ./sweep-macos-gcc.sh
+          bash ./sweep-macos-gcc.sh
+
+    - name: Run Script (Ubuntu-Clang)
+      if: matrix.config.os == 'ubuntu-latest' && matrix.config.compiler == 'clang'
+      run: | 
+          sudo chmod +x ./sweep-ubuntu-clang.sh
+          sudo sed -i 's/\r$//' ./sweep-ubuntu-clang.sh
+          bash ./sweep-ubuntu-clang.sh
+
+    - name: Run Script (Ubuntu-GCC)
+      if: matrix.config.os == 'ubuntu-latest' && matrix.config.compiler == 'gcc'
+      run: | 
+          sudo chmod +x ./sweep-ubuntu-gcc.sh
+          sudo sed -i 's/\r$//' ./sweep-ubuntu-gcc.sh
+          bash ./sweep-ubuntu-gcc.sh
