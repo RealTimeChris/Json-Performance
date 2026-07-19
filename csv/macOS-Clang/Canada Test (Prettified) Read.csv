@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,7345.31,1.57591,194.766ms,6885124,30,5.95367e+09,893926,Tie
+simdjson,7152.7,1.332,215.209ms,6885124,30,4.48551e+09,917999,Tie

@@ -1,0 +1,8 @@
+# Discord Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+simdjson,6554.84,0.0493816,3.6185ms,98048,30,1488.7,14265.2,Win
+jsonifier,5572.24,0.134263,4.22421ms,98048,30,15228.4,16780.7,Loss

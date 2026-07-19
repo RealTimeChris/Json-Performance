@@ -1,0 +1,8 @@
+# Abc Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,16069.2,0.0701278,1.39758ms,33713,30,59.0621,2000.8,0.186588,Win
+simdjson,13195.7,0.0783705,6.77809ms,33713,128,466.709,2436.49,0.228004,Loss

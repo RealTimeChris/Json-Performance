@@ -1,0 +1,8 @@
+# Semanticscholar Corpus Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,11294.2,0.324649,176.47ms,8587914,30,1.66269e+08,725157,0.268991,Win
+simdjson,9723.54,0.361633,204.813ms,8587914,30,2.78346e+08,842293,0.312457,Loss

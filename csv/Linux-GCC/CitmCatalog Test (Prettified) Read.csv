@@ -1,0 +1,8 @@
+# CitmCatalog Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,14524,1.00181,24.6321ms,1490030,30,2.88215e+07,97838.5,0.209161,Win
+simdjson,13711.4,0.531971,266.805ms,1490030,128,3.89056e+07,103637,0.221288,Loss

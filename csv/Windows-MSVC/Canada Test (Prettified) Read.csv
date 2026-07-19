@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,18942.6,0.182015,82.8015ms,6661897,30,1.11803e+07,335397,0.16036,Win
+simdjson,14518,0.409606,105.718ms,6661897,30,9.63909e+07,437613,0.209233,Loss

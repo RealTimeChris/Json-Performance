@@ -1,0 +1,8 @@
+# Mesh Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,11561,0.207823,14.1548ms,642697,30,364195,53016.7,0.262712,Win
+simdjson,9802.07,0.847663,16.3895ms,642697,30,8.42838e+06,62530,0.309897,Loss

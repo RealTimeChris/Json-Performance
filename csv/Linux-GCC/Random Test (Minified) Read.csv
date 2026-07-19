@@ -1,0 +1,8 @@
+# Random Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,11841.3,0.517804,8.45982ms,409725,30,875873,32998.5,0.256426,Win
+simdjson,11135.9,1.25479,8.77243ms,409725,30,5.81567e+06,35088.8,0.272627,Loss

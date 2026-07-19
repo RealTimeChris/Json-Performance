@@ -1,0 +1,8 @@
+# Github Events Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,17080.7,0.115167,0.96012ms,52708,30,344.602,2942.87,0.176388,Win
+simdjson,14615.4,0.0519179,1.11003ms,52708,30,95.6506,3439.27,0.206389,Loss
