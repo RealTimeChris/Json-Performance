@@ -1,0 +1,8 @@
+# Discord Test (Minified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,4151.76,0.417261,3.6507ms,56369,30,87569.6,12948.2,0.526741,Win
+jsonifier,3414,0.0673735,4.44178ms,56369,30,3376.39,15746.2,0.639897,Loss

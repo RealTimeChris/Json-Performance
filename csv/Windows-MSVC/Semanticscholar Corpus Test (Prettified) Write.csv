@@ -1,0 +1,8 @@
+# Semanticscholar Corpus Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1149.4,0.695231,2237.18ms,11048723,30,1.2186e+11,9.16729e+06,2.02876,Win
+glaze,679.83,0.161252,3684.84ms,11078090,30,1.88392e+10,1.55405e+07,3.43013,Loss

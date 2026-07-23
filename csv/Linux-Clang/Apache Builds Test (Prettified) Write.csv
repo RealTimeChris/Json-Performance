@@ -1,0 +1,8 @@
+# Apache Builds Test (Prettified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,3106.36,0.549393,11.2399ms,136046,30,1.57964e+06,41767.1,0.705358,Win
+jsonifier,2424.01,0.630862,13.493ms,136024,30,3.41943e+06,53515.7,0.902895,Loss

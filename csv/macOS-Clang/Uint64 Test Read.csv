@@ -1,0 +1,9 @@
+# Uint64 Test Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1657.88,0.305803,0.633709ms,3873,30,1392.51,2227.9,Win
+glaze,957.291,0.132642,1.01496ms,3873,30,785.757,3858.37,Loss
+simdjson,441.03,0.101343,2.14842ms,3873,30,2161.06,8374.9,Loss

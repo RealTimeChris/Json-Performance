@@ -1,0 +1,9 @@
+# Marine IK Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,1898.78,0.0977569,1240.07ms,10252236,30,7.60159e+08,5.14926e+06,1.15516,Win
+glaze,1666.15,0.0915335,1410.78ms,10252236,30,8.65551e+08,5.86821e+06,1.31648,Loss
+jsonifier,1565.87,0.0648878,1502.09ms,10252236,30,4.92462e+08,6.244e+06,1.40074,Loss

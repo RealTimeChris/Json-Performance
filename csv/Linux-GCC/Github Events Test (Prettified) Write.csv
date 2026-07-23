@@ -1,0 +1,8 @@
+# Github Events Test (Prettified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,4460.51,0.197642,4.31556ms,70103,30,26326.1,14988.3,0.489829,Win
+glaze,3961.15,0.704337,4.71822ms,70103,30,423949,16877.8,0.552289,Loss

@@ -1,0 +1,8 @@
+# Prettify Test Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2594.02,0.38316,62.3722ms,699405,30,2.91201e+07,257132,0.845045,Win
+glaze,2458.25,0.219812,65.8155ms,699405,30,1.06716e+07,271333,0.89215,Loss

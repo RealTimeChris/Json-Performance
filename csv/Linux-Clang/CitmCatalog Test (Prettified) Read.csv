@@ -1,0 +1,9 @@
+# CitmCatalog Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1958.56,0.286025,174.848ms,1490030,30,1.29194e+08,725533,1.11968,Win
+glaze,1697.48,0.484986,201.644ms,1490030,30,4.94495e+08,837126,1.29185,Loss
+simdjson,1665.47,0.474021,207.374ms,1490030,30,4.90717e+08,853212,1.31659,Loss

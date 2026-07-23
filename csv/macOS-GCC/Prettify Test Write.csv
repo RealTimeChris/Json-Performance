@@ -1,0 +1,8 @@
+# Prettify Test Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2114.16,0.422733,78.313ms,699405,30,5.33626e+07,315494,Win
+glaze,2026.35,0.763001,78.634ms,699405,30,1.89234e+08,329165,Loss

@@ -1,0 +1,9 @@
+# Bool Test Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,921.433,0.955362,1.6369ms,905,30,2402.3,936.667,2.45101,Win
+glaze,142.5,0.15193,2.8775ms,905,30,2540.23,6056.67,16.226,Loss
+simdjson,81.2545,0.0710087,15.7909ms,905,64,3640.87,10621.9,28.6218,Loss

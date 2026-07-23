@@ -1,0 +1,9 @@
+# Bool Test Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1313.79,0.826826,0.927087ms,905,30,885.099,656.933,1.5958,Win
+glaze,469.905,0.0367463,1.5841ms,905,30,13.6655,1836.7,4.52832,Loss
+simdjson,134.023,0.127649,2.02027ms,905,30,2027.17,6439.73,16.2768,Loss

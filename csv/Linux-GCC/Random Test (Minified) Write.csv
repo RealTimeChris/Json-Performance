@@ -1,0 +1,8 @@
+# Random Test (Minified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,2425.78,1.31575,41.6587ms,409725,30,1.34757e+08,161080,0.903655,Tie
+jsonifier,2303.44,2.42409,41.8521ms,409725,30,5.07286e+08,169635,0.951788,Tie

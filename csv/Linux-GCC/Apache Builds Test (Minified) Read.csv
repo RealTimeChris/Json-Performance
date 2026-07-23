@@ -1,0 +1,9 @@
+# Apache Builds Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,876.337,0.422024,25.439ms,94651,30,5.66897e+06,103004,2.50185,Win
+simdjson,803.154,0.342069,27.898ms,94651,30,4.43406e+06,112390,2.72996,Loss
+glaze,783.905,0.530317,28.6472ms,94651,30,1.11871e+07,115150,2.79684,Loss

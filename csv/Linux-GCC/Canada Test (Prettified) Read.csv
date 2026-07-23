@@ -1,0 +1,9 @@
+# Canada Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,1294.83,0.46756,1212.06ms,6885124,30,1.68655e+10,5.07108e+06,1.69395,Tie
+jsonifier,1282.57,0.116772,1227.3ms,6885124,30,1.07217e+09,5.11955e+06,1.71016,Tie
+glaze,1123.54,0.0743323,1397.7ms,6885124,30,5.66143e+08,5.8442e+06,1.95222,Loss

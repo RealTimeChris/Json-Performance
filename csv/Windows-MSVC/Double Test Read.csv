@@ -1,0 +1,9 @@
+# Double Test Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,427.501,0.225178,2.3965ms,1811,30,2482.76,4040,5.40057,Win
+glaze,167.031,0.0879804,3.9288ms,1811,30,2482.76,10340,13.9054,Loss
+simdjson,106.655,0.209225,5.4907ms,1811,30,34436.8,16193.3,21.8146,Loss

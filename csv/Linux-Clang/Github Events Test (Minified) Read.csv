@@ -1,0 +1,9 @@
+# Github Events Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1050.81,0.67512,12.6036ms,52708,30,3.12889e+06,47835.9,2.08477,Win
+simdjson,757.247,0.738705,16.8154ms,52708,30,7.21342e+06,66380.3,2.89417,Tie
+glaze,753.593,0.638302,16.3483ms,52708,30,5.43817e+06,66702.2,2.90788,Tie

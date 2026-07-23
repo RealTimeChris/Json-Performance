@@ -1,0 +1,8 @@
+# Semanticscholar Corpus Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,3352.29,0.220761,618.146ms,8588126,30,8.72735e+08,2.44319e+06,Win
+jsonifier,2941.6,1.14765,629.336ms,8563074,30,3.04533e+10,2.77617e+06,Loss

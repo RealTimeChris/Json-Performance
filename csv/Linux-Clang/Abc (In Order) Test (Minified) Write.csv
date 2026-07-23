@@ -1,0 +1,8 @@
+# Abc (In Order) Test (Minified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+glaze,2863.98,0.383753,7.05143ms,33689,32,59304.6,11218.1,0.762799,Win
+jsonifier,2802.89,0.177016,3.29784ms,33713,30,12368.9,11470.7,0.779411,Loss

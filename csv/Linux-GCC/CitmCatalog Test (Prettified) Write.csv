@@ -1,0 +1,8 @@
+# CitmCatalog Test (Prettified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,4274.63,0.597421,77.7832ms,1439562,30,1.10445e+08,321168,0.512806,Win
+glaze,3055.53,0.5033,108.507ms,1439584,30,1.53418e+08,449314,0.717545,Loss

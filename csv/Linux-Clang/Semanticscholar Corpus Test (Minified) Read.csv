@@ -1,0 +1,9 @@
+# Semanticscholar Corpus Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,834.153,0.43173,2384.1ms,8587914,30,5.39052e+10,9.81843e+06,2.62956,Win
+glaze,667.403,0.426323,2983.12ms,8587914,30,8.21104e+10,1.22716e+07,3.28655,Loss
+simdjson,589.309,0.597133,3391.87ms,8587914,30,2.06611e+11,1.38978e+07,3.722,Loss

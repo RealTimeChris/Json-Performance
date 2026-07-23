@@ -1,0 +1,8 @@
+# Double Test Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,522.742,0.16161,1.6196ms,1811,30,855.306,3303.93,4.13381,Win
+glaze,292.501,0.228692,2.65673ms,1798,30,5391.98,5862.23,7.41339,Loss

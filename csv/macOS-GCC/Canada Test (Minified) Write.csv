@@ -1,0 +1,8 @@
+# Canada Test (Minified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+glaze,1515.82,0.100359,329.837ms,2090234,30,5.22547e+07,1.31506e+06,Win
+jsonifier,1328.2,2.2005,340.666ms,2090234,30,3.27208e+10,1.50083e+06,Loss

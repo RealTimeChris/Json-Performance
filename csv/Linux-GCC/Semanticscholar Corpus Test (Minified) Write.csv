@@ -1,0 +1,8 @@
+# Semanticscholar Corpus Test (Minified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2633.91,0.316971,749.757ms,8563074,30,2.89747e+09,3.10048e+06,0.83269,Win
+glaze,2545.54,0.12596,777.008ms,8588126,30,4.92745e+08,3.21749e+06,0.861588,Loss

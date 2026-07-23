@@ -1,0 +1,8 @@
+# Mesh Test (Minified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1148.03,0.824235,128.871ms,642697,30,5.80941e+08,533893,1.90997,Win
+glaze,920.36,0.479083,159.148ms,642692,30,3.05374e+08,665955,2.38243,Loss

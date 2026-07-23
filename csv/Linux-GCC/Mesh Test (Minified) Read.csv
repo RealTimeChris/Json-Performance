@@ -1,0 +1,9 @@
+# Mesh Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,948.615,0.435067,155.357ms,642697,30,2.37064e+08,646125,2.31178,Win
+glaze,716.843,0.158947,206.535ms,642697,30,5.541e+07,855032,3.05928,Loss
+simdjson,703.235,0.255106,209.945ms,642697,30,1.48311e+08,871577,3.11821,Loss

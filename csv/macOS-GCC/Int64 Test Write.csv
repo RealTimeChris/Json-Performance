@@ -1,0 +1,8 @@
+# Int64 Test Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1748.86,1.34976,5.91411ms,3862,128,103428,2106,Win
+glaze,899.192,2.20208,1.088ms,3862,30,244065,4096,Loss

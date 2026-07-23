@@ -1,0 +1,8 @@
+# Apache Builds Test (Prettified) Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2005.81,1.34481,17.247ms,136024,30,2.26931e+07,64673.3,1.1618,Win
+glaze,1264.06,1.0361,26.4241ms,136046,30,3.3928e+07,102640,1.84399,Loss

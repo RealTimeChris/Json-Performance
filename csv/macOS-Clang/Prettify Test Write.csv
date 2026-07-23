@@ -1,0 +1,8 @@
+# Prettify Test Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2281.32,0.376232,70.418ms,699405,30,3.63008e+07,292376,Win
+glaze,2157.8,0.48998,73.9414ms,699405,30,6.88195e+07,309113,Loss

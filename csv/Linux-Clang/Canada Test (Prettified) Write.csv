@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1938.26,0.356418,799.881ms,6661897,30,4.09463e+09,3.27783e+06,1.13156,Win
+glaze,1167.82,0.425792,1309.71ms,6661897,30,1.60977e+10,5.44031e+06,1.87807,Loss

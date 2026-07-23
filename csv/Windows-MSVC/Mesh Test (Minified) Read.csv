@@ -1,0 +1,9 @@
+# Mesh Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,680.545,0.390255,218.538ms,642697,30,3.7061e+08,900637,3.42655,Win
+glaze,438.711,0.218827,336.262ms,642697,30,2.80399e+08,1.3971e+06,5.31543,Loss
+simdjson,299.433,0.181319,493.472ms,642697,30,4.1326e+08,2.04695e+06,7.78791,Loss

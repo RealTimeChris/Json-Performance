@@ -1,0 +1,8 @@
+# Instruments Test (Prettified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,4114.68,0.494722,10.7449ms,213963,30,1.80571e+06,49591,0.53267,Win
+glaze,3498.78,1.28202,14.7156ms,213963,30,1.67707e+07,58320.6,0.626425,Loss

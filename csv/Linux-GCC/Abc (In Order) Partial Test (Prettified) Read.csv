@@ -1,0 +1,8 @@
+# Abc (In Order) Partial Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,5324.55,0.149507,5.46097ms,48024,32,5292.06,8601.53,0.410248,Win
+jsonifier,4591.16,0.304408,2.94595ms,48024,30,27663.4,9975.53,0.475879,Loss

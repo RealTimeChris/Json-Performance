@@ -1,0 +1,8 @@
+# Google Maps Response Test (Prettified) Write Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,3403.76,0.469927,2.23204ms,31235,30,50739.6,8751.5,Win
+glaze,2509.92,0.0791647,2.99238ms,31235,30,2648.19,11868.1,Loss

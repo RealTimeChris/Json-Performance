@@ -1,0 +1,8 @@
+# Uint64 Test Write Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1696.9,0.360828,2.0196ms,3873,30,1850.57,2176.67,1.34531,Win
+glaze,847.152,0.805103,2.5662ms,3873,30,36965.5,4360,2.73254,Loss

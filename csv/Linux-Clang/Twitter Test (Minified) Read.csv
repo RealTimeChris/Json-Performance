@@ -1,0 +1,9 @@
+# Twitter Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1414.59,0.476701,44.2702ms,264040,30,2.1602e+07,178008,1.54995,Win
+glaze,955.341,0.396611,65.9739ms,264040,30,3.27848e+07,263579,2.29542,Loss
+simdjson,834.475,0.505102,72.8234ms,264040,30,6.96936e+07,301756,2.62784,Loss

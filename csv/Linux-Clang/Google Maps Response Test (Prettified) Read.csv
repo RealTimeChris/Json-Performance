@@ -1,0 +1,9 @@
+# Google Maps Response Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1643.28,1.12207,5.06147ms,32403,30,1.33571e+06,18805,1.33202,Win
+simdjson,1351.4,0.21132,6.20041ms,32403,30,70049.3,22866.6,1.62027,Loss
+glaze,1274.01,0.923907,6.39304ms,32403,30,1.50663e+06,24255.7,1.71846,Loss

@@ -1,0 +1,9 @@
+# Discord Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1175.65,0.67578,11.8162ms,56369,30,2.86454e+06,45725.9,1.86361,Win
+glaze,898.552,1.7203,15.3401ms,56369,30,3.1778e+07,59827,2.43913,Loss
+simdjson,676.272,1.04791,19.3949ms,56369,30,2.08165e+07,79491.2,3.24127,Loss

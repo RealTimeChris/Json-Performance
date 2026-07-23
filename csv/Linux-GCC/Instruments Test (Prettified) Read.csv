@@ -1,0 +1,9 @@
+# Instruments Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,2193.56,0.405947,23.8446ms,222373,30,4.62086e+06,96678.9,0.999517,Win
+glaze,1983.71,0.381085,26.4102ms,222373,30,4.97935e+06,106907,1.10536,Tie
+jsonifier,1976.93,0.293947,26.7283ms,222373,30,2.98293e+06,107273,1.10914,Tie

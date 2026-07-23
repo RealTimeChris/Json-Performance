@@ -1,0 +1,8 @@
+# Twitter Test (Prettified) Write Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,3652.89,0.411485,25.8102ms,399947,30,5.53811e+06,104416,0.600155,Tie
+glaze,3645.21,0.91814,27.011ms,399830,30,2.76722e+07,104605,0.601295,Tie

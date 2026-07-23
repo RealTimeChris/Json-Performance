@@ -1,0 +1,9 @@
+# Marine IK Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1372.26,0.483182,1637.53ms,9930848,30,3.33612e+10,6.90159e+06,1.69923,Win
+glaze,778.906,0.525081,2912.63ms,9930848,30,1.22286e+11,1.21591e+07,2.99366,Loss
+simdjson,679.922,0.361335,3320.31ms,9930848,30,7.59968e+10,1.39292e+07,3.42947,Loss
