@@ -1,0 +1,8 @@
+# Apache Builds Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+simdjson,1113.8,0.282973,29.1793ms,140436,30,3.47338e+06,120246,Win
+jsonifier,861.78,1.0535,33.9289ms,140436,30,8.04177e+07,155411,Loss

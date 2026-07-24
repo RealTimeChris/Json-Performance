@@ -1,0 +1,8 @@
+# Apache Builds Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Windows-10.0.26200
+#**Compiler:** MSVC-19.44.35228.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1074.16,2.37649,32.6795ms,136024,30,2.47109e+08,120767,2.82891,Win
+simdjson,782.065,1.86197,202.337ms,136024,64,6.10479e+08,165872,3.8854,Loss

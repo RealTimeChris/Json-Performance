@@ -1,0 +1,8 @@
+# Semanticscholar Corpus Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Core(TM) i9-14900KF-AVX2
+#**OS:** Linux-6.6.87.2-microsoft-standard-WSL2
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1130.07,0.38163,10901.9ms,9976912,64,6.6077e+10,8.41962e+06,2.68858,Win
+simdjson,981.484,0.450764,2493.14ms,9976912,30,5.72858e+10,9.69423e+06,3.09567,Loss
