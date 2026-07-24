@@ -1,0 +1,8 @@
+# Canada Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1377.15,0.255263,1149.94ms,6885124,30,4.44385e+09,4.76794e+06,1.93438,Win
+simdjson,857.485,0.165624,1811.79ms,6885124,30,4.82544e+09,7.65747e+06,3.10661,Loss

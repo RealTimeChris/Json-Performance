@@ -1,0 +1,8 @@
+# Twitter Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1289.7,0.322048,73.9981ms,409612,30,2.85453e+07,302890,2.06482,Win
+simdjson,1204.01,0.304133,79.1948ms,409612,30,2.92103e+07,324447,2.21214,Loss

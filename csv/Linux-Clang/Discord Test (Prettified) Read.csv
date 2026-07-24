@@ -1,0 +1,8 @@
+# Discord Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1515.12,0.400659,15.5759ms,98048,30,1.83423e+06,61715.2,1.75697,Win
+simdjson,1095.29,0.305861,21.1553ms,98048,30,2.04546e+06,85371,2.43125,Loss

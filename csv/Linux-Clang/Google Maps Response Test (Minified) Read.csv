@@ -1,0 +1,8 @@
+# Google Maps Response Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,735.564,0.107153,4.24309ms,11812,30,8078.53,15314.5,3.61417,Win
+simdjson,511.289,2.36133,5.6933ms,11812,30,8.11987e+06,22032.2,5.20108,Loss

@@ -1,0 +1,8 @@
+# Abc (In Order) Test (Minified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,1261.11,0.0347773,6.46067ms,33713,30,2358.33,25494.5,Win
+simdjson,884.218,0.033077,9.26133ms,33713,30,4339.61,36361.2,Loss

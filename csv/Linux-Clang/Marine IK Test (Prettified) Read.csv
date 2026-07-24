@@ -1,0 +1,8 @@
+# Marine IK Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2042.05,0.55347,1159.99ms,10252236,30,2.10674e+10,4.78797e+06,1.3045,Win
+simdjson,1188.69,0.610127,1951.39ms,10252236,30,7.55553e+10,8.2253e+06,2.24106,Loss

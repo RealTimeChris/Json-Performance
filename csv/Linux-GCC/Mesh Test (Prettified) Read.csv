@@ -1,0 +1,8 @@
+# Mesh Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1125.51,0.123592,266.616ms,1306201,30,5.61334e+07,1.10678e+06,2.07195,Win
+simdjson,975.966,0.278902,306.335ms,1306201,30,3.80169e+08,1.27637e+06,2.38947,Loss

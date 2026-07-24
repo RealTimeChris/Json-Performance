@@ -1,0 +1,8 @@
+# CitmCatalog Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1664.92,1.08081,203.212ms,1490030,30,2.55281e+09,853496,1.40063,Win
+simdjson,1560.66,0.117419,218.737ms,1490030,30,3.42903e+07,910513,1.49423,Loss

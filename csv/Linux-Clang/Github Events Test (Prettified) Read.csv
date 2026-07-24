@@ -1,0 +1,8 @@
+# Github Events Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1022.56,0.530179,17.1916ms,71665,30,3.76703e+06,66837,2.60375,Win
+simdjson,987.198,0.476346,17.4729ms,71665,30,3.26266e+06,69231.4,2.69722,Loss

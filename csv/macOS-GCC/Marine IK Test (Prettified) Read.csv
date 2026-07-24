@@ -1,0 +1,8 @@
+# Marine IK Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** GCC-16.1.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,2209.34,0.203473,1070.82ms,10252236,30,2.43246e+09,4.42543e+06,Win
+simdjson,1685.47,0.261134,1405.01ms,10252236,30,6.88401e+09,5.80093e+06,Loss

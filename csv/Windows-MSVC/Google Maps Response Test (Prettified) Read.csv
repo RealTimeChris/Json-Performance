@@ -1,0 +1,8 @@
+# Google Maps Response Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,1121.7,0.0584183,17.0054ms,31235,32,7701.61,26556.2,2.07583,Win
+simdjson,608.084,1.89073,16.6072ms,31235,30,2.57357e+07,48986.7,3.83087,Loss

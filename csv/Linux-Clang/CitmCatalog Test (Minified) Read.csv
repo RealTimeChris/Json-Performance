@@ -1,0 +1,8 @@
+# CitmCatalog Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,827.141,0.277351,144.284ms,500299,30,7.6786e+07,576833,3.22023,Win
+simdjson,596.542,0.162505,192.856ms,500299,30,5.06794e+07,799813,4.46525,Loss

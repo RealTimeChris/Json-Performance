@@ -1,0 +1,8 @@
+# Instruments Test (Prettified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2214.98,0.307775,23.7559ms,222373,30,2.60504e+06,95744.3,1.20227,Win
+simdjson,1781.2,0.313004,29.1994ms,222373,30,4.16639e+06,119061,1.49515,Loss

@@ -1,0 +1,8 @@
+# Mesh Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,685.112,0.364535,215.803ms,642697,30,3.19073e+08,894633,3.88803,Win
+simdjson,380.681,0.148084,388.087ms,642697,30,1.7054e+08,1.61007e+06,6.9977,Loss

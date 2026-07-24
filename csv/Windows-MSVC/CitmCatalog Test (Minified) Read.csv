@@ -1,0 +1,8 @@
+# CitmCatalog Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,655.121,0.665769,177.383ms,500299,30,7.05318e+08,728297,3.55936,Win
+simdjson,266.595,0.197562,439.722ms,500299,30,3.75047e+08,1.78969e+06,8.74705,Loss

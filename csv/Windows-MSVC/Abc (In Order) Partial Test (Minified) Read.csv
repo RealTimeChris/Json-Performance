@@ -1,0 +1,8 @@
+# Abc (In Order) Partial Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,2189.14,0.0781692,4.9522ms,33713,30,3954.02,14686.7,1.06099,Win
+simdjson,1478.22,0.0613687,6.6819ms,33713,30,5344.83,21750,1.57546,Loss

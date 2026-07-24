@@ -1,0 +1,8 @@
+# Abc (In Order) Partial Test (Minified) Read Test Results 
+#**CPU:** Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz-AVX512
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,3921.25,0.112934,2.47683ms,33713,30,2572.25,8199.23,0.676588,Win
+jsonifier,3699.53,1.89622,3.52884ms,33713,30,814703,8690.63,0.717389,Loss
