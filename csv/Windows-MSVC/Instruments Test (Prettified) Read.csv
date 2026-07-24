@@ -1,0 +1,8 @@
+# Instruments Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,12277.4,0.0836111,6.3999ms,213963,30,5793.1,16620,0.17828,Win
+simdjson,12047.3,0.0577772,13.0949ms,213963,32,3064.52,16937.5,0.181394,Loss

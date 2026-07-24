@@ -1,0 +1,8 @@
+# CitmCatalog Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,12448.8,0.0466962,11.9032ms,500299,30,9609.2,38326.7,0.17597,Win
+simdjson,10737.9,2.47802,13.2403ms,500299,30,3.63706e+07,44433.3,0.20399,Loss

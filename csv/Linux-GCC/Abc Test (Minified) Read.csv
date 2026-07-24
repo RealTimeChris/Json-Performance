@@ -1,0 +1,8 @@
+# Abc Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,5420.09,0.0794907,1.78462ms,33713,30,667.016,5931.87,0.427649,Win
+jsonifier,3252.81,0.479442,4.44872ms,33713,30,67370.7,9884.13,0.713083,Loss

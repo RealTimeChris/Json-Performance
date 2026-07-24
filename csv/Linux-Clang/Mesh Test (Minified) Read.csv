@@ -1,0 +1,8 @@
+# Mesh Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,4907.19,0.483469,30.1914ms,642697,30,1.09397e+07,124903,0.504284,Win
+simdjson,4083.13,0.422956,36.2624ms,642697,30,1.20932e+07,150111,0.606083,Loss

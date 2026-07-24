@@ -1,0 +1,8 @@
+# Marine IK Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,7732.11,0.0811995,304.402ms,10252236,30,3.16278e+07,1.26451e+06,0.320176,Win
+simdjson,6914.85,0.113391,340.802ms,10252236,30,7.7117e+07,1.41396e+06,0.358022,Loss

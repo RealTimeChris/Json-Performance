@@ -1,0 +1,8 @@
+# Github Events Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,12923.1,0.158732,3.5531ms,70103,30,2022.99,5173.33,0.167906,Win
+simdjson,11967,0.112991,3.6284ms,70103,30,1195.4,5586.67,0.181474,Loss

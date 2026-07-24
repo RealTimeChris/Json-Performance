@@ -1,0 +1,8 @@
+# Google Maps Response Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,11983.8,0.967785,2.497ms,11812,30,2482.76,940,0.176211,Win
+simdjson,10240.7,0.616421,2.5873ms,11812,30,1379.31,1100,0.204436,Loss

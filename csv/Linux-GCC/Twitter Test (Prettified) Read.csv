@@ -1,0 +1,8 @@
+# Twitter Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,6511.36,0.782752,14.7148ms,409612,30,6.61564e+06,59993.1,0.357904,Win
+jsonifier,6071.04,0.723853,15.8576ms,409612,30,6.50791e+06,64344.3,0.383884,Loss

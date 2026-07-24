@@ -1,0 +1,8 @@
+# Twitter Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,13657.4,0.257443,13.6042ms,264040,32,72096.8,18437.5,0.160146,Win
+simdjson,12045.5,1.74697,29.2235ms,264040,64,8.53569e+06,20904.7,0.181497,Loss

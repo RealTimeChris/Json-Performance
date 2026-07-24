@@ -1,0 +1,8 @@
+# Apache Builds Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,5528.06,0.0401341,4.33872ms,94651,30,1288.41,16328.7,0.420952,Win
+jsonifier,4702.66,2.30452,4.78008ms,94651,30,5.8701e+06,19194.7,0.495009,Loss

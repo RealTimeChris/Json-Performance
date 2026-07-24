@@ -1,0 +1,8 @@
+# Mesh Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,13218.4,1.52414,23.9584ms,1225964,30,5.45212e+07,88450,0.165813,Win
+simdjson,11955.9,0.830277,26.5454ms,1225964,30,1.97768e+07,97790,0.183298,Loss

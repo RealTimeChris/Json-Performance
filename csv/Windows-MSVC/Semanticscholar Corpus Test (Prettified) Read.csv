@@ -1,0 +1,8 @@
+# Semanticscholar Corpus Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,11368.2,0.97744,208.208ms,9804437,30,1.93893e+09,822490,0.192782,Tie
+jsonifier,11334.7,0.697932,206.765ms,9804437,30,9.9443e+08,824923,0.193353,Tie

@@ -1,0 +1,8 @@
+# Semanticscholar Corpus Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,5179.1,2.40937,423.034ms,9976912,30,5.87775e+10,1.83714e+06,Win
+simdjson,4262.14,0.142521,534.932ms,9976912,30,3.03681e+08,2.23238e+06,Loss

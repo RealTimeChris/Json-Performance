@@ -1,0 +1,8 @@
+# Abc Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,6533.36,0.0358408,1.85316ms,48024,30,189.375,7010.07,0.37683,Win
+simdjson,6271.95,0.0496533,1.93176ms,48024,30,394.392,7302.23,0.392855,Loss

@@ -1,0 +1,8 @@
+# Mesh Test (Prettified) Read Test Results 
+#**CPU:** Apple M1 (Virtual)-NEON
+#**OS:** macOS-25.4.0
+#**Compiler:** Clang-22.1.8
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Position
+jsonifier,6706.03,0.597036,44.7652ms,1306201,30,3.68988e+07,185757,Tie
+simdjson,6610.87,0.546987,46.0781ms,1306201,30,3.18697e+07,188431,Tie

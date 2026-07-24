@@ -1,0 +1,8 @@
+# Canada Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,13710.1,1.24048,37.2868ms,2090234,30,9.75907e+07,145397,0.159796,Win
+simdjson,11634.2,0.911614,44.1834ms,2090234,30,7.31914e+07,171340,0.188287,Loss

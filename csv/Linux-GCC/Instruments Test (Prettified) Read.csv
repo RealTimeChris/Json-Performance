@@ -1,0 +1,8 @@
+# Instruments Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 7763 64-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** GCC-16.0.1
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+simdjson,5658.06,1.02755,9.28241ms,222373,30,4.44999e+06,37481.3,0.411688,Win
+jsonifier,5017.24,0.767723,10.5986ms,222373,30,3.15911e+06,42268.5,0.464395,Loss

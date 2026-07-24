@@ -1,0 +1,8 @@
+# Abc Test (Prettified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,12490.7,0.272204,3.052ms,48024,30,2988.51,3666.67,0.174046,Win
+simdjson,11188.7,0.113161,3.2929ms,48024,30,643.678,4093.33,0.193049,Loss

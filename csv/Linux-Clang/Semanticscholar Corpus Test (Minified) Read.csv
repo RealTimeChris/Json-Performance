@@ -1,0 +1,8 @@
+# Semanticscholar Corpus Test (Minified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,5579.25,0.258958,356.914ms,8587914,30,4.33516e+08,1.46795e+06,0.44372,Win
+simdjson,4868.67,0.0810133,404.73ms,8587914,30,5.57171e+07,1.6822e+06,0.508491,Loss

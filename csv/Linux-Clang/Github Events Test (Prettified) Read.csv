@@ -1,0 +1,8 @@
+# Github Events Test (Prettified) Read Test Results 
+#**CPU:** AMD EPYC 9V74 80-Core Processor-AVX2
+#**OS:** Linux-6.17.0-1020-azure
+#**Compiler:** Clang-23.0.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,6952.77,0.431338,2.53775ms,71665,30,53932.9,9829.9,0.354588,Win
+simdjson,6780.02,0.0516207,2.60273ms,71665,30,812.309,10080.4,0.363585,Loss

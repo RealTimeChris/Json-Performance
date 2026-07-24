@@ -1,0 +1,8 @@
+# Random Test (Minified) Read Test Results 
+#**CPU:** INTEL(R) XEON(R) PLATINUM 8573C-AVX512
+#**OS:** Windows-10.0.26100
+#**Compiler:** MSVC-19.51.36248.0
+
+Library,Throughput (MB/s),RSE (%),Window Duration,File Size (Bytes),Window Samples (k),Variance,Latency / Run (ns),Cycles/Byte,Position
+jsonifier,12196.8,0.29384,10.3226ms,409725,30,265851,32036.7,0.17955,Win
+simdjson,11019.3,1.86405,11.18ms,409725,30,1.31073e+07,35460,0.198608,Loss
